@@ -1,16 +1,16 @@
 /* src/index.css */
 
 :root {
-  --main-black-color: #2F2F2F;
-  --main-black-gray-color: #323F47;
-  --main-green-color: #9BE1A0;
-  --main-gray-color: #F0EFF4;
-  --main-white-color: #FFFFFF;
+  --main-black-color: #2f2f2f;
+  --main-black-gray-color: #323f47;
+  --main-green-color: #9be1a0;
+  --main-gray-color: #f0eff4;
+  --main-white-color: #ffffff;
 
   background-color: var(--main-white-color);
   color: var(--main-black-gray-color);
-
-  
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
 
 body {

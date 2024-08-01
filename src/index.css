@@ -25,3 +25,31 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.container {
+  padding: 0 16px;
+  min-width: 320px;
+  max-width: 375px;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+    width: 768px;
+    min-width: none;
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+}

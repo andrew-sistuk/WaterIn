@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import Loader from '../Loader/Loader';
 import Message from '../Message/Message';
 import { toast } from 'react-toastify';
 
@@ -11,6 +12,7 @@ export default function NotFound() {
     <div>
       <p>404 Page not found...</p>
       <button onClick={() => handleClick()}>Click me!</button>
+      <Loader />
       <Message />
     </div>
   );

@@ -1,3 +1,11 @@
+import css from './Loader.module.css';
+
 export default function Loader() {
-    return <p>Loading...</p>;
+  return (
+    <div className={css.box}>
+      <div className={css.mask}>
+        <span className="material-symbols-outlined">water_bottle_large</span>
+      </div>
+    </div>
+  );
 }

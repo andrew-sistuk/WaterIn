@@ -1,0 +1,103 @@
+.welcomeSection{
+    background-color: var(--main-gray-color);
+    border-radius: 30px;
+    max-width: 343px;
+    height: auto;
+        
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 67px;
+        
+    outline: 1px solid red;
+}
+.subtitle {
+    margin-top: 74px;
+    margin-bottom: 16px;
+
+
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 0.06em;
+    text-align: left;
+
+    color: var(--main-black-color);
+
+    /* max-width: 277px;  */
+}
+
+.title {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-align: left;
+
+    color: var(--main-black-gray-color);
+
+    max-width: 311px;
+
+    margin-bottom: 32px;
+}
+
+.btnList {
+    list-style: none;
+
+    display: flex;
+    gap: 10px;
+
+}
+
+/* ховер і фокус!!!! */
+.btnTryItem {
+    background-color: var(--main-green-color);
+    border-radius: 30px;
+    padding: 14px 19px;
+
+    min-width: 116px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ховер і фокус!!!! */
+
+.btnSignInItem {
+    border-radius: 30px;
+    border: 1px solid var(--main-black-gray-color);
+    padding: 14px 19px;
+
+    min-width: 104px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tryLink {
+    text-decoration: none;
+    color: var(--main-black-gray-color);
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+
+    text-align: center;
+}
+
+.signInLink {
+    text-decoration: none;
+    color: var(--main-black-gray-color);
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+
+    text-align: center;
+}

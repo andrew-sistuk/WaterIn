@@ -1,3 +1,10 @@
-.logo{
-    
+.logo {
+    color: var(--main-black-gray-color);
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.11;
+
+    text-align: left;
+    text-transform: uppercase
 }

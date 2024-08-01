@@ -1,0 +1,128 @@
+.AdvantagesSection{
+    width: 343px;
+    height: 353px;
+    position: relative;
+
+    outline: 1px solid red;
+}
+
+.customersBox{
+    width: 160px;
+    height: 48px;
+
+    display: flex;  
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 209px;
+    left: 16px;
+
+    border-radius: 30px;
+}
+
+.customersList{
+    list-style: none;
+    display: flex;
+}
+.customersText{
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    text-align: left;
+
+    color: var(--main-black-gray-color)
+}
+.customersSpan{
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    text-align: left;
+    
+    color: var(--main-green-color);
+    
+    top: 0;
+    left: 0;
+}
+
+.advantagesList{
+list-style: none;
+}
+
+.advHabit{
+    background-color: var(--main-black-gray-color);
+    color: #fff;
+
+    width: 81px;
+    height: 26px;
+    border-radius: 30px;
+    padding: 9px, 12px;
+
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 265px;
+    left: 159px;
+}
+
+.advStatistic{
+    background-color: var(--main-green-color);
+    color: var(--main-black-gray-color);
+    
+    width: 83px;
+    height: 26px;
+    border-radius: 30px;
+    padding: 9px, 12px;
+
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: absolute;
+    top: 265px;
+    left: 244px;
+}
+
+.advRate{
+    background-color: #fff;
+    color: var(--main-black-gray-color);
+    
+    width: 108px;
+    height: 26px;
+    border-radius: 30px;
+    padding: 9px, 12px;
+    
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: absolute;
+    top: 295px;
+    left: 159px;
+}

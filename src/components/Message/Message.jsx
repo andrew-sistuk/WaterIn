@@ -1,6 +1,8 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import css from './Message.module.css';
+
 export default function Message() {
   return (
     <ToastContainer
@@ -13,7 +15,8 @@ export default function Message() {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="light"
+      toastClassName={css.message}
+      progressClassName={css.progress}
     />
   );
 }

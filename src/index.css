@@ -1,5 +1,18 @@
 /* src/index.css */
 
+:root {
+  --main-black-color: #2F2F2F;
+  --main-black-gray-color: #323F47;
+  --main-green-color: #9BE1A0;
+  --main-gray-color: #F0EFF4;
+  --main-white-color: #FFFFFF;
+
+  background-color: var(--main-white-color);
+  color: var(--main-black-gray-color);
+
+  
+}
+
 body {
   font-family: sans-serif;
   line-height: 1.5;

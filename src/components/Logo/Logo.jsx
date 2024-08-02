@@ -2,8 +2,10 @@ import styles from './Logo.module.css';
 
 export default function Logo() {
   return (
-    <div>
-      <p className={styles.logo}>AquaTrack</p>
+    <div className={styles.logoContainer}>
+      <a className={styles.logo} href="/">
+        AquaTrack
+      </a>
     </div>
   );
 }

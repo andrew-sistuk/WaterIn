@@ -5,6 +5,9 @@
     font-size: 18px;
     line-height: 1.11;
 
-    text-align: left;
-    text-transform: uppercase
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.logoContainer{
+text-align: left;
 }

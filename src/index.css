@@ -1,4 +1,11 @@
 /* src/index.css */
+:root {
+  --main-black-color: #2f2f2f;
+  --main-black-gray-color: #323f47;
+  --main-green-color: #9be1a0;
+  --main-gray-color: #f0eff4;
+  --main-white-color: #ffffff;
+}
 
 body {
   font-family: sans-serif;

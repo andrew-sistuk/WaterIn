@@ -1,3 +1,7 @@
+import WaterDailyNorma from '../WaterDailyNorma/WaterDailyNorma';
+import WaterProgressBar from '../WaterProgressBar/WaterProgressBar';
+import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
+
 import css from './WaterMainInfo.module.css';
 
 const WaterMainInfo = () => {

@@ -3,13 +3,14 @@ import { useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import createMonth from '../../utils/createMonth';
 
-const test = '75%';
+const test = '40%';
 
 const translations = {
   uk: 'Місяць',
   en: 'Month',
   pl: 'Miesiąc',
   de: 'Monat',
+  ['zh-CN']: '月份',
 };
 
 const Calendar = () => {

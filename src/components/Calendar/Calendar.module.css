@@ -21,7 +21,7 @@
 .day {
   width: 28px;
   height: 28px;
-  background-color: rgba(50, 63, 71, 0.2);
+  background: rgba(50, 63, 71, 0.2);
   color: var(--main-black-gray-color);
   border-radius: 50%;
   display: flex;
@@ -32,18 +32,20 @@
   border: 1px solid transparent;
   font-size: 14px;
   font-weight: 700;
-  line-height: 18px;
+  line-height: 1;
   letter-spacing: -0.01em;
   text-align: center;
   transition: border-color 300ms ease;
   cursor: pointer;
 }
 
-.day:hover,
-.day:focus {
+.day:hover {
   border-color: var(--main-black-gray-color);
 }
 
+.day:focus {
+  background: var(--main-green-color);
+}
 .span {
   width: 24px;
   height: 10px;
@@ -125,4 +127,7 @@
 .currentDay {
   background: var(--main-black-gray-color);
   color: var(--main-green-color);
+}
+.currentDay:focus {
+  background: var(--main-black-gray-color);
 }

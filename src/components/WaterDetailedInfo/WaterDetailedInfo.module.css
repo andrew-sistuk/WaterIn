@@ -1,0 +1,13 @@
+.container {
+  margin: 0 auto;
+  padding: 40px 20px 40px 20px;
+  border-radius: 30px;
+  max-width: 344px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--main-gray-color);
+}
+.component {
+  margin: 149px 0px;
+}

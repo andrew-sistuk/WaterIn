@@ -1,6 +1,6 @@
 import Customers from '../Customers/Customers';
 import styles from './AdvantagesSection.module.css';
-import img from './img/mobile_home_img.jpg';
+import img from '../../images/Advantages/mobile_home_img.jpg';
 
 export default function AdvantagesSection() {
   return (

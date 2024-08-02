@@ -1,3 +1,6 @@
+.container{
+    max-width: 311px;
+}
 .welcomeSection{
     background-color: var(--main-gray-color);
     border-radius: 30px;
@@ -37,8 +40,6 @@
     text-align: left;
 
     color: var(--main-black-gray-color);
-
-    max-width: 311px;
 
     margin-bottom: 32px;
 }

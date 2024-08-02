@@ -1,52 +1,13 @@
 .AdvantagesSection{
-    width: 343px;
-    height: 353px;
+    max-width: 343px;
+    height: 100%;
     position: relative;
 
     outline: 1px solid red;
 }
 
-.customersBox{
-    width: 160px;
-    height: 48px;
 
-    display: flex;  
-    background-color: #fff;
-    justify-content: center;
-    align-items: center;
 
-    position: absolute;
-    top: 209px;
-    left: 16px;
-
-    border-radius: 30px;
-}
-
-.customersList{
-    list-style: none;
-    display: flex;
-}
-.customersText{
-    font-family: Poppins;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1.17;
-    text-align: left;
-
-    color: var(--main-black-gray-color)
-}
-.customersSpan{
-    font-family: Poppins;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 1.17;
-    text-align: left;
-    
-    color: var(--main-green-color);
-    
-    top: 0;
-    left: 0;
-}
 
 .advantagesList{
 list-style: none;

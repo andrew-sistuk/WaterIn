@@ -1,0 +1,26 @@
+.dropdown {
+  position: relative;
+}
+
+.button {
+  padding: 6px 12px;
+  background-color: #323f47;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.iconChevron {
+  stroke: #ffffff;
+}

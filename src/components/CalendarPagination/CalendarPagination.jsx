@@ -35,7 +35,7 @@ const CalendarPagination = ({ locale, handleClickBack, handleClickForward, month
         </div>
         <button className={css.scheduleButton}>
           <svg className={css.iconPagination}>
-            <use href="/src/img/icons/sprite.svg#icon1-calendar"></use>
+            <use href="/src/img/icons/sprite.svg#icon2-calendar"></use>
           </svg>
         </button>
       </div>

@@ -1,0 +1,81 @@
+.element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day {
+  font-family: Poppins;
+  width: 28px;
+  height: 28px;
+  background: rgba(50, 63, 71, 0.2);
+  color: var(--main-black-gray-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: center;
+  transition: border-color 300ms ease;
+  cursor: pointer;
+}
+
+.day:hover {
+  border-color: var(--main-black-gray-color);
+}
+
+.componentButton:focus .day {
+  background: var(--main-green-color);
+}
+
+.currentDay {
+  background: var(--main-black-gray-color);
+  color: var(--main-green-color);
+}
+.currentDay:focus {
+  background: var(--main-black-gray-color);
+}
+
+.full {
+  background: var(--main-white-color);
+}
+
+.span {
+  width: 24px;
+  height: 10px;
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  text-align: center;
+  color: var(--main-black-color);
+}
+
+.componentButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .day {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 4px;
+  }
+
+  .span {
+    width: 29px;
+    height: 23px;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22.4px;
+  }
+}

@@ -1,0 +1,91 @@
+.monthContainer {
+  display: flex;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.title {
+  margin-right: auto;
+
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.monthBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.switchMonth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arrowButton {
+  width: 18px;
+  height: 18px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reactIcon {
+  color: var(--main-black-gray-color);
+}
+
+.paginationText {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  min-width: 92px;
+}
+
+.scheduleButton {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.iconPagination {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .paginationText {
+    font-size: 16px;
+    line-height: 24px;
+    min-width: 92px;
+  }
+
+  .iconPagination {
+    width: 24px;
+    height: 24px;
+  }
+
+  .monthBox {
+    gap: 20px;
+  }
+
+  .switchMonth {
+    gap: 20px;
+  }
+}

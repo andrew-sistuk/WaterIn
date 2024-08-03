@@ -11,3 +11,9 @@
 .component {
   margin: 149px 0px;
 }
+@media screen and (min-width: 768px) {
+  .container {
+    min-width: 704px;
+    padding: 32px 32px 35px 32px;
+  }
+}

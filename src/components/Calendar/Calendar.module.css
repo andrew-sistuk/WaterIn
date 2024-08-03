@@ -1,5 +1,7 @@
-.container {
-  margin-top: 20px;
+@media screen and (max-width: 344px) {
+  .list {
+    justify-content: center;
+  }
 }
 
 .list {
@@ -9,125 +11,9 @@
   row-gap: 20px;
 }
 
-.element {
-  width: 28px;
-  height: 44px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.day {
-  width: 28px;
-  height: 28px;
-  background: rgba(50, 63, 71, 0.2);
-  color: var(--main-black-gray-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  border: 1px solid transparent;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  text-align: center;
-  transition: border-color 300ms ease;
-  cursor: pointer;
-}
-
-.day:hover {
-  border-color: var(--main-black-gray-color);
-}
-
-.day:focus {
-  background: var(--main-green-color);
-}
-.span {
-  width: 24px;
-  height: 10px;
-  gap: 0px;
-  opacity: 0px;
-
-  font-family: Poppins;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 10px;
-  text-align: center;
-  color: var(--main-black-color);
-}
-
-.monthContainer {
-  display: flex;
-  margin-bottom: 24px;
-  align-items: center;
-}
-
-.switchMonth {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.title {
-  margin-right: auto;
-
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  text-align: left;
-}
-
-.text {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: -0.01em;
-  text-align: center;
-  min-width: 92px;
-}
-.arrowButton {
-  width: 18px;
-  height: 18px;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.scheduleButton {
-  width: 20px;
-  height: 20px;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.monthBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-.reactIcon {
-  color: var(--main-black-gray-color);
-}
-
-.full {
-  background: var(--main-white-color);
-}
-.currentDay {
-  background: var(--main-black-gray-color);
-  color: var(--main-green-color);
-}
-.currentDay:focus {
-  background: var(--main-black-gray-color);
+@media screen and (min-width: 768px) {
+  .list {
+    column-gap: 48px;
+    row-gap: 15px;
+  }
 }

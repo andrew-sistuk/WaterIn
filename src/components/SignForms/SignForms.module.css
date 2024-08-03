@@ -1,0 +1,138 @@
+.sign-form {
+  display: flex;
+  width: 436px;
+  flex-direction: column;
+}
+
+.header {
+  font-size: 32px;
+  align-self: flex-start;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+
+.label {
+  align-self: flex-start;
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 8px;
+  color: var(--main-black-color);
+}
+
+.input {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  padding: 16px;
+  border-radius: 15px;
+  outline: transparent;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+}
+
+.input:hover,
+.input:focus {
+  border-color: var(--main-black-color);
+}
+
+.input::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+.email {
+  margin-bottom: 8px;
+}
+
+.pass {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.see-pass {
+  display: none;
+}
+
+.submit {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  padding: 16px 130px;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  border: transparent;
+  background: var(--main-green-color);
+  color: var(--main-black-gray-color);
+}
+.submit:hover,
+.submit:focus {
+  background-color: #87d28d;
+}
+
+.paragraph-sign {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  align-self: center;
+  color: rgba(47, 47, 47, 0.5);
+}
+
+.sign {
+  font-weight: 700;
+  color: var(--main-black-color);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    font-size: 36px;
+    line-height: 1.05;
+  }
+
+  .label {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .input,
+  .input::placeholder {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .email {
+    margin-bottom: 20px;
+  }
+
+  .box-pass {
+    position: relative;
+  }
+
+  .pass {
+    margin-bottom: 32px;
+  }
+
+  .see-pass {
+    display: block;
+    padding: 0;
+    line-height: 0;
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    background: transparent;
+    border: transparent;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    color: var(--main-black-color);
+  }
+
+  .submit {
+    padding: 18px 190px;
+    line-height: 1.5;
+  }
+}

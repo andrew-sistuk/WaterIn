@@ -11,11 +11,26 @@
         
     outline: 1px solid red;
 }
+/* tablet */
+@media only screen and (min-width: 768px) {
+    .welcomeSection {
+        max-width: 704px;
+        padding-top: 32px;
+        padding-left: 32px; 
+        padding-right: 32px; 
+    }
+  }
+  
 .titleContainer {
     max-width: 311px;
 }
+/* tablet */
+@media only screen and (min-width: 768px){
+    .titleContainer {
+        max-width: 547px;
+    }
+}
 .subtitle {
-    margin-top: 74px;
     margin-bottom: 16px;
 
     font-family: Poppins;
@@ -26,6 +41,13 @@
     text-align: left;
 
     color: var(--main-black-color);
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .subtitle {
+        font-size: 16px; 
+        line-height: 1.5;
+    }
 }
 
 .title {
@@ -41,6 +63,13 @@
     margin-bottom: 32px;
     max-width: 311px;
 }
-
+/* tablet */
+@media only screen and (min-width: 768px){
+    .title{
+        font-size: 64px;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+    }
+}
 
 

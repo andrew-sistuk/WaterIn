@@ -3,9 +3,13 @@
 
     display: flex;
     gap: 10px;
-
 }
-
+/* tablet */
+@media only screen and (min-width: 768px){
+    .btnList{
+        gap: 16px;
+    }
+}
 .btnTryItem {
     background-color: var(--main-green-color);
     border-radius: 30px;
@@ -22,10 +26,22 @@
     color: var(--main-black-gray-color);
     font-family: Poppins;
     font-weight: 700;
+    font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.01em;
         
     text-align: center;
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+    .btnTryItem{
+        min-width: 169px;
+        height: 60px;
+        padding: 18px 40px;
+        font-size: 16px;
+        line-height: 1.5;
+    } 
 }
 .btnTryItem:hover,
 .btnTryItem:focus{
@@ -59,7 +75,13 @@
     
     text-align: center;
 }
-
+/* tablet */
+@media only screen and (min-width: 768px){
+    .btnSignInItem{
+        min-width: 135px;
+        height: 60px;
+    }
+}
 .btnSignInItem:hover,
 .btnSignInItem:focus{
     border: 1px solid #87D28D;

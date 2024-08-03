@@ -12,7 +12,7 @@ export default function Customers() {
         <ul className={styles.customersList}>
           {photos.map((photo, idx) => (
             <li key={idx} className={styles.customersItem}>
-              <img src={photo.src} />
+              <img src={photo.src} className={styles.customersImg}/>
             </li>
           ))}
         </ul>

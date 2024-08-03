@@ -1,11 +1,20 @@
-.AdvantagesSection{
+.advantagesSection{
     max-width: 343px;
     height: 100%;
     position: relative;
 
     outline: 1px solid red;
 }
-
+/* tablet */
+@media only screen and (min-width: 768px) {
+    .advantagesSection {
+        max-width: 704px;
+    }
+  }
+  .image{
+    width: 100%;
+  height: auto;
+  }
 .advantagesList{
     list-style: none;
     display: flex;
@@ -17,12 +26,24 @@
     bottom: 32px;
     right: 16px;
 }
-
+/* tablet */
+@media only screen and (min-width: 768px){
+    .advantagesList{
+        width: 242px;
+        gap: 10px;
+        right: 32px;
+    }
+}
 .CustomersWripper {
     position: absolute;
     bottom: 96px;
-    /* right: 167px; */
     left: 16px;
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .CustomersWripper{
+        left: 32px;
+    }
 }
 .advHabit{
     background-color: var(--main-black-gray-color);
@@ -44,7 +65,15 @@
     justify-content: center;
     align-items: center;
 }
-
+/* tablet */
+@media only screen and (min-width: 768px){
+    .advHabit{
+        width: 111px;
+        height: 34px;
+        padding: 11px 16px;
+        font-size: 12px;
+    } 
+}
 .advStatistic{
     background-color: var(--main-green-color);
     color: var(--main-black-gray-color);
@@ -65,7 +94,15 @@
     justify-content: center;
     align-items: center;
  }
-
+/* tablet */
+@media only screen and (min-width: 768px){
+    .advStatistic{
+        width: 121px;
+        height: 34px;
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+}
 .advRate{
     background-color: #fff;
     color: var(--main-black-gray-color);
@@ -86,6 +123,15 @@
     justify-content: center;
     align-items: center;
 }
+/* tablet */
+@media only screen and (min-width: 768px){
+    .advRate{
+        width: 158px;
+    height: 34px;
+    padding: 11px 16px;
+    font-size: 12px;
+    }
+}
 
 .dot{
     width: 8px;
@@ -94,4 +140,3 @@
     border-radius: 50%;
     margin-right: 4px;
 }
-

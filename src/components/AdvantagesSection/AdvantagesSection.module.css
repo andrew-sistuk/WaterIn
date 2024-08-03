@@ -3,12 +3,18 @@
     height: 100%;
     position: relative;
 
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 /* tablet */
 @media only screen and (min-width: 768px) {
     .advantagesSection {
         max-width: 704px;
+    }
+  }
+  /* dekstop */
+  @media only screen and (min-width: 1440px) {
+    .advantagesSection {
+        max-width: 672px;
     }
   }
   .image{
@@ -34,6 +40,12 @@
         right: 32px;
     }
 }
+ /* dekstop */
+ @media only screen and (min-width: 1440px){
+    .advantagesList{
+        bottom: 64px;
+    }
+ }
 .CustomersWripper {
     position: absolute;
     bottom: 96px;
@@ -45,6 +57,12 @@
         left: 32px;
     }
 }
+ /* dekstop */
+ @media only screen and (min-width: 1440px){
+    .CustomersWripper{
+        bottom: 132px;
+    }
+ }
 .advHabit{
     background-color: var(--main-black-gray-color);
     color: #fff;

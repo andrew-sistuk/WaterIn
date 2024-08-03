@@ -24,3 +24,9 @@ margin-bottom: 74px;
         margin-bottom: 50px;
     }
   }
+  /* dekstop */
+  @media only screen and (min-width: 1440px){
+    .logoContainer {
+        margin-bottom: 132px;
+    }
+  }

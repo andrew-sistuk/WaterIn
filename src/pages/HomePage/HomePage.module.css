@@ -2,4 +2,14 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-top: 16px;
 }
+ /* dekstop */
+ @media only screen and (min-width: 1440px){
+    .container{
+        /* flex-direction: row; */
+        gap: 32px;
+
+        max-width: 1376px;
+    }
+ }

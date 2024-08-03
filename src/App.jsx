@@ -8,6 +8,7 @@ import NotFound from './components/NotFound/NotFound';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
+import SignIn from './components/SignInForm/SignInForm';
 
 // example
 // const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -18,7 +19,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        {/* <Route path="/" element={<Calendar />} /> */}
+        <Route path="/" element={<SignIn />} />
         <Route
           path="/tracker"
           element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}

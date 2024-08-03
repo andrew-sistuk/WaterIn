@@ -1,0 +1,20 @@
+.sign-in-form {
+  display: flex;
+  width: 312px;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+}
+
+@media screen and (min-width: 768px) {
+  .sign-in-form {
+    width: 436px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

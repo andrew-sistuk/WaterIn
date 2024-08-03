@@ -15,6 +15,7 @@ export default function AdvantagesSection() {
       </div>
       <ul className={styles.advantagesList}>
         <li className={styles.advHabit}>
+        <div className={styles.dot}></div>
           <p>Habit drive</p>
         </li>
         <li>

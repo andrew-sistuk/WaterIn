@@ -1,12 +1,11 @@
 .customersBox {
+    /* width: 100%; */
     width: 160px;
     height: 48px;
 
     display: flex;
     background-color: #fff;
     align-items: center;
-
-    /* position: absolute; */
 
     border-radius: 30px;
 }
@@ -22,6 +21,8 @@
     display: flex;
     padding: 0;
     margin: 0;
+
+  
 }
 .customersItem {
     position: absolute;

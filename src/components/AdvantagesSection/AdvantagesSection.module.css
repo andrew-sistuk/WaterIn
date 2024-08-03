@@ -20,7 +20,8 @@
 
 .CustomersWripper {
     position: absolute;
-    top: 188px;
+    bottom: 96px;
+    /* right: 167px; */
     left: 16px;
 }
 .advHabit{
@@ -84,5 +85,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.dot{
+    width: 8px;
+    height: 8px;
+    background-color: var(--main-green-color);
+    border-radius: 50%;
+    margin-right: 4px;
 }
 

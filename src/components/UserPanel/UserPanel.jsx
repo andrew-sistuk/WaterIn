@@ -2,8 +2,8 @@ import { useState } from 'react';
 //import { useAuth } from '../../../hooks';
 import { UserBar } from '../UserBar/UserBar';
 import css from './UserPanel.module.css';
-//import { UserSettingsModal } from '../../modals/UserSettingsModal/UserSettingsModal';
-import { LogOutModal } from '../../modals/LogOutModal/LogOutModal';
+//import { UserSettingsModal } from '../../UserSettingsModal/UserSettingsModal';
+import { LogOutModal } from '../LogOutModal/LogOutModal';
 
 export const UserPanel = () => {
   const { user } = useAuth();
@@ -30,3 +30,5 @@ export const UserPanel = () => {
     </>
   );
 };
+
+export default UserPanel;

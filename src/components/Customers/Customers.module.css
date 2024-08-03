@@ -4,22 +4,18 @@
 
     display: flex;
     background-color: #fff;
-    justify-content: center;
     align-items: center;
 
-    position: absolute;
-    top: 188px;
-    left: 16px;
+    /* position: absolute; */
 
     border-radius: 30px;
 }
 .customersListContainer{
-    position: relative;
-        width: 100%;
-        height: 48px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .customersList {
     list-style: none;

@@ -10,7 +10,9 @@ export default function AdvantagesSection() {
         <source srcSet={`${img1x} 1x, ${img2x} 2x`} type="image/jpeg" />
         <img src={img1x} alt="girl with a bottle of water" />
       </picture>
-      <Customers />
+      <div className={styles.CustomersWripper}>
+        <Customers />
+      </div>
       <ul className={styles.advantagesList}>
         <li className={styles.advHabit}>
           <p>Habit drive</p>

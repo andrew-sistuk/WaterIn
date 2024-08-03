@@ -5,9 +5,11 @@ import WelcomeSection from '../../components/WelcomeSection/WelcomeSection';
 
 export default function HomePage() {
   return (
-    <div className={styles.container}>
-      <WelcomeSection />
-      <AdvantagesSection />
-    </div>
+    <section className="container">
+      <div className={styles.container}>
+        <WelcomeSection />
+        <AdvantagesSection />
+      </div>
+    </section>
   );
 }

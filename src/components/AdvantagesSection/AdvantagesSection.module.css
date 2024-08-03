@@ -3,7 +3,7 @@
     height: 100%;
     position: relative;
 
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 
 .advantagesList{
@@ -14,10 +14,15 @@
     width: 168px;
 
     position: absolute;
-    top: 240px;
-    left: 139px;
+    bottom: 32px;
+    right: 16px;
 }
 
+.CustomersWripper {
+    position: absolute;
+    top: 188px;
+    left: 16px;
+}
 .advHabit{
     background-color: var(--main-black-gray-color);
     color: #fff;
@@ -80,3 +85,4 @@
     justify-content: center;
     align-items: center;
 }
+

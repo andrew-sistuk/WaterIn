@@ -1,0 +1,23 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px 40px;
+  border-radius: 30px;
+
+  background-color: #9be1a0;
+  color: #323F47;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+
+  transition: background-color 300ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: #87d28d;
+  }
+}

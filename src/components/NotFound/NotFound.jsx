@@ -11,7 +11,7 @@ export default function NotFound() {
   }
   return (
     <div>
-      <img className={css.image} src="/404.png" alt="Page not found" />
+      <img className={css.image} src="/src/img/404.png" alt="Page not found" />
       <button onClick={() => handleClick()}>Click me!</button>
       <Loader />
       <Message />

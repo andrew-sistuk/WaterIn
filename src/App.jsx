@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUpForm />} />
         <Route path="/signin" element={<SignInForm />} />
+        <Route path="/signup" element={<SignUpForm />} />
         <Route
           path="/tracker"
           element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}

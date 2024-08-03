@@ -3,14 +3,19 @@
     height: 100%;
     position: relative;
 
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
-
-
-
 .advantagesList{
-list-style: none;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 168px;
+
+    position: absolute;
+    top: 240px;
+    left: 139px;
 }
 
 .advHabit{
@@ -20,7 +25,7 @@ list-style: none;
     width: 81px;
     height: 26px;
     border-radius: 30px;
-    padding: 9px, 12px;
+    padding: 9px 12px;
 
     font-family: Poppins;
     font-size: 8px;
@@ -32,10 +37,6 @@ list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    position: absolute;
-    top: 265px;
-    left: 159px;
 }
 
 .advStatistic{
@@ -45,7 +46,7 @@ list-style: none;
     width: 83px;
     height: 26px;
     border-radius: 30px;
-    padding: 9px, 12px;
+    padding: 9px 12px;
 
     font-family: Poppins;
     font-size: 8px;
@@ -57,11 +58,7 @@ list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    position: absolute;
-    top: 265px;
-    left: 244px;
-}
+ }
 
 .advRate{
     background-color: #fff;
@@ -70,7 +67,7 @@ list-style: none;
     width: 108px;
     height: 26px;
     border-radius: 30px;
-    padding: 9px, 12px;
+    padding: 9px 12px;
     
     font-family: Poppins;
     font-size: 8px;
@@ -82,8 +79,4 @@ list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    position: absolute;
-    top: 295px;
-    left: 159px;
 }

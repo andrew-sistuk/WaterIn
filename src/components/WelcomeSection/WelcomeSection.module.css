@@ -12,7 +12,7 @@
     padding-right: 16px;
     padding-bottom: 67px;
         
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 .subtitle {
     margin-top: 74px;
@@ -27,8 +27,6 @@
     text-align: left;
 
     color: var(--main-black-color);
-
-    /* max-width: 277px;  */
 }
 
 .title {
@@ -42,6 +40,7 @@
     color: var(--main-black-gray-color);
 
     margin-bottom: 32px;
+    max-width: 311px;
 }
 
 

@@ -5,13 +5,13 @@
     max-width: 343px;
     height: auto;  
     padding-top: 24px;
-    /* padding-left: 16px;
-    padding-right: 16px; */
+    padding-left: 16px; 
+    padding-right: 16px; 
     padding-bottom: 67px;
         
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
-.container {
+.titleContainer {
     max-width: 311px;
 }
 .subtitle {

@@ -1,0 +1,174 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 999;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modalContent {
+  margin: 0 17px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  width: 343px;
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+
+.modalContent.active {
+  transform: scale(1);
+}
+
+.icon {
+  stroke: #2f2f2f;
+}
+
+.btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.text {
+  margin: 16px 0 28px 0;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.divBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+}
+
+.btnLog {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--dark-blue);
+
+  border-radius: 30px;
+  width: 100%;
+  height: 46px;
+  background-color: #9be1a0;
+
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #87d28d;
+  }
+
+  &:foucs {
+    background-color: #87d28d;
+  }
+}
+
+.btnCancel {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+
+  border-radius: 30px;
+  width: 100%;
+  height: 46px;
+
+  color: #323f47;
+  opacity: 0.3;
+  background-color: #f0eff4;
+
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:foucs {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modalContent {
+    width: 518px;
+    height: 244px;
+    margin: 0;
+  }
+
+  .divBtn {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .btnLog,
+  .btnCancel {
+    width: 170px;
+    height: 60px;
+    border-radius: 30px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 114%;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modalContent {
+    width: 516px;
+    height: 244px;
+  }
+
+  .btnLog,
+  .btnCancel {
+    width: 173px;
+  }
+}

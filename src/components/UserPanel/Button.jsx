@@ -1,4 +1,4 @@
-import clsx from 'npm install clsx';
+import clsx from 'clsx';
 import css from './Button.module.css';
 
 const buildLinkClass = classname => {

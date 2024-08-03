@@ -19,7 +19,6 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<SignUpForm />} />
         <Route path="/signin" element={<SignInForm />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route

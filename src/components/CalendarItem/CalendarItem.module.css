@@ -5,7 +5,7 @@
 }
 
 .day {
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   width: 28px;
   height: 28px;
   background: rgba(50, 63, 71, 0.2);
@@ -33,14 +33,6 @@
   background: var(--main-green-color);
 }
 
-.currentDay {
-  background: var(--main-black-gray-color);
-  color: var(--main-green-color);
-}
-.currentDay:focus {
-  background: var(--main-black-gray-color);
-}
-
 .full {
   background: var(--main-white-color);
 }
@@ -61,6 +53,13 @@
   border: none;
   padding: 0;
   margin: 0;
+}
+.currentDay {
+  background: var(--main-black-gray-color);
+  color: var(--main-green-color);
+}
+.componentButton:focus .currentDay {
+  background: var(--main-black-gray-color);
 }
 
 @media screen and (min-width: 768px) {

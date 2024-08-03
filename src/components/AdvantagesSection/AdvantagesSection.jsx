@@ -1,13 +1,14 @@
 import Customers from '../Customers/Customers';
 import styles from './AdvantagesSection.module.css';
-import img from '../../images/Advantages/mobile_home_img.jpg';
+import img1x from '../../images/Advantages/mobile_home_img.jpg';
+import img2x from '../../images/Advantages/mobile_home_img_2х.jpg';
 
 export default function AdvantagesSection() {
   return (
     <section className={styles.AdvantagesSection}>
       <picture>
-        <source srcSet={img} type="image/jpeg" />
-        <img src={img} alt="girl with a bottle of water" />
+        <source srcSet={`${img1x} 1x, ${img2x} 2x`} type="image/jpeg" />
+        <img src={img1x} alt="girl with a bottle of water" />
       </picture>
       <Customers />
       <ul className={styles.advantagesList}>

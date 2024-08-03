@@ -5,8 +5,7 @@
     background-color: var(--main-gray-color);
     border-radius: 30px;
     max-width: 343px;
-    height: auto;
-        
+    height: auto;  
     padding-top: 24px;
     padding-left: 16px;
     padding-right: 16px;
@@ -17,7 +16,6 @@
 .subtitle {
     margin-top: 74px;
     margin-bottom: 16px;
-
 
     font-family: Poppins;
     font-weight: 400;

@@ -59,7 +59,7 @@ export default function SignUpForm() {
         Sign Up
       </button>
       <p className={css['paragraph-sign']}>
-        Don’t have an account? <span className={css['sign']}>Sign Up</span>
+        Don’t have an account? <span className={css['sign']}>Sign In</span>
       </p>
     </form>
   );

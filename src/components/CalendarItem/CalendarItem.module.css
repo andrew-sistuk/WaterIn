@@ -30,7 +30,8 @@
 }
 
 .componentButton:focus .day {
-  background: var(--main-green-color);
+  background: var(--main-black-gray-color);
+  color: var(--main-green-color);
 }
 
 .full {
@@ -55,11 +56,11 @@
   margin: 0;
 }
 .currentDay {
-  background: var(--main-black-gray-color);
-  color: var(--main-green-color);
+  background: var(--main-green-color);
 }
 .componentButton:focus .currentDay {
   background: var(--main-black-gray-color);
+  color: var(--main-green-color);
 }
 
 @media screen and (min-width: 768px) {

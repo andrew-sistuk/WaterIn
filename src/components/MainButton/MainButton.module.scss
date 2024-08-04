@@ -1,0 +1,160 @@
+.button {
+  border-radius: 40px;
+  padding: 18px 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  @media (max-width: 375px) {
+    width: 100px;
+    height: 50px;
+    font-size: 14px;
+    padding: 12px 30px;
+  }
+  
+  @media (min-width: 768px) {
+    width: 141px;
+    height: 60px;
+    font-size: 16px;
+    padding: 18px 50px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 200px;
+    height: 70px;
+    font-size: 18px;
+    padding: 20px 60px;
+  }
+
+
+  &.save {
+    color: #323F47;
+    background-color: #9BE1A0;
+
+    &:hover {
+      background-color: #87D28D;
+    }
+  }
+
+  &.trytracker {
+    color: #323F47;
+    background-color: #9BE1A0;
+
+    &:hover {
+      background-color: #87D28D;
+    }
+
+    &:disabled {
+      background-color: #F0EFF4;
+      opacity: 30%;
+      cursor: not-allowed;
+    }
+  }
+
+  &.addwater {
+    color: #FFFFFF;
+    background-color: #323F47;
+
+    &:hover {
+      color: #87D28D;
+
+      .icon svg {
+        fill: #87D28D;
+      }
+    }
+
+    &.iconOnly {
+      background-color: transparent;
+      color: #323F47;
+
+      .icon {
+        height: 30px;
+        width: 30px;
+        background-color: #9BE1A0;
+        color: #323F47;
+        border-radius: 50%;
+        padding: 5px;
+        transition: background-color 0.3s, color 0.3s;
+
+        svg {
+          fill: #323F47;
+          transition: fill 0.3s;
+        }
+      }
+
+      &:hover .icon {
+        color: white;
+        background-color: #323F47;
+
+        svg {
+          fill: white;
+        }
+      }
+
+      &:hover {
+        color: #323F47;
+      }
+    }
+  }
+
+  &.cancel {
+    color: #323F47;
+    background-color: #F0EFF4;
+
+    &:hover {
+      background-color: #E0DFE4;
+    }
+
+    &:disabled {
+      background-color: #F0EFF4;
+      cursor: not-allowed;
+      opacity: 30%;
+    }
+  }
+
+  &.delete {
+    color: #323F47;
+    background-color: #9BE1A0;
+
+    &:hover {
+      background-color: #87D28D;
+    }
+
+    &:disabled {
+      background-color: #E6B0AA;
+      cursor: not-allowed;
+      opacity: 30%;
+    }
+  }
+
+  .icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: #ffffff;
+      transition: fill 0.3s;
+    }
+  }
+
+  .text {
+    display: inline;
+  }
+  @media (max-width: 375px) {
+    &.addwater .icon {
+      margin-right: 1px;
+    }
+  }
+}

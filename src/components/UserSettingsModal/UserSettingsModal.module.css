@@ -1,0 +1,22 @@
+.title {
+  font-family: Poppins;
+  color: var(--main-black-gray-color);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  padding-left: 40px;
+}
+
+/* =========================== Tablet styles ========================= */
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 28px;
+    line-height: 114%;
+  }
+}
+
+/* =========================== Desktop styles ========================= */
+
+@media screen and (min-width: 1440px) {
+}

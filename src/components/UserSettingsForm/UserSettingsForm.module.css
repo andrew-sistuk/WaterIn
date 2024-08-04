@@ -1,0 +1,378 @@
+.form {
+  padding: 20px;
+  font-family: Poppins;
+  box-sizing: border-box;
+}
+
+.input {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 14px;
+  width: 303px;
+  height: 46px;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.avatarImg {
+  width: 75px;
+  height: 75px;
+  border: 1px solid var(--main-black-gray-color);
+  border-radius: 50%;
+}
+
+.avatarBtn {
+  display: flex;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+  border: none;
+  background-color: var(--main-white-color);
+}
+
+.avatarBtn:hover,
+.avatarBtn:focus {
+  color: var(--main-black-gray-color);
+  font-weight: 600;
+}
+
+.avatarInput {
+  display: none;
+}
+
+.gender {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main-black-gray-color);
+  margin-bottom: 24px;
+}
+
+.genderWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.genderRadio {
+  display: flex;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+}
+
+.label {
+  display: block;
+  position: relative;
+}
+
+.genderRadioBtn {
+  visibility: hidden;
+}
+.check,
+.noCheck {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  stroke: red;
+  fill: red;
+}
+
+/* .genderRadioBtn {
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--main-green-color);
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+/* .genderRadioBtn:checked {
+  background-color: var(--main-green-color);
+  box-shadow: inset 0 0 0 4px var(--white);
+} */
+
+/* .genderRadioBtn:checked::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  transform: translate(-50%, -50%);
+} */
+
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+
+  color: var(--main-black-gray-color);
+  margin-bottom: 14px;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+
+  color: var(--main-black-gray-color);
+  margin-bottom: 24px;
+}
+
+.dailyNorma {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.dailyNormaTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main-black-gray-color);
+}
+
+.dailyNormaList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+}
+
+.dailyNormaFormula {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-green-color);
+  padding-top: 4px;
+}
+
+.dailyNormaText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: rgba(47, 47, 47, 0.6);
+
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 14px;
+  width: 303px;
+  height: 140px;
+}
+
+.span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-green-color);
+  padding-right: 4px;
+}
+
+.dailyNormaTextSpan {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+}
+
+.weight {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+  margin-bottom: 14px;
+}
+
+.activityTime {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+  margin-bottom: 24px;
+}
+
+.requiredWater {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-black-color);
+  margin-bottom: 14px;
+}
+
+.water {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--main-green-color);
+}
+
+.waterIntake {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main-black-gray-color);
+  margin-bottom: 40px;
+}
+
+/* =========================== Tablet styles ========================= */
+
+@media screen and (min-width: 768px) {
+  .form {
+    padding: 40px;
+  }
+
+  .input {
+    padding: 16px;
+    width: 568px;
+    height: 56px;
+  }
+
+  .avatarImg {
+    width: 100px;
+    height: 100px;
+  }
+  .avatarBtn {
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .avatarSvg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gender {
+    font-size: 18px;
+    line-height: 133%;
+  }
+  .genderRadio {
+    font-size: 16px;
+    line-height: 150%;
+    gap: 20px;
+  }
+
+  .name {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .email {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .dailyNormaTitle {
+    font-size: 18px;
+    line-height: 133%;
+  }
+  .dailyNormaList {
+    flex-direction: row;
+    gap: 28px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .dailyNormaFormula {
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .dailyNormaText {
+    font-size: 16px;
+    line-height: 150%;
+
+    padding: 16px;
+    width: 568px;
+    height: 128px;
+  }
+
+  .dailyNormaTextSpan {
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .weight {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .activityTime {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .requiredWater {
+    flex-direction: row;
+    gap: 5px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .water {
+    font-size: 15px;
+    line-height: 149%;
+  }
+
+  .waterIntake {
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+/* =========================== Desktop styles ========================= */
+
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+    gap: 40px;
+  }
+
+  .input {
+    width: 400px;
+    height: 56px;
+  }
+
+  .dailyNormaText {
+    width: 400px;
+    height: 152px;
+  }
+  .waterIntake {
+    margin-bottom: 0;
+  }
+}

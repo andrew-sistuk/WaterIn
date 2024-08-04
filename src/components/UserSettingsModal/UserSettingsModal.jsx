@@ -1,30 +1,36 @@
 import React from 'react';
 import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
 import Modal from 'react-modal';
+import css from './UserSettingsModal.module.css';
 
 const customStyles = {
   content: {
-    // top: '50%',
-    // left: '50%',
-    // right: 'auto',
-    // bottom: 'auto',
-    // marginRight: '-50%',
-    // transform: 'translate(-50%, -50%)',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
   },
 };
 
-Modal.setAppElement(UserSettingsModal);
+Modal.setAppElement('#root');
 
 export default function UserSettingsModal() {
   const [modalIsOpen, setIsOpen] = React.useState(true);
 
-  // function openModal() {
+  // const openModal=()=> {
   //   setIsOpen(true);
   // }
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
+
+  const handleUpdate = data => {
+    console.log(data);
+    closeModal();
+  };
 
   return (
     <Modal
@@ -33,8 +39,9 @@ export default function UserSettingsModal() {
       style={customStyles}
       contentLabel="Modal"
     >
-      <h2>Setting</h2>
-      <UserSettingsForm />
+      <h2 className={css.title}>Setting</h2>
+
+      <UserSettingsForm onClose={closeModal} onUpdate={handleUpdate} />
     </Modal>
   );
 }

@@ -41,7 +41,12 @@
   color: rgba(47, 47, 47, 0.6);
 }
 
+.box-pass {
+  position: relative;
+}
+
 .email {
+  width: 100%;
   margin-bottom: 8px;
 }
 
@@ -86,9 +91,21 @@
 }
 
 .error {
-  align-self: flex-end;
-  color: red;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  font-size: 10px;
   font-weight: 400;
+  line-height: 2;
+  color: #ef5050;
+}
+
+.error-input,
+.error-input:hover,
+.error-input:focus,
+.error-input::placeholder {
+  color: #ef5050;
+  border-color: #ef5050;
 }
 
 @media screen and (min-width: 768px) {
@@ -112,10 +129,6 @@
     margin-bottom: 20px;
   }
 
-  .box-pass {
-    position: relative;
-  }
-
   .pass {
     margin-bottom: 32px;
   }
@@ -129,6 +142,11 @@
     right: 16px;
     background: transparent;
     border: transparent;
+  }
+
+  .error {
+    font-size: 14px;
+    top: 60px;
   }
 
   .icon {

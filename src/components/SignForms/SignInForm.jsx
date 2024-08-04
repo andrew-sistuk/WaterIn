@@ -36,21 +36,23 @@ export default function SignInForm() {
       <label className={css.label} htmlFor="email">
         Email:
       </label>
-      <input
-        {...register('email')}
-        className={clsx(css.input, css.email)}
-        type="email"
-        placeholder="Enter your email"
-        id="email"
-      />
-      {errors.email && <p className={css.error}>{errors.email.message}</p>}
+      <div className={css['box-pass']}>
+        <input
+          {...register('email')}
+          className={clsx(css.input, css.email, errors.email && css['error-input'])}
+          type="email"
+          placeholder="Enter your email"
+          id="email"
+        />
+        {errors.email && <p className={css.error}>{errors.email.message}</p>}
+      </div>
       <label className={css.label} htmlFor="password">
         Password:
       </label>
       <div className={css['box-pass']}>
         <input
           {...register('password')}
-          className={clsx(css.input, css.pass)}
+          className={clsx(css.input, css.pass, errors.password && css['error-input'])}
           type={isPassOpen ? 'text' : 'password'}
           placeholder="Enter your password"
           id="password"
@@ -62,8 +64,8 @@ export default function SignInForm() {
         >
           {isPassOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
         </button>
+        {errors.password && <p className={css.error}>{errors.password.message}</p>}
       </div>
-      {errors.password && <p className={css.error}>{errors.password.message}</p>}
       <button className={css.submit} type="submit">
         Sign In
       </button>

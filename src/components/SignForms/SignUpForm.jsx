@@ -41,21 +41,23 @@ export default function SignUpForm() {
       <label className={css.label} htmlFor="email">
         Email:
       </label>
-      <input
-        {...register('email')}
-        className={clsx(css.input, css.email)}
-        type="email"
-        placeholder="Enter your email"
-        id="email"
-      />
-      {errors.email && <p className={css.error}>{errors.email.message}</p>}
+      <div className={css['box-pass']}>
+        <input
+          {...register('email')}
+          className={clsx(css.input, css.email, errors.email && css['error-input'])}
+          type="email"
+          placeholder="Enter your email"
+          id="email"
+        />
+        {errors.email && <p className={css.error}>{errors.email.message}</p>}
+      </div>
       <label className={css.label} htmlFor="password">
         Password:
       </label>
       <div className={css['box-pass']}>
         <input
           {...register('password')}
-          className={clsx(css.input, css.pass)}
+          className={clsx(css.input, css.pass, errors.password && css['error-input'])}
           type={isPassOpen ? 'text' : 'password'}
           placeholder="Enter your password"
           id="password"
@@ -67,15 +69,15 @@ export default function SignUpForm() {
         >
           {isPassOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
         </button>
+        {errors.password && <p className={css.error}>{errors.password.message}</p>}
       </div>
-      {errors.password && <p className={css.error}>{errors.password.message}</p>}
       <label className={css.label} htmlFor="reqPassword">
         Repeat password:
       </label>
       <div className={css['box-pass']}>
         <input
           {...register('reqPassword')}
-          className={clsx(css.input, css.pass)}
+          className={clsx(css.input, css.pass, errors.reqPassword && css['error-input'])}
           type={isPassRepOpen ? 'text' : 'password'}
           placeholder="Enter your password"
           id="reqPassword"
@@ -87,8 +89,8 @@ export default function SignUpForm() {
         >
           {isPassRepOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
         </button>
+        {errors.reqPassword && <p className={css.error}>{errors.reqPassword.message}</p>}
       </div>
-      {errors.reqPassword && <p className={css.error}>{errors.reqPassword.message}</p>}
       <button className={css.submit} type="submit">
         Sign Up
       </button>

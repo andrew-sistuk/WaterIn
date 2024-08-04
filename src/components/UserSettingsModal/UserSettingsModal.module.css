@@ -4,7 +4,22 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 120%;
-  padding-left: 40px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.closeBtn {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 26px;
+  right: 22px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  width: 18px;
+  height: 18px;
 }
 
 /* =========================== Tablet styles ========================= */
@@ -13,6 +28,13 @@
   .title {
     font-size: 28px;
     line-height: 114%;
+  }
+
+  .closeBtn {
+    width: 14px;
+    height: 14px;
+    top: 47px;
+    right: 47px;
   }
 }
 

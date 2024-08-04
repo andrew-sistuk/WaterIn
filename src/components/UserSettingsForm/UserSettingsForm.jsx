@@ -90,21 +90,31 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
                 id="woman"
                 type="radio"
                 value="woman"
+                name="genderRadio"
                 {...register('test')}
+                checked
               />
-              <span>Woman</span>
-              <svg className={css.check}>
-                <use href="/src/img/icons/sprite.svg#check"></use>
-              </svg>
-              <svg className={css.noCheck}>
-                <use href="/src/img/icons/noCheck.svg"></use>
-              </svg>
+              <span className={css.labelText}>Woman</span>
+              <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
+              <img className={css.check} src="/src/img/icons/check.svg" alt="check" />
             </label>
           </div>
 
           <div className={css.genderRadio}>
-            <input id="man" type="radio" value="man" {...register('test')} />
-            <label htmlFor="man">Man</label>
+            <label className={css.label} htmlFor="man">
+              <input
+                className={css.genderRadioBtn}
+                id="man"
+                type="radio"
+                value="man"
+                name="genderRadio"
+                {...register('test')}
+              />
+              <span className={css.labelText}>Man</span>
+
+              <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
+              <img className={css.check} src="/src/img/icons/check.svg" alt="check" />
+            </label>
           </div>
         </div>
       </div>
@@ -112,12 +122,12 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
       <div className={css.container}>
         <div>
           <div className={css.name}>
-            <label htmlFor="name">Yuor name</label>
+            <label htmlFor="name">Your name</label>
             <input
               className={css.input}
               id="name"
               type="text"
-              placeholder="User"
+              // placeholder="User"
               {...register('name')}
             />
             {errors.name && 'Enter the name correctly!'}

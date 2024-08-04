@@ -3,7 +3,6 @@
     height: 100%;
     position: relative;
 
-    /* outline: 1px solid red; */
 }
 /* tablet */
 @media only screen and (min-width: 768px) {
@@ -14,7 +13,7 @@
   /* dekstop */
   @media only screen and (min-width: 1440px) {
     .advantagesSection {
-        max-width: 672px;
+        width: 672px;
     }
   }
   .image{

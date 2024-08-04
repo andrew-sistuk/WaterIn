@@ -9,7 +9,6 @@
     padding-right: 16px; 
     padding-bottom: 67px;
         
-    /* outline: 1px solid red; */
 }
 /* tablet */
 @media only screen and (min-width: 768px) {
@@ -23,7 +22,7 @@
    /* dekstop */
    @media only screen and (min-width: 1440px){
     .welcomeSection{
-        max-width: 672px; 
+        width: 672px; 
     }
    }
 

@@ -1,0 +1,113 @@
+.wrapper {
+  margin: 0 auto 42px auto;
+  border-radius: 15px;
+  padding: 12px;
+  max-width: 198px;
+
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  background: var(--main-white-color);
+}
+
+.title {
+  margin-bottom: 8px;
+
+  /* font-family: var(--font-family); */
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1;
+  color: var(--main-black-gray-color);
+}
+
+.barWrapper {
+  position: relative;
+}
+.mainBar {
+  margin-bottom: 8px;
+  width: 100%;
+  height: 6px;
+  border-radius: 9px;
+
+  background-color: var(--main-gray-color);
+}
+
+.progressBar {
+  position: absolute;
+  top: 0px;
+  height: 6px;
+  border-radius: 9px;
+
+  background-color: var(--main-green-color);
+}
+.currentPoint {
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--main-green-color);
+
+  background-color: var(--main-white-color);
+
+  transform: translate(-50%, -25%);
+}
+.signature {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  /* font-family: var(--font-family); */
+  font-weight: 400;
+  font-size: 10px;
+
+  line-height: 1;
+  color: rgba(47, 47, 47, 0.6);
+}
+.current {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 10px;
+
+  color: var(--main-green-color);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    margin-bottom: 26px;
+    padding: 20px;
+    max-width: 295px;
+  }
+
+  .title {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+
+  .mainBar {
+    margin-bottom: 6px;
+    height: 8px;
+  }
+  .progressBar {
+    height: 8px;
+  }
+
+  .signature {
+    font-size: 12px;
+    line-height: 1.86667;
+  }
+
+  .current {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    margin-bottom: 56px;
+  }
+}

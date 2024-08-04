@@ -7,12 +7,12 @@ const WaterList = () => {
     <ul className={css.list}>
       <WaterItem />
       <WaterItem />
-      {/* <WaterItem />
       <WaterItem />
       <WaterItem />
       <WaterItem />
       <WaterItem />
-      <WaterItem /> */}
+      <WaterItem />
+      <WaterItem />
     </ul>
   );
 };

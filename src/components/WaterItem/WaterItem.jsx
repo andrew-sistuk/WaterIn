@@ -14,7 +14,12 @@ const WaterItem = () => {
   return (
     <li className={css.item}>
       {/* <div className={css.icon}> */}
-      <FaGlassWater className={css.iconMain} size="38" />
+      <img className={css.iconMain} src="/waterin.svg" alt="" />
+
+      {/* <svg className={css.iconMain}>
+        <use href="/waterin.svg"></use>
+      </svg> */}
+      {/* <FaGlassWater className={css.iconMain} size="38" /> */}
       {/* </div> */}
       <div className={css.wrapperData}>
         <p className={css.value}>{value} ml</p>

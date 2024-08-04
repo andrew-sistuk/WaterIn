@@ -5,7 +5,7 @@
   width: 100%;
   list-style: none;
 
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 ::-webkit-scrollbar {
@@ -13,8 +13,8 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent;
-  /* background-color: var(--main-white-color); */
+  /* background-color: transparent; */
+  background-color: var(--main-white-color);
   border-radius: 9px;
 }
 

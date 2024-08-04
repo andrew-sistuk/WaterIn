@@ -1,15 +1,22 @@
 .container {
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
     gap: 16px;
     padding-top: 16px;
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .container {
+        padding-top: 32px;
+    }
 }
  /* dekstop */
  @media only screen and (min-width: 1440px){
     .container{
         flex-direction: row;
         gap: 32px;
-        
+
         max-width: 1376px;
     }
  }

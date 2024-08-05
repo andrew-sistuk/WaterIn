@@ -1,0 +1,89 @@
+
+.welcomeSection{
+    background-color: var(--main-gray-color);
+    border-radius: 30px;
+    max-width: 343px;
+    height: auto;  
+    padding-top: 24px;
+    padding-left: 16px; 
+    padding-right: 16px; 
+    padding-bottom: 67px;
+        
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+    .welcomeSection {
+        max-width: 704px;
+        padding-top: 32px;
+        padding-left: 32px; 
+        padding-right: 32px; 
+    }
+  }
+   /* dekstop */
+   @media only screen and (min-width: 1440px){
+    .welcomeSection{
+        width: 672px; 
+    }
+   }
+
+.titleContainer {
+    max-width: 311px;
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .titleContainer {
+        max-width: 547px;
+        margin-left: 32px;
+    }
+}
+.subtitle {
+    margin-bottom: 16px;
+
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 0.06em;
+    text-align: left;
+
+    color: var(--main-black-color);
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .subtitle {
+        font-size: 16px; 
+        line-height: 1.5;
+    }
+}
+
+.title {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-align: left;
+
+    color: var(--main-black-gray-color);
+
+    margin-bottom: 32px;
+    max-width: 311px;
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .title{
+        font-size: 64px;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+    }
+}
+
+/* dekstop */
+@media only screen and (min-width: 1440px){
+    .title{
+        font-size: 80px;
+        line-height: 0.95;
+    }
+}
+
+

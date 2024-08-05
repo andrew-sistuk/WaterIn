@@ -7,10 +7,17 @@
   --main-white-color: #ffffff;
 }
 
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
-}
+:root {
+  --main-black-color: #2f2f2f;
+  --main-black-gray-color: #323f47;
+  --main-green-color: #9be1a0;
+  --main-gray-color: #f0eff4;
+  --main-white-color: #ffffff;
+
+  background-color: var(--main-white-color);
+  color: var(--main-black-gray-color);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 
 h1,
 h2,
@@ -57,6 +64,9 @@ img {
 
 @media screen and (min-width: 1440px) {
   .container {
+    display: flex;
+    align-items: center;
     width: 1440px;
+    height: 100vh;
   }
 }

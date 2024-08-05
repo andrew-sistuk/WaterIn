@@ -1,22 +1,27 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://660b09f1ccda4cbc75dc4e14.mockapi.io';
+axios.defaults.baseURL = 'https://waterin-server.onrender.com';
 
-export const fetchDates = createAsyncThunk('dates/fetchDates', async (_, thunkAPI) => {
+export const fetchDates = createAsyncThunk('dates/fetchDates/', async (dateMonth, thunkAPI) => {
   try {
-    const response = await axios.get('/dates');
-    return response.data;
+    const response = await axios.get(`/water/month/${dateMonth}`);
+
+    console.log('responsDate', response.data.data.waterNotes);
+    return response.data.data.waterNotes;
   } catch (error) {
+    console.log('catch (error)', dateMonth);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-export const fetchDatesId = createAsyncThunk('dates/fetchDatesId', async (id, thunkAPI) => {
+export const fetchDatesId = createAsyncThunk('dates/fetchDate', async (dateDay, thunkAPI) => {
+  console.log('fetchDatesId', dateDay, new Date(dateDay));
   try {
-    const response = await axios.get(`/dates/${id}`);
-    console.log('відповідь', response.data);
-    return response.data;
+    const response = await axios.get(`/water/day/${dateDay}`);
+
+    console.log('Відповідь з бекенду', response.data.data);
+    return response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

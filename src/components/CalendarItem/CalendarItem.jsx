@@ -7,12 +7,10 @@ const CalendarItem = ({ elem, parcentDate }) => {
   const dispatch = useDispatch();
 
   const handleClickDay = value => {
-    const dateId = getParcentForDate(new Date(elem.times), 'id');
     const date = new Date(value.times).getTime();
-    if (dateId) {
-      dispatch(fetchDatesId(dateId));
-    }
-    console.log('Запит на бек', date, dateId);
+    dispatch(fetchDatesId(date));
+
+    console.log('Запит на бек', date);
   };
 
   const today = new Date();
@@ -31,7 +29,8 @@ const CalendarItem = ({ elem, parcentDate }) => {
     const dayCalendar = date.getUTCDate();
 
     const entry = parcentDate.find(item => {
-      const createdAtDate = new Date(item.createdAt);
+      const createdAtDate = new Date(item.date);
+
       return (
         createdAtDate.getUTCFullYear() === yearCalendar &&
         createdAtDate.getUTCMonth() + 1 === monthCalendar &&
@@ -41,7 +40,7 @@ const CalendarItem = ({ elem, parcentDate }) => {
 
     if (entry) {
       if (type === 'parcent') {
-        return `${entry.parcent}%`;
+        return `${entry.percent}%`;
       } else if (type === 'id') {
         return entry.id;
       }

@@ -19,12 +19,9 @@ function App() {
     <Suspense fallback={<Loader />}>
       <Routes>
         {/* <Route path="/" element={<Calendar />} /> */}
-        <Route
-          path="/tracker"
-          element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}
-        />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/tracker" element={<PrivateRoute component={TrackerPage} redirectTo="/" />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFound />} />
         {/* Інші маршрути */}
       </Routes>
     </Suspense>

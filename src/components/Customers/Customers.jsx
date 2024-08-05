@@ -20,6 +20,7 @@ export default function Customers() {
       <p className={styles.customersText}>
         Our <span className={styles.customersSpan}>happy</span> customers
       </p>
+      <div></div>
     </div>
   );
 }

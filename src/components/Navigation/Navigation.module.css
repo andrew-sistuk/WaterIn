@@ -1,0 +1,94 @@
+.btnList {
+    list-style: none;
+
+    display: flex;
+    gap: 10px;
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .btnList{
+        gap: 16px;
+        margin-left: 32px;
+    }
+}
+.btnTryItem {
+    background-color: var(--main-green-color);
+    border-radius: 30px;
+    padding: 14px 19px;
+
+    min-width: 116px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: var(--main-black-gray-color);
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+        
+    text-align: center;
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+    .btnTryItem{
+        min-width: 169px;
+        height: 60px;
+        padding: 18px 40px;
+        font-size: 16px;
+        line-height: 1.5;
+    } 
+}
+.btnTryItem:hover,
+.btnTryItem:focus{
+    background-color: #87D28D;
+
+}
+
+.btnTryItem:disabled{
+    background-color: #E6E6E6;
+    color: #BCBCBC;
+}
+
+.btnSignInItem {
+    border-radius: 30px;
+    border: 1px solid var(--main-black-gray-color);
+    padding: 14px 19px;
+
+    min-width: 104px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: var(--main-black-gray-color);
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+    
+    text-align: center;
+}
+/* tablet */
+@media only screen and (min-width: 768px){
+    .btnSignInItem{
+        min-width: 135px;
+        height: 60px;
+    }
+}
+.btnSignInItem:hover,
+.btnSignInItem:focus{
+    border: 1px solid #87D28D;
+    color: #87D28D;
+}
+.btnSignInItem:disabled{
+    border: 1px solid var(--main-black-gray-color);
+    color: var(--main-black-gray-color)
+}

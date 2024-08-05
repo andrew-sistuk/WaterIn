@@ -41,10 +41,7 @@ const CalendarPagination = ({
           </button>
         </div>
         <button onClick={() => toggleComponents()} className={css.scheduleButton}>
-          <Icon id="calendar1" />
-          {/* <svg className={css.iconPagination}>
-            <use href="/src/img/icons/sprite.svg#icon-calendar1"></use>
-          </svg> */}
+          <Icon width={20} height={20} />
         </button>
       </div>
     </div>

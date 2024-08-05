@@ -1,15 +1,10 @@
-import sprite from '/src/assets/icons/sprite.svg'; // Імпортуйте ваш спрайт
+import Calendar from '../../assets/icons/calendar.svg?react';
 
-const objDefault = {
-  width: '20px',
-  height: '20px',
-};
-
-function Icon({ id, style = objDefault }) {
+function Icon({ width, height }) {
   return (
-    <svg style={style}>
-      <use xlinkHref={`${sprite}#icon-${id}`} />
-    </svg>
+    <div>
+      <Calendar width={width} height={height} />
+    </div>
   );
 }
 

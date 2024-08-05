@@ -1,14 +1,28 @@
 .form {
   font-family: Poppins;
   box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .input {
   border: 1px solid rgba(47, 47, 47, 0.15);
   border-radius: 15px;
   padding: 14px;
-  width: 303px;
+  /* width: 303px; */
   height: 46px;
+}
+
+@media screen and (max-width: 374px) {
+  .input {
+    max-width: 303px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .input {
+    width: 303px;
+  }
 }
 
 .avatar {
@@ -183,8 +197,20 @@
   border: 1px solid rgba(47, 47, 47, 0.15);
   border-radius: 15px;
   padding: 14px;
-  width: 303px;
+  /* width: 303px; */
   height: 140px;
+}
+
+@media screen and (max-width: 374px) {
+  .dailyNormaText {
+    max-width: 303px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .dailyNormaText {
+    width: 303px;
+  }
 }
 
 .span {

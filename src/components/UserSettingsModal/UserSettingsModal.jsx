@@ -45,9 +45,14 @@ export default function UserSettingsModal() {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Modal">
-      <h2 className={css.title}>Setting</h2>
-      <IoIosClose className={css.closeBtn} />
-      <UserSettingsForm onClose={closeModal} onUpdate={handleUpdate} />
+      <div className={css.wrapper}>
+        <h2 className={css.title}>Setting</h2>
+        <button type="button">
+          <IoIosClose className={css.closeBtn} />
+        </button>
+
+        <UserSettingsForm onClose={closeModal} onUpdate={handleUpdate} />
+      </div>
     </Modal>
   );
 }

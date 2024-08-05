@@ -7,6 +7,14 @@
   padding-left: 20px;
   padding-top: 20px;
 }
+@media screen and (min-width: 375px) {
+  .wrapper {
+    /* max-width: 343px; */
+    width: 343px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 
 .closeBtn {
   width: 12px;
@@ -36,9 +44,16 @@
     top: 47px;
     right: 47px;
   }
+
+  .wrapper {
+    width: 648px;
+  }
 }
 
 /* =========================== Desktop styles ========================= */
 
 @media screen and (min-width: 1440px) {
+  .wrapper {
+    width: 920px;
+  }
 }

@@ -12,10 +12,6 @@
   letter-spacing: -0.01em;
 }
 
-body {
-  line-height: 1.5;
-}
-
 h1,
 h2,
 h3,
@@ -61,6 +57,9 @@ img {
 
 @media screen and (min-width: 1440px) {
   .container {
+    display: flex;
+    align-items: center;
     width: 1440px;
+    height: 100vh;
   }
 }

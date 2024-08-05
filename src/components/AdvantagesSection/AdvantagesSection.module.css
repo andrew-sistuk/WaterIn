@@ -1,0 +1,158 @@
+.advantagesSection {
+  max-width: 343px;
+  height: 100%;
+  position: relative;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .advantagesSection {
+    max-width: 704px;
+  }
+}
+/* dekstop */
+@media only screen and (min-width: 1440px) {
+  .advantagesSection {
+    width: 672px;
+  }
+}
+.image {
+  width: 100%;
+  height: auto;
+}
+.advantagesList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 168px;
+
+  position: absolute;
+  bottom: 32px;
+  right: 16px;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .advantagesList {
+    width: 242px;
+    gap: 10px;
+    right: 32px;
+  }
+}
+/* dekstop */
+@media only screen and (min-width: 1440px) {
+  .advantagesList {
+    bottom: 64px;
+  }
+}
+.CustomersWripper {
+  position: absolute;
+  bottom: 96px;
+  left: 16px;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .CustomersWripper {
+    left: 32px;
+  }
+}
+/* dekstop */
+@media only screen and (min-width: 1440px) {
+  .CustomersWripper {
+    bottom: 132px;
+  }
+}
+.advHabit {
+  background-color: var(--main-black-gray-color);
+  color: #fff;
+
+  width: 81px;
+  height: 26px;
+  border-radius: 30px;
+  padding: 9px 12px;
+
+  font-family: Poppins;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .advHabit {
+    width: 111px;
+    height: 34px;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+}
+.advStatistic {
+  background-color: var(--main-green-color);
+  color: var(--main-black-gray-color);
+
+  width: 83px;
+  height: 26px;
+  border-radius: 30px;
+  padding: 9px 12px;
+
+  font-family: Poppins;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .advStatistic {
+    width: 121px;
+    height: 34px;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+}
+.advRate {
+  background-color: #fff;
+  color: var(--main-black-gray-color);
+
+  width: 108px;
+  height: 26px;
+  border-radius: 30px;
+  padding: 9px 12px;
+
+  font-family: Poppins;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .advRate {
+    width: 158px;
+    height: 34px;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--main-green-color);
+  border-radius: 50%;
+  margin-right: 4px;
+}

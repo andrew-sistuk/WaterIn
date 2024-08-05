@@ -43,7 +43,6 @@ const CalendarPagination = ({
         </div>
         <button onClick={() => toggleComponents()} className={css.scheduleButton}>
           <Calendar />
-          {/* <Icon width={20} height={20} /> */}
         </button>
       </div>
     </div>

@@ -8,8 +8,8 @@ const WaterItem = () => {
   const value = '250';
   const time = '7:00 AM';
 
-  console.log('Замінити btnEdit та btnDelete на компонент кнопку');
-  console.log('Замінити іконки?');
+  // console.log('Замінити btnEdit та btnDelete на компонент кнопку');
+  // console.log('Замінити іконки?');
 
   return (
     <li className={css.item}>

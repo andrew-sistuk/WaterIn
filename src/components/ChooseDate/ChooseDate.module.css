@@ -1,0 +1,7 @@
+.day {
+  /* font-family: var(--font-family); */
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main-black-gray-color);
+  text-transform: capitalize;
+}

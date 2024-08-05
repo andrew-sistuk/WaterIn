@@ -3,8 +3,7 @@ import './App.css';
 import 'modern-normalize';
 
 // add lazy
-import { Suspense } from 'react';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 import NotFound from './components/NotFound/NotFound';
 import { Route, Routes } from 'react-router-dom';

@@ -9,11 +9,8 @@
 
   background-color: var(--main-white-color);
   color: var(--main-black-gray-color);
-}
-
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
 
 h1,

@@ -10,7 +10,7 @@ import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
 
 // example
-// const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 // const Calendar = lazy(() => import('./components/Calendar/Calendar'));
 
@@ -24,6 +24,7 @@ function App() {
           element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}
         />
         <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<HomePage />} />
         {/* Інші маршрути */}
       </Routes>
     </Suspense>

@@ -1,5 +1,6 @@
 import css from './WaterDetailedInfo.module.css';
 import MonthInfo from '../MonthInfo/MonthInfo';
+import UserPanel from '../UserPanel/UserPanel.jsx';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -14,6 +15,7 @@ const WaterDetailedInfo = () => {
 
   return (
     <div className={css.container}>
+      <UserPanel />
       <div className={css.component}>Component</div>
       <MonthInfo />
     </div>

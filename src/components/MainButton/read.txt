@@ -1,0 +1,55 @@
+щоб кнопки працювали не забувайте про iмпорт
+import MainButton from '../../components/MainButton/MainButton';
+
+кнопка Save
+
+      <MainButton text="Save" onClick={() => alert('Save Button clicked!')} />
+
+кнопка Try tracker
+
+      <MainButton text="Try tracker" onClick={() => alert('Try tracker Button clicked!')} />
+
+кнопка Try tracker (disabled)
+
+      <MainButton
+        text="Try tracker"
+        onClick={() => alert('Try tracker Button clicked!')}
+        disabled
+      />
+
+кнопка Add water
+
+      <MainButton
+        text="Add water"
+        onClick={() => alert('Add water Button clicked!')}
+        icon={
+          <svg width={20} height={20} className={css.icon}>
+            <use href="/src/img/icons/sprite.svg#icon-plus"></use>
+          </svg>
+        }
+      />
+
+кнопка Add water з окремим плюсиком
+
+      <MainButton
+        text="Add water"
+        onClick={() => alert('Add water Button clicked!')}
+        icon={
+          <svg width={20} height={20} className={css.icon}>
+            <use href="/src/img/icons/sprite.svg#icon-plus"></use>
+          </svg>
+        }
+        iconOnly
+      />
+
+кнопка Cancel
+
+      <MainButton text="Cancel" onClick={() => alert('Cancel Button clicked!')} />
+
+кнопка Cancel (disabled)
+
+      <MainButton text="Cancel" onClick={() => alert('Cancel Button clicked!')} disabled />
+
+кнопка Delete
+
+      <MainButton text="Delete" onClick={() => alert('Delete Button clicked!')} />

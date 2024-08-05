@@ -1,0 +1,11 @@
+.message {
+  background-color: var(--main-green-color) !important;
+  color: var(--main-black-gray-color) !important;
+  border-radius: 30px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.progress {
+  background: var(--main-black-gray-color) !important;
+}

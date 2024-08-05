@@ -1,7 +1,8 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import css from './CalendarPagination.module.css';
-import Icon from '../Icon/Icon';
+// import Icon from '../Icon/Icon';
+import Calendar from '../../assets/icons/calendar.svg?react';
 
 const CalendarPagination = ({
   locale,
@@ -41,7 +42,8 @@ const CalendarPagination = ({
           </button>
         </div>
         <button onClick={() => toggleComponents()} className={css.scheduleButton}>
-          <Icon width={20} height={20} />
+          <Calendar />
+          {/* <Icon width={20} height={20} /> */}
         </button>
       </div>
     </div>

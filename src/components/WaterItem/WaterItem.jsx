@@ -1,6 +1,6 @@
 import { FiEdit2 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { FaGlassWater } from 'react-icons/fa6';
+// import { FaGlassWater } from 'react-icons/fa6';
 
 import css from './WaterItem.module.css';
 

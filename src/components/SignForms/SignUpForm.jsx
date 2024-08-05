@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import WelcomeSectionContainer from '../WelcomeSectionContainer/WelcomeSectionContainer';
+import { Link } from 'react-router-dom';
 
 export default function SignUpForm() {
   const [isPassOpen, setIsPassOpen] = useState(false);
@@ -36,67 +38,72 @@ export default function SignUpForm() {
   };
 
   return (
-    <form className={css['sign-form']} onSubmit={handleSubmit(onSubmit)} noValidate>
-      <h2 className={css.header}>Sign Up</h2>
-      <label className={css.label} htmlFor="email">
-        Email:
-      </label>
-      <div className={css['box-pass']}>
-        <input
-          {...register('email')}
-          className={clsx(css.input, css.email, errors.email && css['error-input'])}
-          type="email"
-          placeholder="Enter your email"
-          id="email"
-        />
-        {errors.email && <p className={css.error}>{errors.email.message}</p>}
-      </div>
-      <label className={css.label} htmlFor="password">
-        Password:
-      </label>
-      <div className={css['box-pass']}>
-        <input
-          {...register('password')}
-          className={clsx(css.input, css.pass, errors.password && css['error-input'])}
-          type={isPassOpen ? 'text' : 'password'}
-          placeholder="Enter your password"
-          id="password"
-        />
-        <button
-          type="button"
-          className={css['see-pass']}
-          onClick={() => setIsPassOpen(prev => !prev)}
-        >
-          {isPassOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
+    <WelcomeSectionContainer>
+      <form className={css['sign-form']} onSubmit={handleSubmit(onSubmit)} noValidate>
+        <h2 className={css.header}>Sign Up</h2>
+        <label className={css.label} htmlFor="email">
+          Email:
+        </label>
+        <div className={css['box-pass']}>
+          <input
+            {...register('email')}
+            className={clsx(css.input, css.email, errors.email && css['error-input'])}
+            type="email"
+            placeholder="Enter your email"
+            id="email"
+          />
+          {errors.email && <p className={css.error}>{errors.email.message}</p>}
+        </div>
+        <label className={css.label} htmlFor="password">
+          Password:
+        </label>
+        <div className={css['box-pass']}>
+          <input
+            {...register('password')}
+            className={clsx(css.input, css.pass, errors.password && css['error-input'])}
+            type={isPassOpen ? 'text' : 'password'}
+            placeholder="Enter your password"
+            id="password"
+          />
+          <button
+            type="button"
+            className={css['see-pass']}
+            onClick={() => setIsPassOpen(prev => !prev)}
+          >
+            {isPassOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
+          </button>
+          {errors.password && <p className={css.error}>{errors.password.message}</p>}
+        </div>
+        <label className={css.label} htmlFor="reqPassword">
+          Repeat password:
+        </label>
+        <div className={css['box-pass']}>
+          <input
+            {...register('reqPassword')}
+            className={clsx(css.input, css.pass, errors.reqPassword && css['error-input'])}
+            type={isPassRepOpen ? 'text' : 'password'}
+            placeholder="Enter your password"
+            id="reqPassword"
+          />
+          <button
+            type="button"
+            className={css['see-pass']}
+            onClick={() => setIsPassRepOpen(prev => !prev)}
+          >
+            {isPassRepOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
+          </button>
+          {errors.reqPassword && <p className={css.error}>{errors.reqPassword.message}</p>}
+        </div>
+        <button className={css.submit} type="submit">
+          Sign Up
         </button>
-        {errors.password && <p className={css.error}>{errors.password.message}</p>}
-      </div>
-      <label className={css.label} htmlFor="reqPassword">
-        Repeat password:
-      </label>
-      <div className={css['box-pass']}>
-        <input
-          {...register('reqPassword')}
-          className={clsx(css.input, css.pass, errors.reqPassword && css['error-input'])}
-          type={isPassRepOpen ? 'text' : 'password'}
-          placeholder="Enter your password"
-          id="reqPassword"
-        />
-        <button
-          type="button"
-          className={css['see-pass']}
-          onClick={() => setIsPassRepOpen(prev => !prev)}
-        >
-          {isPassRepOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
-        </button>
-        {errors.reqPassword && <p className={css.error}>{errors.reqPassword.message}</p>}
-      </div>
-      <button className={css.submit} type="submit">
-        Sign Up
-      </button>
-      <p className={css['paragraph-sign']}>
-        Don’t have an account? <span className={css['sign']}>Sign In</span>
-      </p>
-    </form>
+        <p className={css['paragraph-sign']}>
+          Don’t have an account?{' '}
+          <Link className={css.sign} to="/signIn">
+            Sign In
+          </Link>
+        </p>
+      </form>
+    </WelcomeSectionContainer>
   );
 }

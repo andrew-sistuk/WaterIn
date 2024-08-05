@@ -1,0 +1,26 @@
+.welcomeSection {
+  position: relative;
+  background-color: var(--main-gray-color);
+  border-radius: 30px;
+  max-width: 343px;
+  min-height: 411px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .welcomeSection {
+    max-width: 704px;
+    min-height: 498px;
+  }
+}
+
+/* dekstop */
+@media only screen and (min-width: 1440px) {
+  .welcomeSection {
+    width: 672px;
+    min-height: 736px;
+  }
+}

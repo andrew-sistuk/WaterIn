@@ -1,12 +1,12 @@
 import WelcomeContainer from '../../components/WelcomeContainer/WelcomeContainer';
+import SignInForm from '../../components/SignForms/SignInForm';
 import AdvantagesSection from '../../components/AdvantagesSection/AdvantagesSection';
-import WelcomeSection from '../../components/WelcomeSection/WelcomeSection';
 
-export default function HomePage() {
+export default function SignInPage() {
   return (
     <section className="container">
       <WelcomeContainer>
-        <WelcomeSection />
+        <SignInForm />
         <AdvantagesSection />
       </WelcomeContainer>
     </section>

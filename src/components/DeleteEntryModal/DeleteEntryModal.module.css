@@ -1,0 +1,168 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999;
+  width: 100%;
+  height: 100%;
+  /*opacity: 0;
+  visibility: hidden;*/
+  /*pointer-events: none;*/
+  background-color: rgba(46, 47, 66, 0.4);
+}
+
+.backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 344px;
+  height: 267px;
+  margin: 0 auto;
+  padding: 20px 20px 20px 20px;
+  border-radius: 12px;
+  background-color: var(--main-white-color);
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.closebtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  padding: 20px 20px 0px 0px;
+  background-color: transparent;
+}
+
+.iconclosebtn {
+  width: 24px;
+  height: 24px;
+  fill: var(--main-black-color);
+}
+
+.maincontent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main-black-gray-color);
+}
+
+.text {
+  margin: 16px 0 28px 0;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main-black-gray-color);
+}
+
+.btncontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+}
+
+.deletebtn {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main-black-gray-color);
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  height: 46px;
+  background-color: var(--main-green-color);
+}
+
+.deletebtn:hover,
+.deletebtn:focus {
+  background-color: #87d28d;
+}
+
+.cancelbtn {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  height: 46px;
+  color: var(--main-black-gray-color);
+  opacity: 0.3;
+  background-color: var(--main-gray-color);
+}
+
+.cancelbtn:hover,
+.cancelbtn:focus {
+  opacity: 1;
+}
+
+
+@media screen and (max-width: 374px) {
+  .modal {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 516px;
+    height: 244px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 114%;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .btncontainer {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .deletebtn {
+    width: 170px;
+    height: 60px;
+  }
+
+  .cancelbtn {
+    width: 176px;
+    height: 60px;
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .modal {
+    width: 516px;
+    height: 244px;
+  }
+}

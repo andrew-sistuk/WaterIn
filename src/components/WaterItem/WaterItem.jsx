@@ -1,6 +1,8 @@
 import { FiEdit2 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Cap from '../../assets/icons/water-glass.svg?react';
+// import WaterModal
+// import DeleteWaterModal
 
 import css from './WaterItem.module.css';
 
@@ -19,8 +21,12 @@ const WaterItem = ({ data }) => {
         <p className={css.time}>{drinkTime}</p>
       </div>
       <div className={css.wrapperBtn}>
+        {/* <WaterModal data={data}> */}
         <FiEdit2 className={css.btnIcon} size="14" />
+        {/* </WaterModal>
+        <DeleteWaterModal data={data._id}> */}
         <AiOutlineDelete className={css.btnIcon} size="14" />
+        {/* </DeleteWaterModal> */}
       </div>
     </>
   );

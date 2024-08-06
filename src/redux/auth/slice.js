@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { register, login, logout, refreshUser } from "../auth/operations";
+import { createSlice } from '@reduxjs/toolkit';
+import { register, login, logout, refreshUser, getUser } from '../auth/operations';
 
-const handlePending = (state) => {
+const handlePending = state => {
   state.error = null;
   state.loading = true;
 };
@@ -12,11 +12,17 @@ const handleRejected = (state, action) => {
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: {
     user: {
       name: null,
       email: null,
+      id: null,
+      photo: null,
+      sportHours: null,
+      weight: null,
+      waterRate: null,
+      gender: null,
     },
     token: null,
     isLoggedIn: false,
@@ -24,7 +30,7 @@ const authSlice = createSlice({
     loading: false,
     error: null,
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(register.pending, handlePending)
       .addCase(register.fulfilled, (state, action) => {
@@ -46,18 +52,40 @@ const authSlice = createSlice({
       .addCase(login.rejected, handleRejected)
 
       .addCase(logout.pending, handlePending)
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logout.fulfilled, state => {
         state.loading = false;
         state.user = {
           name: null,
           email: null,
+          id: null,
+          photo: null,
+          sportHours: null,
+          weight: null,
+          waterRate: null,
+          gender: null,
         };
-        state.token = null;
+        (state.token = null), state.isLoggedIn;
         state.isLoggedIn = false;
       })
       .addCase(logout.rejected, handleRejected)
 
-      .addCase(refreshUser.pending, (state) => {
+      .addCase(getUser.pending, handlePending)
+      .addCase(getUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = {
+          name: action.payload.name,
+          email: action.payload.email,
+          id: action.payload.id,
+          photo: action.payload.photo,
+          sportHours: action.payload.sportHours,
+          weight: action.payload.weight,
+          waterRate: action.payload.waterRate,
+          gender: action.payload.gender,
+        };
+      })
+      .addCase(getUser.rejected, handleRejected)
+
+      .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {

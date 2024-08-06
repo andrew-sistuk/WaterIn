@@ -27,6 +27,10 @@
   cursor: pointer;
 }
 
+.settingBtn {
+  color: var(--main-black-color);
+}
+
 .userBarPopoverBtn:hover {
   color: var(--main-black-color);
 }

@@ -19,7 +19,7 @@
   width: 16px;
   height: 16px;
   stroke: var(--main-white-color);
-  transition: transform 400ms;
+  transition: var(--animation);
 }
 
 .iconBtn.isOpen {

@@ -6,9 +6,20 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import WelcomeSectionContainer from '../WelcomeSectionContainer/WelcomeSectionContainer';
+import { Link } from 'react-router-dom';
 
-export default function SignInForm() {
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../redux/auth/operations';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+export default function SignInForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email format').required('Email is required'),
@@ -27,51 +38,71 @@ export default function SignInForm() {
   });
 
   const onSubmit = data => {
+    dispatch(login(data))
+      .unwrap()
+      .catch(error => {
+        toast(error);
+        console.log(error);
+      });
     console.log(data);
   };
 
+  const logIn = useSelector(selectIsLoggedIn);
+  useEffect(() => {
+    if (logIn) {
+      navigate('/tracker');
+    }
+  }, [logIn, navigate]);
+
   return (
-    <form className={css['sign-form']} onSubmit={handleSubmit(onSubmit)} noValidate>
-      <h2 className={css.header}>Sign In</h2>
-      <label className={css.label} htmlFor="email">
-        Email:
-      </label>
-      <div className={css['box-pass']}>
-        <input
-          {...register('email')}
-          className={clsx(css.input, css.email, errors.email && css['error-input'])}
-          type="email"
-          placeholder="Enter your email"
-          id="email"
-        />
-        {errors.email && <p className={css.error}>{errors.email.message}</p>}
-      </div>
-      <label className={css.label} htmlFor="password">
-        Password:
-      </label>
-      <div className={css['box-pass']}>
-        <input
-          {...register('password')}
-          className={clsx(css.input, css.pass, errors.password && css['error-input'])}
-          type={isPassOpen ? 'text' : 'password'}
-          placeholder="Enter your password"
-          id="password"
-        />
-        <button
-          type="button"
-          className={css['see-pass']}
-          onClick={() => setIsPassOpen(prev => !prev)}
-        >
-          {isPassOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
+    <WelcomeSectionContainer isMobile={isMobile}>
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+        <div className={css['sign-form']}>
+          <h2 className={css.header}>Sign In</h2>
+          <label className={css.label} htmlFor="email">
+            Email:
+          </label>
+          <div className={css['box-pass']}>
+            <input
+              {...register('email')}
+              className={clsx(css.input, errors.email && css['error-input'])}
+              type="email"
+              placeholder="Enter your email"
+              id="email"
+            />
+            {errors.email && <p className={css.error}>{errors.email.message}</p>}
+          </div>
+          <label className={css.label} htmlFor="password">
+            Password:
+          </label>
+          <div className={css['box-pass']}>
+            <input
+              {...register('password')}
+              className={clsx(css.input, errors.password && css['error-input'])}
+              type={isPassOpen ? 'text' : 'password'}
+              placeholder="Enter your password"
+              id="password"
+            />
+            <button
+              type="button"
+              className={css['see-pass']}
+              onClick={() => setIsPassOpen(prev => !prev)}
+            >
+              {isPassOpen ? <FiEye className={css.icon} /> : <FiEyeOff className={css.icon} />}
+            </button>
+            {errors.password && <p className={css.error}>{errors.password.message}</p>}
+          </div>
+        </div>
+        <button className={css.submit} type="submit">
+          Sign In
         </button>
-        {errors.password && <p className={css.error}>{errors.password.message}</p>}
-      </div>
-      <button className={css.submit} type="submit">
-        Sign In
-      </button>
-      <p className={css['paragraph-sign']}>
-        Don’t have an account? <span className={css['sign']}>Sign Up</span>
-      </p>
-    </form>
+        <p className={css['paragraph-sign']}>
+          Don’t have an account?{' '}
+          <Link className={css.sign} to="/signup">
+            Sign Up
+          </Link>
+        </p>
+      </form>
+    </WelcomeSectionContainer>
   );
 }

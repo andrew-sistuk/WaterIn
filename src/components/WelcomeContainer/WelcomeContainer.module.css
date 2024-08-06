@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.isMobile {
+  height: calc(100vh - 16px * 2);
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .isMobile {
+    height: calc(100vh - 32px * 2);
+  }
+}
+/* dekstop */
+@media only screen and (min-width: 1440px) {
+  .container {
+    flex-direction: row;
+    gap: 32px;
+
+    /* max-width: 1376px; */
+  }
+}

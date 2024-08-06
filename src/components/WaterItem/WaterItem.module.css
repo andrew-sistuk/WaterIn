@@ -1,0 +1,87 @@
+.item {
+  padding: 18px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 15px;
+
+  background-color: var(--main-white-color);
+}
+
+.iconMain {
+  width: 38px;
+  height: 38px;
+  color: var(--main-green-color);
+}
+
+.wrapperData {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.value {
+  font-size: 14px;
+  line-height: 1;
+  text-wrap: nowrap;
+  color: var(--main-black-gray-color);
+}
+
+.time {
+  font-size: 12px;
+  line-height: 1;
+  text-wrap: nowrap;
+  color: rgba(47, 47, 47, 0.6);
+}
+
+.wrapperBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btnEdit {
+}
+
+.btnDelete {
+}
+
+.btnIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--main-black-gray-color);
+}
+
+@media screen and (min-width: 768px) {
+  .item {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .iconMain {
+    width: 44px;
+    height: 46px;
+  }
+
+  .wrapperData {
+    gap: 0px;
+  }
+
+  .value {
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+
+  .time {
+    line-height: 1.86667;
+  }
+
+  .wrapperBtn {
+    gap: 14px;
+  }
+
+  .btnIcon {
+    width: 16px;
+    height: 16px;
+  }
+}

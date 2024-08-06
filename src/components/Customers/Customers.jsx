@@ -1,6 +1,6 @@
-import photo1 from '../../images/Advantages/photo1.png';
-import photo2 from '../../images/Advantages/photo2.png';
-import photo3 from '../../images/Advantages/photo3.png';
+import photo1 from '../../assets/img/Advantages/photo1.png';
+import photo2 from '../../assets/img/Advantages/photo2.png';
+import photo3 from '../../assets/img/Advantages/photo3.png';
 
 import styles from './Customers.module.css';
 

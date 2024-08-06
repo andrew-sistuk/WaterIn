@@ -1,15 +1,25 @@
-.container {
-  margin: 0 auto;
-  padding: 40px 20px 40px 20px;
-  border-radius: 30px;
-  max-width: 344px;
+.wrapper {
   display: flex;
   flex-direction: column;
+  gap: 40px;
+  padding: 40px 20px;
+  border-radius: 30px;
+  width: 100%;
 
   background-color: var(--main-gray-color);
 }
-.component {
-  margin: 149px 0px;
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    width: calc(50% - 16px);
+  }
 }
 @media screen and (min-width: 768px) {
   .container {

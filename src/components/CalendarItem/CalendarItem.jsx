@@ -26,7 +26,7 @@ const CalendarItem = ({ elem, parcentDate }) => {
   const getParcentForDate = (date, type = 'parcent') => {
     const yearCalendar = date.getUTCFullYear();
     const monthCalendar = date.getUTCMonth() + 1;
-    const dayCalendar = date.getUTCDate();
+    const dayCalendar = date.getUTCDate() + 1;
 
     const entry = parcentDate.find(item => {
       const createdAtDate = new Date(item.date);

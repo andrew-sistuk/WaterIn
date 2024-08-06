@@ -1,6 +1,10 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import css from './CalendarPagination.module.css';
+// import Icon from '../Icon/Icon';
+import Calendar from '../../assets/icons/calendar.svg?react';
+import CalendarHidden from '../../assets/icons/calendar-hidden.svg?react';
+import { useState } from 'react';
 
 const CalendarPagination = ({
   locale,
@@ -9,6 +13,8 @@ const CalendarPagination = ({
   monthData,
   toggleComponents,
 }) => {
+  const [iconHidden, setIconHidden] = useState(false);
+
   const translations = {
     uk: 'Місяць',
     en: 'Month',
@@ -23,6 +29,11 @@ const CalendarPagination = ({
   };
 
   const { monthName, year } = monthData;
+
+  const handleToggle = () => {
+    setIconHidden(!iconHidden);
+    toggleComponents();
+  };
 
   return (
     <div className={css.monthContainer}>
@@ -39,12 +50,11 @@ const CalendarPagination = ({
             <IoIosArrowForward className={css.reactIcon} />
           </button>
         </div>
+        <button onClick={handleToggle} className={css.scheduleButton}>
+          {iconHidden ? <Calendar /> : <CalendarHidden />}
+          {/* <Icon width={20} height={20} /> */}
+        </button>
       </div>
-      <button onClick={() => toggleComponents()} className={css.scheduleButton}>
-        <svg className={css.iconPagination}>
-          <use href="/src/img/icons/sprite.svg#icon1-calendar"></use>
-        </svg>
-      </button>
     </div>
   );
 };

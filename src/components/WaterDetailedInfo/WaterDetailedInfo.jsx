@@ -10,8 +10,14 @@ import css from './WaterDetailedInfo.module.css';
 const WaterDetailedInfo = () => {
   const dispatch = useDispatch();
 
+  const dateNow = new Date().getTime();
+
   useEffect(() => {
-    dispatch(fetchDates());
+    try {
+      dispatch(fetchDates(dateNow));
+    } catch (error) {
+      console.log(error);
+    }
   }, [dispatch]);
 
   return (

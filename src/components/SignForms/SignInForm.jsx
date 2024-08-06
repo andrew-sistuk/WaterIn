@@ -9,8 +9,16 @@ import * as yup from 'yup';
 import WelcomeSectionContainer from '../WelcomeSectionContainer/WelcomeSectionContainer';
 import { Link } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../redux/auth/operations';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 export default function SignInForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email format').required('Email is required'),
@@ -29,8 +37,16 @@ export default function SignInForm({ isMobile }) {
   });
 
   const onSubmit = data => {
+    dispatch(login(data));
     console.log(data);
   };
+
+  const logIn = useSelector(selectIsLoggedIn);
+  useEffect(() => {
+    if (logIn) {
+      navigate('/tracker');
+    }
+  }, [logIn, navigate]);
 
   return (
     <WelcomeSectionContainer isMobile={isMobile}>

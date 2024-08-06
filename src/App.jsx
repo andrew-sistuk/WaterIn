@@ -17,14 +17,11 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route
-          path="/tracker"
-          element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}
-        />
+        <Route path="/tracker" element={<PrivateRoute component={TrackerPage} redirectTo="/" />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<HomePage />} />
         {/* Інші маршрути */}
       </Routes>
     </Suspense>

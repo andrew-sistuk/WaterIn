@@ -23,6 +23,7 @@ const authSlice = createSlice({
       weight: null,
       waterRate: null,
       gender: null,
+      userId: null,
     },
     token: null,
     isLoggedIn: false,
@@ -44,9 +45,8 @@ const authSlice = createSlice({
       .addCase(login.pending, handlePending)
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload;
-        state.token = action.payload.accessToken;
-
+        state.user = action.payload.data.user.userId;
+        state.token = action.payload.data.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(login.rejected, handleRejected)

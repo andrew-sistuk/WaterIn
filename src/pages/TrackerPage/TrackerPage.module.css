@@ -1,0 +1,34 @@
+.wrapper {
+  margin: 0 auto;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 374px) {
+  .wrapper {
+    max-width: 343px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .wrapper {
+    width: 343px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 32px;
+    width: 704px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    width: 1440px;
+    flex-direction: row;
+    gap: 32px;
+  }
+}

@@ -1,15 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import svgSpritePlugin from 'vite-plugin-svg-sprite';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(),
-     svgSpritePlugin({
-      symbolId: 'icon-[name]', // Налаштуйте ідентифікатори символів
-    })
-  ],
+  plugins: [svgr({ include: '**/*.svg?react' }), react()],
   build: {
     sourcemap: true,
-  }
-})
+  },
+});

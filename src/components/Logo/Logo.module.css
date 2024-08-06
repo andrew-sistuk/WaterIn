@@ -1,32 +1,21 @@
 .logo {
-  color: var(--main-black-gray-color);
+  position: absolute;
   font-family: Poppins;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.11;
-
+  top: 24px;
+  left: 18px;
   text-transform: uppercase;
   text-decoration: none;
+  color: var(--main-black-gray-color);
 }
-.logoContainer {
-  text-align: left;
-  margin-bottom: 74px;
-}
-/* tablet */
+
 @media only screen and (min-width: 768px) {
   .logo {
+    top: 32px;
+    left: 32px;
     font-size: 24px;
     line-height: 1;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .logoContainer {
-    margin-bottom: 50px;
-  }
-}
-/* dekstop */
-@media only screen and (min-width: 1440px) {
-  .logoContainer {
-    margin-bottom: 132px;
   }
 }

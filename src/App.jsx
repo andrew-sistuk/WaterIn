@@ -1,4 +1,3 @@
-import './App.css';
 import 'modern-normalize';
 
 // add lazy
@@ -9,22 +8,20 @@ import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
 
-// example
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
+const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
-// const Calendar = lazy(() => import('./components/Calendar/Calendar'));
 
 function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        {/* <Route path="/" element={<Calendar />} /> */}
-        <Route
-          path="/tracker"
-          element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}
-        />
-        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/tracker" element={<PrivateRoute component={TrackerPage} redirectTo="/" />} />
+        <Route path="*" element={<NotFound />} />
         {/* Інші маршрути */}
       </Routes>
     </Suspense>

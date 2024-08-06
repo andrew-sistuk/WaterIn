@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// import photo1 from '../../assets/img/Advantages/photo1.png';
-// import photo2 from '../../assets/img/Advantages/photo2.png';
-// import photo3 from '../../assets/img/Advantages/photo3.png';
-
 import styles from './Customers.module.css';
 
 export default function Customers() {
-  // const photos = [{ src: photo1 }, { src: photo2 }, { src: photo3 }];
   const [userPhotos, setUserPhotos] = useState([]);
   const [userAmount, setUserAmount] = useState(0);
 
@@ -39,9 +34,10 @@ export default function Customers() {
             </li>
           ))}
         </ul>
+        <div className={styles.customersAmount}>+{userAmount}</div>
       </div>
       <p className={styles.customersText}>
-        Our <span className={styles.customersSpan}>{userAmount} happy</span> customers
+        Our <span className={styles.customersSpan}>happy</span> customers
       </p>
     </div>
   );

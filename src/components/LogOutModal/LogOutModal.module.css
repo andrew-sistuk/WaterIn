@@ -25,7 +25,7 @@
   width: 344px;
   height: 267px;
   margin: 0 auto;
-  padding: 20px 20px 40px 20px;
+  padding: 20px 20px 20px 20px;
   border-radius: 12px;
   background-color: var(--main-white-color);
   display: block;
@@ -33,27 +33,26 @@
   justify-content: center;
 }
 
-.closediv {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .closebtn {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
   border: none;
-  padding: 0px;
-  margin: 0px;
-  background-color: var(--main-white-color);
+  padding: 20px 20px 0px 0px;
+  background-color: transparent;
 }
 
 .iconclosebtn {
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px; 
   fill: var(--main-black-color);
+}
+
+.maincontent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
 }
 
 .title {
@@ -74,7 +73,7 @@
   color: var(--main-black-gray-color);
 }
 
-.divbtn {
+.btncontainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,26 +127,10 @@
   }
 }
 
-/*@media (max-width: 374px) {
-  .modal {
-    width: 90%;
-    max-width: 344px;
-  }*/
-
 @media screen and (min-width: 768px) {
   .modal {
     width: 516px;
     height: 244px;
-  }
-
-  .closebtn {
-    width: 28px;
-    height: 28px;
-  }
-
-  .iconclosebtn {
-    width: 14px;
-    height: 14px;
   }
 
   .title {
@@ -160,7 +143,7 @@
     line-height: 133%;
   }
 
-  .divbtn {
+  .btncontainer {
     flex-direction: row;
     gap: 10px;
   }
@@ -177,7 +160,7 @@
 }
 
 
-@media screen and (min-width: 1439.67px) {
+@media screen and (min-width: 1440px) {
   .modal {
     width: 516px;
     height: 244px;

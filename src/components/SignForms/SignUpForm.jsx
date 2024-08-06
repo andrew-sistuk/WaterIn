@@ -41,6 +41,7 @@ export default function SignUpForm() {
       <label className={css.label} htmlFor="email">
         Email:
       </label>
+
       <div className={css['box-pass']}>
         <input
           {...register('email')}
@@ -51,6 +52,7 @@ export default function SignUpForm() {
         />
         {errors.email && <p className={css.error}>{errors.email.message}</p>}
       </div>
+
       <label className={css.label} htmlFor="password">
         Password:
       </label>

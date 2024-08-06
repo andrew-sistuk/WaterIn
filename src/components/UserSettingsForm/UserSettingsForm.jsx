@@ -1,74 +1,148 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiUpload } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
+import MainButton from '../MainButton/MainButton';
 import * as Yup from 'yup';
 import css from './UserSettingsForm.module.css';
-// import { useState } from 'react';
+import clsx from 'clsx';
+import { selectUser } from '../../redux/auth/selectors.js';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
-export default function UserSettingsForm({ onClose, onUpdate }) {
-  // const [avatar, setAvatar] = useState(null);
+export default function UserSettingsForm() {
+  // const user = useSelector(selectUser);
 
-  // const onChangeAvatar = event => {
-  //   const avatarImg = event.target.files[0];
-  //   if (avatarImg) {
-  //     setAvatar(URL.createObjectURL(avatarImg));
-  //   }
-  // };
+  const user = {
+    _id: '66afc309b11d818541430639',
+    email: 'deidar@gmail.com',
+    name: 'Deidar',
+    photo: 'https://res.cloudinary.com/dqxbq53ls/image/upload/v1722796433/jngdxrfxafigmgez1wdr.jpg',
+    sportHours: 4,
+    weight: 44,
+    waterRate: 1500,
+    gender: 'man',
+  };
+
+  const [photo, setPhoto] = useState(user.photo);
+  const [name, setName] = useState(user.name);
+  const [gender, setGender] = useState(user.gender);
+  const [weight, setWeight] = useState(user.weight);
+  const [sportHours, setSportHours] = useState(user.sportHours);
+  const [waterRate, setWaterRate] = useState(user.waterRate / 1000);
+
+  const onChangeAvatar = event => {
+    const avatarImg = event.target.files[0];
+    if (avatarImg) {
+      setPhoto(URL.createObjectURL(avatarImg));
+    }
+  };
+
+  const handleSetGender = event => {
+    setGender(event.target.value);
+    console.log(event.target.value);
+  };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
+    name: Yup.string().required('Name is required').min(3).max(20),
     email: Yup.string().email('Invalid email').required('Email is required'),
-    weight: Yup.number().required('Weight is required').positive('Weight must be positive'),
-    activityTime: Yup.number()
+    weight: Yup.number()
+      .required('Weight is required')
+      .positive('Weight must be positive')
+      .min(40, 'Weight must be at least 40 kg')
+      .max(180, 'Weight must be at most 180 kg'),
+    sportHours: Yup.number()
       .required('Activity time is required')
-      .positive('Activity time must be positive'),
-    waterIntake: Yup.number()
+      .positive('Activity time must be positive')
+      .min(1, 'Activity time will be more 1 hour')
+      .max(8, 'Activity time will not be more 8 hour'),
+    waterRate: Yup.number()
       .required('Water intake is required')
-      .positive('Water intake must be positive'),
+      .positive('Water intake must be positive')
+      .min(1, 'Water intake will be more 1 L !'),
   });
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({ resolver: yupResolver(validationSchema) });
 
-  const onSubmit = async data => {
-    const formData = new FormData();
-    formData.append('avatar', data.avatar[0]);
-    formData.append('gender', data.gender);
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('weight', data.weight);
-    formData.append('activityTime', data.activityTime);
-    formData.append('waterIntake', data.waterIntake);
+  let intake = '';
 
-    try {
-      const response = await fetch('/tracker', {
-        method: 'POST',
-        body: formData,
-      });
+  useEffect(() => {
+    if (weight && sportHours && gender) {
+      const M = parseFloat(weight);
+      const T = parseFloat(sportHours);
 
-      if (!response.ok) {
-        // iziToast
+      // console.log(M);
+      // console.log(T);
+      // console.log(gender);
+
+      if (gender === 'woman') {
+        intake = (M * 0.03 + T * 0.4).toFixed(2);
+      } else if (gender === 'man') {
+        intake = (M * 0.04 + T * 0.6).toFixed(2);
       }
+      setWaterRate(intake);
+      setValue('waterIntake', intake);
 
-      const result = await response.json();
-
-      onUpdate(result);
-
-      // iziToast
-      onClose();
-    } catch (error) {
-      // iziToast
+      // console.log(intake);
     }
+  }, [weight, sportHours, gender, waterRate, setValue]);
+
+  const onSubmit = async data => {
+    const formData = {
+      _id: user._id,
+      email: user.email,
+      name: name,
+      photo: photo,
+      sportHours: sportHours,
+      weight: weight,
+      waterRate: waterRate,
+      gender: gender,
+    };
+    console.log(formData);
+
+    patchUser(formData);
+
+    // try {
+    //   const response = await fetch('/tracker', {
+    //     method: 'POST',
+    //     body: formData,
+    //   });
+
+    //   if (!response.ok) {
+    //     // iziToast
+    //   }
+
+    //   const result = await response.json();
+
+    //   onUpdate(result);
+
+    //   // iziToast
+    //   onClose();
+    // } catch (error) {
+    //   // iziToast
+    // }
   };
+
+  async function patchUser(data) {
+    try {
+      const result = await axios.patch(`https://waterin-server.onrender.com/users/${data._id}`, {
+        body: data,
+      });
+    } catch (err) {
+      console.log('Error while trying to patch user!');
+    }
+  }
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={css.avatar}>
-        <img className={css.avatarImg} src="" alt="avatar" />
-        <button className={css.avatarBtn} type="button">
+        <img className={css.avatarImg} src={photo} alt="photo" />
+        <button className={css.avatarBtn} onClick={onChangeAvatar} type="button">
           <FiUpload size={18} className={css.avatarSvg} />
           Upload a photo
         </button>
@@ -76,7 +150,7 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
           className={css.avatarInput}
           type="file"
           accept=".jpg,.jpeg,.png,.webp"
-          {...register('avatar')}
+          // {...register('photo')}
         />
       </div>
 
@@ -91,8 +165,9 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
                 type="radio"
                 value="woman"
                 name="genderRadio"
-                {...register('test')}
-                checked
+                checked={gender === 'woman'}
+                onChange={handleSetGender}
+                // {...register('test')}
               />
               <span className={css.labelText}>Woman</span>
               <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
@@ -108,7 +183,9 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
                 type="radio"
                 value="man"
                 name="genderRadio"
-                {...register('test')}
+                checked={gender === 'man'}
+                onChange={handleSetGender}
+                // {...register('test')}
               />
               <span className={css.labelText}>Man</span>
 
@@ -123,19 +200,31 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
         <div>
           <div className={css.name}>
             <label htmlFor="name">Your name</label>
-            <input
-              className={css.input}
-              id="name"
-              type="text"
-              // placeholder="User"
-              {...register('name')}
-            />
-            {errors.name && 'Enter the name correctly!'}
+            <div className={css['box-pass']}>
+              <input
+                className={clsx(css.input, css.inputName, errors.name && css['error-input'])}
+                id="name"
+                type="text"
+                autoComplete="off"
+                defaultValue={name}
+                onChange={event => setName(event.target.value)}
+                // {...register('name')}
+              />
+              {errors.name && <p className={css.errorMes}>Enter the name correctly!</p>}
+            </div>
           </div>
 
           <div className={css.email}>
             <label htmlFor="email">Email</label>
-            <input className={css.input} id="email" type="text" {...register('email')} />
+            <input
+              className={css.input}
+              id="email"
+              type="text"
+              autoComplete="off"
+              defaultValue={user.email}
+              disabled
+              // {...register('email')}
+            />
           </div>
 
           <div className={css.dailyNorma}>
@@ -164,44 +253,64 @@ export default function UserSettingsForm({ onClose, onUpdate }) {
         <div>
           <div className={css.weight}>
             <label htmlFor="weight">Your weight in kilograms:</label>
-            <input
-              className={css.input}
-              id="weight"
-              type="text"
-              placeholder="0"
-              {...register('weight')}
-            />
+            <div className={css['box-pass']}>
+              <input
+                className={clsx(css.input, css.inputName, errors.weight && css['error-input'])}
+                onChange={event => setWeight(event.target.value)}
+                id="weight"
+                type="text"
+                placeholder="0"
+                autoComplete="off"
+                defaultValue={weight}
+                // {...register('weight')}
+              />
+              {errors.weight && <p className={css.errorMes}>Enter the weight correctly!</p>}
+            </div>
           </div>
 
           <div className={css.activityTime}>
-            <label htmlFor="activityTime">The time of active participation in sports:</label>
-            <input
-              className={css.input}
-              id="activityTime"
-              type="text"
-              placeholder="0"
-              {...register('activityTime')}
-            />
+            <label htmlFor="sportHours">The time of active participation in sports:</label>
+            <div className={css['box-pass']}>
+              <input
+                className={clsx(css.input, css.inputName, errors.sportHours && css['error-input'])}
+                onChange={event => setSportHours(event.target.value)}
+                id="sportHours"
+                type="text"
+                placeholder="0"
+                autoComplete="off"
+                defaultValue={sportHours}
+                // {...register('sportHours')}
+              />
+              {errors.sportHours && (
+                <p className={css.errorMes}>Enter the time of activity correctly!</p>
+              )}
+            </div>
           </div>
 
           <div className={css.requiredWater}>
             <p>The required amount of water in liters per day:</p>
             <p className={css.water}>
-              <span>1.8</span>L
+              <span>{waterRate}</span>L
             </p>
           </div>
 
           <div className={css.waterIntake}>
-            <label htmlFor="waterIntake">Write down how much water you will drink:</label>
-            <input
-              className={css.input}
-              id="waterIntake"
-              type="text"
-              {...register('waterIntake')}
-            />
+            <label htmlFor="waterRate">Write down how much water you will drink:</label>
+            <div className={css['box-pass']}>
+              <input
+                className={clsx(css.input, css.inputName, errors.waterRate && css['error-input'])}
+                defaultValue={waterRate}
+                placeholder="1.8"
+                id="waterRate"
+                type="text"
+                // {...register('waterRate')}
+              />
+              {errors.waterRate && <p className={css.errorMes}>Water intake will be more 1 L !</p>}
+            </div>
           </div>
         </div>
       </div>
+      <MainButton className={css.saveBtn} onClick={onSubmit} type="submit" text="Save" />
     </form>
   );
 }

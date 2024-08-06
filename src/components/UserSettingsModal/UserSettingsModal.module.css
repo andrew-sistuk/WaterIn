@@ -3,7 +3,7 @@
   color: var(--main-black-gray-color);
   font-weight: 700;
   font-size: 20px;
-  line-height: 120%;
+  line-height: 1.2;
   padding-left: 20px;
   padding-top: 20px;
 }
@@ -11,23 +11,26 @@
   .wrapper {
     /* max-width: 343px; */
     width: 343px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }
 
 .closeBtn {
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
   position: absolute;
-  top: 26px;
-  right: 22px;
+  top: 20px;
+  right: 16px;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
 }
 
-.closeBtn:hover,
-.closeBtn:focus {
-  width: 18px;
-  height: 18px;
+.closeIconBtn {
+  width: 12px;
+  height: 12px;
 }
 
 /* =========================== Tablet styles ========================= */
@@ -35,18 +38,25 @@
 @media screen and (min-width: 768px) {
   .title {
     font-size: 28px;
-    line-height: 114%;
+    line-height: 1.14;
   }
 
   .closeBtn {
+    width: 28px;
+    height: 28px;
+    top: 40px;
+    right: 40px;
+  }
+
+  .closeIconBtn {
     width: 14px;
     height: 14px;
-    top: 47px;
-    right: 47px;
   }
 
   .wrapper {
     width: 648px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

@@ -9,8 +9,26 @@
   border: 1px solid rgba(47, 47, 47, 0.15);
   border-radius: 15px;
   padding: 14px;
+  outline: transparent;
   /* width: 303px; */
   height: 46px;
+  outline: none;
+}
+
+.input:hover,
+.input:focus {
+  border-color: rgba(47, 47, 47, 0.6);
+}
+
+/* .input:active {
+  border-color: rgba(47, 47, 47, 0.4);
+} */
+
+.input::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: rgba(47, 47, 47, 0.6);
 }
 
 @media screen and (max-width: 374px) {
@@ -45,7 +63,7 @@
   gap: 8px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
   border: none;
   background-color: var(--main-white-color);
@@ -67,7 +85,7 @@
   gap: 14px;
   font-weight: 700;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
   color: var(--main-black-gray-color);
   margin-bottom: 24px;
 }
@@ -82,7 +100,7 @@
   gap: 10px; */
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
 }
 
@@ -137,19 +155,45 @@
   gap: 8px;
   font-weight: 700;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
 
   color: var(--main-black-gray-color);
   margin-bottom: 14px;
 }
 
+.box-pass {
+  position: relative;
+}
+
+.inputName {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.error-input,
+.error-input:hover,
+.error-input:focus,
+.error-input::placeholder {
+  color: #ef5050;
+  border-color: #ef5050;
+}
+
+.errorMes {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 2;
+  color: #ef5050;
+}
 .email {
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-weight: 700;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
 
   color: var(--main-black-gray-color);
   margin-bottom: 24px;
@@ -165,7 +209,7 @@
 .dailyNormaTitle {
   font-weight: 700;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
   color: var(--main-black-gray-color);
 }
 
@@ -176,14 +220,14 @@
   gap: 12px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
 }
 
 .dailyNormaFormula {
   font-weight: 700;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-green-color);
   padding-top: 4px;
 }
@@ -191,7 +235,7 @@
 .dailyNormaText {
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: rgba(47, 47, 47, 0.6);
 
   border: 1px solid rgba(47, 47, 47, 0.15);
@@ -216,7 +260,7 @@
 .span {
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-green-color);
   padding-right: 4px;
 }
@@ -224,7 +268,7 @@
 .dailyNormaTextSpan {
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
 }
 
@@ -234,7 +278,7 @@
   gap: 8px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
   margin-bottom: 14px;
 }
@@ -245,7 +289,7 @@
   gap: 8px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
   margin-bottom: 24px;
 }
@@ -256,7 +300,7 @@
   gap: 5px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-black-color);
   margin-bottom: 14px;
 }
@@ -264,7 +308,7 @@
 .water {
   font-weight: 700;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.29;
   color: var(--main-green-color);
 }
 
@@ -274,11 +318,14 @@
   gap: 8px;
   font-weight: 700;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
   color: var(--main-black-gray-color);
   margin-bottom: 40px;
 }
 
+.saveBtn {
+  margin-bottom: 20px;
+}
 /* =========================== Tablet styles ========================= */
 
 @media screen and (min-width: 768px) {
@@ -298,7 +345,7 @@
   }
   .avatarBtn {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
   .avatarSvg {
     width: 20px;
@@ -307,42 +354,42 @@
 
   .gender {
     font-size: 18px;
-    line-height: 133%;
+    line-height: 1.33;
   }
   .genderRadio {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
     gap: 20px;
   }
 
   .name {
     font-size: 18px;
-    line-height: 133%;
+    line-height: 1.33;
   }
 
   .email {
     font-size: 18px;
-    line-height: 133%;
+    line-height: 1.33;
   }
 
   .dailyNormaTitle {
     font-size: 18px;
-    line-height: 133%;
+    line-height: 1.33;
   }
   .dailyNormaList {
     flex-direction: row;
     gap: 28px;
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
 
   .dailyNormaFormula {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
   .dailyNormaText {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
 
     padding: 16px;
     width: 568px;
@@ -351,33 +398,33 @@
 
   .dailyNormaTextSpan {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
   .weight {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
 
   .activityTime {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
 
   .requiredWater {
     flex-direction: row;
     gap: 5px;
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
   }
 
   .water {
     font-size: 15px;
-    line-height: 149%;
+    line-height: 1.49;
   }
 
   .waterIntake {
     font-size: 18px;
-    line-height: 133%;
+    line-height: 1.33;
   }
 }
 

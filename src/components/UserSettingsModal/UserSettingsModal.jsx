@@ -38,20 +38,20 @@ export default function UserSettingsModal() {
     setIsOpen(false);
   };
 
-  const handleUpdate = data => {
-    console.log(data);
-    closeModal();
-  };
+  // const handleUpdate = data => {
+  //   console.log(data);
+  //   closeModal();
+  // };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Modal">
+    <Modal isOpen={isOpen} style={customStyles} contentLabel="Modal">
       <div className={css.wrapper}>
         <h2 className={css.title}>Setting</h2>
-        <button type="button">
-          <IoIosClose className={css.closeBtn} />
+        <button className={css.closeBtn} onClick={closeModal} type="button">
+          <IoIosClose className={css.closeIconBtn} />
         </button>
 
-        <UserSettingsForm onClose={closeModal} onUpdate={handleUpdate} />
+        <UserSettingsForm onClose={closeModal} />
       </div>
     </Modal>
   );

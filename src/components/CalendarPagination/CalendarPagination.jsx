@@ -1,10 +1,9 @@
+import { useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
-import css from './CalendarPagination.module.css';
-// import Icon from '../Icon/Icon';
 import Calendar from '../../assets/icons/calendar.svg?react';
 import CalendarHidden from '../../assets/icons/calendar-hidden.svg?react';
-import { useState } from 'react';
+
+import css from './CalendarPagination.module.css';
 
 const CalendarPagination = ({
   locale,

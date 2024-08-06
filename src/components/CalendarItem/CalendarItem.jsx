@@ -1,13 +1,18 @@
 import { useDispatch } from 'react-redux';
 import { fetchDatesId } from '../../redux/dates/operations';
 
+import { selectItems } from '../../redux/dates/selectors';
+import { useSelector } from 'react-redux';
+
 import css from './CalendarItem.module.css';
 
-const CalendarItem = ({ elem, parcentDate }) => {
+const CalendarItem = ({ elem }) => {
   const dispatch = useDispatch();
 
+  const parcentDate = useSelector(selectItems);
+
   const handleClickDay = value => {
-    const date = new Date(value.times).getTime();
+    const date = new Date(value.times).getTime() + 43200000;
     dispatch(fetchDatesId(date));
 
     console.log('Запит на бек', date);

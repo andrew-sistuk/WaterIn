@@ -7,7 +7,6 @@ export const fetchDates = createAsyncThunk('dates/fetchDates/', async (dateMonth
   try {
     const response = await axios.get(`/water/month/${dateMonth}`);
 
-    console.log('responsDate', response.data.data.waterNotes);
     return response.data.data.waterNotes;
   } catch (error) {
     console.log('catch (error)', dateMonth);
@@ -16,11 +15,9 @@ export const fetchDates = createAsyncThunk('dates/fetchDates/', async (dateMonth
 });
 
 export const fetchDatesId = createAsyncThunk('dates/fetchDate', async (dateDay, thunkAPI) => {
-  console.log('fetchDatesId', dateDay, new Date(dateDay));
   try {
     const response = await axios.get(`/water/day/${dateDay}`);
 
-    console.log('Відповідь з бекенду', response.data.data);
     return response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

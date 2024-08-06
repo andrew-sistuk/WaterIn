@@ -58,6 +58,7 @@
   border: none;
   padding: 0;
   margin-left: 16px;
+  margin-right: 3px;
 }
 
 @media screen and (max-width: 330px) {

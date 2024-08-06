@@ -31,7 +31,7 @@ const MonthInfo = () => {
   };
 
   return (
-    <div className={css.container}>
+    <div>
       <h2 className={css.visuallyHidden}>Month info</h2>
       <CalendarPagination
         toggleComponents={toggleComponents}

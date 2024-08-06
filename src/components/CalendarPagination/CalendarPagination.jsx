@@ -50,11 +50,10 @@ const CalendarPagination = ({
             <IoIosArrowForward className={css.reactIcon} />
           </button>
         </div>
-        <button onClick={handleToggle} className={css.scheduleButton}>
-          {iconHidden ? <Calendar /> : <CalendarHidden />}
-          {/* <Icon width={20} height={20} /> */}
-        </button>
       </div>
+      <button onClick={handleToggle} className={css.scheduleButton}>
+        {iconHidden ? <Calendar /> : <CalendarHidden />}
+      </button>
     </div>
   );
 };

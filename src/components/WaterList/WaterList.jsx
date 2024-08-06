@@ -1,4 +1,6 @@
 import WaterItem from '../WaterItem/WaterItem';
+// import { useSelector } from 'react-redux';
+// import { selectItems } from '../../redux/dates/selectors';
 
 import css from './WaterList.module.css';
 
@@ -86,6 +88,9 @@ const arrs = [
 ];
 
 const WaterList = () => {
+  // const items = useSelector(selectItems);
+  // console.log(items);
+
   return (
     <ul className={css.list}>
       {arrs.map(arr => (

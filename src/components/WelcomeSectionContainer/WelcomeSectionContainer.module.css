@@ -2,12 +2,16 @@
   position: relative;
   background-color: var(--main-gray-color);
   border-radius: 30px;
-  max-width: 343px;
-  min-height: 411px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 16px;
+  min-height: 411px;
+}
+
+.isMobile {
+  height: 100%;
 }
 /* tablet */
 @media only screen and (min-width: 768px) {

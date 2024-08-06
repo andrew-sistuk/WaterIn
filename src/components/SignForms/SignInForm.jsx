@@ -9,7 +9,7 @@ import * as yup from 'yup';
 import WelcomeSectionContainer from '../WelcomeSectionContainer/WelcomeSectionContainer';
 import { Link } from 'react-router-dom';
 
-export default function SignInForm() {
+export default function SignInForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
 
   const schema = yup.object().shape({
@@ -33,7 +33,7 @@ export default function SignInForm() {
   };
 
   return (
-    <WelcomeSectionContainer>
+    <WelcomeSectionContainer isMobile={isMobile}>
       <form className={css['sign-form']} onSubmit={handleSubmit(onSubmit)} noValidate>
         <h2 className={css.header}>Sign In</h2>
         <label className={css.label} htmlFor="email">

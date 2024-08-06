@@ -9,7 +9,7 @@ import * as yup from 'yup';
 import WelcomeSectionContainer from '../WelcomeSectionContainer/WelcomeSectionContainer';
 import { Link } from 'react-router-dom';
 
-export default function SignUpForm() {
+export default function SignUpForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
   const [isPassRepOpen, setIsPassRepOpen] = useState(false);
 
@@ -38,7 +38,7 @@ export default function SignUpForm() {
   };
 
   return (
-    <WelcomeSectionContainer>
+    <WelcomeSectionContainer isMobile={isMobile}>
       <form className={css['sign-form']} onSubmit={handleSubmit(onSubmit)} noValidate>
         <h2 className={css.header}>Sign Up</h2>
         <label className={css.label} htmlFor="email">

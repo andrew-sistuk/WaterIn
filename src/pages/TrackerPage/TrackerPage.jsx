@@ -1,6 +1,7 @@
 import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
 import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
 import LogOutModal from '../../components/LogOutModal/LogOutModal';
+import DeleteEntryModal from '../../components/DeleteEntryModal/DeleteEntryModal';
 
 const TrackerPage = () => {
   return (
@@ -8,6 +9,7 @@ const TrackerPage = () => {
       <WaterMainInfo />
       <WaterDetailedInfo />
       <LogOutModal />
+      <DeleteEntryModal />
     </div>
   );
 };

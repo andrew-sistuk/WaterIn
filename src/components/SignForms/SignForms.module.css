@@ -1,7 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 436px;
+}
+
 .sign-form {
   display: flex;
-  width: 436px;
   flex-direction: column;
+  margin-bottom: 16px;
 }
 
 .header {
@@ -20,11 +26,13 @@
 }
 
 .input {
+  width: 100%;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   padding: 16px;
   border-radius: 15px;
+  margin-bottom: 16px;
   outline: transparent;
   border: 1px solid rgba(47, 47, 47, 0.2);
 }
@@ -43,16 +51,6 @@
 
 .box-pass {
   position: relative;
-}
-
-.email {
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.pass {
-  width: 100%;
-  margin-bottom: 16px;
 }
 
 .see-pass {
@@ -93,7 +91,7 @@
 
 .error {
   position: absolute;
-  top: 50px;
+  bottom: -5px;
   right: 0;
   font-size: 10px;
   font-weight: 400;
@@ -110,6 +108,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .sign-form {
+    margin-bottom: 12px;
+  }
+
   .header {
     font-size: 36px;
     line-height: 1.05;
@@ -120,18 +122,14 @@
     line-height: 1.5;
   }
 
+  .input {
+    margin-bottom: 20px;
+  }
+
   .input,
   .input::placeholder {
     font-size: 16px;
     line-height: 1.5;
-  }
-
-  .email {
-    margin-bottom: 20px;
-  }
-
-  .pass {
-    margin-bottom: 32px;
   }
 
   .see-pass {
@@ -147,7 +145,7 @@
 
   .error {
     font-size: 14px;
-    top: 60px;
+    bottom: -7px;
   }
 
   .icon {

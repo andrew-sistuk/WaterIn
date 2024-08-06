@@ -7,20 +7,18 @@ import NotFound from './components/NotFound/NotFound';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
-import SignInForm from './components/SignForms/SignInForm';
-import SignUpForm from './components/SignForms/SignUpForm';
 
-// example
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
+const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
-// const Calendar = lazy(() => import('./components/Calendar/Calendar'));
 
 function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/signin" element={<SignInForm />} />
-        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route
           path="/tracker"
           element={<PrivateRoute component={TrackerPage} redirectTo="/tracker" />}

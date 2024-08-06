@@ -1,15 +1,14 @@
-import styles from './HomePage.module.css';
-
+import WelcomeContainer from '../../components/WelcomeContainer/WelcomeContainer';
 import AdvantagesSection from '../../components/AdvantagesSection/AdvantagesSection';
 import WelcomeSection from '../../components/WelcomeSection/WelcomeSection';
 
 export default function HomePage() {
   return (
     <section className="container">
-      <div className={styles.container}>
+      <WelcomeContainer>
         <WelcomeSection />
         <AdvantagesSection />
-      </div>
+      </WelcomeContainer>
     </section>
   );
 }

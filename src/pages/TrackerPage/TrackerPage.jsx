@@ -1,16 +1,27 @@
 import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
 import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
+import WelcomeContainer from '../../components/WelcomeContainer/WelcomeContainer';
+import Message from '../../components/Message/Message';
 
 import css from './TrackerPage.module.css';
-import Message from '../../components/Message/Message';
 
 const TrackerPage = () => {
   return (
-    <div className={css.wrapper}>
-      <WaterMainInfo />
-      <WaterDetailedInfo />
-      <Message />
-    </div>
+    <section className="container">
+      <>
+        <WelcomeContainer>
+          <WaterMainInfo />
+          <WaterDetailedInfo />
+          <Message />
+        </WelcomeContainer>
+      </>
+    </section>
+
+    // <div className={css.wrapper}>
+    //   <WaterMainInfo />
+    //   <WaterDetailedInfo />
+    //   <Message />
+    // </div>
   );
 };
 

@@ -1,11 +1,11 @@
 //import React from 'react';
 import css from './LogOutModal.module.css';
 import { useState } from 'react';
-import { IoCloseOutline } from 'react-icons/io5';
+import { IoIosClose } from 'react-icons/io';
 
 const LogoutModal = ({ onCloseLogout, onLogout }) => {
   const [loading, setLoading] = useState(true);
-  
+
   const handleLogout = async () => {
     try {
       await onLogout();
@@ -19,42 +19,40 @@ const LogoutModal = ({ onCloseLogout, onLogout }) => {
   };
 
   return (
-      <div className={css.modalContent}>
-        <div className={css.closeDiv}>
-          <button
-            type="button"
-            value="close button"
-            className={css.btn}
-          onClick={onCloseLogout}
-          
-          >
-            <IoCloseOutline className={css.icon} style={{ width: '24px', height: '24px' }}/>
+    <div className={css.backdrop}>
+      <div className={css.modal}>
+        <div className={css.closediv}>
+          <button type="button" value="close button" className={css.closebtn} onClick={onCloseLogout}>
+            <IoIosClose className={css.iconclosebtn} />
           </button>
         </div>
         <div className={css.div}>
           <h2 className={css.title}>Log out</h2>
           <p className={css.text}>Do you really want to leave?</p>
-          
-          <div className={css.divBtn}>
-          <button
-            type="button"
-            value="logout button"
-            className={css.btnLog}
-            onClick={handleLogout}
-            disabled={loading}>
-            Logout
-          </button>
 
-          <button
-            type="button"
-            value="cancel button"
-            className={css.btnCancel}
-            onClick={onCloseLogout}>
-            Cancel
-          </button>
-        </div>
+          <div className={css.divbtn}>
+            <button
+              type="button"
+              value="logout button"
+              className={css.logoutbtn}
+              onClick={handleLogout}
+              disabled={loading}
+            >
+              Logout
+            </button>
+
+            <button
+              type="button"
+              value="cancel button"
+              className={css.cancelbtn}
+              onClick={onCloseLogout}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
+    </div>
   );
 };
 

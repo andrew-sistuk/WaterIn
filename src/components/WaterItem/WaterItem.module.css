@@ -1,13 +1,3 @@
-.item {
-  padding: 18px 14px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  border-radius: 15px;
-
-  background-color: var(--main-white-color);
-}
-
 .iconMain {
   width: 38px;
   height: 38px;
@@ -53,11 +43,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .item {
-    padding: 20px;
-    gap: 20px;
-  }
-
   .iconMain {
     width: 44px;
     height: 46px;

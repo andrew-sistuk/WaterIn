@@ -1,10 +1,9 @@
+import { useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
-import css from './CalendarPagination.module.css';
-// import Icon from '../Icon/Icon';
 import Calendar from '../../assets/icons/calendar.svg?react';
 import CalendarHidden from '../../assets/icons/calendar-hidden.svg?react';
-import { useState } from 'react';
+
+import css from './CalendarPagination.module.css';
 
 const CalendarPagination = ({
   locale,
@@ -50,11 +49,10 @@ const CalendarPagination = ({
             <IoIosArrowForward className={css.reactIcon} />
           </button>
         </div>
-        <button onClick={handleToggle} className={css.scheduleButton}>
-          {iconHidden ? <Calendar /> : <CalendarHidden />}
-          {/* <Icon width={20} height={20} /> */}
-        </button>
       </div>
+      <button onClick={handleToggle} className={css.scheduleButton}>
+        {iconHidden ? <Calendar /> : <CalendarHidden />}
+      </button>
     </div>
   );
 };

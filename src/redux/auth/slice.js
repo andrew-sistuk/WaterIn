@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout, refreshUser, logInWithGoogle } from '../auth/operations';
+
+import { register, login, logout, refreshUser, getUser, logInWithGoogle } from '../auth/operations';
 
 const handlePending = state => {
   state.error = null;
@@ -15,7 +16,14 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: {
-      userId: null,
+      name: null,
+      email: null,
+      id: null,
+      photo: null,
+      sportHours: null,
+      weight: null,
+      waterRate: null,
+      gender: null,
     },
     token: null,
     isLoggedIn: false,
@@ -35,7 +43,16 @@ const authSlice = createSlice({
       .addCase(register.pending, handlePending)
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload;
+        state.user = {
+          name: action.payload.data.name,
+          email: action.payload.data.email,
+          id: action.payload.data.userId,
+          photo: action.payload.data.photo,
+          sportHours: action.payload.data.sportHours,
+          weight: action.payload.data.weight,
+          waterRate: action.payload.data.waterRate,
+          gender: action.payload.data.gender,
+        };
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
@@ -44,8 +61,10 @@ const authSlice = createSlice({
       .addCase(login.pending, handlePending)
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.data.user.userId;
-        state.token = action.payload.data.accessToken;
+        state.user = {
+          id: action.payload.user.userId,
+        };
+        state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(login.rejected, handleRejected)
@@ -56,11 +75,34 @@ const authSlice = createSlice({
         state.user = {
           name: null,
           email: null,
+          id: null,
+          photo: null,
+          sportHours: null,
+          weight: null,
+          waterRate: null,
+          gender: null,
         };
-        state.token = null;
+        (state.token = null), state.isLoggedIn;
         state.isLoggedIn = false;
       })
       .addCase(logout.rejected, handleRejected)
+
+      .addCase(getUser.pending, handlePending)
+      .addCase(getUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = {
+          ...state.user,
+          name: action.payload.user.name,
+          email: action.payload.user.email,
+          id: action.payload.user._id,
+          photo: action.payload.user.photo,
+          sportHours: action.payload.user.sportHours,
+          weight: action.payload.user.weight,
+          waterRate: action.payload.user.waterRate,
+          gender: action.payload.user.gender,
+        };
+      })
+      .addCase(getUser.rejected, handleRejected)
 
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;

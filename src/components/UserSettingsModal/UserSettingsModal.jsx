@@ -28,7 +28,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 export default function UserSettingsModal() {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   // const openModal=()=> {
   //   setIsOpen(true);

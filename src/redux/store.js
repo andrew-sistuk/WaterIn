@@ -15,6 +15,7 @@ import authSlice from './auth/slice';
 import datesSlice from './dates/slice';
 import filtersSlice from './filters/slice';
 import waterNoteSlice from './waterNote/slice';
+import { setupAxiosInterceptors } from './auth/operations';
 
 const authPersistConfig = {
   key: 'auth',
@@ -39,5 +40,6 @@ const store = configureStore({
     }),
 });
 
+setupAxiosInterceptors(store);
 export const persistor = persistStore(store);
 export default store;

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout, refreshUser } from '../auth/operations';
+import { register, login, logout, refreshUser, logInWithGoogle } from '../auth/operations';
 
 const handlePending = state => {
   state.error = null;
@@ -22,6 +22,13 @@ const authSlice = createSlice({
     isRefreshing: false,
     loading: false,
     error: null,
+  },
+  reducers: {
+    setToken(state, action) {
+      state.token = action.payload.token;
+      state.refreshToken = action.payload.refreshToken;
+      state.isLoggedIn = true;
+    },
   },
   extraReducers: builder => {
     builder
@@ -67,8 +74,20 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.loading = false;
         state.error = action.payload;
+      })
+
+      .addCase(logInWithGoogle.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.refreshToken = action.payload.refreshToken;
+        state.isLoggedIn = true;
+      })
+      .addCase(logInWithGoogle.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });
+
+export const { setToken } = authSlice.actions;
 
 export default authSlice.reducer;

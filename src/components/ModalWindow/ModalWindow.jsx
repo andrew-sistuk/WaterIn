@@ -7,7 +7,8 @@ import { selectStateModal, selectTypeModal } from '../../redux/modal/selectors.j
 import { closeModal } from '../../redux/modal/slice.js';
 
 import css from './ModalWindow.module.css';
-import SettingModal from '../SettingModal/SettingModal.jsx';
+// import SettingModal from '../SettingModal/SettingModal.jsx';
+import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
 
 Modal.setAppElement('#root');
 
@@ -53,7 +54,7 @@ export default function ModalWindow({ onClose }) {
       >
         <IoIosClose className={css.closeIcon} />
       </button>
-      {modalType === 'logout' ? <LogOutModal /> : <SettingModal />}
+      {modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />}
     </Modal>
   );
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: 'https://waterin-server.onrender.com',
   withCredentials: true, // Додає cookie до кожного запиту
 });
@@ -28,6 +28,7 @@ export const login = createAsyncThunk('users/login', async (userInfo, thunkAPI) 
   try {
     const response = await api.post('/users/login', userInfo);
     setAuthHeader(response.data.data.accessToken);
+
     return response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -52,6 +53,20 @@ export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const patchUser = createAsyncThunk(
+  'users/patch',
+  async ({ testId, userPatch }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/users/${testId}`, userPatch);
+      setAuthHeader(response.data.data.accessToken);
+
+      return response.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const refreshUser = createAsyncThunk(
   'users/refresh',

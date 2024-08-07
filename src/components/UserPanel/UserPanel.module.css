@@ -1,0 +1,113 @@
+.userPanelContainer {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.userPanelBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--main-black-gray-color);
+  border: none;
+  border-radius: 30px;
+  padding: 6px 12px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.iconBtn {
+  width: 16px;
+  height: 16px;
+  stroke: var(--main-white-color);
+  transition: var(--animation);
+}
+
+.iconBtn.isOpen {
+  transform: rotate(180deg);
+}
+
+.title {
+  /* font-family: 'Gilroy', sans-serif; */
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--main-black-gray-color);
+  margin-bottom: 20px;
+}
+
+.firstUserName {
+  font-weight: 700;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: var(--main-white-color);
+}
+
+.userAvatarContainer {
+  width: 38px;
+  height: 38px;
+  background-color: var(--main-white-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userAvatarIcon {
+  width: 22px;
+  height: 22px;
+  fill: var(--main-black-gray-color);
+}
+
+.avatarImg {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .userPanelContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 41px;
+  }
+
+  .userPanelBtn {
+    gap: 10px;
+    border-radius: 30px;
+    height: 56px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.05556;
+    letter-spacing: -0.01em;
+    margin-bottom: 0;
+  }
+
+  .userName {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  .userAvatarContainer {
+    width: 44px;
+    height: 44px;
+  }
+
+  .userAvatarIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .iconBtn {
+    width: 20px;
+    height: 20px;
+  }
+}

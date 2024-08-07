@@ -14,7 +14,9 @@ import storage from 'redux-persist/lib/storage';
 import authSlice from './auth/slice';
 import datesSlice from './dates/slice';
 import filtersSlice from './filters/slice';
+import { modalReducer } from './modal/slice.js';
 import waterNoteSlice from './waterNote/slice';
+import daySlice from './day/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,7 +31,9 @@ const store = configureStore({
     dates: datesSlice,
     auth: authPersistReducer,
     filter: filtersSlice,
+    modal: modalReducer,
     waterNote: waterNoteSlice,
+    day: daySlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

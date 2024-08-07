@@ -44,7 +44,6 @@ export default function SignInForm({ isMobile }) {
         toast(error);
         console.log(error);
       });
-    console.log(data);
   };
 
   const logIn = useSelector(selectIsLoggedIn);

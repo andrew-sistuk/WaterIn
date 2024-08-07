@@ -1,0 +1,18 @@
+.container {
+  width: 252px;
+  height: 213px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 532px;
+    height: 207px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 588px;
+    height: 273px;
+  }
+}

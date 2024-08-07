@@ -100,11 +100,44 @@
     line-height: 1.5;
   }
 }
+ .customersImg{
+    width: 26.4px;
+    height: 28px;
+    border-radius: 50px;
+    border: 2px solid #FFFF;
+ }
 
 /* tablet */
 @media only screen and (min-width: 768px) {
   .customersImg {
     width: 47px;
     height: 47px;
+  }
+}
+.customersAmount{
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-black-gray-color);
+  font-size: 9px;
+  color: #FFFF;
+  border-radius: 30px;
+  z-index: 5;
+  position: absolute;
+  left: 65px;
+  bottom: 22px;
+  padding: 10px;
+}
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .customersAmount{ 
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  left: 100px;
+  bottom: 30px;
+  padding: 15px;
   }
 }

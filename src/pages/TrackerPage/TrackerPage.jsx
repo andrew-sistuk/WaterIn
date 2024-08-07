@@ -1,5 +1,6 @@
 import WaterMainInfo from '../../components/WaterMainInfo/WaterMainInfo';
 import WaterDetailedInfo from '../../components/WaterDetailedInfo/WaterDetailedInfo';
+import WelcomeContainer from '../../components/WelcomeContainer/WelcomeContainer';
 import Message from '../../components/Message/Message';
 
 import { useEffect } from 'react';
@@ -26,11 +27,15 @@ const TrackerPage = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className={css.wrapper}>
-          <WaterMainInfo />
-          <WaterDetailedInfo />
-          <Message />
-        </div>
+        <section className="container">
+          <>
+            <WelcomeContainer>
+              <WaterMainInfo />
+              <WaterDetailedInfo />
+              <Message />
+            </WelcomeContainer>
+          </>
+        </section>
       )}
     </>
   );

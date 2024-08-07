@@ -16,8 +16,10 @@ import datesSlice from './dates/slice';
 import filtersSlice from './filters/slice';
 import { modalReducer } from './modal/slice.js';
 import waterNoteSlice from './waterNote/slice';
+import { setupAxiosInterceptors } from './auth/operations';
 import daySlice from './day/slice';
 import changeDayReducer from './changeDay/changeDay.js';
+
 
 const authPersistConfig = {
   key: 'auth',
@@ -45,5 +47,6 @@ const store = configureStore({
     }),
 });
 
+setupAxiosInterceptors(store);
 export const persistor = persistStore(store);
 export default store;

@@ -5,14 +5,13 @@ const api = axios.create({
   baseURL: 'https://waterin-server.onrender.com',
   withCredentials: true, // Додає cookie до кожного запиту
 });
-// axios.defaults.baseURL = 'https://waterin-server.onrender.com';
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
-  axios.defaults.headers.common['Authorization'] = '';
+  api.defaults.headers.common['Authorization'] = '';
 };
 
 export const register = createAsyncThunk('users/register', async (newUser, thunkAPI) => {
@@ -46,8 +45,8 @@ export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
 
 export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   try {
-    const response = await api.get('/users', userId);
-    setAuthHeader(response.data.accessToken);
+    const response = await api.get(`/users/${userId}`);
+    setAuthHeader(response.data.data.accessToken);
     return response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

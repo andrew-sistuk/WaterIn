@@ -49,17 +49,27 @@ const UserPanel = () => {
 
   return (
     <div className={css.userPanelContainer}>
-      <h2 className={css.title}>
-        Hello<span className={css.firstUserName}>, Nadia!</span>
-      </h2>
-      {/* <h2 className={css.title}>
-        Hello<span className={css.firstUserName}>, {getFirstName(user.name)}!</span>
-      </h2> */}
+      {user.name ? (
+        <h2 className={css.title}>
+          Hello<span className={css.firstUserName}>, {getFirstName(user.name)}!</span>
+        </h2>
+      ) : (
+        <h2 className={css.title}>
+          Hello<span className={css.firstUserName}>, Test!</span>
+        </h2>
+      )}
       <button className={css.userPanelBtn} onClick={toggleMenu}>
-        <p className={css.userName}>Nadia</p>
+        {user.name ? (
+          <p className={css.userName}>{getFirstName(user.name)}</p>
+        ) : (
+          <p className={css.userName}>Test</p>
+        )}
         <div className={css.userAvatarContainer}>
-          <FaUser className={css.userAvatarIcon} />
-          {/* <img src={user.photo} alt="User Avatar" className={css.avatarImg} /> */}
+          {user.photo ? (
+            <img src={user.photo} alt="User Avatar" className={css.avatarImg} />
+          ) : (
+            <FaUser className={css.userAvatarIcon} />
+          )}
         </div>
         <IoChevronDown className={`${css.iconBtn} ${menuOpen ? css.isOpen : ''}`} />
       </button>

@@ -15,6 +15,7 @@ import authSlice from './auth/slice';
 import datesSlice from './dates/slice';
 import filtersSlice from './filters/slice';
 import waterNoteSlice from './waterNote/slice';
+import daySlice from './day/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -30,6 +31,7 @@ const store = configureStore({
     auth: authPersistReducer,
     filter: filtersSlice,
     waterNote: waterNoteSlice,
+    day: daySlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -4,7 +4,15 @@ import { selectItems } from '../../redux/dates/slice';
 import css from './Recharts.module.css';
 
 ('use client');
-import { AreaChart, Area, ResponsiveContainer, CartesianGrid } from 'recharts';
+import {
+  AreaChart,
+  Area,
+  ResponsiveContainer,
+  CartesianGrid,
+  // YAxis,
+  // XAxis,
+  Tooltip,
+} from 'recharts';
 
 const Recharts = () => {
   const dates = useSelector(selectItems);
@@ -15,8 +23,9 @@ const Recharts = () => {
         <AreaChart width={500} height={400} data={dates}>
           {/* <YAxis />
           <XAxis /> */}
+          <Tooltip />
 
-          <CartesianGrid strokeDasharray="0 0 " />
+          <CartesianGrid strokeDasharray="5 5 " />
           <Area dataKey="dayVolume" stroke="#323f47" fill="#9be1a0" />
         </AreaChart>
       </ResponsiveContainer>

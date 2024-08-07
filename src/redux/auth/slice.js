@@ -45,6 +45,9 @@ const authSlice = createSlice({
           waterRate: action.payload.data.waterRate,
           gender: action.payload.data.gender,
         };
+        console.log('====================================');
+        console.log(action.payload);
+        console.log('====================================');
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
@@ -84,14 +87,14 @@ const authSlice = createSlice({
         state.loading = false;
         state.user = {
           ...state.user,
-          name: action.payload.name,
-          email: action.payload.email,
-          id: action.payload._id,
-          photo: action.payload.photo,
-          sportHours: action.payload.sportHours,
-          weight: action.payload.weight,
-          waterRate: action.payload.waterRate,
-          gender: action.payload.gender,
+          name: action.payload.user.name,
+          email: action.payload.user.email,
+          id: action.payload.user._id,
+          photo: action.payload.user.photo,
+          sportHours: action.payload.user.sportHours,
+          weight: action.payload.user.weight,
+          waterRate: action.payload.user.waterRate,
+          gender: action.payload.user.gender,
         };
       })
       .addCase(getUser.rejected, handleRejected)

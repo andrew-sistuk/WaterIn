@@ -48,6 +48,7 @@ export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   try {
     const response = await api.get(`/users/${userId}`);
     setAuthHeader(response.data.data.accessToken);
+
     return response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -58,7 +59,7 @@ export const patchUser = createAsyncThunk(
   'users/patch',
   async ({ testId, userPatch }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/users/${testId}`, userPatch);
+      const response = await api.patch(`/users/${testId}`, userPatch);
       setAuthHeader(response.data.data.accessToken);
 
       return response.data.data;

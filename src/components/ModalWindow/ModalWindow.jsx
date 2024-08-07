@@ -3,6 +3,10 @@ import LogOutModal from '../LogOutModal/LogOutModal.jsx';
 import { IoIosClose } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 
+/////////////////////////////////
+// import { selectUser } from '../../redux/auth/selectors.js';
+////////////////////////////
+
 import { selectStateModal, selectTypeModal } from '../../redux/modal/selectors.js';
 import { closeModal } from '../../redux/modal/slice.js';
 
@@ -29,6 +33,13 @@ const modalStyles = {
 };
 
 export default function ModalWindow({ onClose }) {
+  ///////////////////////////////
+  // const testUser = useSelector(selectUser);
+
+  // console.log('testUser', testUser.id);
+
+  ////////////////////////////
+
   const dispatch = useDispatch();
   const isOpen = useSelector(selectStateModal);
   const modalType = useSelector(selectTypeModal);

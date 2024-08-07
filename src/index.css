@@ -2,8 +2,11 @@
   --main-black-color: #2f2f2f;
   --main-black-gray-color: #323f47;
   --main-green-color: #9be1a0;
+  --main-green-color-active: #87d28d;
   --main-gray-color: #f0eff4;
   --main-white-color: #ffffff;
+
+  --animation: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-color: var(--main-white-color);
   color: var(--main-black-gray-color);

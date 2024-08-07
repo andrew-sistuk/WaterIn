@@ -18,7 +18,8 @@
 
 @media screen and (min-width: 1440px) {
   .wrapper {
-    width: calc(50% - 16px);
+    /* width: calc((100% - 32px) / 2); */
+    width: 672px;
   }
 }
 @media screen and (min-width: 768px) {

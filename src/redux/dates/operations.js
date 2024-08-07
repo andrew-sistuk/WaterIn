@@ -14,16 +14,6 @@ export const fetchDates = createAsyncThunk('dates/fetchDates/', async (dateMonth
   }
 });
 
-// export const fetchDatesId = createAsyncThunk('dates/fetchDate', async (dateDay, thunkAPI) => {
-//   try {
-//     const response = await axios.get(`/water/day/${dateDay}`);
-
-//     return response.data.data;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error.message);
-//   }
-// });
-
 export const addDate = createAsyncThunk('datres/addDates', async (newDates, thunkAPI) => {
   try {
     const response = await axios.post('/dates', newDates);

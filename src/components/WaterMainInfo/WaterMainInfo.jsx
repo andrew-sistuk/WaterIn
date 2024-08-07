@@ -2,6 +2,7 @@ import WaterDailyNorma from '../WaterDailyNorma/WaterDailyNorma';
 import WaterProgressBar from '../WaterProgressBar/WaterProgressBar';
 import MainButton from '../MainButton/MainButton';
 // import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
+import { FiPlus } from "react-icons/fi";
 
 import css from './WaterMainInfo.module.css';
 
@@ -20,9 +21,7 @@ const WaterMainInfo = () => {
           text="Add water"
           onClick={() => alert('Add water Button clicked!')}
           icon={
-            <svg width={20} height={20} className={css.icon}>
-              <use href="/src/img/icons/sprite.svg#icon-plus"></use>
-            </svg>
+            <FiPlus />
           }
         />
       </div>

@@ -25,7 +25,8 @@ const datesSlice = createSlice({
     builder
       .addCase(fetchDates.pending, handlePending)
       .addCase(fetchDates.fulfilled, (state, action) => {
-        (state.loading = false), (state.items = action.payload);
+        state.loading = false;
+        state.items = action.payload;
       })
       .addCase(fetchDates.rejected, handleRejected)
 

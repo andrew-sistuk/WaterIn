@@ -1,7 +1,6 @@
 .monthContainer {
   display: flex;
   margin-bottom: 24px;
-  /* align-items: center; */
 }
 
 .title {
@@ -49,7 +48,7 @@
   line-height: 18px;
   letter-spacing: -0.01em;
   text-align: center;
-  min-width: 92px;
+  min-width: 120px;
 }
 
 .scheduleButton {
@@ -58,7 +57,14 @@
   background: none;
   border: none;
   padding: 0;
-  margin: 0;
+  margin-left: 16px;
+  margin-right: 3px;
+}
+
+@media screen and (max-width: 330px) {
+  .scheduleButton {
+    margin-left: auto;
+  }
 }
 
 .iconPagination {
@@ -74,7 +80,7 @@
   .paginationText {
     font-size: 16px;
     line-height: 24px;
-    min-width: 92px;
+    min-width: 136px;
   }
 
   .iconPagination {
@@ -88,5 +94,8 @@
 
   .switchMonth {
     gap: 20px;
+  }
+  .scheduleButton {
+    margin-left: 20px;
   }
 }

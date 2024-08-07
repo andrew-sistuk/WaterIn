@@ -1,0 +1,27 @@
+.btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  width: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  border: transparent;
+  background: var(--main-white-color);
+  color: var(--main-black-gray-color);
+  display: flex;
+  justify-content: center;
+}
+
+.btn:hover,
+.btn:focus {
+  background: rgb(251, 251, 251);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+}

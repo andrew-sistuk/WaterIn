@@ -6,9 +6,10 @@ import MainButton from '../MainButton/MainButton';
 import * as Yup from 'yup';
 import css from './UserSettingsForm.module.css';
 import clsx from 'clsx';
-import { selectUser } from '../../redux/auth/selectors.js';
-import { useSelector } from 'react-redux';
+// import { selectUser } from '../../redux/auth/selectors.js';
+// import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
 
 export default function UserSettingsForm() {
   // const user = useSelector(selectUser);
@@ -40,7 +41,7 @@ export default function UserSettingsForm() {
 
   const handleSetGender = event => {
     setGender(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   const validationSchema = Yup.object().shape({
@@ -63,7 +64,7 @@ export default function UserSettingsForm() {
   });
 
   const {
-    register,
+    // register,
     handleSubmit,
     setValue,
     formState: { errors },
@@ -104,35 +105,39 @@ export default function UserSettingsForm() {
       gender: gender,
     };
     console.log(formData);
+    console.log(data);
 
     patchUser(formData);
-
-    // try {
-    //   const response = await fetch('/tracker', {
-    //     method: 'POST',
-    //     body: formData,
-    //   });
-
-    //   if (!response.ok) {
-    //     // iziToast
-    //   }
-
-    //   const result = await response.json();
-
-    //   onUpdate(result);
-
-    //   // iziToast
-    //   onClose();
-    // } catch (error) {
-    //   // iziToast
-    // }
   };
+
+  // try {
+  //   const response = await fetch('/tracker', {
+  //     method: 'POST',
+  //     body: formData,
+  //   });
+
+  //   if (!response.ok) {
+  //     // iziToast
+  //   }
+
+  //   const result = await response.json();
+
+  //   onUpdate(result);
+
+  //   // iziToast
+  //   onClose();
+  // } catch (error) {
+  //   // iziToast
+  // }
 
   async function patchUser(data) {
     try {
       const result = await axios.patch(`https://waterin-server.onrender.com/users/${data._id}`, {
         body: data,
       });
+      console.log(result);
+
+      // return result
     } catch (err) {
       console.log('Error while trying to patch user!');
     }
@@ -311,6 +316,7 @@ export default function UserSettingsForm() {
         </div>
       </div>
       <MainButton className={css.saveBtn} onClick={onSubmit} type="submit" text="Save" />
+      <ToastContainer />
     </form>
   );
 }

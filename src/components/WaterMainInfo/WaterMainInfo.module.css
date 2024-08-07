@@ -30,13 +30,20 @@
 
     background-image: url('/src/img/tracker-tablet.png');
   }
+  .logo {
+    margin-bottom: 78px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .wrapper {
-    width: calc(100% - 16px);
+    /* width: calc((100% - 32px) / 2); */
+    width: 672px;
 
     background-image: url('/src/img/tracker-desktop.png');
+  }
+  .logo {
+    margin-bottom: 100px;
   }
 }
 
@@ -63,4 +70,8 @@
   .wrapper {
     background-image: url('/src/img/tracker-desktop2x.png');
   }
+}
+
+.btn {
+  margin-left: auto;
 }

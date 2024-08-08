@@ -14,10 +14,8 @@ const WaterMainInfo = () => {
       <WaterDailyNorma />
       <WaterProgressBar />
       {/* Замінити компонент */}
-
       <div className={css.btn}>
         <MainButton
-          // className={css.btn}
           text="Add water"
           onClick={() => alert('Add water Button clicked!')}
           icon={

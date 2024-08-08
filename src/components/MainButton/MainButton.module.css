@@ -1,0 +1,178 @@
+.button {
+  border-radius: 40px;
+  padding: 18px 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  width: 140px;
+  height: 60px;
+}
+
+
+.button.save {
+  color: #323F47;
+  background-color: #9BE1A0;
+}
+
+
+.button.trytracker {
+  color: #323F47;
+  background-color: #9BE1A0;
+}
+
+.button:hover{
+  background-color: #87D28D;
+}
+
+.button.addwater {
+  color: #FFFFFF;
+  background-color: #323F47;
+}
+
+.button.cancel {
+  color: #323F47;
+  background-color: #F0EFF4;
+}
+
+.button.delete {
+  color: #323F47;
+  background-color: #9BE1A0;
+}
+
+.button .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9BE1A0;
+  color: #323F47;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button .icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #323F47;
+  transition: fill 0.3s;
+}
+
+.button.addwater .icon {
+  color: #FFFFFF;
+  background-color: #323F47;
+}
+
+.button.addwater:hover  {
+  color: #9BE1A0;
+}
+.button.addwater:hover .icon {
+  color: #9BE1A0;
+}
+
+.button.addwater:hover .icon {
+  background-color: #323F47;
+}
+
+.button.addwater.iconOnly {
+  padding: 18px;
+  width: auto; 
+  background-color: transparent; 
+}
+
+.button.addwater.iconOnly .icon {
+  background-color: #323F47; 
+  color: #FFFFFF; 
+}
+
+.button.addwater.iconOnly:hover .icon {
+  background-color: #9BE1A0; 
+  color: #323F47; 
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+  .button.addwater {
+    width: 140px;
+    height: 46px;
+  }
+
+  .button.save, .button.trytracker {
+    width: 116px;
+    height: 46px;
+  }
+
+  .button.delete, .button.cancel {
+    width: 304px;
+    height: 46px;
+  }
+
+  .button.addwater .icon {
+    margin-right: 5px;
+  }
+
+  .button.addwater.iconOnly .icon {
+    width: 40px; 
+    height: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: 141px;
+    height: 60px;
+    font-size: 16px;
+    padding: 18px 50px;
+  }
+
+  .button.save {
+    height: 56px;
+  }
+
+  .button.addwater {
+    width: 178px;
+    height: 60px;
+  }
+  .button.trytracker {
+    width: 169px;
+    height: 60px;
+  }
+  .button.cancel, .button.delete {
+    width: 170px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .button {
+    width: 200px;
+    height: 70px;
+    font-size: 18px;
+    padding: 20px 60px;
+  }
+
+  .button.save {
+    width: 141px;
+    height: 60px;
+  }
+
+  .button.trytracker {
+    width: 169px;
+    height: 60px;
+  }
+
+  .button.cancel, .button.delete {
+    width: 170px;
+    height: 60px;
+  }
+}
+

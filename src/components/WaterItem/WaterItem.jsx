@@ -1,15 +1,13 @@
 import { FiEdit2 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Cap from '../../assets/icons/water-glass.svg?react';
-import WaterModal from '../../WaterModal/WaterModal';
+import WaterModal from '../WaterModal/WaterModal';
 
 // import WaterModal
 // import DeleteWaterModal
 
 import css from './WaterItem.module.css';
 import { useState } from 'react';
-
-
 
 const WaterItem = ({ data }) => {
   const { userId, volume, drinkTime } = data;

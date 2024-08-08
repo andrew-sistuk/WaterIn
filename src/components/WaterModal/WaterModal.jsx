@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import styles from './WaterModal.module.css';
-import MainButton from '../components/MainButton/MainButton';
+import MainButton from '../MainButton/MainButton';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
@@ -79,7 +79,9 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
           <div className={styles.formGroup}>
-            <label htmlFor="volume">Amount of water:</label>
+            <label htmlFor="volume" className={styles.formLabel}>
+              Amount of water:
+            </label>
             <div className={styles.amountControl}>
               <button type="button" onClick={handleDecrease}>
                 <FiMinus />
@@ -94,10 +96,12 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
               control={control}
               render={({ field }) => <input type="hidden" {...field} value={volume} />}
             />
-            {errors.volume && <p>{errors.volume.message}</p>}
+            {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="drinkTime">Recording time:</label>
+            <label htmlFor="drinkTime" className={styles.formLabel}>
+              Recording time:
+            </label>
             <Controller
               name="drinkTime"
               control={control}
@@ -114,7 +118,7 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
                 />
               )}
             />
-            {errors.drinkTime && <p>{errors.drinkTime.message}</p>}
+            {errors.drinkTime && <p className={styles.errorMessage}>{errors.drinkTime.message}</p>}
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="volume">Enter the value of the water used:</label>
@@ -136,7 +140,7 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
                 />
               )}
             />
-            {errors.volume && <p>{errors.volume.message}</p>}
+            {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
           </div>
           <MainButton text="Save" disabled={isLoading} />
         </form>

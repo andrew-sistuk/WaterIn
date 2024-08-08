@@ -1,48 +1,47 @@
-//import React from 'react';
-import css from './DeleteEntryModal.module.css';
-import { useState } from 'react';
-import { IoIosClose } from 'react-icons/io';
-
 import { useDispatch } from 'react-redux';
-//import { deleteEntry } from '../../';
+import { useState } from 'react';
+import { closeModal } from '../../redux/modal/slice.js';
+import { deleteWaterNote } from '../../redux/waterNote/operations.js';
 
-const DeleteEntryModal = ({ deleteRecordId, onClose }) => {
+import css from './DeleteEntryModal.module.css';
+
+const DeleteEntryModal = ({ entryId, token, onClose }) => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handleDeleteClick = async () => {
     setLoading(true);
     try {
-      dispatch(deleteEntry(deleteRecordId));
+      await dispatch(deleteWaterNote({ data: { _id: entryId }, token }));
     } catch (error) {
-      console.error("Error deleting entry", error);
+      console.error("Error deleting entry:", error);
     } finally {
       setLoading(false);
       onClose();
+      dispatch(closeModal());
     }
   };
 
   return (
-    <div className={css.backdrop}>
-      <div className={css.modal}>
-        <button type="button" className={css.closebtn} onClick={onClose}>
-          <IoIosClose className={css.iconclosebtn} />
+    <div className={css.modalContent}>
+      <div className={css.textContainer}>
+        <h2 className={css.title}>Delete entry</h2>
+        <p className={css.text}>Are you sure you want to delete the entry?</p>
+      </div>
+      <div className={css.buttonContainer}>
+        <button
+          className={css.deleteButton}
+          onClick={handleDeleteClick}
+          disabled={loading}
+        >
+          Delete
         </button>
-
-        <div className={css.maincontent}>
-          <h2 className={css.title}>Delete entry</h2>
-          <p className={css.text}>Are you sure you want to delete the entry?</p>
-
-          <div className={css.btncontainer}>
-            <button type="button" className={css.deletebtn} onClick={handleDeleteClick} disabled={loading}>
-              Delete
-            </button>
-
-            <button type="button" className={css.cancelbtn} onClick={onClose}>
-              Cancel
-            </button>
-          </div>
-        </div>
+        <button
+          className={css.cancelButton}
+          onClick={onClose}
+        >
+          Cancel
+        </button>
       </div>
     </div>
   );

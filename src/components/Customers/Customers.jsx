@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import photo1 from '../../assets/img/Advantages/photo1@2x.jpg';
+import photo2 from '../../assets/img/Advantages/photo2@2x.jpg';
+import photo3 from '../../assets/img/Advantages/photo3@2x.jpg';
 
 import styles from './Customers.module.css';
 
@@ -10,11 +13,12 @@ export default function Customers() {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await axios.get('https://waterin-server.onrender.com/users/count');
+        const response = await axios.get('https://waterin-server.onrender.com/users/count1');
         setUserAmount(response.data.data.count);
         setUserPhotos(response.data.data.photos);
       } catch (error) {
         console.error('Error fetching photos:', error);
+        setUserPhotos([photo1, photo2, photo3]);
       }
     };
 
@@ -34,7 +38,7 @@ export default function Customers() {
             </li>
           ))}
         </ul>
-        <div className={styles.customersAmount}>+{userAmount}</div>
+        {userAmount > 0 && <div className={styles.customersAmount}>+{userAmount}</div>}
       </div>
       <p className={styles.customersText}>
         Our <span className={styles.customersSpan}>happy</span> customers

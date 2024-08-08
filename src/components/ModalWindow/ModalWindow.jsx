@@ -65,7 +65,7 @@ export default function ModalWindow({ onClose }) {
       >
         <IoIosClose className={css.closeIcon} />
       </button>
-      {/* {modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />} */}
+      {modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />}
     </Modal>
   );
 }

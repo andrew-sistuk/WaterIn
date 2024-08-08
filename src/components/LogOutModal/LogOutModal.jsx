@@ -1,59 +1,39 @@
-//import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/auth/operations.js';
+import { closeModal } from '../../redux/modal/slice.js';
+
 import css from './LogOutModal.module.css';
-import { useState } from 'react';
-import { IoIosClose } from 'react-icons/io';
 
-const LogoutModal = ({ onCloseLogout, onLogout }) => {
-  const [loading, setLoading] = useState(true);
-
-  const handleLogout = async () => {
-    try {
-      await onLogout();
-    } catch (error) {
-      console.error('Logout failed', error);
-    } finally {
-      setTimeout(() => {
-        onCloseLogout();
-      }, 500);
-    }
-  };
+const LogOutModal = () => {
+  const dispatch = useDispatch();
 
   return (
-    <div className={css.backdrop}>
-      <div className={css.modal}>
-        <div className={css.closediv}>
-          <button type="button" value="close button" className={css.closebtn} onClick={onCloseLogout}>
-            <IoIosClose className={css.iconclosebtn} />
-          </button>
-        </div>
-        <div className={css.div}>
-          <h2 className={css.title}>Log out</h2>
-          <p className={css.text}>Do you really want to leave?</p>
-
-          <div className={css.divbtn}>
-            <button
-              type="button"
-              value="logout button"
-              className={css.logoutbtn}
-              onClick={handleLogout}
-              disabled={loading}
-            >
-              Logout
-            </button>
-
-            <button
-              type="button"
-              value="cancel button"
-              className={css.cancelbtn}
-              onClick={onCloseLogout}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+    <div className={css.modalContent}>
+      <div className={css.textContainer}>
+        <h2 className={css.title}>Log out</h2>
+        <p className={css.text}>Do you really want to leave?</p>
+      </div>
+      <div className={css.buttonContainer}>
+        <button
+          className={css.logoutButton}
+          onClick={() => {
+            dispatch(logout());
+            dispatch(closeModal());
+          }}
+        >
+          Log out
+        </button>
+        <button
+          className={css.cancelButton}
+          onClick={() => {
+            dispatch(closeModal());
+          }}
+        >
+          Cancel
+        </button>
       </div>
     </div>
   );
 };
 
-export default LogoutModal;
+export default LogOutModal;

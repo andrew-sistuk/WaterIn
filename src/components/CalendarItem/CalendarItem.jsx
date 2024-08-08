@@ -1,18 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { fetchDatesId } from '../../redux/dates/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDatesId } from '../../redux/day/operations';
 
 import css from './CalendarItem.module.css';
+import { selectItems } from '../../redux/dates/selectors';
 
-const CalendarItem = ({ elem, parcentDate }) => {
+import { addDay } from '../../redux/changeDay/changeDay';
+
+const CalendarItem = ({ elem }) => {
   const dispatch = useDispatch();
 
+  const parcentDate = useSelector(selectItems);
+
   const handleClickDay = value => {
-    const dateId = getParcentForDate(new Date(elem.times), 'id');
-    const date = new Date(value.times).getTime();
-    if (dateId) {
-      dispatch(fetchDatesId(dateId));
-    }
-    console.log('Запит на бек', date, dateId);
+    const date = new Date(value.times).getTime() + 43200000;
+    dispatch(fetchDatesId(date));
+    dispatch(addDay(value.times));
   };
 
   const today = new Date();
@@ -26,22 +28,23 @@ const CalendarItem = ({ elem, parcentDate }) => {
   };
 
   const getParcentForDate = (date, type = 'parcent') => {
-    const yearCalendar = date.getUTCFullYear();
-    const monthCalendar = date.getUTCMonth() + 1;
-    const dayCalendar = date.getUTCDate();
+    const yearCalendar = date.getFullYear();
+    const monthCalendar = date.getMonth() + 1;
+    const dayCalendar = date.getDate();
 
     const entry = parcentDate.find(item => {
-      const createdAtDate = new Date(item.createdAt);
+      const createdAtDate = new Date(item.date);
+
       return (
-        createdAtDate.getUTCFullYear() === yearCalendar &&
-        createdAtDate.getUTCMonth() + 1 === monthCalendar &&
-        createdAtDate.getUTCDate() === dayCalendar
+        createdAtDate.getFullYear() === yearCalendar &&
+        createdAtDate.getMonth() + 1 === monthCalendar &&
+        createdAtDate.getDate() === dayCalendar
       );
     });
 
     if (entry) {
       if (type === 'parcent') {
-        return `${entry.parcent}%`;
+        return `${entry.percent}%`;
       } else if (type === 'id') {
         return entry.id;
       }

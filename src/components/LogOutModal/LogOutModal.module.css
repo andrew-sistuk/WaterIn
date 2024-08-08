@@ -1,185 +1,102 @@
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999999999;
-  width: 100%;
-  height: 100%;
-  /*opacity: 0;
-  visibility: hidden;*/
-  /*pointer-events: none;*/
-  background-color: rgba(46, 47, 66, 0.4);
+.modalContent {
+  background: var(--main-white-color);
+  padding: 40px 20px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 375px;
+  min-width: 320px;
 }
 
-.backdrop.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 344px;
-  height: 267px;
-  margin: 0 auto;
-  padding: 20px 20px 40px 20px;
-  border-radius: 12px;
-  background-color: var(--main-white-color);
-  display: block;
-  align-items: center;
-  justify-content: center;
-}
-
-.closediv {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.closebtn {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 0px;
-  margin: 0px;
-  background-color: var(--main-white-color);
-}
-
-.iconclosebtn {
-  width: 12px;
-  height: 12px;
-  fill: var(--main-black-color);
+.textContainer {
+  margin-bottom: 28px;
 }
 
 .title {
-  font-weight: 700;
   font-size: 20px;
-  line-height: 120%;
+  line-height: 1.2;
   letter-spacing: -0.01em;
-  text-align: center;
-  color: var(--main-black-gray-color);
+  margin-bottom: 16px;
 }
 
 .text {
-  margin: 16px 0 28px 0;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.28571;
   letter-spacing: -0.01em;
-  text-align: center;
-  color: var(--main-black-gray-color);
 }
 
-.divbtn {
+.buttonContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 9px;
 }
 
-.logoutbtn {
+.logoutButton {
+  width: 100%;
   font-weight: 700;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.28;
   letter-spacing: -0.01em;
-  text-align: center;
-  color: var(--main-black-gray-color);
   border: none;
   border-radius: 30px;
-  width: 100%;
-  height: 46px;
+  padding: 14px;
+  color: var(--main-black-color);
   background-color: var(--main-green-color);
+  transition: background-color var(--animation);
 }
 
-.logoutbtn:hover,
-.logoutbtn:focus {
-  background-color: #87d28d;
+.logoutButton:hover,
+.logoutButton:active {
+  background-color: var(--main-green-color-active);
 }
 
-.cancelbtn {
+.cancelButton {
+  width: 100%;
   font-weight: 700;
   font-size: 14px;
-  line-height: 129%;
+  line-height: 1.28;
   letter-spacing: -0.01em;
-  text-align: center;
   border: none;
   border-radius: 30px;
-  width: 100%;
-  height: 46px;
-  color: var(--main-black-gray-color);
-  opacity: 0.3;
+  padding: 14px;
+  color: rgba(50, 63, 71, 0.3);
   background-color: var(--main-gray-color);
+  transition: color var(--animation);
 }
 
-.cancelbtn:hover,
-.cancelbtn:focus {
-  opacity: 1;
+.cancelButton:hover {
+  color: var(--main-black-color);
 }
-
-
-@media screen and (max-width: 374px){
-  .modal {
-    max-width: 100%;
-  }
-}
-
-/*@media (max-width: 374px) {
-  .modal {
-    width: 90%;
-    max-width: 344px;
-  }*/
 
 @media screen and (min-width: 768px) {
-  .modal {
+  .modalContent {
     width: 516px;
-    height: 244px;
-  }
-
-  .closebtn {
-    width: 28px;
-    height: 28px;
-  }
-
-  .iconclosebtn {
-    width: 14px;
-    height: 14px;
+    max-width: 516px;
+    padding: 40px 78px;
   }
 
   .title {
+    margin-bottom: 24px;
     font-size: 28px;
-    line-height: 114%;
+    line-height: 1.14;
   }
 
   .text {
     font-size: 18px;
-    line-height: 133%;
+    margin-bottom: 24px;
+    line-height: 1.33;
   }
 
-  .divbtn {
+  .buttonContainer {
     flex-direction: row;
     gap: 10px;
   }
 
-  .logoutbtn {
-    width: 173px;
-    height: 60px;
-  }
-
-  .cancelbtn {
-    width: 176px;
-    height: 60px;
-  }
-}
-
-
-@media screen and (min-width: 1439.67px) {
-  .modal {
-    width: 516px;
-    height: 244px;
+  .cancelButton,
+  .logoutButton {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 18px 0;
   }
 }

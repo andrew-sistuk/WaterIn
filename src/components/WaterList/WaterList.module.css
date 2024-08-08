@@ -1,0 +1,55 @@
+.list {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 32px;
+  width: 100%;
+  list-style: none;
+
+  overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  /* background-color: transparent; */
+  background-color: var(--main-white-color);
+  border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-black-gray-color);
+  border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-green-color);
+}
+
+.item {
+  padding: 18px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 15px;
+
+  background-color: var(--main-white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    gap: 32px;
+  }
+
+  .item {
+    padding: 20px;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .list {
+    gap: 16px;
+  }
+}

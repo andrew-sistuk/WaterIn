@@ -1,0 +1,15 @@
+.modalContent {
+  background: var(--main-white-color);
+  padding: 40px 14px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 375px;
+  min-width: 320px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}

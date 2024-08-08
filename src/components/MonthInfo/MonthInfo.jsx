@@ -9,6 +9,7 @@ import Calendar from '../Calendar/Calendar';
 import Recharts from '../Recharts/Recharts';
 
 import { fetchDates } from '../../redux/dates/operations';
+import { toast } from 'react-toastify';
 
 const MonthInfo = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -43,6 +44,7 @@ const MonthInfo = () => {
     try {
       dispatch(fetchDates(currentDate.getTime() + 43200000));
     } catch (error) {
+      toast(error);
       console.log(error);
     }
   }, [dispatch, currentDate]);

@@ -4,6 +4,7 @@ import { closeModal } from '../../redux/modal/slice.js';
 import { deleteWaterNote } from '../../redux/waterNote/operations.js';
 
 import css from './DeleteEntryModal.module.css';
+import { toast } from 'react-toastify';
 
 const DeleteEntryModal = ({ entryId, token, onClose }) => {
   const [loading, setLoading] = useState(false);
@@ -14,7 +15,8 @@ const DeleteEntryModal = ({ entryId, token, onClose }) => {
     try {
       await dispatch(deleteWaterNote({ data: { _id: entryId }, token }));
     } catch (error) {
-      console.error("Error deleting entry:", error);
+      toast(`Error deleting entry: ${error}`);
+      console.error(`Error deleting entry: ${error}`);
     } finally {
       setLoading(false);
       onClose();
@@ -29,17 +31,10 @@ const DeleteEntryModal = ({ entryId, token, onClose }) => {
         <p className={css.text}>Are you sure you want to delete the entry?</p>
       </div>
       <div className={css.buttonContainer}>
-        <button
-          className={css.deleteButton}
-          onClick={handleDeleteClick}
-          disabled={loading}
-        >
+        <button className={css.deleteButton} onClick={handleDeleteClick} disabled={loading}>
           Delete
         </button>
-        <button
-          className={css.cancelButton}
-          onClick={onClose}
-        >
+        <button className={css.cancelButton} onClick={onClose}>
           Cancel
         </button>
       </div>

@@ -13,6 +13,7 @@ import { closeModal } from '../../redux/modal/slice.js';
 import css from './ModalWindow.module.css';
 // import SettingModal from '../SettingModal/SettingModal.jsx';
 import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
+import DeleteEntryModal from '../DeleteEntryModal/DeleteEntryModal.jsx';
 
 Modal.setAppElement('#root');
 
@@ -32,6 +33,18 @@ const modalStyles = {
     borderRadius: '14px',
   },
 };
+
+function addContentModal(modalType) {
+  // 'setting' або 'logout' або 'delete'
+  switch (modalType) {
+    case 'logout':
+      return <LogOutModal />;
+    case 'setting':
+      return <UserSettingsModal />;
+    case 'delete':
+      return <DeleteEntryModal />;
+  }
+}
 
 export default function ModalWindow({ onClose }) {
   ///////////////////////////////
@@ -65,7 +78,10 @@ export default function ModalWindow({ onClose }) {
       >
         <IoIosClose className={css.closeIcon} />
       </button>
-      {modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />}
+      {
+        addContentModal(modalType)
+        // modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />
+      }
     </Modal>
   );
 }

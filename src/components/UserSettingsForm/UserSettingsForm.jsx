@@ -2,28 +2,31 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiUpload } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
+import { selectUser } from '../../redux/auth/selectors.js';
+import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import MainButton from '../MainButton/MainButton';
 import * as Yup from 'yup';
 import css from './UserSettingsForm.module.css';
 import clsx from 'clsx';
-// import { selectUser } from '../../redux/auth/selectors.js';
-// import { useSelector } from 'react-redux';
-import axios from 'axios';
-import { ToastContainer } from 'react-toastify';
+// import { patchUser } from '../../redux/auth/operations';
 
 export default function UserSettingsForm() {
-  // const user = useSelector(selectUser);
+  // const dispatch = useDispatch();
 
-  const user = {
-    _id: '66afc309b11d818541430639',
-    email: 'deidar@gmail.com',
-    name: 'Deidar',
-    photo: 'https://res.cloudinary.com/dqxbq53ls/image/upload/v1722796433/jngdxrfxafigmgez1wdr.jpg',
-    sportHours: 4,
-    weight: 44,
-    waterRate: 1500,
-    gender: 'man',
-  };
+  const user = useSelector(selectUser);
+  // console.log(user);
+
+  // const user = {
+  //   _id: '66afc309b11d818541430639',
+  //   email: 'deidar@gmail.com',
+  //   name: 'Deidar',
+  //   photo: 'https://res.cloudinary.com/dqxbq53ls/image/upload/v1722796433/jngdxrfxafigmgez1wdr.jpg',
+  //   sportHours: 4,
+  //   weight: 44,
+  //   waterRate: 1500,
+  //   gender: 'man',
+  // };
 
   const [photo, setPhoto] = useState(user.photo);
   const [name, setName] = useState(user.name);
@@ -34,9 +37,12 @@ export default function UserSettingsForm() {
 
   const onChangeAvatar = event => {
     const avatarImg = event.target.files[0];
+    // console.log(URL.createObjectURL(avatarImg));
     if (avatarImg) {
       setPhoto(URL.createObjectURL(avatarImg));
     }
+
+    // console.log(photo);
   };
 
   const handleSetGender = event => {
@@ -77,10 +83,6 @@ export default function UserSettingsForm() {
       const M = parseFloat(weight);
       const T = parseFloat(sportHours);
 
-      // console.log(M);
-      // console.log(T);
-      // console.log(gender);
-
       if (gender === 'woman') {
         intake = (M * 0.03 + T * 0.4).toFixed(2);
       } else if (gender === 'man') {
@@ -88,14 +90,13 @@ export default function UserSettingsForm() {
       }
       setWaterRate(intake);
       setValue('waterIntake', intake);
-
-      // console.log(intake);
     }
   }, [weight, sportHours, gender, waterRate, setValue]);
 
-  const onSubmit = async data => {
+  const onSubmit = async () => {
+    const id = user.id;
+
     const formData = {
-      _id: user._id,
       email: user.email,
       name: name,
       photo: photo,
@@ -105,9 +106,7 @@ export default function UserSettingsForm() {
       gender: gender,
     };
     console.log(formData);
-    console.log(data);
-
-    patchUser(formData);
+    console.log(id);
   };
 
   // try {
@@ -130,31 +129,24 @@ export default function UserSettingsForm() {
   //   // iziToast
   // }
 
-  async function patchUser(data) {
-    try {
-      const result = await axios.patch(`https://waterin-server.onrender.com/users/${data._id}`, {
-        body: data,
-      });
-      console.log(result);
-
-      // return result
-    } catch (err) {
-      console.log('Error while trying to patch user!');
-    }
-  }
-
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={css.avatar}>
         <img className={css.avatarImg} src={photo} alt="photo" />
-        <button className={css.avatarBtn} onClick={onChangeAvatar} type="button">
-          <FiUpload size={18} className={css.avatarSvg} />
-          Upload a photo
+        <button className={css.avatarBtn} type="button">
+          <label htmlFor="photo">
+            <FiUpload size={18} className={css.avatarSvg} />
+            Upload a photo
+          </label>
         </button>
+
         <input
           className={css.avatarInput}
+          id="photo"
           type="file"
           accept=".jpg,.jpeg,.png,.webp"
+          hidden="hidden"
+          onChange={onChangeAvatar}
           // {...register('photo')}
         />
       </div>

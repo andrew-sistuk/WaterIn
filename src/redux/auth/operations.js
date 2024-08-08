@@ -57,19 +57,17 @@ export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   }
 });
 
-export const patchUser = createAsyncThunk(
-  'users/patch',
-  async ({ testId, userPatch }, thunkAPI) => {
-    try {
-      const response = await api.patch(`/users/${testId}`, userPatch);
-      setAuthHeader(response.data.data.accessToken);
+export const patchUser = createAsyncThunk('users/patch', async ({ formData, id }, thunkAPI) => {
+  try {
+    const response = await api.patch(`/users/${id}`, formData);
+    setAuthHeader(response.data.data.accessToken);
+    console.log(response.data.data);
 
-      return response.data.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+    return response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+});
 
 export const refreshUser = createAsyncThunk(
   'users/refresh',

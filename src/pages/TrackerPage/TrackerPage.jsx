@@ -11,6 +11,7 @@ import { selectLoading, selectUser } from '../../redux/auth/selectors.js';
 
 // import css from './TrackerPage.module.css';
 import Loader from '../../components/Loader/Loader.jsx';
+// import UserSettingsModal from '../../components/UserSettingsModal/UserSettingsModal.jsx';
 
 const TrackerPage = () => {
   const user = useSelector(selectUser);
@@ -34,6 +35,7 @@ const TrackerPage = () => {
               <WaterDetailedInfo />
               <Message />
             </WelcomeContainer>
+            {/* <UserSettingsModal /> */}
           </>
         </section>
       )}

@@ -26,6 +26,7 @@ const DeleteEntryModal = ({ entryId, token }) => {
 
   const handleDeleteClickTest = () => {
     console.log('Delete clicked');
+    closeModal();
   };
 
   return (

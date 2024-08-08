@@ -1,8 +1,14 @@
 .advantagesSection {
   max-width: 343px;
   height: 100%;
+  max-width: 800px;
   position: relative;
 }
+
+.image {
+  width: 100%;
+}
+
 /* tablet */
 @media only screen and (min-width: 768px) {
   .advantagesSection {
@@ -14,11 +20,12 @@
   .advantagesSection {
     width: 672px;
   }
+
+  .image {
+    min-height: 800px;
+  }
 }
-.image {
-  width: 100%;
-  height: auto;
-}
+
 .advantagesList {
   list-style: none;
   display: flex;

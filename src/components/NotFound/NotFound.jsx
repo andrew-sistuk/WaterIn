@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import css from './NotFound.module.css';
 import MainButton from '../../components/MainButton/MainButton';
 import PageNotFound from '/src/assets/img/404-1.png';
-import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn.jsx';
 
 export default function NotFound() {
   //   const [count, setCount] = useState(0);
@@ -46,7 +45,7 @@ export default function NotFound() {
       <MainButton text="Cancel" onClick={() => alert('Cancel Button clicked!')} />
       <MainButton text="Cancel" onClick={() => alert('Cancel Button clicked!')} disabled />
       <MainButton text="Delete" onClick={() => alert('Delete Button clicked!')} />
-      <AuthorizationGoogleBtn />
+
     </div>
   );
 }

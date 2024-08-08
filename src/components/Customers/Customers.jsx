@@ -13,7 +13,7 @@ export default function Customers() {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await axios.get('https://waterin-server.onrender.com/users/count1');
+        const response = await axios.get('https://waterin-server.onrender.com/users/count');
         setUserAmount(response.data.data.count);
         setUserPhotos(response.data.data.photos);
       } catch (error) {

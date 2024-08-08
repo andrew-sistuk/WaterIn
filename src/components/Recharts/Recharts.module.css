@@ -3,6 +3,17 @@
   height: 213px;
 }
 
+.customTooltip {
+  width: 153px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f0eff4;
+  border-radius: 30px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 532px;

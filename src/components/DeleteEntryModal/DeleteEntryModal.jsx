@@ -24,6 +24,10 @@ const DeleteEntryModal = ({ entryId, token }) => {
     }
   };
 
+  const handleDeleteClickTest = () => {
+    console.log('Delete clicked');
+  };
+
   return (
     <div className={css.modalContent}>
       <div className={css.textContainer}>
@@ -31,7 +35,7 @@ const DeleteEntryModal = ({ entryId, token }) => {
         <p className={css.text}>Are you sure you want to delete the entry?</p>
       </div>
       <div className={css.buttonContainer}>
-        <button className={css.deleteButton} onClick={handleDeleteClick} disabled={loading}>
+        <button className={css.deleteButton} onClick={handleDeleteClickTest} disabled={loading}>
           Delete
         </button>
         <button className={css.cancelButton} onClick={closeModal}>

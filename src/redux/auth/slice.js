@@ -53,6 +53,7 @@ const authSlice = createSlice({
           waterRate: action.payload.data.waterRate,
           gender: action.payload.data.gender,
         };
+
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })

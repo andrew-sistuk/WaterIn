@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register as registerFunc } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
 
 export default function SignUpForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
@@ -127,8 +128,11 @@ export default function SignUpForm({ isMobile }) {
         <button className={css.submit} type="submit">
           Sign Up
         </button>
+
+        <AuthorizationGoogleBtn />
+
         <p className={css['paragraph-sign']}>
-          Don’t have an account?{' '}
+          Already have account?{' '}
           <Link className={css.sign} to="/signIn">
             Sign In
           </Link>

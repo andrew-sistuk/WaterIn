@@ -16,6 +16,8 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
+import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
+
 export default function SignInForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
   const dispatch = useDispatch();
@@ -95,12 +97,23 @@ export default function SignInForm({ isMobile }) {
         <button className={css.submit} type="submit">
           Sign In
         </button>
-        <p className={css['paragraph-sign']}>
-          Don’t have an account?{' '}
-          <Link className={css.sign} to="/signup">
-            Sign Up
-          </Link>
-        </p>
+
+        <AuthorizationGoogleBtn />
+
+        <div className={css['sing-forgot-wrapper']}>
+          <p className={css['paragraph-sign']}>
+            Don’t have an account?{' '}
+            <Link className={css.sign} to="/signup">
+              Sign Up
+            </Link>
+          </p>
+          <p className={css['paragraph-forgot']}>
+            Forgot your password?{' '}
+            <Link className={css.sign} to="/forgot">
+              Renew
+            </Link>
+          </p>
+        </div>
       </form>
     </WelcomeSectionContainer>
   );

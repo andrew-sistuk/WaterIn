@@ -8,13 +8,14 @@ import { closeModal } from '../../redux/modal/slice.js';
 
 import css from './ModalWindow.module.css';
 // import SettingModal from '../SettingModal/SettingModal.jsx';
-import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
+import UserSettingModal from '../UserSettingModal/UserSettingModal.jsx';
 
 Modal.setAppElement('#root');
 
 const modalStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    position: 'fixed',
   },
   content: {
     top: '50%',
@@ -26,6 +27,9 @@ const modalStyles = {
     padding: 0,
     border: 'none',
     borderRadius: '14px',
+    maxHeight: '90vh',
+    overflow: 'auto',
+    scrollbarWidth: 'none',
   },
 };
 
@@ -52,9 +56,9 @@ export default function ModalWindow({ onClose }) {
           dispatch(closeModal());
         }}
       >
-        <IoIosClose className={css.closeIcon} />
+        <IoIosClose className={css.closeIcon} size={32} />
       </button>
-      {modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />}
+      {modalType === 'logout' ? <LogOutModal /> : <UserSettingModal />}
     </Modal>
   );
 }

@@ -1,8 +1,21 @@
-.form {
-  font-family: Poppins;
-  box-sizing: border-box;
+.wraper {
+  max-width: 343px;
+  padding: 40px 20px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 15px;
+}
+
+.form {
+  background-color: var(--main-white-color);
+  max-width: 375px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
 }
 
 .input {
@@ -10,19 +23,16 @@
   border-radius: 15px;
   padding: 14px;
   outline: transparent;
-  /* width: 303px; */
   height: 46px;
   outline: none;
+  max-width: 303px;
+  background-color: transparent;
 }
 
 .input:hover,
 .input:focus {
   border-color: rgba(47, 47, 47, 0.6);
 }
-
-/* .input:active {
-  border-color: rgba(47, 47, 47, 0.4);
-} */
 
 .input::placeholder {
   font-size: 14px;
@@ -31,39 +41,30 @@
   color: rgba(47, 47, 47, 0.6);
 }
 
-@media screen and (max-width: 374px) {
-  .input {
-    max-width: 303px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .input {
-    width: 303px;
-  }
-}
-
 .avatar {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   margin-bottom: 40px;
+  border-radius: 50%;
 }
 
 .avatarImg {
   width: 75px;
   height: 75px;
-  border: 1px solid var(--main-black-gray-color);
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatarBtn {
   display: flex;
+  padding: 0;
   gap: 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-black-color);
   border: none;
   background-color: var(--main-white-color);
@@ -73,6 +74,7 @@
 .avatarBtn:focus {
   color: var(--main-black-gray-color);
   font-weight: 600;
+  cursor: pointer;
 }
 
 .avatarInput {
@@ -83,10 +85,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.25;
-  color: var(--main-black-gray-color);
   margin-bottom: 24px;
 }
 
@@ -96,12 +94,16 @@
 }
 
 .genderRadio {
-  /* display: flex;
-  gap: 10px; */
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
   color: var(--main-black-color);
+}
+
+.params {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .label {
@@ -161,13 +163,8 @@
   margin-bottom: 14px;
 }
 
-.box-pass {
-  position: relative;
-}
-
 .inputName {
   width: 100%;
-  margin-bottom: 8px;
 }
 
 .error-input,
@@ -179,9 +176,6 @@
 }
 
 .errorMes {
-  position: absolute;
-  top: 56px;
-  right: 0;
   font-size: 10px;
   font-weight: 400;
   line-height: 2;
@@ -228,44 +222,35 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-green-color);
-  padding-top: 4px;
+  margin-top: 4px;
+}
+
+.dailyNormaTextContainer {
+  padding: 16px;
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
 }
 
 .dailyNormaText {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.6);
-
-  border: 1px solid rgba(47, 47, 47, 0.15);
-  border-radius: 15px;
-  padding: 14px;
-  /* width: 303px; */
-  height: 140px;
-}
-
-@media screen and (max-width: 374px) {
-  .dailyNormaText {
-    max-width: 303px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .dailyNormaText {
-    width: 303px;
-  }
 }
 
 .span {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.29;
   color: var(--main-green-color);
-  padding-right: 4px;
 }
 
-.dailyNormaTextSpan {
+.activeIcon {
+  fill: var(--main-green-color);
+  vertical-align: text-top;
+}
+
+.activeText {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
@@ -324,8 +309,24 @@
 }
 
 .saveBtn {
-  margin-bottom: 20px;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: var(--main-black-color);
+  cursor: pointer;
+  background-color: var(--main-green-color);
+  transition: background-color var(--animation);
 }
+
+.saveBtn:hover,
+.saveBtn:active {
+  background-color: var(--main-green-color-active);
+}
+
 /* =========================== Tablet styles ========================= */
 
 @media screen and (min-width: 768px) {
@@ -346,10 +347,6 @@
   .avatarBtn {
     font-size: 16px;
     line-height: 1.5;
-  }
-  .avatarSvg {
-    width: 20px;
-    height: 20px;
   }
 
   .gender {

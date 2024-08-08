@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
 import RestrictedRoute from './components/RestrictedRoute.jsx';
+import VerifyEmail from './components/VerifyEmail/VerifyEmail';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
@@ -29,10 +30,13 @@ function App() {
         />
         <Route
           path="/tracker"
-          element={<PrivateRoute component={<TrackerPage />} redirectTo="/signin" />}
+          element={<PrivateRoute component={<TrackerPage />} redirectTo="/" />}
+        />
+        <Route
+          path="/verify-email"
+          element={<RestrictedRoute component={<VerifyEmail />} redirectTo="/tracker" />}
         />
         <Route path="*" element={<NotFound />} />
-        {/* Інші маршрути */}
       </Routes>
     </Suspense>
   );

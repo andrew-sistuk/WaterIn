@@ -2,6 +2,27 @@
   width: 252px;
   height: 213px;
 }
+.customTooltip {
+  position: relative;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  top: -100px;
+}
+
+.customTooltip::after {
+  content: '';
+  position: absolute;
+  top: 97%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
 
 @media screen and (min-width: 768px) {
   .container {

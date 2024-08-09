@@ -6,18 +6,16 @@ import Cap from '../../assets/icons/water-glass.svg?react';
 
 import css from './WaterItem.module.css';
 import { useDispatch } from 'react-redux';
-import { openModal } from '../../redux/modal/slice';
+import { dataModalId, openModal } from '../../redux/modal/slice';
 
 const WaterItem = ({ data }) => {
-  const { userId, volume, drinkTime } = data;
+  const { volume, drinkTime, _id } = data;
   const dispatch = useDispatch();
 
-  const handleClickDelete = modalType => {
+  const handleClickDelete = (modalType, id) => {
     dispatch(openModal(modalType));
+    dispatch(dataModalId(id));
   };
-
-  // console.log('Замінити btnEdit та btnDelete на компонент кнопку');
-  // console.log('Замінити іконки?');
 
   return (
     <>
@@ -28,14 +26,10 @@ const WaterItem = ({ data }) => {
         <p className={css.time}>{drinkTime}</p>
       </div>
       <div className={css.wrapperBtn}>
-        {/* <WaterModal data={data}> */}
         <FiEdit2 className={css.btnIcon} size="14" />
-        {/* </WaterModal>
-        <DeleteWaterModal data={data._id}> */}
-        <button onClick={() => handleClickDelete('delete')}>
+        <button onClick={() => handleClickDelete('delete', _id)}>
           <AiOutlineDelete className={css.btnIcon} size="14" />
         </button>
-        {/* </DeleteWaterModal> */}
       </div>
     </>
   );

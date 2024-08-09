@@ -1,6 +1,6 @@
-
 .waterModalContainer {
-  padding: 20px;
+  padding: 40px;
+  width: 518px;
 }
 
 .waterModalHeader {
@@ -11,6 +11,7 @@
   font-size: 28px;
   margin-bottom: 10px;
   line-height: 114%;
+  width: 347px;
 }
 
 .waterModalSubtitle {

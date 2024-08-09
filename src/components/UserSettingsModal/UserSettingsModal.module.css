@@ -1,0 +1,69 @@
+.title {
+  font-family: Poppins;
+  color: var(--main-black-gray-color);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+@media screen and (min-width: 375px) {
+  .wrapper {
+    /* max-width: 343px; */
+    width: 343px;
+  }
+}
+
+.closeBtn {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.closeIconBtn {
+  width: 12px;
+  height: 12px;
+}
+
+/* =========================== Tablet styles ========================= */
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+
+  .closeBtn {
+    width: 28px;
+    height: 28px;
+    top: 40px;
+    right: 40px;
+  }
+
+  .closeIconBtn {
+    width: 14px;
+    height: 14px;
+  }
+
+  .wrapper {
+    width: 648px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* =========================== Desktop styles ========================= */
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    width: 920px;
+  }
+}

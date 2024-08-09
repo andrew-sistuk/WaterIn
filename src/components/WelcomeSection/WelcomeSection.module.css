@@ -1,4 +1,15 @@
+
+.welcome {
+  padding-top: 102px;
+  padding-bottom: 52px;
+}
+
 @media only screen and (min-width: 768px) {
+  .welcome {
+    padding-top: 90px;
+    padding-bottom: 34px;
+  }
+
   .titleContainer {
     margin-left: 32px;
   }

@@ -1,10 +1,9 @@
-import clsx from 'clsx';
 import Logo from '../Logo/Logo';
 import styles from './WelcomeSectionContainer.module.css';
 
-export default function WelcomeSectionContainer({ isMobile, children }) {
+export default function WelcomeSectionContainer({ children }) {
   return (
-    <div className={clsx(styles.welcomeSection, isMobile && styles.isMobile)}>
+    <div className={styles.welcomeSection}>
       <Logo />
       {children}
     </div>

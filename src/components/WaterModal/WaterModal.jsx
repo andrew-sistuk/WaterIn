@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { FiMinus, FiPlus } from 'react-icons/fi';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import ModalWindow from '../ModalWindow/ModalWindow';
-import styles from './WaterModal.module.css';
+import { closeModal } from '../../redux/modal/slice.js';
 import MainButton from '../MainButton/MainButton';
-import { FiPlus, FiMinus } from 'react-icons/fi';
+import styles from './WaterModal.module.css';
 
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 const WaterSchema = Yup.object().shape({
@@ -19,10 +20,13 @@ const WaterSchema = Yup.object().shape({
     .matches(TIME_PATTERN, 'Invalid time format (xx:xx)'),
 });
 
-const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoading }) => {
+const WaterModal = ({ type, initialData, isLoading, setIsLoading }) => {
   const [volume, setVolume] = useState(initialData.volume || '');
   const title = type === 'add' ? 'Add Water' : 'Edit the entered amount of water';
   const subtitle = type === 'add' ? 'Choose a value:' : 'Correct entered data:';
+
+  const dispatch = useDispatch();
+  // const isOpen = useSelector(selectStateModal);
 
   const {
     handleSubmit,
@@ -46,9 +50,11 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
         volume: parseInt(volume, 10),
         drinkTime: data.drinkTime,
       };
+
       console.log(transformedData);
+
       setIsLoading(false);
-      closeModal();
+      dispatch(closeModal());
     }, 500);
   };
 
@@ -71,7 +77,6 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
   };
 
   return (
-    <ModalWindow modalIsOpen={isOpen} onCloseModal={closeModal}>
       <div className={styles.waterModalContainer}>
         <div className={styles.waterModalHeader}>
           <h2 className={styles.waterModalTitle}>{title}</h2>
@@ -145,7 +150,7 @@ const WaterModal = ({ type, initialData, isOpen, closeModal, isLoading, setIsLoa
           <MainButton text="Save" disabled={isLoading} />
         </form>
       </div>
-    </ModalWindow>
+    
   );
 };
 

@@ -1,27 +1,21 @@
 import { FiEdit2 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Cap from '../../assets/icons/water-glass.svg?react';
-import WaterModal from '../WaterModal/WaterModal';
-
 // import WaterModal
 // import DeleteWaterModal
 
 import css from './WaterItem.module.css';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/modal/slice';
 
 const WaterItem = ({ data }) => {
   const { userId, volume, drinkTime } = data;
+  const dispatch = useDispatch();
 
+  const handleClickDelete = modalType => {
+    dispatch(openModal(modalType));
+  };
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
-    const openModal = () => {
-      setIsModalOpen(true);
-    };
-  
-    const closeModal = () => {
-      setIsModalOpen(false);
-    };
   // console.log('Замінити btnEdit та btnDelete на компонент кнопку');
   // console.log('Замінити іконки?');
 
@@ -34,22 +28,13 @@ const WaterItem = ({ data }) => {
       </div>
       <div className={css.wrapperBtn}>
         {/* <WaterModal data={data}> */}
-        {/* <FiEdit2 className={css.btnIcon} size="14" /> */}
+        <FiEdit2 className={css.btnIcon} size="14" />
         {/* </WaterModal>
         <DeleteWaterModal data={data._id}> */}
+        <button onClick={() => handleClickDelete('delete')}>
+          <AiOutlineDelete className={css.btnIcon} size="14" />
+        </button>
         {/* </DeleteWaterModal> */}
-
-        <button onClick={openModal}><FiEdit2 className={css.btnIcon} size="14" /></button>
-        <WaterModal
-        type="edit"
-        initialData={ data }  
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-        id={1}
-        isLoading={false}
-        setIsLoading={() => {}}
-      />
-        <AiOutlineDelete className={css.btnIcon} size="14" />
       </div>
     </>
   );

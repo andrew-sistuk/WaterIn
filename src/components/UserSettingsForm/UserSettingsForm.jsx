@@ -15,7 +15,6 @@ export default function UserSettingsForm() {
   // const user = useSelector(selectUser);
 
   const user = {
-    _id: '66afc309b11d818541430639',
     email: 'deidar@gmail.com',
     name: 'Deidar',
     photo: 'https://res.cloudinary.com/dqxbq53ls/image/upload/v1722796433/jngdxrfxafigmgez1wdr.jpg',

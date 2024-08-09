@@ -9,13 +9,11 @@ import { AreaChart, Area, ResponsiveContainer, YAxis, XAxis, Tooltip } from 'rec
 const Recharts = () => {
   const dates = useSelector(selectItems);
 
-  const CustomTooltip = ({ active, payload, label }) => {
-    // conso
+  const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
         <div className={css.customTooltip}>
-          <p className={css.label}>{`Day: ${new Date(label).getDate()}`}</p>
-          <p className={css.intro}>{`Об'єм: ${payload[0].value}`}</p>
+          <p className={css.intro}>{` ${payload[0].value} ml`}</p>
         </div>
       );
     }
@@ -39,7 +37,7 @@ const Recharts = () => {
             interval={Math.floor(dates.length / 7)}
             tickFormatter={date => new Date(date).getDate()}
           />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip cursor={true} content={<CustomTooltip />} />
           <Area
             dataKey="dayVolume"
             stroke="#87d28d"

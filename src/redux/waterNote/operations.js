@@ -32,16 +32,13 @@ export const editWaterNote = createAsyncThunk('editWaterNote', async (payload, t
   }
 });
 export const deleteWaterNote = createAsyncThunk('deleteWaterNote', async (payload, thunkAPI) => {
+  const { modalId, token } = payload;
   try {
-    const response = await axios.delete(
-      `https://waterin-server.onrender.com/water/${payload.data._id}`,
-
-      {
-        headers: {
-          Authorization: `Bearer ${payload.token}`,
-        },
-      }
-    );
+    const response = await axios.delete(`/water/${modalId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return await response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

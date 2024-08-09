@@ -57,11 +57,39 @@ export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   }
 });
 
-export const patchUser = createAsyncThunk('users/patch', async ({ formData, id }, thunkAPI) => {
+// export const patchUser = createAsyncThunk(
+//   'users/patch',
+//   async ({ testId, userPatch }, thunkAPI) => {
+//     try {
+//       const response = await api.patch(`/users/${testId}`, userPatch);
+//       setAuthHeader(response.data.data.accessToken);
+
+//       return response.data.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+export const patchUser = createAsyncThunk('users/patch', async ({ Id, userPatch }, thunkAPI) => {
   try {
-    const response = await api.patch(`/users/${id}`, formData);
+    const formData = new FormData();
+
+    formData.append('email', userPatch.email);
+    formData.append('name', userPatch.name);
+    formData.append('sportHours', userPatch.sportHours);
+    formData.append('weight', userPatch.weight);
+    formData.append('waterRate', userPatch.waterRate);
+    formData.append('gender', userPatch.gender);
+    formData.append('photo', userPatch.photo);
+
+    const response = await api.patch(`/users/${Id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
     setAuthHeader(response.data.data.accessToken);
-    console.log(response.data.data);
 
     return response.data.data;
   } catch (error) {

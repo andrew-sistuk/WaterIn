@@ -1,21 +1,53 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FiUpload } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
-import { selectUser } from '../../redux/auth/selectors.js';
-import { useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-import MainButton from '../MainButton/MainButton';
-import * as Yup from 'yup';
-import css from './UserSettingsForm.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+
 import clsx from 'clsx';
-// import { patchUser } from '../../redux/auth/operations';
+import * as Yup from 'yup';
+import { ToastContainer } from 'react-toastify';
+import { FiUpload } from 'react-icons/fi';
+
+import css from './UserSettingsForm.module.css';
+import MainButton from '../MainButton/MainButton';
+import { selectUser } from '../../redux/auth/selectors.js';
+import { patchUser } from '../../redux/auth/operations';
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required').min(3).max(20),
+  email: Yup.string().email('Invalid email').required('Email is required'),
+  weight: Yup.number()
+    .required('Weight is required')
+    .positive('Weight must be positive')
+    .min(40, 'Weight must be at least 40 kg')
+    .max(180, 'Weight must be at most 180 kg'),
+  sportHours: Yup.number()
+    .required('Activity time is required')
+    .positive('Activity time must be positive')
+    .min(1, 'Activity time will be more 1 hour')
+    .max(8, 'Activity time will not be more 8 hour'),
+  waterRate: Yup.number()
+    .required('Water intake is required')
+    .positive('Water intake must be positive')
+    .min(1, 'Water intake will be more 1 L !'),
+});
 
 export default function UserSettingsForm() {
-  // const dispatch = useDispatch();
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const user = useSelector(selectUser);
-  // console.log(user);
+
+  const [name, setName] = useState(user.name);
+  const [gender, setGender] = useState(user.gender);
+  const [weight, setWeight] = useState(user.weight);
+  const [sportHours, setSportHours] = useState(user.sportHours);
+  const [waterRate, setWaterRate] = useState(user.waterRate / 1000);
+
+  const dispatch = useDispatch();
+
+  const handleChange = event => {
+    setSelectedFile(event.target.files[0]);
+  };
 
   // const user = {
   //   _id: '66afc309b11d818541430639',
@@ -28,46 +60,20 @@ export default function UserSettingsForm() {
   //   gender: 'man',
   // };
 
-  const [photo, setPhoto] = useState(user.photo);
-  const [name, setName] = useState(user.name);
-  const [gender, setGender] = useState(user.gender);
-  const [weight, setWeight] = useState(user.weight);
-  const [sportHours, setSportHours] = useState(user.sportHours);
-  const [waterRate, setWaterRate] = useState(user.waterRate / 1000);
+  // const onChangeAvatar = event => {
+  //   const avatarImg = event.target.files[0];
+  //   // console.log(URL.createObjectURL(avatarImg));
+  //   if (avatarImg) {
+  //     setPhoto(URL.createObjectURL(avatarImg));
+  //   }
 
-  const onChangeAvatar = event => {
-    const avatarImg = event.target.files[0];
-    // console.log(URL.createObjectURL(avatarImg));
-    if (avatarImg) {
-      setPhoto(URL.createObjectURL(avatarImg));
-    }
-
-    // console.log(photo);
-  };
+  // console.log(photo);
+  //};
 
   const handleSetGender = event => {
     setGender(event.target.value);
     // console.log(event.target.value);
   };
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required').min(3).max(20),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-    weight: Yup.number()
-      .required('Weight is required')
-      .positive('Weight must be positive')
-      .min(40, 'Weight must be at least 40 kg')
-      .max(180, 'Weight must be at most 180 kg'),
-    sportHours: Yup.number()
-      .required('Activity time is required')
-      .positive('Activity time must be positive')
-      .min(1, 'Activity time will be more 1 hour')
-      .max(8, 'Activity time will not be more 8 hour'),
-    waterRate: Yup.number()
-      .required('Water intake is required')
-      .positive('Water intake must be positive')
-      .min(1, 'Water intake will be more 1 L !'),
-  });
 
   const {
     // register,
@@ -96,17 +102,16 @@ export default function UserSettingsForm() {
   const onSubmit = async () => {
     const id = user.id;
 
-    const formData = {
-      email: user.email,
-      name: name,
-      photo: photo,
-      sportHours: sportHours,
-      weight: weight,
-      waterRate: waterRate,
-      gender: gender,
-    };
-    console.log(formData);
-    console.log(id);
+    const formData = new FormData();
+    formData.append('photo', selectedFile);
+    // formData.append('email', email);
+    formData.append('name', name);
+    formData.append('sportHours', sportHours);
+    formData.append('weight', weight);
+    formData.append('waterRate', waterRate);
+    // formData.append('gender', userPatch.gender);
+
+    dispatch(patchUser({ id, formData }));
   };
 
   // try {
@@ -132,7 +137,11 @@ export default function UserSettingsForm() {
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={css.avatar}>
-        <img className={css.avatarImg} src={photo} alt="photo" />
+        <img
+          className={css.avatarImg}
+          src={selectedFile ? URL.createObjectURL(selectedFile) : user.photo}
+          alt="photo"
+        />
         <button className={css.avatarBtn} type="button">
           <label htmlFor="photo">
             <FiUpload size={18} className={css.avatarSvg} />
@@ -141,13 +150,11 @@ export default function UserSettingsForm() {
         </button>
 
         <input
-          className={css.avatarInput}
+          className={css.hiden}
           id="photo"
           type="file"
-          accept=".jpg,.jpeg,.png,.webp"
-          hidden="hidden"
-          onChange={onChangeAvatar}
-          // {...register('photo')}
+          accept="image/*,.jpg,.jpeg,.png,.webp,.gif,"
+          onChange={handleChange}
         />
       </div>
 

@@ -5,9 +5,16 @@ import Cap from '../../assets/icons/water-glass.svg?react';
 // import DeleteWaterModal
 
 import css from './WaterItem.module.css';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/modal/slice';
 
 const WaterItem = ({ data }) => {
   const { userId, volume, drinkTime } = data;
+  const dispatch = useDispatch();
+
+  const handleClickDelete = modalType => {
+    dispatch(openModal(modalType));
+  };
 
   // console.log('Замінити btnEdit та btnDelete на компонент кнопку');
   // console.log('Замінити іконки?');
@@ -25,7 +32,9 @@ const WaterItem = ({ data }) => {
         <FiEdit2 className={css.btnIcon} size="14" />
         {/* </WaterModal>
         <DeleteWaterModal data={data._id}> */}
-        <AiOutlineDelete className={css.btnIcon} size="14" />
+        <button onClick={() => handleClickDelete('delete')}>
+          <AiOutlineDelete className={css.btnIcon} size="14" />
+        </button>
         {/* </DeleteWaterModal> */}
       </div>
     </>

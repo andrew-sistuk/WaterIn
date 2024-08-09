@@ -36,6 +36,11 @@ img {
   max-width: 100%;
 }
 
+body {
+  height: 100vh;
+  align-content: center;
+}
+
 .container {
   padding: 16px;
   min-width: 320px;
@@ -63,6 +68,5 @@ img {
     display: flex;
     align-items: center;
     width: 1440px;
-    height: 100vh;
   }
 }

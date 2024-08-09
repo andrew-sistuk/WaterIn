@@ -9,6 +9,7 @@ import { closeModal } from '../../redux/modal/slice.js';
 import css from './ModalWindow.module.css';
 // import SettingModal from '../SettingModal/SettingModal.jsx';
 import UserSettingModal from '../UserSettingModal/UserSettingModal.jsx';
+import { useEffect } from 'react';
 
 Modal.setAppElement('#root');
 
@@ -28,7 +29,7 @@ const modalStyles = {
     border: 'none',
     borderRadius: '14px',
     maxHeight: '90vh',
-    overflow: 'auto',
+    overflowY: 'auto',
     scrollbarWidth: 'none',
   },
 };
@@ -37,6 +38,18 @@ export default function ModalWindow({ onClose }) {
   const dispatch = useDispatch();
   const isOpen = useSelector(selectStateModal);
   const modalType = useSelector(selectTypeModal);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'; // Блокуємо прокрутку фону
+    } else {
+      document.body.style.overflow = ''; // Восстановлюємо прокрутку фону
+    }
+
+    return () => {
+      document.body.style.overflow = ''; // Очистка по завершенню
+    };
+  }, [isOpen]);
 
   return (
     <Modal

@@ -11,9 +11,8 @@ import { selectStateModal, selectTypeModal } from '../../redux/modal/selectors.j
 import { closeModal } from '../../redux/modal/slice.js';
 
 import css from './ModalWindow.module.css';
-// import SettingModal from '../SettingModal/SettingModal.jsx';
-import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
 import DeleteEntryModal from '../DeleteEntryModal/DeleteEntryModal.jsx';
+import UserSettingsForm from '../UserSettingsForm/UserSettingsForm.jsx';
 
 Modal.setAppElement('#root');
 
@@ -40,7 +39,7 @@ function addContentModal(modalType) {
     case 'logout':
       return <LogOutModal />;
     case 'setting':
-      return <UserSettingsModal />;
+      return <UserSettingsForm />;
     case 'delete':
       return <DeleteEntryModal />;
   }

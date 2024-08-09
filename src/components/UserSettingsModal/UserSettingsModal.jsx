@@ -39,8 +39,8 @@ export default function UserSettingsModal() {
   };
 
   // const handleUpdate = data => {
-  //   console.log(data);
-  //   closeModal();
+  //  console.log(data);
+
   // };
 
   return (

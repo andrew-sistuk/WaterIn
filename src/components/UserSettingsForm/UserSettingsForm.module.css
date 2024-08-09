@@ -75,10 +75,6 @@
   font-weight: 600;
 }
 
-.avatarInput {
-  display: none;
-}
-
 .gender {
   display: flex;
   flex-direction: column;
@@ -325,6 +321,16 @@
 
 .saveBtn {
   margin-bottom: 20px;
+}
+
+.hiden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 /* =========================== Tablet styles ========================= */
 

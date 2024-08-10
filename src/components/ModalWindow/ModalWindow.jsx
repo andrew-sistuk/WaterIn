@@ -35,7 +35,7 @@ const modalStyles = {
   },
 };
 
-function addContentModal(modalType, initialData) {
+function addContentModal(modalType) {
   // 'setting' або 'logout' або 'delete'
   switch (modalType) {
     case 'logout':
@@ -45,9 +45,9 @@ function addContentModal(modalType, initialData) {
     case 'delete':
       return <DeleteEntryModal />;
       case 'addWater':
-        return <WaterModal type="add" initialData={{}} isLoading={false} setIsLoading={() => {}} />;
+        return <WaterModal />;
       case 'editWater':
-        return <WaterModal type="edit" initialData={{}} isLoading={false} setIsLoading={() => {}} />;
+        return <WaterModal />;
       default:
         return null;
   }
@@ -59,7 +59,7 @@ export default function ModalWindow({ onClose }) {
 
   // console.log('testUser', testUser.id);
 
-  ////////////////////////////
+  ////////////////////////////    
 
   const dispatch = useDispatch();
   const isOpen = useSelector(selectStateModal);

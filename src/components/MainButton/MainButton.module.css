@@ -85,6 +85,7 @@
 }
 
 .button.addwater.iconOnly {
+  color: #323F47;
   padding: 18px;
   width: auto; 
   background-color: transparent; 
@@ -135,7 +136,7 @@
   }
 
   .button.save {
-    height: 56px;
+    
   }
 
   .button.addwater {

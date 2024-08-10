@@ -5,21 +5,28 @@ const modalSlice = createSlice({
   initialState: {
     isOpen: false,
     modalType: null, // 'setting' або 'logout' або 'delete'
-    initialData: {},
+    modalId: null,
+    modalInfo:null
   },
   reducers: {
     openModal: (state, action) => {
       state.isOpen = true;
       state.modalType = action.payload;
-      state.initialData = action.payload.data || {};
     },
     closeModal: state => {
       state.isOpen = false;
       state.modalType = null;
-      state.initialData = {};
+      state.modalId = null;
+      state.modalInfo = null;
     },
+    dataModalId: (state, action) => {
+      state.modalId = action.payload;
+    },
+    dataInfo: (state, action) => {
+      state.modalInfo = action.payload
+    }
   },
 });
 
-export const { openModal, closeModal } = modalSlice.actions;
+export const { openModal, closeModal, dataModalId,dataInfo } = modalSlice.actions;
 export const modalReducer = modalSlice.reducer;

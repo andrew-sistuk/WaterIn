@@ -13,8 +13,8 @@ const WaterMainInfo = () => {
   // console.log('Замінити компонент AddWaterBtn у файлі WaterMainInfo.jsx');
   const dispatch = useDispatch();
 
-  const handleAddWaterClick = () => {
-    dispatch(openModal('editWater'));
+  const handleAddWaterClick = (typeModal) => {
+    dispatch(openModal(typeModal));
   };
 
   return (
@@ -25,7 +25,7 @@ const WaterMainInfo = () => {
       <div className={css.btn}>
         <MainButton
           text="Add water"
-          onClick={() => handleAddWaterClick()}
+          onClick={() => handleAddWaterClick('addWater')}
           icon={<FiPlus />}
         />
       </div>

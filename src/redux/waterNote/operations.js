@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const addWaterNote = createAsyncThunk('addWaterNote', async (payload, thunkAPI) => {
-  console.log(payload)
+  console.log(payload);
   // try {
   //   const response = await axios.post('https://waterin-server.onrender.com/water', payload.data, {
   //     headers: {
@@ -16,8 +16,7 @@ export const addWaterNote = createAsyncThunk('addWaterNote', async (payload, thu
 });
 
 export const editWaterNote = createAsyncThunk('editWaterNote', async (payload, thunkAPI) => {
-
-  console.log(payload)
+  console.log(payload);
   // const newWaterNote = { volume: payload.data.volume, drinkTime: payload.data.drinkTime };
   // try {
   //   const response = await axios.patch(
@@ -35,15 +34,13 @@ export const editWaterNote = createAsyncThunk('editWaterNote', async (payload, t
   // }
 });
 export const deleteWaterNote = createAsyncThunk('deleteWaterNote', async (payload, thunkAPI) => {
+  const { modalId, token } = payload;
   try {
-    const response = await axios.delete(
-      `https://waterin-server.onrender.com/water/${payload.data._id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${payload.token}`,
-        },
-      }
-    );
+    const response = await axios.delete(`/water/${modalId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return await response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

@@ -32,7 +32,6 @@ const WaterItem = ({ data }) => {
         <button onClick={() => handlEditWaterClick('editWater', data)}>
           <FiEdit2 className={css.btnIcon} size="14" />
         </button>
-      {/*  */}
         <button onClick={() => handleClickDelete('delete', _id)}>
           <AiOutlineDelete className={css.btnIcon} size="14" />
         </button>

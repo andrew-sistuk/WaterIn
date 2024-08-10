@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import photo1 from '../../assets/img/Advantages/photo1@2x.jpg';
-import photo2 from '../../assets/img/Advantages/photo2@2x.jpg';
-import photo3 from '../../assets/img/Advantages/photo3@2x.jpg';
+import photo1 from '../../assets/img/Advantages/image1.jpg';
+import photo2 from '../../assets/img/Advantages/image2.jpg';
+import photo3 from '../../assets/img/Advantages/image3.jpg';
 
 import styles from './Customers.module.css';
 
@@ -13,7 +13,7 @@ export default function Customers() {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await axios.get('https://waterin-server.onrender.com/users/count');
+        const response = await axios.get('https://waterin-server.onrender.com/users/count1');
         setUserAmount(response.data.data.count);
         setUserPhotos(response.data.data.photos);
       } catch (error) {

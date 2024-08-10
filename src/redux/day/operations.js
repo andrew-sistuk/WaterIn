@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '../auth/operations';
+import { api, refreshUser } from '../auth/operations';
 axios.defaults.baseURL = 'https://waterin-server.onrender.com';
 
 export const fetchDatesId = createAsyncThunk('dates/fetchDate', async (dateDay, thunkAPI) => {
   try {
+    await refreshUser()
     const response = await api.get(`/water/day/${dateDay}`);
 
     return response.data.data;

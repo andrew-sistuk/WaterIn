@@ -17,7 +17,7 @@ const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 
 function App() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={() => console.log(true)}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route

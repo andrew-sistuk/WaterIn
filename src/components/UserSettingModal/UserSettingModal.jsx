@@ -1,12 +1,13 @@
 import clsx from 'clsx';
 import * as Yup from 'yup';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FiUpload } from 'react-icons/fi';
 import { BsExclamationLg } from 'react-icons/bs';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors.js';
+import { closeModal } from '../../redux/modal/slice.js';
 
 import css from './UserSettingModal.module.css';
 
@@ -21,16 +22,19 @@ const validationSchema = Yup.object().shape({
     .required('Email is required')
     .matches(regex.emailRegexp, 'Invalid e-mail format: example@mail.com'),
   weight: Yup.number()
+    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
     .required('Weight is required')
     .positive('Weight must be positive')
     .min(20, 'Weight must be at least 20 kg')
     .max(180, 'Weight must be at most 180 kg'),
   sportHours: Yup.number()
+    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
     .required('Activity time is required')
     .positive('Activity time must be positive')
     .min(1, 'Activity time will be more 1 hour')
     .max(8, 'Activity time will not be more 8 hour'),
   waterRate: Yup.number()
+    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
     .required('Water intake is required')
     .positive('Water intake must be positive')
     .min(1, 'Water intake will be more 1 L !'),
@@ -38,6 +42,7 @@ const validationSchema = Yup.object().shape({
 
 export default function UserSettingModal() {
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const [photo, setPhoto] = useState(user.photo);
   const [name, setName] = useState(user.name);
@@ -46,19 +51,37 @@ export default function UserSettingModal() {
   const [sportHours, setSportHours] = useState(user.sportHours);
   const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1));
 
+  const inputFileRef = useRef(null);
+
+  const handleClick = event => {
+    event.preventDefault();
+    if (inputFileRef.current) {
+      inputFileRef.current.click();
+    }
+  };
+
   const {
     handleSubmit,
     setValue,
     control,
     formState: { errors },
   } = useForm({
-    // resolver: yupResolver(validationSchema),
+    resolver: yupResolver(validationSchema),
+    mode: 'onBlur',
+    defaultValues: {
+      name: user.name,
+      email: user.email,
+      weight: user.weight,
+      sportHours: user.sportHours,
+      waterRate: 1.8,
+    },
   });
 
   const onChangeAvatar = event => {
     const avatarImg = event.target.files[0];
     if (avatarImg) {
       setPhoto(URL.createObjectURL(avatarImg));
+      // setPhoto(avatarImg);
     }
   };
 
@@ -80,9 +103,9 @@ export default function UserSettingModal() {
       setWaterRate(intake);
       setValue('waterIntake', intake);
     }
-  }, [weight, sportHours, gender, setValue]);
+  }, [weight, sportHours, gender, control, setValue]);
 
-  const onSubmit = () => {
+  const onSubmit = data => {
     const formData = new FormData();
     formData.append('id', user.id);
     formData.append('email', user.email);
@@ -90,11 +113,13 @@ export default function UserSettingModal() {
     formData.append('gender', gender);
     formData.append('weight', weight);
     formData.append('sportHours', sportHours);
-    formData.append('waterRate', waterRate);
+    formData.append('waterRate', data.waterRate);
 
     if (photo) {
       formData.append('photo', photo);
     }
+
+    dispatch(closeModal());
 
     // Для перегляду об`экту що створюється при сабміті форми
     // У продакшені ВИДАЛИТИ !!!
@@ -107,11 +132,17 @@ export default function UserSettingModal() {
         <h2 className={css.title}>Setting</h2>
         <div className={css.avatar}>
           <img className={css.avatarImg} src={photo} alt="photo" />
-          <button className={css.avatarBtn} onClick={onChangeAvatar} type="button">
+          <button className={css.avatarBtn} type="button" onClick={handleClick}>
             <FiUpload size={18} className={css.avatarSvg} />
             Upload a photo
           </button>
-          <input className={css.avatarInput} type="file" accept=".jpg,.jpeg,.png,.webp" />
+          <input
+            className={css.avatarInput}
+            type="file"
+            accept=".jpg,.jpeg,.png,.webp"
+            onChange={onChangeAvatar}
+            ref={inputFileRef}
+          />
         </div>
         <div className={css.userInfoContainer}>
           <div className={css.userInfoSection}>
@@ -161,30 +192,54 @@ export default function UserSettingModal() {
                     Your name
                   </label>
                   <div>
-                    <input
-                      className={clsx(css.input, css.inputName, errors.name && css['error-input'])}
-                      id="name"
-                      type="text"
-                      autoComplete="off"
-                      placeholder="Enter your name"
-                      defaultValue={name}
-                      onChange={event => setName(event.target.value)}
+                    <Controller
+                      name="name"
+                      control={control}
+                      render={({ field }) => (
+                        <input
+                          className={clsx(
+                            css.input,
+                            css.inputName,
+                            errors.name && css['error-input']
+                          )}
+                          id="name"
+                          type="text"
+                          autoComplete="off"
+                          placeholder="Enter your name"
+                          {...field}
+                          onChange={e => {
+                            field.onChange(e);
+                            setName(e.target.value);
+                          }}
+                        />
+                      )}
                     />
-                    {errors.name && <p className={css.errorMes}>Enter the name correctly!</p>}
+                    {errors.name && <p className={css.errorMes}>{errors.name.message}</p>}
                   </div>
                 </div>
                 <div className={css.email}>
                   <label htmlFor="email" className={css.params}>
                     Email
                   </label>
-                  <input
-                    className={css.input}
-                    id="email"
-                    type="text"
-                    autoComplete="off"
-                    defaultValue={user.email}
-                    disabled
+                  <Controller
+                    name="email"
+                    control={control}
+                    render={({ field }) => (
+                      <input
+                        className={clsx(
+                          css.input,
+                          css.inputName,
+                          errors.email && css['error-input']
+                        )}
+                        id="email"
+                        type="text"
+                        autoComplete="off"
+                        disabled
+                        {...field}
+                      />
+                    )}
                   />
+                  {errors.email && <p className={css.errorMes}>{errors.email.message}</p>}
                 </div>
                 <div className={css.dailyNorma}>
                   <p className={css.params}>My daily norma</p>
@@ -219,38 +274,58 @@ export default function UserSettingModal() {
               <div className={css.weight}>
                 <label htmlFor="weight">Your weight in kilograms:</label>
                 <div className={css['box-pass']}>
-                  <input
-                    className={clsx(css.input, css.inputName, errors.weight && css['error-input'])}
-                    onChange={event => setWeight(event.target.value)}
-                    id="weight"
-                    type="text"
-                    placeholder="0"
-                    autoComplete="off"
-                    defaultValue={weight}
+                  <Controller
+                    name="weight"
+                    control={control}
+                    render={({ field }) => (
+                      <input
+                        className={clsx(
+                          css.input,
+                          css.inputName,
+                          errors.weight && css['error-input']
+                        )}
+                        id="weight"
+                        type="text"
+                        placeholder="0"
+                        autoComplete="off"
+                        {...field}
+                        onChange={e => {
+                          field.onChange(e);
+                          setWeight(e.target.value);
+                        }}
+                      />
+                    )}
                   />
-                  {errors.weight && <p className={css.errorMes}>Enter the weight correctly!</p>}
+                  {errors.weight && <p className={css.errorMes}>{errors.weight.message}</p>}
                 </div>
               </div>
 
               <div className={css.activityTime}>
                 <label htmlFor="sportHours">The time of active participation in sports:</label>
                 <div className={css['box-pass']}>
-                  <input
-                    className={clsx(
-                      css.input,
-                      css.inputName,
-                      errors.sportHours && css['error-input']
+                  <Controller
+                    name="sportHours"
+                    control={control}
+                    render={({ field }) => (
+                      <input
+                        className={clsx(
+                          css.input,
+                          css.inputName,
+                          errors.sportHours && css['error-input']
+                        )}
+                        id="sportHours"
+                        type="text"
+                        placeholder="0"
+                        autoComplete="off"
+                        {...field}
+                        onChange={e => {
+                          field.onChange(e);
+                          setSportHours(e.target.value);
+                        }}
+                      />
                     )}
-                    onChange={event => setSportHours(event.target.value)}
-                    id="sportHours"
-                    type="text"
-                    placeholder="0"
-                    autoComplete="off"
-                    defaultValue={sportHours}
                   />
-                  {errors.sportHours && (
-                    <p className={css.errorMes}>Enter the time of activity correctly!</p>
-                  )}
+                  {errors.sportHours && <p className={css.errorMes}>{errors.sportHours.message}</p>}
                 </div>
               </div>
 
@@ -266,21 +341,26 @@ export default function UserSettingModal() {
                   Write down how much water you will drink:
                 </label>
                 <div className={css['box-pass']}>
-                  <input
-                    className={clsx(
-                      css.input,
-                      css.inputName,
-                      errors.waterRate && css['error-input']
+                  <Controller
+                    name="waterRate"
+                    control={control}
+                    render={({ field }) => (
+                      <input
+                        className={clsx(
+                          css.input,
+                          css.inputName,
+                          errors.waterRate && css['error-input']
+                        )}
+                        id="waterRate"
+                        type="text"
+                        placeholder="1.8"
+                        autoComplete="off"
+                        value={waterRate}
+                        {...field}
+                      />
                     )}
-                    onChange={event => setWaterRate(event.target.value)}
-                    defaultValue="1.8"
-                    placeholder="1.8"
-                    id="waterRate"
-                    type="text"
                   />
-                  {errors.waterRate && (
-                    <p className={css.errorMes}>Water intake will be more 1 L !</p>
-                  )}
+                  {errors.waterRate && <p className={css.errorMes}>{errors.waterRate.message}</p>}
                 </div>
               </div>
             </div>

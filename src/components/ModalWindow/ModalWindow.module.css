@@ -34,25 +34,4 @@
 
 .closeIcon {
   fill: var(--main-black-color);
-  transition: fill var(--animation);
-}
-
-.closeIcon:hover,
-.closeIcon:active {
-  fill: var(--main-green-color-active);
-}
-
-@media screen and (min-width: 768px) {
-  .closeBtn {
-    top: 38px;
-    right: 35px;
-  }
-
-  .closeIcon {
-    width: 38px;
-    height: 38px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
 }

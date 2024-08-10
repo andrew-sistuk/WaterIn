@@ -16,6 +16,7 @@ import UserSettingModal from '../UserSettingModal/UserSettingModal.jsx';
 import { useEffect } from 'react';
 // import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
 import DeleteEntryModal from '../DeleteEntryModal/DeleteEntryModal.jsx';
+import WaterModal from '../WaterModal/WaterModal.jsx';
 
 Modal.setAppElement('#root');
 
@@ -49,6 +50,12 @@ function addContentModal(modalType) {
       return <UserSettingModal />;
     case 'delete':
       return <DeleteEntryModal />;
+      case 'addWater':
+        return <WaterModal />;
+      case 'editWater':
+        return <WaterModal />;
+      default:
+        return null;
   }
 }
 
@@ -58,7 +65,7 @@ export default function ModalWindow({ onClose }) {
 
   // console.log('testUser', testUser.id);
 
-  ////////////////////////////
+  ////////////////////////////    
 
   const dispatch = useDispatch();
   const isOpen = useSelector(selectStateModal);

@@ -20,7 +20,7 @@ const TrackerPage = () => {
 
   useEffect(() => {
     dispatch(getUser(user.id));
-  }, [dispatch]);
+  }, [dispatch, user.id]);
 
   return (
     <>

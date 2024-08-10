@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/slice';
 
 const WaterItem = ({ data }) => {
-  const { userId, volume, drinkTime } = data;
+  const { volume, drinkTime } = data;
   const dispatch = useDispatch();
 
   const handleClickDelete = modalType => {

@@ -15,7 +15,7 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const token = params.get('token');
+    const token = params.get('accessToken');
     const refreshToken = params.get('refreshToken');
 
     if (token && refreshToken) {

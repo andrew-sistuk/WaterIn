@@ -26,6 +26,8 @@ const authSlice = createSlice({
       gender: null,
     },
     token: null,
+    refreshToken: null,
+    sessionId: null,
     isLoggedIn: false,
     isRefreshing: false,
     loading: false,
@@ -123,6 +125,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.refreshToken = action.payload.refreshToken;
+        state.sessionId = action.payload.sessionId;
         state.isLoggedIn = true;
       })
       .addCase(logInWithGoogle.rejected, (state, action) => {

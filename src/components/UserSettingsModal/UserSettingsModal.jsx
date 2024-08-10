@@ -1,6 +1,6 @@
 import { IoIosClose } from 'react-icons/io';
 import React from 'react';
-import UserSettingsForm from '../UserSettingsForm/UserSettingsForm';
+import UserSettingsForm from '../UserSettingsForm/UserSettingsForm1';
 import Modal from 'react-modal';
 import css from './UserSettingsModal.module.css';
 
@@ -28,7 +28,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 export default function UserSettingsModal() {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   // const openModal=()=> {
   //   setIsOpen(true);

@@ -12,7 +12,7 @@ import { closeModal } from '../../redux/modal/slice.js';
 
 import css from './ModalWindow.module.css';
 import DeleteEntryModal from '../DeleteEntryModal/DeleteEntryModal.jsx';
-import UserSettingsForm from '../UserSettingsForm/UserSettingsForm.jsx';
+import UserSettingsForm from '../UserSettingsForm/UserSettingsForm1.jsx';
 
 Modal.setAppElement('#root');
 

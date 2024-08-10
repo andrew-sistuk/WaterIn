@@ -18,6 +18,7 @@ import { modalReducer } from './modal/slice.js';
 import waterNoteSlice from './waterNote/slice';
 import { setupAxiosInterceptors } from './auth/operations';
 import daySlice from './day/slice';
+import changeDayReducer from './changeDay/changeDay.js';
 
 
 const authPersistConfig = {
@@ -36,6 +37,7 @@ const store = configureStore({
     modal: modalReducer,
     waterNote: waterNoteSlice,
     day: daySlice,
+    changeDay: changeDayReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

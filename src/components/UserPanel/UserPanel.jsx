@@ -55,7 +55,7 @@ const UserPanel = () => {
         </h2>
       ) : (
         <h2 className={css.title}>
-          Hello<span className={css.firstUserName}>, Test!</span>
+          Hello<span className={css.firstUserName}>, User!</span>
         </h2>
       )}
       <button className={css.userPanelBtn} onClick={toggleMenu}>

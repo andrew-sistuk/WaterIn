@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 436px;
+  padding-top: 14vh;
+  padding-bottom: 12vh;
 }
 
 .sign-form {
@@ -76,10 +78,15 @@
   background-color: #87d28d;
 }
 
+.sing-forgot-wrapper,
 .paragraph-sign {
+  align-content: center;
+  margin: 0 auto;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+  letter-spacing: -0.03em;
+  text-align: center;
   align-self: center;
   color: rgba(47, 47, 47, 0.5);
 }
@@ -157,5 +164,12 @@
   .submit {
     padding: 18px 190px;
     line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .form {
+    padding-top: 15%;
+    padding-bottom: 10%;
   }
 }

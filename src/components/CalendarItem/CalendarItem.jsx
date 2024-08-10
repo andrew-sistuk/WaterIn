@@ -4,6 +4,8 @@ import { fetchDatesId } from '../../redux/day/operations';
 import css from './CalendarItem.module.css';
 import { selectItems } from '../../redux/dates/selectors';
 
+import { addDay } from '../../redux/changeDay/changeDay';
+
 const CalendarItem = ({ elem }) => {
   const dispatch = useDispatch();
 
@@ -12,6 +14,7 @@ const CalendarItem = ({ elem }) => {
   const handleClickDay = value => {
     const date = new Date(value.times).getTime() + 43200000;
     dispatch(fetchDatesId(date));
+    dispatch(addDay(value.times));
   };
 
   const today = new Date();

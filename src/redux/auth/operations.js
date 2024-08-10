@@ -80,6 +80,16 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 )
+/////////////////////////////////////////////////
+export const refresh = async () => {
+  try {
+    const response = await api.post('/users/refresh');
+    setAuthHeader(response.data.data.accessToken)
+    return response.data.data.accessToken
+  } catch (error) {
+    console.log(error.message);
+  }
+ }
 //////////////////////////////////////////////////
 
 export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {

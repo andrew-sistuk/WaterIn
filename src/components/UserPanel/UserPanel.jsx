@@ -73,7 +73,7 @@ const UserPanel = () => {
         </div>
         <IoChevronDown className={`${css.iconBtn} ${menuOpen ? css.isOpen : ''}`} />
       </button>
-      {menuOpen && <UserBarPopover />}
+      {menuOpen && <UserBarPopover toggleMenu={toggleMenu} />}
       <ModalWindow onClose={handleCloseModal} />
     </div>
   );

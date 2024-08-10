@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import photo1 from '../../assets/img/Advantages/image1.jpg';
+import photo2 from '../../assets/img/Advantages/image2.jpg';
+import photo3 from '../../assets/img/Advantages/image3.jpg';
 
 import styles from './Customers.module.css';
 
@@ -14,7 +17,8 @@ export default function Customers() {
         setUserAmount(response.data.data.count);
         setUserPhotos(response.data.data.photos);
       } catch (error) {
-        console.error('Error fetching photos:', error);
+        // console.error('Error fetching photos:', error);
+        setUserPhotos([photo1, photo2, photo3]);
       }
     };
 
@@ -34,7 +38,7 @@ export default function Customers() {
             </li>
           ))}
         </ul>
-        <div className={styles.customersAmount}>+{userAmount}</div>
+        {userAmount > 0 && <div className={styles.customersAmount}>+{userAmount}</div>}
       </div>
       <p className={styles.customersText}>
         Our <span className={styles.customersSpan}>happy</span> customers

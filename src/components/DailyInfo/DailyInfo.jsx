@@ -1,30 +1,29 @@
+import { FiPlus } from 'react-icons/fi';
 import ChooseDate from '../ChooseDate/ChooseDate';
 import MainButton from '../MainButton/MainButton';
-
-// AddWaterBtn;
+import { openModal } from '../../redux/modal/slice';
+import { useDispatch } from 'react-redux';
 import WaterList from '../WaterList/WaterList';
 
 import css from './DailyInfo.module.css';
 
 const DailyInfo = () => {
+  const dispatch = useDispatch();
+
+  const handleAddWaterClick = (typeModal) => {
+    dispatch(openModal(typeModal));
+  };
+
+
   return (
     <div>
       <div className={css.wrapper}>
         <ChooseDate />
-
-        {/* Видалити та замінити на компонент */}
-        {/* <button className="button" style={{ display: 'block' }}>
-          Add water
-        </button> */}
         <MainButton
           className="button"
           text="Add water"
-          onClick={() => alert('Add water Button clicked!')}
-          icon={
-            <svg width={20} height={20} className={css.icon}>
-              {/* <use href="/src/img/icons/sprite.svg#icon-plus"></use> */}
-            </svg>
-          }
+          onClick={() => handleAddWaterClick('addWater')}
+          icon={<FiPlus />}
           iconOnly
         />
       </div>

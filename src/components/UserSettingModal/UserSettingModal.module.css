@@ -1,18 +1,29 @@
-.form {
-  font-family: Poppins;
-  box-sizing: border-box;
+.wraper {
+  max-width: 343px;
+  padding: 40px 20px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 15px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
 }
 
 .input {
   border: 1px solid rgba(47, 47, 47, 0.15);
   border-radius: 15px;
-  padding: 14px;
+  padding: 14px 16px;
   outline: transparent;
-  /* width: 303px; */
-  height: 46px;
   outline: none;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
 }
 
 .input:hover,
@@ -20,27 +31,12 @@
   border-color: rgba(47, 47, 47, 0.6);
 }
 
-/* .input:active {
-  border-color: rgba(47, 47, 47, 0.4);
-} */
-
 .input::placeholder {
-  font-size: 14px;
   font-weight: 400;
-  line-height: 1.28;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.6);
-}
-
-@media screen and (max-width: 374px) {
-  .input {
-    max-width: 303px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .input {
-    width: 303px;
-  }
 }
 
 .avatar {
@@ -49,21 +45,24 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 40px;
+  border-radius: 50%;
 }
 
 .avatarImg {
   width: 75px;
   height: 75px;
-  border: 1px solid var(--main-black-gray-color);
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatarBtn {
   display: flex;
+  padding: 0;
   gap: 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-black-color);
   border: none;
   background-color: var(--main-white-color);
@@ -73,6 +72,7 @@
 .avatarBtn:focus {
   color: var(--main-black-gray-color);
   font-weight: 600;
+  cursor: pointer;
 }
 
 .avatarInput {
@@ -83,10 +83,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.25;
-  color: var(--main-black-gray-color);
   margin-bottom: 24px;
 }
 
@@ -96,12 +92,17 @@
 }
 
 .genderRadio {
-  /* display: flex;
-  gap: 10px; */
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-black-color);
+}
+
+.params {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .label {
@@ -132,8 +133,8 @@
   left: 0;
   width: 20px;
   height: 20px;
-  -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: opacity var(--animation);
+  transition: opacity var(--animation);
 }
 
 .check {
@@ -156,18 +157,12 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.25;
-
   color: var(--main-black-gray-color);
   margin-bottom: 14px;
 }
 
-.box-pass {
-  position: relative;
-}
-
 .inputName {
   width: 100%;
-  margin-bottom: 8px;
 }
 
 .error-input,
@@ -179,14 +174,14 @@
 }
 
 .errorMes {
-  position: absolute;
-  top: 56px;
-  right: 0;
-  font-size: 10px;
   font-weight: 400;
-  line-height: 2;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
   color: #ef5050;
+  margin-top: 10px;
 }
+
 .email {
   display: flex;
   flex-direction: column;
@@ -194,7 +189,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.25;
-
   color: var(--main-black-gray-color);
   margin-bottom: 24px;
 }
@@ -218,57 +212,53 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  color: var(--main-black-color);
+}
+
+.formulaTitle {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  color: var(--main-black-color);
+  letter-spacing: -0.01em;
 }
 
 .dailyNormaFormula {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-green-color);
-  padding-top: 4px;
+  margin-top: 4px;
+}
+
+.dailyNormaTextContainer {
+  padding: 16px;
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
 }
 
 .dailyNormaText {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.6);
-
-  border: 1px solid rgba(47, 47, 47, 0.15);
-  border-radius: 15px;
-  padding: 14px;
-  /* width: 303px; */
-  height: 140px;
-}
-
-@media screen and (max-width: 374px) {
-  .dailyNormaText {
-    max-width: 303px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .dailyNormaText {
-    width: 303px;
-  }
 }
 
 .span {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.29;
   color: var(--main-green-color);
-  padding-right: 4px;
 }
 
-.dailyNormaTextSpan {
+.activeIcon {
+  fill: var(--main-green-color);
+  vertical-align: text-top;
+}
+
+.activeText {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-black-color);
 }
 
@@ -279,6 +269,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-black-color);
   margin-bottom: 14px;
 }
@@ -290,6 +281,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+  letter-spacing: -0.01em;
   color: var(--main-black-color);
   margin-bottom: 24px;
 }
@@ -298,11 +290,14 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 14px;
+}
+
+.reqWaterDescription {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  color: var(--main-black-color);
-  margin-bottom: 14px;
+  letter-spacing: -0.01em;
 }
 
 .water {
@@ -316,69 +311,91 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.25;
   color: var(--main-black-gray-color);
   margin-bottom: 40px;
 }
 
 .saveBtn {
-  margin-bottom: 20px;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: var(--main-black-color);
+  cursor: pointer;
+  background-color: var(--main-green-color);
+  transition: background-color var(--animation);
 }
+
+.saveBtn:hover,
+.saveBtn:active {
+  background-color: var(--main-green-color-active);
+}
+
 /* =========================== Tablet styles ========================= */
 
 @media screen and (min-width: 768px) {
-  .form {
-    padding: 20px;
+  .wraper {
+    max-width: 648px;
+    width: 648px;
+    padding: 40px;
   }
 
-  .input {
-    padding: 16px;
-    width: 568px;
-    height: 56px;
+  .title {
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
   }
 
   .avatarImg {
     width: 100px;
     height: 100px;
   }
+
   .avatarBtn {
     font-size: 16px;
     line-height: 1.5;
   }
+
   .avatarSvg {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
   }
 
-  .gender {
+  .params {
     font-size: 18px;
-    line-height: 1.33;
+    line-height: 1.33333;
+    letter-spacing: -0.01em;
   }
+
   .genderRadio {
     font-size: 16px;
     line-height: 1.5;
-    gap: 20px;
+    letter-spacing: -0.01em;
   }
 
-  .name {
-    font-size: 18px;
-    line-height: 1.33;
+  .input {
+    padding: 15px 16px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 
-  .email {
-    font-size: 18px;
-    line-height: 1.33;
+  .input::placeholder {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 
-  .dailyNormaTitle {
-    font-size: 18px;
-    line-height: 1.33;
-  }
   .dailyNormaList {
     flex-direction: row;
     gap: 28px;
+  }
+
+  .formulaTitle {
     font-size: 16px;
     line-height: 1.5;
   }
@@ -386,20 +403,24 @@
   .dailyNormaFormula {
     font-size: 16px;
     line-height: 1.5;
+    margin-top: 4px;
   }
+
   .dailyNormaText {
     font-size: 16px;
     line-height: 1.5;
-
-    padding: 16px;
-    width: 568px;
-    height: 128px;
   }
 
-  .dailyNormaTextSpan {
+  .activeIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .activeText {
     font-size: 16px;
     line-height: 1.5;
   }
+
   .weight {
     font-size: 16px;
     line-height: 1.5;
@@ -412,7 +433,10 @@
 
   .requiredWater {
     flex-direction: row;
-    gap: 5px;
+    align-items: center;
+  }
+
+  .reqWaterDescription {
     font-size: 16px;
     line-height: 1.5;
   }
@@ -422,30 +446,33 @@
     line-height: 1.49;
   }
 
-  .waterIntake {
-    font-size: 18px;
-    line-height: 1.33;
+  .saveBtn {
+    padding: 16px 50px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
 
 /* =========================== Desktop styles ========================= */
 
 @media screen and (min-width: 1440px) {
-  .container {
+  .wraper {
+    max-width: 920px;
+    width: 920px;
+  }
+
+  .userInfoContainer {
     display: flex;
     gap: 40px;
   }
 
-  .input {
-    width: 400px;
-    height: 56px;
+  .userInfoSection {
+    max-width: calc((100% - 40px) / 2);
   }
 
-  .dailyNormaText {
-    width: 400px;
-    height: 152px;
-  }
-  .waterIntake {
-    margin-bottom: 0;
+  .weight {
+    margin-top: 86px;
   }
 }

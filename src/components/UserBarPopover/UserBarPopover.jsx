@@ -6,27 +6,24 @@ import { useDispatch } from 'react-redux';
 
 import css from './UserBarPopover.module.css';
 
-const UserBarPopover = () => {
+const UserBarPopover = ({ toggleMenu }) => {
   const dispatch = useDispatch();
 
-  const handleSetting = modalType => {
+  const handleClick = modalType => {
     dispatch(openModal(modalType));
-  };
-
-  const handleLogout = modalType => {
-    dispatch(openModal(modalType));
+    toggleMenu();
   };
 
   return (
     <div className={css.container}>
       <button
         className={`${css.userBarPopoverBtn} ${css.settingBtn}`}
-        onClick={() => handleSetting('setting')}
+        onClick={() => handleClick('setting')}
       >
         <FiSettings className={css.btnIcon} />
         <p className={css.textBtn}>Setting</p>
       </button>
-      <button className={css.userBarPopoverBtn} onClick={() => handleLogout('logout')}>
+      <button className={css.userBarPopoverBtn} onClick={() => handleClick('logout')}>
         <FiLogOut className={css.btnIcon} />
         <p className={css.textBtn}>Log out</p>
       </button>

@@ -91,7 +91,24 @@ const authSlice = createSlice({
         state.refreshToken = null;
         state.isLoggedIn = false;
       })
-      .addCase(logout.rejected, handleRejected)
+      .addCase(logout.rejected, (state, action) => {
+        state.loading = false;
+        state.user = {
+          name: null,
+          email: null,
+          id: null,
+          photo: null,
+          sportHours: null,
+          weight: null,
+          waterRate: null,
+          gender: null,
+        };
+        state.loading = false;
+        state.error = action.payload;
+        (state.token = null), state.isLoggedIn;
+        state.isLoggedIn = null;
+        localStorage.setItem('accessToken', '');
+      })
 
       .addCase(getUser.pending, handlePending)
       .addCase(getUser.fulfilled, (state, action) => {

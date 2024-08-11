@@ -42,9 +42,55 @@ export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
     await api.post('/users/logout');
     clearAuthHeader();
   } catch (error) {
+    clearAuthHeader();
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+////////////////////////////////////////////////////
+export const refreshFunction = createAsyncThunk('users/refresh-user', async (_, thunkAPI) => {
+  try {
+    const response = await api.post('/users/refresh-user');
+    setAuthHeader(response.data.data.accessToken);
+
+    return response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+})
+
+//////////////////////////////////////////
+const logoutUser = async () => {
+  await logout()
+  window.location.reload();
+}
+
+api.interceptors.response.use(
+  (response) => {
+    if(response.status === 409) {
+      console.log('start logout')
+    }
+    
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 409){
+      logoutUser()
+    }
+    return Promise.reject(error);
+  }
+)
+/////////////////////////////////////////////////
+export const refresh = async () => {
+  try {
+    const response = await api.post('/users/refresh');
+    setAuthHeader(response.data.data.accessToken)
+    return response.data.data.accessToken
+  } catch (error) {
+    console.log(error.message);
+  }
+ }
+//////////////////////////////////////////////////
 
 export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   try {
@@ -57,19 +103,45 @@ export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   }
 });
 
-export const patchUser = createAsyncThunk(
-  'users/patch',
-  async ({ testId, userPatch }, thunkAPI) => {
-    try {
-      const response = await api.patch(`/users/${testId}`, userPatch);
-      setAuthHeader(response.data.data.accessToken);
+// export const patchUser = createAsyncThunk(
+//   'users/patch',
+//   async ({ testId, userPatch }, thunkAPI) => {
+//     try {
+//       const response = await api.patch(`/users/${testId}`, userPatch);
+//       setAuthHeader(response.data.data.accessToken);
 
-      return response.data.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+//       return response.data.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+export const patchUser = createAsyncThunk('users/patch', async ({ Id, userPatch }, thunkAPI) => {
+  try {
+    const formData = new FormData();
+
+    formData.append('email', userPatch.email);
+    formData.append('name', userPatch.name);
+    formData.append('sportHours', userPatch.sportHours);
+    formData.append('weight', userPatch.weight);
+    formData.append('waterRate', userPatch.waterRate);
+    formData.append('gender', userPatch.gender);
+    formData.append('photo', userPatch.photo);
+
+    const response = await api.patch(`/users/${Id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    setAuthHeader(response.data.data.accessToken);
+
+    return response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+});
 
 export const refreshUser = createAsyncThunk(
   'users/refresh',

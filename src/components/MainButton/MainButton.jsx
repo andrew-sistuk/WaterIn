@@ -1,4 +1,4 @@
-import styles from './MainButton.module.scss';
+import styles from './MainButton.module.css';
 
 export default function MainButton({
   text,

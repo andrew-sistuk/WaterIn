@@ -8,13 +8,16 @@ import {
 } from 'react';
 
 import NotFound from './components/NotFound/NotFound';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
 import RestrictedRoute from './components/RestrictedRoute.jsx';
 import VerifyEmail from './components/VerifyEmail/VerifyEmail';
 // import { useDispatch } from 'react-redux';
 // import { refreshUser } from './redux/auth/operations.js';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshFunction } from '../src/redux/auth/operations.js';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
@@ -27,10 +30,27 @@ function App() {
   // const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   dispatch(refreshUser());
+  //   dispatch(refreshFunction());
   // }, [dispatch]);
 
   // ! Перезавантаження сторінки без вилогування, потрібно переписувати логіку refreshUser()
+
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const refreshUser = async () => {
+  //     const result = await dispatch(refreshFunction());
+
+  //     if (refreshFunction.fulfilled.match(result)) {
+  //       navigate('/tracker');
+  //     } else {
+  //       console.log('Refresh failed');
+  //     }
+  //   };
+
+  //   refreshUser();
+  // }, [navigate, dispatch]);
 
   return (
     <Suspense fallback={<Loader />}>

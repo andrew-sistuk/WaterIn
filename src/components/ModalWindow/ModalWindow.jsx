@@ -12,14 +12,18 @@ import { closeModal } from '../../redux/modal/slice.js';
 
 import css from './ModalWindow.module.css';
 // import SettingModal from '../SettingModal/SettingModal.jsx';
-import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
+import UserSettingModal from '../UserSettingModal/UserSettingModal.jsx';
+import { useEffect } from 'react';
+// import UserSettingsModal from '../UserSettingsModal/UserSettingsModal.jsx';
 import DeleteEntryModal from '../DeleteEntryModal/DeleteEntryModal.jsx';
+import WaterModal from '../WaterModal/WaterModal.jsx';
 
 Modal.setAppElement('#root');
 
 const modalStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    position: 'fixed',
   },
   content: {
     top: '50%',
@@ -31,6 +35,9 @@ const modalStyles = {
     padding: 0,
     border: 'none',
     borderRadius: '14px',
+    maxHeight: '90vh',
+    overflowY: 'auto',
+    scrollbarWidth: 'none',
   },
 };
 
@@ -40,9 +47,15 @@ function addContentModal(modalType) {
     case 'logout':
       return <LogOutModal />;
     case 'setting':
-      return <UserSettingsModal />;
+      return <UserSettingModal />;
     case 'delete':
       return <DeleteEntryModal />;
+      case 'addWater':
+        return <WaterModal />;
+      case 'editWater':
+        return <WaterModal />;
+      default:
+        return null;
   }
 }
 
@@ -52,11 +65,23 @@ export default function ModalWindow({ onClose }) {
 
   // console.log('testUser', testUser.id);
 
-  ////////////////////////////
+  ////////////////////////////    
 
   const dispatch = useDispatch();
   const isOpen = useSelector(selectStateModal);
   const modalType = useSelector(selectTypeModal);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'; // Блокуємо прокрутку фону
+    } else {
+      document.body.style.overflow = ''; // Восстановлюємо прокрутку фону
+    }
+
+    return () => {
+      document.body.style.overflow = ''; // Очистка по завершенню
+    };
+  }, [isOpen]);
 
   return (
     <Modal
@@ -76,7 +101,7 @@ export default function ModalWindow({ onClose }) {
           dispatch(closeModal());
         }}
       >
-        <IoIosClose className={css.closeIcon} />
+        <IoIosClose className={css.closeIcon} size={32} />
       </button>
       {
         addContentModal(modalType)

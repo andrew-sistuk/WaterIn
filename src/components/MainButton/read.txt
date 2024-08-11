@@ -1,5 +1,6 @@
 щоб кнопки працювали не забувайте про iмпорт
 import MainButton from '../../components/MainButton/MainButton';
+import { FiPlus } from "react-icons/fi"; <- для кнопок з iконками
 
 кнопка Save
 
@@ -19,15 +20,13 @@ import MainButton from '../../components/MainButton/MainButton';
 
 кнопка Add water
 
-      <MainButton
-        text="Add water"
-        onClick={() => alert('Add water Button clicked!')}
-        icon={
-          <svg width={20} height={20} className={css.icon}>
-            <use href="/src/img/icons/sprite.svg#icon-plus"></use>
-          </svg>
-        }
-      />
+       <MainButton
+          text="Add water"
+          onClick={() => alert('Add water Button clicked!')}
+          icon={
+            <FiPlus />
+          }
+        />
 
 кнопка Add water з окремим плюсиком
 
@@ -35,10 +34,8 @@ import MainButton from '../../components/MainButton/MainButton';
         text="Add water"
         onClick={() => alert('Add water Button clicked!')}
         icon={
-          <svg width={20} height={20} className={css.icon}>
-            <use href="/src/img/icons/sprite.svg#icon-plus"></use>
-          </svg>
-        }
+            <FiPlus />
+          }
         iconOnly
       />
 

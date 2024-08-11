@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { register, login, logout, refreshUser, getUser, refreshFunction, logInWithGoogle } from '../auth/operations';
+import { register, login, logout, refreshUser, getUser, logInWithGoogle } from '../auth/operations';
 
 const handlePending = state => {
   state.error = null;
@@ -102,7 +102,7 @@ const authSlice = createSlice({
         state.error = action.payload;
         (state.token = null), state.isLoggedIn;
         state.isLoggedIn = null;
-        localStorage.setItem('accessToken', '')
+        localStorage.setItem('accessToken', '');
       })
 
       .addCase(getUser.pending, handlePending)
@@ -126,7 +126,17 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = {
+          ...state.user,
+          name: action.payload.user.name,
+          email: action.payload.user.email,
+          id: action.payload.user._id,
+          photo: action.payload.user.photo,
+          sportHours: action.payload.user.sportHours,
+          weight: action.payload.user.weight,
+          waterRate: action.payload.user.waterRate,
+          gender: action.payload.user.gender,
+        };
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
@@ -144,15 +154,7 @@ const authSlice = createSlice({
       })
       .addCase(logInWithGoogle.rejected, (state, action) => {
         state.error = action.payload;
-      })
-      .addCase(refreshFunction.pending, handlePending)
-      .addCase(refreshFunction.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        console.log(action.payload)
-        state.token = action.payload.accessToken;
-        state.isLoggedIn = true;
-      })
-      .addCase(refreshFunction.rejected, handleRejected)
+      });
   },
 });
 

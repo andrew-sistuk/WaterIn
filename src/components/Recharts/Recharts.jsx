@@ -9,10 +9,17 @@ import { AreaChart, Area, ResponsiveContainer, YAxis, XAxis, Tooltip } from 'rec
 const Recharts = () => {
   const dates = useSelector(selectItems);
 
-  const CustomTooltip = ({ active, payload }) => {
+  const CustomTooltip = ({ active, payload, coordinate }) => {
     if (active && payload && payload.length) {
+      const tooltipStyle = {
+        position: 'absolute',
+        left: coordinate.x,
+        top: -50,
+        transform: 'translateX(-51%)',
+      };
+
       return (
-        <div className={css.customTooltip}>
+        <div className={css.customTooltip} style={tooltipStyle}>
           <p className={css.intro}>{` ${payload[0].value} ml`}</p>
         </div>
       );
@@ -20,7 +27,6 @@ const Recharts = () => {
 
     return null;
   };
-
   return (
     <div className={css.container}>
       <ResponsiveContainer width="100%" height="100%">

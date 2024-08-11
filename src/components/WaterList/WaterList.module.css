@@ -8,22 +8,22 @@
   overflow-x: auto;
 }
 
-::-webkit-scrollbar {
+.list::-webkit-scrollbar {
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
+.list::-webkit-scrollbar-track {
   /* background-color: transparent; */
   background-color: var(--main-white-color);
   border-radius: 9px;
 }
 
-::-webkit-scrollbar-thumb {
+.list::-webkit-scrollbar-thumb {
   background-color: var(--main-black-gray-color);
   border-radius: 9px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.list::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-green-color);
 }
 

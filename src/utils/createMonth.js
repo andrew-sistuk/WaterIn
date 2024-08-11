@@ -1,14 +1,14 @@
-import createDate from "./createDate";
-import getMonthNumberOfDays from "./getMonthNumberOfDays";
+import createDate from './createDate';
+import getMonthNumberOfDays from './getMonthNumberOfDays';
 
 const createMonth = (params = {}) => {
-  const locale = params.locale ?? "default";
+  const locale = params.locale ?? 'en';
 
   const date = params.date ?? new Date();
   const currentDate = createDate({ date, locale });
   const { month: monthName, year, monthNumber, monthIndex } = currentDate;
 
-  const getDay = (dayNumber) => {
+  const getDay = dayNumber => {
     return createDate({ date: new Date(year, monthIndex, dayNumber) }, locale);
   };
 

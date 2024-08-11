@@ -9,7 +9,7 @@ import { closeModal } from '../../redux/modal/slice.js';
 import MainButton from '../MainButton/MainButton';
 import styles from './WaterModal.module.css';
 import { selectModalInfo, selectTypeModal } from '../../redux/modal/selectors.js';
-import { editWaterNote, addWaterNote } from '../../redux/waterNote/operations.js';
+import { editWaterNote, addWaterNote } from '../../redux/day/operations.js';
 import { selectIsToken } from '../../redux/auth/selectors.js';
 
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';

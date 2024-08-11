@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { closeModal } from '../../redux/modal/slice.js';
-import { deleteWaterNote } from '../../redux/waterNote/operations.js';
+import { deleteWaterNote } from '../../redux/day/operations.js';
 
 import css from './DeleteEntryModal.module.css';
 import { toast } from 'react-toastify';
@@ -9,7 +9,7 @@ import { selectModalId } from '../../redux/modal/selectors.js';
 import { selectIsToken } from '../../redux/auth/selectors.js';
 
 const DeleteEntryModal = () => {
-  const modalId = useSelector(selectModalId);
+  const _id = useSelector(selectModalId);
   const token = useSelector(selectIsToken);
 
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const DeleteEntryModal = () => {
   const handleDeleteClick = async () => {
     setLoading(true);
     try {
-      await dispatch(deleteWaterNote({ modalId, token }));
+      await dispatch(deleteWaterNote({ _id, token }));
     } catch (error) {
       toast(`Error deleting entry: ${error}`);
       console.error(`Error deleting entry: ${error}`);

@@ -12,3 +12,58 @@ export const fetchDatesId = createAsyncThunk('dates/fetchDate', async (dateDay, 
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+// =============================================
+export const addWaterNote = createAsyncThunk('addWaterNote', async (payload, thunkAPI) => {
+  const { volume, drinkTime, token } = payload;
+  try {
+    const response = await axios.post(
+      '/water',
+      { volume, drinkTime },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return await response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const editWaterNote = createAsyncThunk('editWaterNote', async (payload, thunkAPI) => {
+  const { volume, drinkTime, _id, token } = payload;
+  try {
+    const response = await axios.patch(
+      `/water/${_id}`,
+      { volume, drinkTime },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return await response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+export const deleteWaterNote = createAsyncThunk(
+  'deleteWaterNote',
+  async ({ _id, token }, thunkAPI) => {
+    console.log(_id);
+    try {
+      const response = await axios.delete(`/water/${_id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log(response.data.data);
+      return await response.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -14,17 +14,20 @@ export const fetchDatesId = createAsyncThunk('dates/fetchDate', async (dateDay, 
 });
 // =============================================
 export const addWaterNote = createAsyncThunk('addWaterNote', async (payload, thunkAPI) => {
-  const { volume, drinkTime, token } = payload;
+  const { volume, drinkTime, token, lastDay } = payload;
+  const createdAt = lastDay + 43200000;
+
   try {
     const response = await axios.post(
       '/water',
-      { volume, drinkTime },
+      { volume, drinkTime, createdAt },
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }
     );
+
     return await response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -52,15 +55,12 @@ export const editWaterNote = createAsyncThunk('editWaterNote', async (payload, t
 export const deleteWaterNote = createAsyncThunk(
   'deleteWaterNote',
   async ({ _id, token }, thunkAPI) => {
-    console.log(_id);
     try {
       const response = await axios.delete(`/water/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log(response.data.data);
       return await response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

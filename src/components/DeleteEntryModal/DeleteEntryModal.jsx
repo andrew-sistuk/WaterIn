@@ -7,6 +7,7 @@ import css from './DeleteEntryModal.module.css';
 import { toast } from 'react-toastify';
 import { selectModalId } from '../../redux/modal/selectors.js';
 import { selectIsToken } from '../../redux/auth/selectors.js';
+import { fetchDates } from '../../redux/dates/operations.js';
 
 const DeleteEntryModal = () => {
   const _id = useSelector(selectModalId);
@@ -19,6 +20,7 @@ const DeleteEntryModal = () => {
     setLoading(true);
     try {
       await dispatch(deleteWaterNote({ _id, token }));
+      dispatch(fetchDates(new Date().getTime()));
     } catch (error) {
       toast(`Error deleting entry: ${error}`);
       console.error(`Error deleting entry: ${error}`);

@@ -11,6 +11,8 @@ import styles from './WaterModal.module.css';
 import { selectModalInfo, selectTypeModal } from '../../redux/modal/selectors.js';
 import { editWaterNote, addWaterNote } from '../../redux/day/operations.js';
 import { selectIsToken } from '../../redux/auth/selectors.js';
+import { fetchDates } from '../../redux/dates/operations.js';
+import { selectItemsDay } from '../../redux/changeDay/changeDay.js';
 
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 const WaterSchema = Yup.object().shape({
@@ -31,7 +33,7 @@ const WaterModal = () => {
   const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const [volume, setVolume] = useState(50);
   const [drinkTime, setDrinkTime] = useState(timeNow);
-
+  const lastDay = useSelector(selectItemsDay);
   let title;
   let subtitle;
 
@@ -70,11 +72,14 @@ const WaterModal = () => {
       volume: parseInt(volume, 10),
       drinkTime,
       token,
+      lastDay,
     };
     if (type === 'editWater') {
       dispatch(editWaterNote({ ...transformedData, _id: dataInfo._id }));
+      dispatch(fetchDates(new Date().getTime()));
     } else if (type === 'addWater') {
       dispatch(addWaterNote(transformedData));
+      dispatch(fetchDates(new Date().getTime()));
     }
     dispatch(closeModal());
   };

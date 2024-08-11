@@ -1,8 +1,8 @@
 import { FiPlus } from 'react-icons/fi';
-import ChooseDate from '../ChooseDate/ChooseDate';
-import MainButton from '../MainButton/MainButton';
 import { openModal } from '../../redux/modal/slice';
 import { useDispatch } from 'react-redux';
+import ChooseDate from '../ChooseDate/ChooseDate';
+import MainButton from '../MainButton/MainButton';
 import WaterList from '../WaterList/WaterList';
 
 import css from './DailyInfo.module.css';
@@ -10,10 +10,9 @@ import css from './DailyInfo.module.css';
 const DailyInfo = () => {
   const dispatch = useDispatch();
 
-  const handleAddWaterClick = (typeModal) => {
+  const handleAddWaterClick = typeModal => {
     dispatch(openModal(typeModal));
   };
-
 
   return (
     <div>

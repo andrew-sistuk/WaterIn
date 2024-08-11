@@ -1,3 +1,10 @@
+.wrapper {
+  height: 114px;
+}
+
+@media screen and (min-width: 768px) {
+}
+
 .list {
   display: flex;
   gap: 8px;
@@ -27,24 +34,24 @@
   background-color: var(--main-green-color);
 }
 
-.item {
-  padding: 18px 14px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  border-radius: 15px;
-
-  background-color: var(--main-white-color);
+.text {
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main-black-gray-color);
 }
 
 @media screen and (min-width: 768px) {
+  .wrapper {
+    height: 126px;
+  }
+
   .list {
     gap: 32px;
   }
 
-  .item {
-    padding: 20px;
-    gap: 20px;
+  .text {
+    font-size: 28px;
+    line-height: 1.14286;
   }
 }
 

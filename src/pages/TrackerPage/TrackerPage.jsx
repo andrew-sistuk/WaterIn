@@ -15,7 +15,6 @@ import Loader from '../../components/Loader/Loader.jsx';
 const TrackerPage = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-
   const loading = useSelector(selectLoading);
 
   useEffect(() => {

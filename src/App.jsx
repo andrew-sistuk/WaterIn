@@ -1,7 +1,11 @@
 import 'modern-normalize';
 
 // add lazy
-import { lazy, Suspense } from 'react';
+import {
+  lazy,
+  Suspense,
+  //  useEffect
+} from 'react';
 
 import NotFound from './components/NotFound/NotFound';
 import { Route, Routes } from 'react-router-dom';
@@ -9,6 +13,8 @@ import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
 import RestrictedRoute from './components/RestrictedRoute.jsx';
 import VerifyEmail from './components/VerifyEmail/VerifyEmail';
+// import { useDispatch } from 'react-redux';
+// import { refreshUser } from './redux/auth/operations.js';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
@@ -16,6 +22,16 @@ const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 
 function App() {
+  // ! Перезавантаження сторінки без вилогування, потрібно переписувати логіку refreshUser()
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+
+  // ! Перезавантаження сторінки без вилогування, потрібно переписувати логіку refreshUser()
+
   return (
     <Suspense fallback={<Loader />}>
       <Routes>

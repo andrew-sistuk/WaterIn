@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { setToken } from '../../redux/auth/slice';
-import { getRefreshToken, setAuthHeader } from '../../redux/auth/operations';
+import { setToken, setUser } from '../../redux/auth/slice';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 import Loader from '../Loader/Loader';
+import { setAuthHeader } from '../../redux/auth/operations';
 
 const VerifyEmail = () => {
   const dispatch = useDispatch();
@@ -15,13 +15,18 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const token = params.get('accessToken');
-    const refreshToken = params.get('refreshToken');
+    const token = params.get('accessToken').replace(/ /g, '+');
+    const refreshToken = params.get('refreshToken').replace(/ /g, '+');
+    const user = params.get('data').replace('_id', 'id');
+    const parsedUser = JSON.parse(decodeURIComponent(user));
 
     if (token && refreshToken) {
-      dispatch(setToken({ token, refreshToken }));
       setAuthHeader(token);
-      getRefreshToken(dispatch, token, refreshToken);
+      dispatch(setToken({ token, refreshToken }));
+
+      if (parsedUser) {
+        dispatch(setUser(parsedUser));
+      }
     }
   }, [dispatch, location.search]);
 

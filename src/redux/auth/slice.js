@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { register, login, logout, refreshUser, getUser, logInWithGoogle } from '../auth/operations';
+import { register, login, logout, refreshUser, getUser } from '../auth/operations';
 
 const handlePending = state => {
   state.error = null;
@@ -26,8 +26,6 @@ const authSlice = createSlice({
       gender: null,
     },
     token: null,
-    refreshToken: null,
-    sessionId: null,
     isLoggedIn: false,
     isRefreshing: false,
     loading: false,
@@ -39,7 +37,11 @@ const authSlice = createSlice({
       state.refreshToken = action.payload.refreshToken;
       state.isLoggedIn = true;
     },
+    setUser(state, action) {
+      state.user = action.payload;
+    },
   },
+
   extraReducers: builder => {
     builder
       .addCase(register.pending, handlePending)
@@ -85,7 +87,8 @@ const authSlice = createSlice({
           waterRate: null,
           gender: null,
         };
-        (state.token = null), state.isLoggedIn;
+        state.token = null;
+        state.refreshToken = null;
         state.isLoggedIn = false;
       })
       .addCase(logout.rejected, handleRejected)
@@ -119,21 +122,10 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.loading = false;
         state.error = action.payload;
-      })
-
-      .addCase(logInWithGoogle.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.refreshToken = action.payload.refreshToken;
-        state.sessionId = action.payload.sessionId;
-        state.isLoggedIn = true;
-      })
-      .addCase(logInWithGoogle.rejected, (state, action) => {
-        state.error = action.payload;
       });
   },
 });
 
-export const { setToken } = authSlice.actions;
+export const { setToken, setUser } = authSlice.actions;
 
 export default authSlice.reducer;

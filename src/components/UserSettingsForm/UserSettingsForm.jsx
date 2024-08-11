@@ -135,7 +135,6 @@ export default function UserSettingsForm() {
       const result = await axios.patch(`https://waterin-server.onrender.com/users/${data._id}`, {
         body: data,
       });
-      console.log(result);
 
       // return result
     } catch (err) {

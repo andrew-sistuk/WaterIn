@@ -22,21 +22,21 @@ const WaterItem = ({ data }) => {
     dispatch(dataInfo(info));
   };
   return (
-    <>
+    <div className={css.wrapper}>
       <Cap className={css.iconMain} />
       <div className={css.wrapperData}>
         <p className={css.value}>{volume} ml</p>
         <p className={css.time}>{drinkTime}</p>
       </div>
       <div className={css.wrapperBtn}>
-        <button onClick={() => handlEditWaterClick('editWater', data)}>
+        <button className={css.btn} onClick={() => handlEditWaterClick('editWater', data)}>
           <FiEdit2 className={css.btnIcon} size="14" />
         </button>
-        <button onClick={() => handleClickDelete('delete', _id)}>
+        <button className={css.btn} onClick={() => handleClickDelete('delete', _id)}>
           <AiOutlineDelete className={css.btnIcon} size="14" />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 export default WaterItem;

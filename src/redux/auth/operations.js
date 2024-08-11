@@ -47,50 +47,27 @@ export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
   }
 });
 
-////////////////////////////////////////////////////
-export const refreshFunction = createAsyncThunk('users/refresh-user', async (_, thunkAPI) => {
-  try {
-    const response = await api.post('/users/refresh-user');
-    setAuthHeader(response.data.data.accessToken);
-
-    return response.data.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-})
-
-//////////////////////////////////////////
-const logoutUser = async () => {
-  await logout()
-  window.location.reload();
-}
-
-api.interceptors.response.use(
-  (response) => {
-    if(response.status === 409) {
-      console.log('start logout')
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    try {
+      const response = await api.post('/users/refresh-user', {});
+      setAuthHeader(response.data.data.accessToken);
+      return response.data.data;
+    } catch (refreshError) {
+      clearAuthHeader();
+      return thunkAPI.rejectWithValue('Session expired. Please log in again.');
     }
-    
-    return response;
   },
-  (error) => {
-    if (error.response.status === 409){
-      logoutUser()
-    }
-    return Promise.reject(error);
+  {
+    condition(_, thunkAPI) {
+      const reduxState = thunkAPI.getState();
+      const savedUserId = reduxState.auth.user.id;
+      console.log(savedUserId);
+      return savedUserId !== null;
+    },
   }
-)
-/////////////////////////////////////////////////
-export const refresh = async () => {
-  try {
-    const response = await api.post('/users/refresh');
-    setAuthHeader(response.data.data.accessToken)
-    return response.data.data.accessToken
-  } catch (error) {
-    console.log(error.message);
-  }
- }
-//////////////////////////////////////////////////
+);
 
 export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   try {
@@ -142,30 +119,6 @@ export const patchUser = createAsyncThunk('users/patch', async ({ Id, userPatch 
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
-export const refreshUser = createAsyncThunk(
-  'users/refresh',
-  async (_, thunkAPI) => {
-    const reduxState = thunkAPI.getState();
-    const token = reduxState.auth.token;
-    try {
-      setAuthHeader(token);
-      const response = await api.post('/users/refresh');
-
-      return response.data;
-    } catch (error) {
-      console.log(error.message);
-    }
-  },
-  {
-    condition(_, thunkAPI) {
-      const reduxState = thunkAPI.getState();
-      const token = reduxState.auth.token;
-
-      return token !== null;
-    },
-  }
-);
 
 export const logInWithGoogle = createAsyncThunk(
   'users/googleLogin',

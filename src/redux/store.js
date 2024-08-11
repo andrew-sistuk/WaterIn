@@ -20,11 +20,10 @@ import { setupAxiosInterceptors } from './auth/operations';
 import daySlice from './day/slice';
 import changeDayReducer from './changeDay/changeDay.js';
 
-
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['user'],
 };
 
 const authPersistReducer = persistReducer(authPersistConfig, authSlice);

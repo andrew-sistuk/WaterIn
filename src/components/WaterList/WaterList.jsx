@@ -18,13 +18,19 @@ const WaterList = () => {
   }, [dispatch, carentDay]);
 
   return (
-    <ul className={css.list}>
-      {items.map(arr => (
-        <li className={css.item} key={arr._id}>
-          <WaterItem data={arr} />
-        </li>
-      ))}
-    </ul>
+    <div className={css.wrapper}>
+      {items.length > 0 ? (
+        <ul className={css.list}>
+          {items.map(arr => (
+            <li key={arr._id}>
+              <WaterItem data={arr} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className={css.text}>Please, drink some water</p>
+      )}
+    </div>
   );
 };
 export default WaterList;

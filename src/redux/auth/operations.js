@@ -42,9 +42,55 @@ export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
     await api.post('/users/logout');
     clearAuthHeader();
   } catch (error) {
+    clearAuthHeader();
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+////////////////////////////////////////////////////
+export const refreshFunction = createAsyncThunk('users/refresh-user', async (_, thunkAPI) => {
+  try {
+    const response = await api.post('/users/refresh-user');
+    setAuthHeader(response.data.data.accessToken);
+
+    return response.data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+})
+
+//////////////////////////////////////////
+const logoutUser = async () => {
+  await logout()
+  window.location.reload();
+}
+
+api.interceptors.response.use(
+  (response) => {
+    if(response.status === 409) {
+      console.log('start logout')
+    }
+    
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 409){
+      logoutUser()
+    }
+    return Promise.reject(error);
+  }
+)
+/////////////////////////////////////////////////
+export const refresh = async () => {
+  try {
+    const response = await api.post('/users/refresh');
+    setAuthHeader(response.data.data.accessToken)
+    return response.data.data.accessToken
+  } catch (error) {
+    console.log(error.message);
+  }
+ }
+//////////////////////////////////////////////////
 
 export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
   try {

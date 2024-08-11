@@ -51,7 +51,7 @@ const CalendarPagination = ({
         </div>
       </div>
       <button onClick={handleToggle} className={css.scheduleButton}>
-        {iconHidden ? <Calendar /> : <CalendarHidden />}
+        {iconHidden ? <CalendarHidden /> : <Calendar />}
       </button>
     </div>
   );

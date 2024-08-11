@@ -129,7 +129,7 @@ export default function SignUpForm({ isMobile }) {
           Sign Up
         </button>
 
-        <AuthorizationGoogleBtn />
+        {/* <AuthorizationGoogleBtn /> */}
 
         <p className={css['paragraph-sign']}>
           Already have account?{' '}

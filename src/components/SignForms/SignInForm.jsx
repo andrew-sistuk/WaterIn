@@ -98,7 +98,7 @@ export default function SignInForm({ isMobile }) {
           Sign In
         </button>
 
-        <AuthorizationGoogleBtn />
+        {/* <AuthorizationGoogleBtn /> */}
 
         <div className={css['sing-forgot-wrapper']}>
           <p className={css['paragraph-sign']}>

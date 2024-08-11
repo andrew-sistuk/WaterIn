@@ -11,7 +11,7 @@ import RestrictedRoute from './components/RestrictedRoute.jsx';
 import VerifyEmail from './components/VerifyEmail/VerifyEmail';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { refreshFunction } from '../src/redux/auth/operations.js'
+import { refreshFunction } from '../src/redux/auth/operations.js';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
@@ -20,14 +20,13 @@ const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 
 function App() {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const refreshUser = async () => {
       const result = await dispatch(refreshFunction());
-      
+
       if (refreshFunction.fulfilled.match(result)) {
-        
         navigate('/tracker');
       } else {
         console.log('Refresh failed');
@@ -56,6 +55,7 @@ function App() {
           path="/verify-email"
           element={<RestrictedRoute component={<VerifyEmail />} redirectTo="/tracker" />}
         />
+        <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

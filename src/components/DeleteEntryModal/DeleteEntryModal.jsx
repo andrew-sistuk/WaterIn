@@ -8,8 +8,10 @@ import { toast } from 'react-toastify';
 import { selectModalId } from '../../redux/modal/selectors.js';
 import { selectIsToken } from '../../redux/auth/selectors.js';
 import { fetchDates } from '../../redux/dates/operations.js';
+import { selectItemsDay } from '../../redux/changeDay/changeDay.js';
 
 const DeleteEntryModal = () => {
+  const lastDay = useSelector(selectItemsDay);
   const _id = useSelector(selectModalId);
   const token = useSelector(selectIsToken);
 
@@ -20,7 +22,9 @@ const DeleteEntryModal = () => {
     setLoading(true);
     try {
       await dispatch(deleteWaterNote({ _id, token }));
-      dispatch(fetchDates(new Date().getTime()));
+      setTimeout(() => {
+        dispatch(fetchDates(new Date(lastDay).getTime()));
+      }, 1000);
     } catch (error) {
       toast(`Error deleting entry: ${error}`);
       console.error(`Error deleting entry: ${error}`);

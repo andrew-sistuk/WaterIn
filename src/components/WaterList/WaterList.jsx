@@ -15,7 +15,7 @@ const WaterList = () => {
 
   useEffect(() => {
     dispatch(fetchDatesId(carentDay));
-  }, [dispatch, carentDay]);
+  }, [dispatch]);
 
   return (
     <div className={css.wrapper}>

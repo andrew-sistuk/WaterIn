@@ -38,7 +38,7 @@ const CalendarPagination = ({
           </button>
         </div>
       </div>
-      <button onClick={handleToggle} className={css.scheduleButton}>
+      <button onClick={handleToggle} className={css.scheduleButton} data-tour="toggle-view-button">
         {iconHidden ? <CalendarHidden /> : <Calendar />}
       </button>
     </div>

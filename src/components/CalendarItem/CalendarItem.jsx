@@ -48,7 +48,7 @@ const CalendarItem = ({ elem }) => {
     <li className={css.element}>
       <button className={css.componentButton} onClick={() => handleClickDay(elem)}>
         <div
-          className={`${css.day} ${isToday(elem) ? css.currentDay : ''} ${
+          className={`${css.day} ${isToday(elem.times) ? css.currentDay : ''} ${
             getParcentForDate(new Date(elem.times)) === '100%' ? css.full : ''
           } `}
         >

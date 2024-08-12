@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatesId } from '../../redux/day/operations';
+import isToday from '../../utils/isToday';
 
 import css from './CalendarItem.module.css';
 import { selectItems } from '../../redux/dates/selectors';
@@ -13,58 +14,44 @@ const CalendarItem = ({ elem }) => {
 
   const handleClickDay = value => {
     const date = new Date(value.times).getTime() + 43200000;
+
     dispatch(fetchDatesId(date));
     dispatch(addDay(value.times));
   };
 
-  const today = new Date();
-
-  const isToday = day => {
-    return (
-      day.year === today.getFullYear() &&
-      day.monthIndex === today.getMonth() &&
-      day.dayNumber === today.getDate()
-    );
-  };
-
-  const getParcentForDate = (date, type = 'parcent') => {
+  const getParcentForDate = date => {
     const yearCalendar = date.getFullYear();
     const monthCalendar = date.getMonth() + 1;
     const dayCalendar = date.getDate();
 
     const entry = parcentDate.find(item => {
-      const createdAtDate = new Date(item.date);
-
       return (
-        createdAtDate.getFullYear() === yearCalendar &&
-        createdAtDate.getMonth() + 1 === monthCalendar &&
-        createdAtDate.getDate() === dayCalendar
+        new Date(item.date).getFullYear() === yearCalendar &&
+        new Date(item.date).getMonth() + 1 === monthCalendar &&
+        new Date(item.date).getDate() === dayCalendar
       );
     });
 
-    if (entry) {
-      if (type === 'parcent') {
-        return `${entry.percent}%`;
-      } else if (type === 'id') {
-        return entry.id;
-      }
-    }
-
-    return type === 'parcent' ? '0%' : null;
+    return entry ? entry.percent : 0;
   };
 
   return (
     <li className={css.element}>
-      <button className={css.componentButton} onClick={() => handleClickDay(elem)}>
+      <button
+        className={css.componentButton}
+        onClick={() => {
+          handleClickDay(elem);
+        }}
+      >
         <div
-          className={`${css.day} ${isToday(elem) ? css.currentDay : ''} ${
-            getParcentForDate(new Date(elem.times)) === '100%' ? css.full : ''
+          className={`${css.day} ${isToday(elem.times) ? css.currentDay : ''} ${
+            getParcentForDate(new Date(elem.times)) === 100 ? css.full : ''
           } `}
         >
           {elem.dayNumber}
         </div>
 
-        <span className={css.span}>{getParcentForDate(new Date(elem.times))}</span>
+        <span className={css.span}>{`${getParcentForDate(new Date(elem.times))}%`}</span>
       </button>
     </li>
   );

@@ -3,13 +3,18 @@ import createMonth from '../../utils/createMonth';
 import css from './WaterProgressBar.module.css';
 import { useSelector } from 'react-redux';
 import isToday from '../../utils/isToday';
+import { selectUser } from '../../redux/auth/selectors';
+import { selectItemsDay as itemDay } from '../../redux/day/selectors';
 
 const WaterProgressBar = () => {
-  const dailyNorma = 1.5;
-  const totalDrink = 0.85;
+  const dailyNorma = useSelector(selectUser).waterRate;
+  const totalDrink = useSelector(itemDay).reduce(
+    (accumulator, item) => accumulator + item.volume,
+    0
+  );
+
   const percentValuedrink = Math.floor((totalDrink / dailyNorma) * 100);
 
-  // Функція для заборони перетину максимально допустимого
   function fixWidthProgressBar(value) {
     if (value > 100) {
       value = 100;

@@ -6,6 +6,12 @@
   text-transform: capitalize;
 }
 
+@media screen and (max-width: 360px) {
+  .day {
+    font-size: 15px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .day {
     font-size: 28px;

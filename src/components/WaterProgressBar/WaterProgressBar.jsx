@@ -130,7 +130,6 @@ const WaterProgressBar = () => {
           <p
             className={css.currentValue}
             style={{
-              left: `${fixWidthProgressBar(percentValueDrink)}%`,
               left: `${
                 getPercentValueDrink(percentValueDrink) < 96
                   ? getPercentValueDrink(percentValueDrink)
@@ -138,7 +137,7 @@ const WaterProgressBar = () => {
               }%`,
             }}
           >
-            {fixWidthProgressBar(percentValueDrink)}%{getPercentValueDrink(v)}%
+            {getPercentValueDrink(percentValueDrink)}%
           </p>
         </div>
       </div>

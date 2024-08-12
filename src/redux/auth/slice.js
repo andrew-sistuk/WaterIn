@@ -1,6 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { register, login, logout, refreshUser, getUser, logInWithGoogle } from '../auth/operations';
+import {
+  register,
+  login,
+  logout,
+  refreshUser,
+  getUser,
+  logInWithGoogle,
+  patchUser,
+} from '../auth/operations';
 
 const handlePending = state => {
   state.error = null;
@@ -145,6 +153,22 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      .addCase(patchUser.pending, handlePending)
+      .addCase(patchUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = {
+          ...state.user,
+          name: action.payload.name,
+          email: action.payload.email,
+          id: action.payload._id,
+          photo: action.payload.photo,
+          sportHours: action.payload.sportHours,
+          weight: action.payload.weight,
+          waterRate: action.payload.waterRate,
+          gender: action.payload.gender,
+        };
+      })
+      .addCase(patchUser.rejected, handleRejected)
 
       .addCase(logInWithGoogle.fulfilled, (state, action) => {
         state.user = action.payload.user;

@@ -86,9 +86,6 @@ export const patchUser = createAsyncThunk('users/patch', async ({ Id, userPatch 
         'Content-Type': 'multipart/form-data',
       },
     });
-
-    setAuthHeader(response.data.data.accessToken);
-
     return response.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

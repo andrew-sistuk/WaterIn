@@ -8,11 +8,11 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors.js';
 import { closeModal } from '../../redux/modal/slice.js';
-import NoCheck from '/src/img/icons/noCheck.svg?react';
-import Check from '/src/img/icons/check.svg?react';
+import NoCheck from '../../assets/icons/noCheck.svg?react';
+import Check from '../../assets/icons/check.svg?react';
 
 import css from './UserSettingModal.module.css';
-import { getUser, patchUser } from '../../redux/auth/operations.js';
+import { patchUser } from '../../redux/auth/operations.js';
 
 const regex = {
   emailRegexp: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -47,13 +47,12 @@ export default function UserSettingModal() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  // const [photo, setPhoto] = useState(user.photo);
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(user.name);
   const [gender, setGender] = useState(user.gender);
   const [weight, setWeight] = useState(user.weight);
   const [sportHours, setSportHours] = useState(user.sportHours);
-  const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1));
+  const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1) / 1000);
 
   const inputFileRef = useRef(null);
 
@@ -77,7 +76,7 @@ export default function UserSettingModal() {
       email: user.email,
       weight: user.weight,
       sportHours: user.sportHours,
-      waterRate: 1.8,
+      waterRate: waterRate * 1000,
     },
   });
 

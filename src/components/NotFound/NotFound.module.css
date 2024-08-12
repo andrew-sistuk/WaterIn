@@ -1,3 +1,28 @@
 .image {
+  width: 90vw;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 375px) and (orientation: portrait) {
+  .image {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 375px) and (orientation: landscape) {
+  .image {
+    width: 45vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .image {
+    width: 60vw;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .image {
+    width: 50vw;
+  }
 }

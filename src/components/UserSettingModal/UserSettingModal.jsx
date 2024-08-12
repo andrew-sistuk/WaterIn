@@ -76,7 +76,7 @@ export default function UserSettingModal() {
       email: user.email,
       weight: user.weight,
       sportHours: user.sportHours,
-      waterRate: waterRate * 1000,
+      waterRate: waterRate,
     },
   });
 
@@ -114,7 +114,7 @@ export default function UserSettingModal() {
     formData.append('sportHours', sportHours);
     formData.append('gender', gender);
     formData.append('weight', weight);
-    formData.append('waterRate', data.waterRate);
+    formData.append('waterRate', data.waterRate * 1000);
 
     if (photo) {
       formData.append('photo', photo);

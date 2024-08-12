@@ -6,6 +6,12 @@
 .isMobile {
   height: calc(100vh - 16px *2);
 }
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .isMobile {
+    height: calc(100vh - 32px *2);
+  }
+}
 @media only screen and (min-width: 1440px) {
   .container {
     flex-direction: row;

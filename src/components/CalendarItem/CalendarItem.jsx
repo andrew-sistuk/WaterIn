@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDatesId } from '../../redux/day/operations';
+import isToday from '../../utils/isToday';
 
 import css from './CalendarItem.module.css';
 import { selectItems } from '../../redux/dates/selectors';
@@ -15,16 +16,6 @@ const CalendarItem = ({ elem }) => {
     const date = new Date(value.times).getTime() + 43200000;
     dispatch(fetchDatesId(date));
     dispatch(addDay(value.times));
-  };
-
-  const today = new Date();
-
-  const isToday = day => {
-    return (
-      day.year === today.getFullYear() &&
-      day.monthIndex === today.getMonth() &&
-      day.dayNumber === today.getDate()
-    );
   };
 
   const getParcentForDate = (date, type = 'parcent') => {

@@ -1,4 +1,8 @@
+import { selectItemsDay } from '../../redux/changeDay/changeDay';
+import createMonth from '../../utils/createMonth';
 import css from './WaterProgressBar.module.css';
+import { useSelector } from 'react-redux';
+import isToday from '../../utils/isToday';
 
 const WaterProgressBar = () => {
   const dailyNorma = 1.5;
@@ -55,9 +59,15 @@ const WaterProgressBar = () => {
     return hidden;
   }
 
+  const toDayMilisekond = new Date().getTime();
+  const day1 = useSelector(selectItemsDay);
+  const month = createMonth({ date: new Date(day1) });
+
+  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
+
   return (
     <div className={css.wrapper}>
-      <p className={css.title}>Today</p>
+      <p className={css.title}>{isToday(toDayMilisekond) === isToday(day1) ? 'Today' : fullDay}</p>
       <div className={css.barWrapper}>
         <div className={css.mainBar}></div>
         <div

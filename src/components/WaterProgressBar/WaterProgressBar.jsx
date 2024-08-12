@@ -1,13 +1,15 @@
-import { useSelector } from 'react-redux';
 import { selectItemsDay } from '../../redux/changeDay/changeDay';
-import { selectItems } from '../../redux/dates/selectors';
-
+import createMonth from '../../utils/createMonth';
 import css from './WaterProgressBar.module.css';
+import { useSelector } from 'react-redux';
+import isToday from '../../utils/isToday';
+import { selectUser } from '../../redux/auth/selectors';
+import { selectItemsDay as itemDay } from '../../redux/day/selectors';
 
 const WaterProgressBar = () => {
   // const parcentDate = useSelector(selectItems);
 
-  const currentDate = useSelector(selectItemsDay);
+  // const currentDate = useSelector(selectItemsDay);
 
   // const getParcentForDate = (date, type = 'parcent') => {
   //   const yearCalendar = date.getFullYear();
@@ -35,29 +37,41 @@ const WaterProgressBar = () => {
   //   return type === 'parcent' ? '0%' : null;
   // };
 
-  const dailyNorma = 1.5;
-  const totalDrink = 1.48;
+  // const dailyNorma = 1.5;
+  // const totalDrink = 1.48;
 
-  let percentValueDrink = Math.floor((totalDrink / dailyNorma) * 100);
+  const dailyNorma = useSelector(selectUser).waterRate;
+  const totalDrink = useSelector(itemDay).reduce(
+    (accumulator, item) => accumulator + item.volume,
+    0
+  );
 
-  function getCurrentDay(currentDate) {
-    const toDay = new Date();
-    const toDayMilisekond = toDay.getTime();
+  let percentValueDrink = Math.round((totalDrink / dailyNorma) * 100);
 
-    const isToday = day => {
-      return (
-        new Date(day).getFullYear() === toDay.getFullYear() &&
-        new Date(day).getMonth() === toDay.getMonth() &&
-        new Date(day).getDate() === toDay.getDate()
-      );
-    };
+  const toDayMilisekond = new Date().getTime();
+  const day1 = useSelector(selectItemsDay);
+  const month = createMonth({ date: new Date(day1) });
 
-    const fullDay = `${new Date(currentDate).getDate()}.${
-      new Date(currentDate).getMonth() + 1
-    }.${new Date(currentDate).getFullYear()}`;
+  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
 
-    return isToday(toDayMilisekond) === isToday(currentDate) ? 'Today' : fullDay;
-  }
+  // function getCurrentDay(currentDate) {
+  //   const toDay = new Date();
+  //   const toDayMilisekond = toDay.getTime();
+
+  //   const isToday = day => {
+  //     return (
+  //       new Date(day).getFullYear() === toDay.getFullYear() &&
+  //       new Date(day).getMonth() === toDay.getMonth() &&
+  //       new Date(day).getDate() === toDay.getDate()
+  //     );
+  //   };
+
+  //   const fullDay = `${new Date(currentDate).getDate()}.${
+  //     new Date(currentDate).getMonth() + 1
+  //   }.${new Date(currentDate).getFullYear()}`;
+
+  //   return isToday(toDayMilisekond) === isToday(currentDate) ? 'Today' : fullDay;
+  // }
 
   function getPercentValueDrink(value) {
     let percentValue = value;
@@ -122,7 +136,7 @@ const WaterProgressBar = () => {
 
   return (
     <div className={css.wrapper}>
-      <p className={css.title}>{getCurrentDay(currentDate)}</p>
+      <p className={css.title}>{isToday(toDayMilisekond) === isToday(day1) ? 'Today' : fullDay}</p>
       <div className={css.barWrapper}>
         <div className={css.mainBar}></div>
         <div

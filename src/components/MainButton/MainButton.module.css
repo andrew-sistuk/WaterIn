@@ -1,7 +1,7 @@
 .button {
   border-radius: 40px;
   padding: 18px 40px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
@@ -18,43 +18,41 @@
   height: 60px;
 }
 
-
 .button.save {
-  color: #323F47;
-  background-color: #9BE1A0;
+  color: #323f47;
+  background-color: #9be1a0;
 }
-
 
 .button.trytracker {
-  color: #323F47;
-  background-color: #9BE1A0;
+  color: #323f47;
+  background-color: #9be1a0;
 }
 
-.button:hover{
-  background-color: #87D28D;
+.button:hover {
+  background-color: #87d28d;
 }
 
 .button.addwater {
-  color: #FFFFFF;
-  background-color: #323F47;
+  color: #ffffff;
+  background-color: #323f47;
 }
 
 .button.cancel {
-  color: #323F47;
-  background-color: #F0EFF4;
+  color: #323f47;
+  background-color: #f0eff4;
 }
 
 .button.delete {
-  color: #323F47;
-  background-color: #9BE1A0;
+  color: #323f47;
+  background-color: #9be1a0;
 }
 
 .button .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #9BE1A0;
-  color: #323F47;
+  background-color: #9be1a0;
+  color: #323f47;
   border-radius: 50%;
   padding: 5px;
   margin-right: 10px;
@@ -64,55 +62,65 @@
 .button .icon svg {
   width: 24px;
   height: 24px;
-  fill: #323F47;
+  fill: #323f47;
   transition: fill 0.3s;
 }
 
 .button.addwater .icon {
-  color: #FFFFFF;
-  background-color: #323F47;
+  color: #ffffff;
+  background-color: #323f47;
 }
 
-.button.addwater:hover  {
-  color: #9BE1A0;
+.button.addwater:hover {
+  color: #9be1a0;
 }
 .button.addwater:hover .icon {
-  color: #9BE1A0;
+  color: #9be1a0;
 }
 
 .button.addwater:hover .icon {
-  background-color: #323F47;
+  background-color: #323f47;
 }
 
 .button.addwater.iconOnly {
-  color: #323F47;
+  color: #323f47;
   padding: 18px;
-  width: auto; 
-  background-color: transparent; 
+  width: auto;
+  background-color: transparent;
 }
 
 .button.addwater.iconOnly .icon {
-  background-color: #323F47; 
-  color: #FFFFFF; 
+  background-color: #323f47;
+  color: #ffffff;
 }
 
 .button.addwater.iconOnly:hover .icon {
-  background-color: #9BE1A0; 
-  color: #323F47; 
+  background-color: #9be1a0;
+  color: #323f47;
 }
 
-@media (min-width: 320px) and (max-width: 375px) {
+@media (min-width: 320px) and (max-width: 480px) {
   .button.addwater {
     width: 140px;
     height: 46px;
   }
 
-  .button.save, .button.trytracker {
+  .button.save {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    padding: 14px 40px;
+  }
+  .button.save,
+  .button.trytracker {
     width: 116px;
     height: 46px;
   }
 
-  .button.delete, .button.cancel {
+  .button.delete,
+  .button.cancel {
     width: 304px;
     height: 46px;
   }
@@ -122,7 +130,7 @@
   }
 
   .button.addwater.iconOnly .icon {
-    width: 40px; 
+    width: 40px;
     height: 40px;
   }
 }
@@ -136,7 +144,6 @@
   }
 
   .button.save {
-    
   }
 
   .button.addwater {
@@ -147,7 +154,8 @@
     width: 169px;
     height: 60px;
   }
-  .button.cancel, .button.delete {
+  .button.cancel,
+  .button.delete {
     width: 170px;
     height: 60px;
   }
@@ -171,9 +179,9 @@
     height: 60px;
   }
 
-  .button.cancel, .button.delete {
+  .button.cancel,
+  .button.delete {
     width: 170px;
     height: 60px;
   }
 }
-

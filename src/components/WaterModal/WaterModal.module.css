@@ -13,7 +13,6 @@
   margin-bottom: 24px;
   line-height: 114%;
   width: 347px;
-  height: 64px;
 }
 
 .waterModalSubtitle {
@@ -24,12 +23,17 @@
 .waterForm {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+}
+.formGroup {
+  margin-bottom: 16px;
 }
 
+.formGroup:last-child {
+  margin-bottom: 0px;
+}
 
-.formGroup {
-  font-size: 0.8em;
+.formGroupSmallGap {
+  margin-bottom: 24px;
 }
 
 .formGroup label {
@@ -38,7 +42,6 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 133%;
-
 }
 
 .formGroup input {
@@ -57,7 +60,7 @@
 
 .amountControl button {
   background-color: transparent;
-  border: 2px solid #323F47;
+  border: 2px solid #323f47;
   border-radius: 50%;
   width: 43px;
   height: 43px;
@@ -73,7 +76,7 @@
   padding: 11px 20px 9px 20px;
   font-size: 15px;
   font-weight: 700;
-  background: #323F47;
+  background: #323f47;
   color: white;
   border-radius: 30px;
   display: flex;
@@ -81,7 +84,6 @@
   line-height: 149%;
   width: 100px;
 }
-
 
 button:disabled {
   background-color: #9e9e9e;
@@ -91,6 +93,7 @@ button:disabled {
   margin-top: 8px;
   font-size: 14px;
   font-weight: 500;
+  color: red;
 }
 
 .waterModalContainer .formLabel {
@@ -98,5 +101,65 @@ button:disabled {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.01em;
- 
+}
+
+/* Для планшетов (до 768px) */
+@media (max-width: 768px) {
+  .waterModalTitle {
+   width: 100%;
+  }
+  
+}
+
+/* Для мобильных устройств (до 480px) */
+@media (max-width: 520px) {
+  .waterModalContainer {
+    padding: 40px 20px;
+    width: 343px;
+  
+    margin: 0 auto;
+  }
+
+  .waterModalTitle {
+    font-size: 20px;
+    width: 100%;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+  }
+
+  .waterModalSubtitle {
+    line-height: 125%;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .waterModalContainer .formLabel {
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.01em;
+  }
+
+  .formGroup input {
+    padding: 12px 10px;
+    font-size: 14px;
+    height: 46px;
+    padding: 14px 14px 14px 16px;
+  }
+
+  .formGroup label {
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+  }
+
+  .amountControl div {
+    padding: 11px 20px;
+    max-width: 100px;
+    height: 40px;
+  }
+
+  .amountControl button {
+    width: 35px;
+    height: 35px;
+  }
 }

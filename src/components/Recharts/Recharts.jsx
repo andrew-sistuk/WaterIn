@@ -14,8 +14,8 @@ const Recharts = () => {
       const tooltipStyle = {
         position: 'absolute',
         left: coordinate.x,
-        top: -50,
-        transform: 'translateX(-51%)',
+        top: -45,
+        transform: 'translateX(-50%)',
       };
 
       return (

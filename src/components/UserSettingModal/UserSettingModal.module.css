@@ -65,13 +65,8 @@
   letter-spacing: -0.01em;
   color: var(--main-black-color);
   border: none;
-  background-color: var(--main-white-color);
-}
-
-.avatarBtn:hover,
-.avatarBtn:focus {
-  color: var(--main-black-gray-color);
-  font-weight: 600;
+  background-color: transparent;
+  transition: font-weight var(--animation);
   cursor: pointer;
 }
 
@@ -334,8 +329,6 @@
   background-color: var(--main-green-color-active);
 }
 
-/* =========================== Tablet styles ========================= */
-
 @media screen and (min-width: 768px) {
   .wraper {
     max-width: 648px;
@@ -454,8 +447,6 @@
     line-height: 1.5;
   }
 }
-
-/* =========================== Desktop styles ========================= */
 
 @media screen and (min-width: 1440px) {
   .wraper {

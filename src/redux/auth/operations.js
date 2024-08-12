@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { setToken } from './slice';
+import CryptoJS from 'crypto-js';
 
 export const api = axios.create({
   baseURL: 'https://waterin-server.onrender.com',
@@ -18,7 +19,9 @@ const clearAuthHeader = () => {
 
 export const register = createAsyncThunk('users/register', async (newUser, thunkAPI) => {
   try {
-    const response = await api.post('/users/register', newUser);
+    const hash = CryptoJS.SHA256(newUser.password).toString(CryptoJS.enc.Hex);
+
+    const response = await api.post('/users/register', {...newUser, password: hash});
     setAuthHeader(response.data.data.accessToken);
     return response.data.data;
   } catch (error) {
@@ -28,7 +31,8 @@ export const register = createAsyncThunk('users/register', async (newUser, thunk
 
 export const login = createAsyncThunk('users/login', async (userInfo, thunkAPI) => {
   try {
-    const response = await api.post('/users/login', userInfo);
+    const hash = CryptoJS.SHA256(userInfo.password).toString(CryptoJS.enc.Hex);
+    const response = await api.post('/users/login', {...userInfo, password: hash});
     setAuthHeader(response.data.data.accessToken);
 
     return response.data.data;

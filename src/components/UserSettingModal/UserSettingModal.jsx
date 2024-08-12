@@ -8,8 +8,11 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors.js';
 import { closeModal } from '../../redux/modal/slice.js';
+import NoCheck from '../../assets/icons/noCheck.svg?react';
+import Check from '../../assets/icons/check.svg?react';
 
 import css from './UserSettingModal.module.css';
+import { patchUser } from '../../redux/auth/operations.js';
 
 const regex = {
   emailRegexp: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -44,12 +47,12 @@ export default function UserSettingModal() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const [photo, setPhoto] = useState(user.photo);
+  const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(user.name);
   const [gender, setGender] = useState(user.gender);
   const [weight, setWeight] = useState(user.weight);
   const [sportHours, setSportHours] = useState(user.sportHours);
-  const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1));
+  const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1) / 1000);
 
   const inputFileRef = useRef(null);
 
@@ -73,15 +76,14 @@ export default function UserSettingModal() {
       email: user.email,
       weight: user.weight,
       sportHours: user.sportHours,
-      waterRate: 1.8,
+      waterRate: waterRate * 1000,
     },
   });
 
   const onChangeAvatar = event => {
     const avatarImg = event.target.files[0];
     if (avatarImg) {
-      setPhoto(URL.createObjectURL(avatarImg));
-      // setPhoto(avatarImg);
+      setPhoto(avatarImg);
     }
   };
 
@@ -107,23 +109,21 @@ export default function UserSettingModal() {
 
   const onSubmit = data => {
     const formData = new FormData();
-    formData.append('id', user.id);
-    formData.append('email', user.email);
     formData.append('name', name);
+    formData.append('email', user.email);
+    formData.append('sportHours', sportHours);
     formData.append('gender', gender);
     formData.append('weight', weight);
-    formData.append('sportHours', sportHours);
     formData.append('waterRate', data.waterRate);
 
     if (photo) {
       formData.append('photo', photo);
     }
 
-    dispatch(closeModal());
+    const userPatch = Object.fromEntries(formData);
 
-    // Для перегляду об`экту що створюється при сабміті форми
-    // У продакшені ВИДАЛИТИ !!!
-    console.log('Form Data:', Object.fromEntries(formData));
+    dispatch(patchUser({ Id: user.id, userPatch }));
+    dispatch(closeModal());
   };
 
   return (
@@ -131,7 +131,11 @@ export default function UserSettingModal() {
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.title}>Setting</h2>
         <div className={css.avatar}>
-          <img className={css.avatarImg} src={photo} alt="photo" />
+          <img
+            className={css.avatarImg}
+            src={photo ? URL.createObjectURL(photo) : user.photo}
+            alt="photo"
+          />
           <button className={css.avatarBtn} type="button" onClick={handleClick}>
             <FiUpload size={18} className={css.avatarSvg} />
             Upload a photo
@@ -163,8 +167,8 @@ export default function UserSettingModal() {
                       onChange={handleSetGender}
                     />
                     <span className={css.labelText}>Woman</span>
-                    <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
-                    <img className={css.check} src="/src/img/icons/check.svg" alt="check" />
+                    <NoCheck className={css.noCheck} />
+                    <Check className={css.check} />
                   </label>
                 </div>
                 <div className={css.genderRadio}>
@@ -179,8 +183,8 @@ export default function UserSettingModal() {
                       onChange={handleSetGender}
                     />
                     <span className={css.labelText}>Man</span>
-                    <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
-                    <img className={css.check} src="/src/img/icons/check.svg" alt="check" />
+                    <NoCheck className={css.noCheck} />
+                    <Check className={css.check} />
                   </label>
                 </div>
               </div>

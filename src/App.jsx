@@ -11,7 +11,7 @@ import RestrictedRoute from './components/RestrictedRoute.jsx';
 import VerifyEmail from './components/VerifyEmail/VerifyEmail';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectIsRefreshing, selectUser } from './redux/auth/selectors.js';
+import { selectIsRefreshing } from './redux/auth/selectors.js';
 import { refreshUser } from './redux/auth/operations.js';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));

@@ -118,7 +118,7 @@
   color: #323f47;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media screen and (min-width: 320px) {
   .button.addwater {
     width: 140px;
     height: 46px;
@@ -163,6 +163,8 @@
   }
 
   .button.save {
+    width: 141px;
+    height: 60px;
   }
   
   .button.addwater .icon {

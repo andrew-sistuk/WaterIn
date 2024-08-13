@@ -9,7 +9,6 @@ import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute';
 import RestrictedRoute from './components/RestrictedRoute.jsx';
 import VerifyEmail from './components/VerifyEmail/VerifyEmail';
-import WaterModal from './components/WaterModal/WaterModal.jsx';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
@@ -37,7 +36,6 @@ function App() {
           path="/verify-email"
           element={<RestrictedRoute component={<VerifyEmail />} redirectTo="/tracker" />}
         />
-        <Route path="/woter" element={<WaterModal />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

@@ -24,7 +24,6 @@ const WaterSchema = Yup.object().shape({
 });
 
 const WaterModal = () => {
-
   const type = useSelector(selectTypeModal);
   const dataInfo = useSelector(selectModalInfo);
   const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -56,7 +55,7 @@ const WaterModal = () => {
 
   const watchedVolume = watch('volume');
 
-  useEffect(() => { 
+  useEffect(() => {
     if (watchedVolume) {
       trigger('volume');
     }
@@ -76,7 +75,7 @@ const WaterModal = () => {
   };
 
   const handleIncrease = () => {
-    const newVolume = parseInt(volume, 10) + 50 || 50;
+    const newVolume = (parseInt(volume, 10) || 0) + 50;
     if (newVolume <= 9999) {
       setVolume(newVolume.toString());
       setValue('volume', newVolume);
@@ -84,109 +83,109 @@ const WaterModal = () => {
   };
 
   const handleDecrease = () => {
-    if (volume > 0) {
-      const newVolume = parseInt(volume, 10) - 50 || 0;
-      if (newVolume >= 50) {
-        setVolume(newVolume.toString());
-        setValue('volume', newVolume);
+    const newVolume = (parseInt(volume, 10) || 0) - 50;
+    if (newVolume >= 50) {
+      setVolume(newVolume.toString());
+      setValue('volume', newVolume);
+    }
+  };
+
+  const handleVolumeChange = (e) => {
+    const value = e.target.value;
+
+    if (/^\d*$/.test(value)) {
+      if (value === '') {
+        setVolume('');
+        setValue('volume', '');
+      } else if (parseInt(value, 10) <= 9999) {
+        setVolume(value);
+        setValue('volume', value);
       }
     }
   };
 
   return (
     <div className={styles.waterModalContainer}>
-  <div className={styles.waterModalHeader}>
-    <h2 className={styles.waterModalTitle}>
-      {type === 'editWater' ? 'Edit the entered amount of water' : 'Add Water'}
-    </h2>
-    <h3 className={styles.waterModalSubtitle}>
-      {type === 'editWater' ? 'Correct entered data:' : 'Choose a value:'}
-    </h3>
-  </div>
-  <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
-    
-    <div className={styles.formGroup}>
-      <label htmlFor="volume" className={styles.formLabel}>
-        Amount of water:
-      </label>
-      <div className={styles.amountControl}>
-        <button type="button" onClick={handleDecrease}>
-          <FiMinus />
-        </button>
-        <div>{volume} ml</div>
-        <button type="button" onClick={handleIncrease}>
-          <FiPlus />
-        </button>
-      </div>
-      <Controller
-        name="volume"
-        control={control}
-        render={({ field }) => (
-          <input
-            type="hidden"
-            {...field}
-            value={volume}
-            onChange={e => {
-              const value = e.target.value;
-              setVolume(value);
-              setValue('volume', value);
-            }}
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
+        <h2 className={styles.waterModalTitle}>
+          {type === 'editWater' ? 'Edit the entered amount of water' : 'Add Water'}
+        </h2>
+        <h3 className={styles.waterModalSubtitle}>
+          {type === 'editWater' ? 'Correct entered data:' : 'Choose a value:'}
+        </h3>
+        <div className={styles.formGroup}>
+          <label htmlFor="volume" className={styles.formLabel}>
+            Amount of water:
+          </label>
+          <div className={styles.amountControl}>
+            <button type="button" onClick={handleDecrease}>
+              <FiMinus />
+            </button>
+            <div>{volume ? `${volume} ml` : '0 ml'}</div>
+            <button type="button" onClick={handleIncrease}>
+              <FiPlus />
+            </button>
+          </div>
+          <Controller
+            name="volume"
+            control={control}
+            render={({ field }) => (
+              <input
+                type="hidden"
+                {...field}
+                value={volume}
+                onChange={handleVolumeChange}
+              />
+            )}
           />
-        )}
-      />
-      {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
-    </div>
-    
-    <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
-      <label htmlFor="drinkTime" className={styles.formLabel}>
-        Recording time:
-      </label>
-      <Controller
-        name="drinkTime"
-        control={control}
-        render={({ field }) => (
-          <input
-            type="time"
-            {...field}
-            onChange={e => {
-              const value = e.target.value;
-              if (/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
-                setDrinkTime(value);
-                field.onChange(e);
-              }
-            }}
-            value={drinkTime}
+        </div>
+        
+        <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
+          <label htmlFor="drinkTime" className={styles.formLabel}>
+            Recording time:
+          </label>
+          <Controller
+            name="drinkTime"
+            control={control}
+            render={({ field }) => (
+              <input
+                type="time"
+                {...field}
+                onChange={e => {
+                  const value = e.target.value;
+                  if (/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
+                    setDrinkTime(value);
+                    field.onChange(e);
+                  }
+                }}
+                value={drinkTime}
+              />
+            )}
           />
-        )}
-      />
-      {errors.drinkTime && <p className={styles.errorMessage}>{errors.drinkTime.message}</p>}
-    </div>
-    <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
-
-      <label htmlFor="volume">Enter the value of the water used:</label>
-      <Controller
-        name="volume"
-        control={control}
-        render={({ field }) => (
-          <input
-            type="text"
-            {...field}
-            value={volume}
-            onChange={e => {
-              const value = e.target.value;
-              setVolume(value);
-              field.onChange(e);
-            }}
+          {errors.drinkTime && <p className={styles.errorMessage}>{errors.drinkTime.message}</p>}
+        </div>
+        
+        <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
+          <label htmlFor="volume">Enter the value of the water used:</label>
+          <Controller
+            name="volume"
+            control={control}
+            render={({ field }) => (
+              <input
+                type="text"
+                {...field}
+                value={volume}
+                onChange={handleVolumeChange}
+                maxLength={4} // Limit to 4 digits
+              />
+            )}
           />
-        )}
-      />
-      {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
+          {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
+        </div>
+        
+        <MainButton text="Save" />
+      </form>
     </div>
-    
-    <MainButton text="Save" />
-  </form>
-</div>
-
   );
 };
 

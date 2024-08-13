@@ -9,12 +9,7 @@ import { closeModal } from '../../redux/modal/slice.js';
 import MainButton from '../MainButton/MainButton';
 import styles from './WaterModal.module.css';
 import { selectModalInfo, selectTypeModal } from '../../redux/modal/selectors.js';
-import { editWaterNote, addWaterNote } from '../../redux/day/operations.js';
-import { selectIsToken } from '../../redux/auth/selectors.js';
-import { fetchDates } from '../../redux/dates/operations.js';
-import { selectItemsDay } from '../../redux/changeDay/changeDay.js';
-import isToday from '../../utils/isToday.js';
-import createMonth from '../../utils/createMonth';
+import { editWaterNote, addWaterNote } from '../../redux/waterNote/operations.js';
 
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 const WaterSchema = Yup.object().shape({
@@ -29,25 +24,11 @@ const WaterSchema = Yup.object().shape({
 });
 
 const WaterModal = () => {
-  const token = useSelector(selectIsToken);
-  let type = useSelector(selectTypeModal);
+  const type = useSelector(selectTypeModal);
   const dataInfo = useSelector(selectModalInfo);
   const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const [volume, setVolume] = useState(50);
   const [drinkTime, setDrinkTime] = useState(timeNow);
-  const lastDay = useSelector(selectItemsDay);
-
-  let title;
-  let subtitle;
-
-  if (type === 'editWater') {
-    title = 'Edit the entered amount of water';
-    subtitle = 'Correct entered data:';
-  } else if (type === 'addWater') {
-    title = 'Add Water';
-    subtitle = 'Choose a value:';
-  }
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -62,6 +43,8 @@ const WaterModal = () => {
     control,
     formState: { errors },
     setValue,
+    watch,
+    trigger,
   } = useForm({
     defaultValues: {
       volume,
@@ -70,30 +53,29 @@ const WaterModal = () => {
     resolver: yupResolver(WaterSchema),
   });
 
+  const watchedVolume = watch('volume');
+
+  useEffect(() => {
+    if (watchedVolume) {
+      trigger('volume');
+    }
+  }, [watchedVolume, trigger]);
+
   const onSubmit = () => {
     const transformedData = {
       volume: parseInt(volume, 10),
       drinkTime,
-      token,
-      lastDay,
     };
     if (type === 'editWater') {
-      dispatch(editWaterNote({ ...transformedData, _id: dataInfo._id }));
-
-      setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime() + 43200000));
-      }, 1000);
+      dispatch(editWaterNote(transformedData));
     } else if (type === 'addWater') {
       dispatch(addWaterNote(transformedData));
-      setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime() + 43200000));
-      }, 1000);
     }
     dispatch(closeModal());
   };
 
   const handleIncrease = () => {
-    const newVolume = parseInt(volume, 10) + 50 || 50;
+    const newVolume = (parseInt(volume, 10) || 0) + 50;
     if (newVolume <= 9999) {
       setVolume(newVolume.toString());
       setValue('volume', newVolume);
@@ -101,30 +83,36 @@ const WaterModal = () => {
   };
 
   const handleDecrease = () => {
-    if (volume > 0) {
-      const newVolume = parseInt(volume, 10) - 50 || 0;
-      if (newVolume >= 0) {
-        setVolume(newVolume.toString());
-        setValue('volume', newVolume);
+    const newVolume = (parseInt(volume, 10) || 0) - 50;
+    if (newVolume >= 50) {
+      setVolume(newVolume.toString());
+      setValue('volume', newVolume);
+    }
+  };
+
+  const handleVolumeChange = (e) => {
+    const value = e.target.value;
+
+    if (/^\d*$/.test(value)) {
+      if (value === '') {
+        setVolume('');
+        setValue('volume', '');
+      } else if (parseInt(value, 10) <= 9999) {
+        setVolume(value);
+        setValue('volume', value);
       }
     }
   };
 
-  const day1 = useSelector(selectItemsDay);
-  const month = createMonth({ date: new Date(day1) });
-
-  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
-  console.log('====================================');
-  console.log(!isToday(lastDay));
-  console.log('====================================');
   return (
     <div className={styles.waterModalContainer}>
-      <div className={styles.waterModalHeader}>
-        <h2 className={styles.waterModalTitle}>{title}</h2>
-        {!isToday(lastDay) && <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>}
-        <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
-      </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
+        <h2 className={styles.waterModalTitle}>
+          {type === 'editWater' ? 'Edit the entered amount of water' : 'Add Water'}
+        </h2>
+        <h3 className={styles.waterModalSubtitle}>
+          {type === 'editWater' ? 'Correct entered data:' : 'Choose a value:'}
+        </h3>
         <div className={styles.formGroup}>
           <label htmlFor="volume" className={styles.formLabel}>
             Amount of water:
@@ -133,7 +121,7 @@ const WaterModal = () => {
             <button type="button" onClick={handleDecrease}>
               <FiMinus />
             </button>
-            <div>{volume} ml</div>
+            <div>{volume ? `${volume} ml` : '0 ml'}</div>
             <button type="button" onClick={handleIncrease}>
               <FiPlus />
             </button>
@@ -141,11 +129,18 @@ const WaterModal = () => {
           <Controller
             name="volume"
             control={control}
-            render={({ field }) => <input type="hidden" {...field} value={volume} />}
+            render={({ field }) => (
+              <input
+                type="hidden"
+                {...field}
+                value={volume}
+                onChange={handleVolumeChange}
+              />
+            )}
           />
-          {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
         </div>
-        <div className={styles.formGroup}>
+        
+        <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
           <label htmlFor="drinkTime" className={styles.formLabel}>
             Recording time:
           </label>
@@ -169,7 +164,8 @@ const WaterModal = () => {
           />
           {errors.drinkTime && <p className={styles.errorMessage}>{errors.drinkTime.message}</p>}
         </div>
-        <div className={styles.formGroup}>
+        
+        <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
           <label htmlFor="volume">Enter the value of the water used:</label>
           <Controller
             name="volume"
@@ -179,18 +175,14 @@ const WaterModal = () => {
                 type="text"
                 {...field}
                 value={volume}
-                onChange={e => {
-                  const value = e.target.value;
-                  if (value === '' || (Number(value) <= 9999 && Number(value) >= 1)) {
-                    setVolume(value);
-                    field.onChange(e);
-                  }
-                }}
+                onChange={handleVolumeChange}
+                maxLength={4} // Limit to 4 digits
               />
             )}
           />
           {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
         </div>
+        
         <MainButton text="Save" />
       </form>
     </div>

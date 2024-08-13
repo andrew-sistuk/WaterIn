@@ -3,10 +3,23 @@
   border-radius: 15px;
   padding: 12px;
   max-width: 198px;
-  /* height: 70px; */
 
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   background: var(--main-white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    margin-bottom: 26px;
+    padding: 20px;
+    max-width: 295px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    margin-bottom: 56px;
+  }
 }
 
 .title {
@@ -19,9 +32,19 @@
   color: var(--main-black-gray-color);
 }
 
+@media screen and (min-width: 768px) {
+  .title {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+}
+
 .barWrapper {
   position: relative;
 }
+
 .mainBar {
   margin-bottom: 8px;
   width: 100%;
@@ -29,6 +52,13 @@
   border-radius: 9px;
 
   background-color: var(--main-gray-color);
+}
+
+@media screen and (min-width: 768px) {
+  .mainBar {
+    margin-bottom: 6px;
+    height: 8px;
+  }
 }
 
 .progressBar {
@@ -39,6 +69,13 @@
 
   background-color: var(--main-green-color);
 }
+
+@media screen and (min-width: 768px) {
+  .progressBar {
+    height: 8px;
+  }
+}
+
 .currentPoint {
   position: absolute;
   top: 0;
@@ -51,6 +88,7 @@
 
   transform: translate(-50%, -25%);
 }
+
 .signature {
   height: 10px;
   position: relative;
@@ -59,6 +97,15 @@
 
   line-height: 1;
   color: rgba(47, 47, 47, 0.6);
+}
+
+@media screen and (min-width: 768px) {
+  .signature {
+    height: 24px;
+
+    font-size: 12px;
+    line-height: 1.86667;
+  }
 }
 
 .emptyValue,
@@ -93,38 +140,4 @@
 
 .currentValue {
   color: var(--main-green-color);
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    margin-bottom: 26px;
-    padding: 20px;
-    max-width: 295px;
-  }
-
-  .title {
-    margin-bottom: 6px;
-
-    font-size: 15px;
-    line-height: 1.49333;
-  }
-
-  .mainBar {
-    margin-bottom: 6px;
-    height: 8px;
-  }
-  .progressBar {
-    height: 8px;
-  }
-
-  .signature {
-    font-size: 12px;
-    line-height: 1.86667;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .wrapper {
-    margin-bottom: 56px;
-  }
 }

@@ -1,6 +1,6 @@
 @media screen and (max-width: 375px) {
   .list {
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 

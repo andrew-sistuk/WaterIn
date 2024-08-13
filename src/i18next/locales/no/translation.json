@@ -1,0 +1,200 @@
+{
+  "language": "Endre språk",
+  "page": {
+    "reset": "Tilbakestill passordet ditt",
+    "forgot": "Glemt side",
+    "notFound": "Feil sted",
+    "signIn": "Logg inn",
+    "signUp": "Registrer deg",
+    "tracker": "Tracker-side"
+  },
+  "welcomeSection": {
+    "mainText": "Registrer daglig vanninntak og spor fremgangen din",
+    "title": "Vannforbruks tracker",
+    "tryTracker": "Prøv trackeren",
+    "signIn": "Logg inn"
+  },
+  "advantagesSection": {
+    "our": "Våre",
+    "happy": "fornøyde",
+    "customers": "kunder",
+    "habit": "Bygg vaner",
+    "statistics": "Se statistikk",
+    "setting": "Personlig målangivelse"
+  },
+  "signInPage": {
+    "signIn": "Logg inn",
+    "email": "E-post",
+    "password": "Passord",
+    "emailPlaceholder": "Skriv inn e-posten din",
+    "passwordPlaceholder": "Skriv inn passordet ditt",
+    "dontAccount": "Har du ikke en konto?",
+    "forgotPassword": "Glemt passordet ditt?",
+    "signUp": "Registrer deg",
+    "renew": "Forny",
+    "emailErrorInvalid": "Ugyldig e-postformat",
+    "emailErrorRequired": "E-post er påkrevd",
+    "passwordErrorLong": "Passordet må være minst 6 tegn langt",
+    "passwordErrorRequired": "Passord er påkrevd"
+  },
+
+  "googleButton": "Logg inn med Google",
+
+  "signUpPage": {
+    "signUp": "Registrer deg",
+    "name": "Navn",
+    "namePlaceholder": "Skriv inn navnet ditt",
+    "nameSpanError": "Navn kan kun inneholde latinske tegn",
+    "email": "E-post",
+    "emailPlaceholder": "Skriv inn e-posten din",
+    "password": "Passord",
+    "passwordPlaceholder": "Skriv inn passordet ditt",
+    "repeatPassword": "Gjenta passord",
+    "repeatPasswordPlaceholder": "Gjenta passordet",
+    "textAlready": "Har du allerede en konto?",
+    "signIn": "Logg inn",
+    "emailErrorInvalid": "Ugyldig e-postformat",
+    "emailErrorRequired": "E-post er påkrevd",
+    "passwordErrorLong": "Passordet må være minst 6 tegn langt",
+    "passwordErrorRequired": "Passord er påkrevd",
+    "repeatPasswordErrorTwo": "Passordene må matche",
+    "repeatPasswordRequired": "Gjenta passord er påkrevd"
+  },
+  "forgotPage": {
+    "title": "Tilbakestill passordet ditt",
+    "email": "Skriv inn e-posten din",
+    "emailPlaceholder": "Skriv inn e-posten din",
+    "emailSpanError": "Ugyldig e-postformat",
+    "button": "Send",
+    "remember": "Husker du passordet ditt?",
+    "signIn": "Logg inn"
+  },
+  "resetPage": {
+    "title": "Tilbakestill passordet ditt",
+    "password": "Passord",
+    "passwordPlaceholder": "Skriv inn passordet ditt",
+    "passwordSpanError": "Passordet må være minst 6 tegn langt, inneholde en stor bokstav, et tall og et spesialtegn",
+    "repeatPassword": "Gjenta passord",
+    "repeatPasswordPlaceholder": "Gjenta passordet",
+    "repeatPasswordError": "Påkrevd",
+    "repeatPasswordErrorTwo": "Passordene må matche",
+    "button": "Send"
+  },
+  "waterMainInfo": {
+    "l": "L",
+    "norma": "Mitt daglige mål",
+    "today": "I dag",
+    "btn": "Legg til vann"
+  },
+  "ChooseDate": {
+    "January": "Januar",
+    "February": "Februar",
+    "March": "Mars",
+    "April": "April",
+    "May": "Mai",
+    "June": "Juni",
+    "July": "Juli",
+    "August": "August",
+    "September": "September",
+    "October": "Oktober",
+    "November": "November",
+    "December": "Desember",
+    "today": "I dag",
+    "en": "no-NO"
+  },
+  "dailyInfo": {
+    "text": "Du har ikke drukket vann ennå i dag, det er den perfekte tiden å drikke noe!",
+    "ml": "ml"
+  },
+  "monthInfo": {
+    "mouth": "Måned",
+    "statistics": "Statistikk"
+  },
+  "Userbar": {
+    "user": "Bruker",
+    "hello": "Hallo",
+    "settings": "Innstillinger",
+    "logOut": "Logg ut"
+  },
+  "modals": {
+    "delete": {
+      "title": "Slett oppføring",
+      "text": "Er du sikker på at du vil slette oppføringen?",
+      "delete": "Slett",
+      "cancel": "Avbryt",
+      "error": "Kunne ikke slette oppføringen",
+      "success": "Oppføringen ble slettet"
+    },
+    "logOut": {
+      "title": "Logg ut",
+      "text": "Vil du virkelig logge ut?",
+      "logOut": "Logg ut",
+      "cancel": "Avbryt"
+    },
+    "addEdit": {
+      "add": "Legg til vann",
+      "edit": "Rediger innført vannmengde",
+      "choose": "Velg en verdi:",
+      "correct": "Korriger innlagte data:",
+      "ml": "ml",
+      "amount": "Mengde vann:",
+      "time": "Registreringstid:",
+      "value": "Skriv inn mengden vann som er brukt:",
+      "save": "Lagre",
+
+      "errors": {
+        "type": "Volum må være et tall",
+        "volumeRequired": "Volum er påkrevd",
+        "volumeMin": "Minimumsverdien er 50",
+        "volumeMax": "Maksimalverdi er 9999",
+        "drinkRequired": "Registreringstid er påkrevd",
+        "drinkMatches": "Ugyldig tidsformat (xx:xx)",
+        "attention": "Oppmerksomhet, du legger vann på "
+      }
+    },
+    "UserSettingsForm": {
+      "settings": "Innstillinger",
+      "uploadPhotoBtn": "Last opp bilde",
+      "yourGenderLabel": "Kjønn",
+      "femaleGenderLabel": "Kvinne",
+      "maleGenderLabel": "Mann",
+      "yourNameLabel": "Navn",
+      "placeYourName": "Navn",
+      "labelEmail": "Skriv inn e-posten din",
+      "placeEmail": "E-posten din",
+      "dailyNorma": "Mitt daglige mål",
+      "forWomanP": "For kvinner:",
+      "forManP": "For menn:",
+      "startText": "V er volumet av vannmålet i liter per dag, M er kroppsvekten din, T er tiden med aktiv idrett eller annen type aktivitet tilsvarende (ved fravær av slike aktiviteter, må du angi 0)",
+      "activeText": "Aktiv tid i timer",
+      "infoUser": "Vekten din i kilo:",
+      "TheTimeSportsLabel": "Tiden med aktiv idrett:",
+      "requiredWater": "Krav til vannmengde i liter per dag:",
+      "writeDownLabel": "Skriv ned hvor mye vann du vil drikke:",
+      "l": "L",
+      "saveBtn": "Lagre",
+      "success": "Dataene dine er oppdatert",
+      "errors": {
+        "nameRequired": "Navn er påkrevd",
+        "emailInvalid": "Vennligst skriv inn en gyldig e-postadresse",
+        "emailRequired": "E-post er påkrevd",
+        "emailMatch": "Ugyldig e-postformat: eksempel@mail.com"
+      }
+    }
+  },
+  "toast": {
+    "forgot": "E-post for tilbakestilling av passord er sendt",
+    "reset": "Passordet er tilbakestilt! Du kan logge inn med det nye passordet",
+    "logOut": "Vi sees snart ❤️"
+  },
+
+  "onboarding": {
+    "1": "Dette er din personlige vannsporer.",
+    "2": "Her kan du se ditt daglige vanninntak.",
+    "3": "Du kan se hvor nær du er målet ditt om å drikke vann for dagen.",
+    "4": "Dette feltet vil vise mengden vann, og du kan legge til, redigere eller slette en oppføring for vannforbruk.",
+    "5": "Dette er panelet for dine personlige innstillinger, inkludert personlig informasjon og vannsporing preferanser.",
+    "6": "Denne kalenderen vil vise hvor mange prosent vann som ble drukket hver dag.",
+    "7": "Bruk denne knappen for å bytte mellom kalendervisning og tidsplanvisning."
+  }
+}

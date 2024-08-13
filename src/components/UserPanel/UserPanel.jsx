@@ -8,6 +8,7 @@ import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../redux/modal/slice.js';
 import { selectUser } from '../../redux/auth/selectors.js';
+import { useTranslation } from 'react-i18next';
 
 import css from './UserPanel.module.css';
 
@@ -15,6 +16,7 @@ const UserPanel = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -49,21 +51,13 @@ const UserPanel = () => {
 
   return (
     <div className={css.userPanelContainer}>
-      {user.name ? (
-        <h2 className={css.title}>
-          Hello<span className={css.firstUserName}>, {getFirstName(user.name)}!</span>
-        </h2>
-      ) : (
-        <h2 className={css.title}>
-          Hello<span className={css.firstUserName}>, User!</span>
-        </h2>
-      )}
+      <h2 className={css.title}>
+        {t('Userbar.hello')},{' '}
+        <span className={css.firstUserName}>{user.name ? getFirstName(user.name) : 'User'}!</span>
+      </h2>
       <button className={css.userPanelBtn} onClick={toggleMenu}>
-        {user.name ? (
-          <p className={css.userName}>{getFirstName(user.name)}</p>
-        ) : (
-          <p className={css.userName}>Test</p>
-        )}
+        <p className={css.userName}>{user.name ? getFirstName(user.name) : 'User'}</p>
+
         <div className={css.userAvatarContainer}>
           {user.photo ? (
             <img src={user.photo} alt="User Avatar" className={css.avatarImg} />

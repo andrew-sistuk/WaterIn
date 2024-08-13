@@ -1,65 +1,70 @@
 .waterModalContainer {
-  padding: 40px;
-  width: 518px;
-}
-
-.waterModalHeader {
-  margin-bottom: 20px;
+  padding: 40px 20px;
+  margin: 0 auto;
 }
 
 .waterModalTitle {
-  /* position: relative; */
-  font-weight: 700;
-  font-size: 28px;
+  font-size: 20px;
+  width: 100%;
+  line-height: 120%;
+  letter-spacing: -0.01em;
   margin-bottom: 24px;
-  line-height: 114%;
-  width: 347px;
-  height: 64px;
+  font-weight: 700;
 }
 
 .waterModalSubtitle {
-  font-size: 1.1em;
+  font-size: 16px;
+  line-height: 125%;
   font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
 }
 
 .waterForm {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.formGroup {
   font-size: 0.8em;
 }
 
-.formGroup label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 133%;
+.waterForm:last-child {
+  margin-bottom: 0px;
 }
 
-.formGroup input {
-  padding: 16px 16px;
-  font-size: 16px;
-  width: 100%;
-  border-radius: 15px;
-  border: 1px solid #ccc;
-  line-height: 150%;
+.formGroupSmallGap {
+  margin-bottom: 24px;
 }
 
 .amountControl {
   display: flex;
   align-items: center;
+  margin-bottom: 16px;
+}
+
+.waterForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+}
+
+.waterForm input {
+  padding: 14px 14px 14px 16px;
+  font-size: 14px;
+  height: 46px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  line-height: 129%;
 }
 
 .amountControl button {
   background-color: transparent;
   border: 2px solid #323f47;
   border-radius: 50%;
-  width: 43px;
-  height: 43px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -69,7 +74,9 @@
 
 .amountControl div {
   margin: 0 8px;
-  padding: 11px 20px 9px 20px;
+  padding: 11px 20px;
+  width: 105px;
+  height: 40px;
   font-size: 15px;
   font-weight: 700;
   background: #323f47;
@@ -78,7 +85,6 @@
   display: flex;
   justify-content: center;
   line-height: 149%;
-  width: 100px;
 }
 
 button:disabled {
@@ -86,18 +92,19 @@ button:disabled {
 }
 
 .errorMessage {
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 4px;
+  font-size: 12px;
   font-weight: 500;
+  color: red;
+  position: absolute;
 }
 
 .waterModalContainer .formLabel {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
+  font-size: 14px;
+  line-height: 129%;
   letter-spacing: -0.01em;
 }
-
 .notToday {
   display: inline-block;
   color: #ef5050;
@@ -105,4 +112,76 @@ button:disabled {
   font-size: 16px;
   margin-bottom: 5px;
   line-height: 110%;
+}
+
+@media screen and (min-width: 375px) {
+  .waterModalContainer {
+    width: 343px;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 768px) {
+  .waterModalContainer {
+    padding: 40px;
+    width: 518px;
+  }
+
+  .waterModalTitle {
+    font-size: 28px;
+    line-height: 114%;
+    letter-spacing: -0.01em;
+  }
+
+  .waterModalSubtitle {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .waterModalContainer .formLabel {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .formGroup input {
+    padding: 16px 16px;
+    font-size: 16px;
+    height: auto;
+    line-height: 150%;
+    width: 438px;
+  }
+
+  .formGroup label {
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  .amountControl button {
+    width: 43px;
+    height: 43px;
+  }
+
+  .amountControl div {
+    padding: 11px 20px;
+    width: 105px;
+    height: auto;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 1440px) {
+  .waterModalContainer {
+    padding: 40px;
+  }
+
+  .waterModalTitle {
+    max-width: 347px;
+    font-size: 28px;
+    line-height: 114%;
+    letter-spacing: -0.01em;
+  }
+  .waterModalSubtitle {
+    font-size: 18px;
+    line-height: 133%;
+  }
 }

@@ -4,8 +4,11 @@ import { useSelector } from 'react-redux';
 import { selectItemsDay } from '../../redux/day/selectors';
 
 import css from './WaterList.module.css';
+import { useTranslation } from 'react-i18next';
 
 const WaterList = () => {
+  const { t } = useTranslation();
+
   const items = useSelector(selectItemsDay);
 
   return (
@@ -19,7 +22,7 @@ const WaterList = () => {
           ))}
         </ul>
       ) : (
-        <p className={css.text}>Please, drink some water</p>
+        <p className={css.text}>{t('dailyInfo.text')}</p>
       )}
     </div>
   );

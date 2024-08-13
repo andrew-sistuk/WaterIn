@@ -1,0 +1,195 @@
+{
+  "language": "Cambia lingua",
+  "page": {
+    "reset": "Reimposta la password",
+    "forgot": "Pagina di recupero",
+    "notFound": "Pagina non trovata",
+    "signIn": "Accedi",
+    "signUp": "Registrati",
+    "tracker": "Pagina del tracker"
+  },
+  "welcomeSection": {
+    "mainText": "Registra l'assunzione giornaliera di acqua e monitora i progressi",
+    "title": "Tracker del consumo di acqua",
+    "tryTracker": "Prova il tracker",
+    "signIn": "Accedi"
+  },
+  "advantagesSection": {
+    "our": "I nostri",
+    "happy": "clienti soddisfatti",
+    "customers": "clienti",
+    "habit": "Costruisci abitudini",
+    "statistics": "Visualizza statistiche",
+    "setting": "Imposta la tua norma personale"
+  },
+  "signInPage": {
+    "signIn": "Accedi",
+    "email": "Inserisci",
+    "password": "Password",
+    "emailPlaceholder": "Inserisci la tua email",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "dontAccount": "Non hai un account?",
+    "forgotPassword": "Hai dimenticato la password?",
+    "signUp": "Registrati",
+    "renew": "Rinnova",
+    "emailErrorInvalid": "Formato email non valido",
+    "emailErrorRequired": "L'email è richiesta",
+    "passwordErrorLong": "La password deve contenere almeno 6 caratteri",
+    "passwordErrorRequired": "La password è richiesta"
+  },
+
+  "googleButton": "Accedi con Google",
+
+  "signUpPage": {
+    "signUp": "Registrati",
+    "name": "Nome",
+    "namePlaceholder": "Inserisci il tuo nome",
+    "nameSpanError": "Il nome può contenere solo caratteri latini",
+    "email": "Email",
+    "emailPlaceholder": "Inserisci la tua email",
+    "password": "Password",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "repeatPassword": "Ripeti la password",
+    "repeatPasswordPlaceholder": "Ripeti la password",
+    "textAlready": "Hai già un account?",
+    "signIn": "Accedi",
+    "emailErrorInvalid": "Formato email non valido",
+    "emailErrorRequired": "L'email è richiesta",
+    "passwordErrorLong": "La password deve contenere almeno 6 caratteri",
+    "passwordErrorRequired": "La password è richiesta",
+    "repeatPasswordErrorTwo": "Le password devono corrispondere",
+    "repeatPasswordRequired": "La ripetizione della password è richiesta"
+  },
+  "forgotPage": {
+    "title": "Reimposta la password",
+    "email": "Inserisci la tua email",
+    "emailPlaceholder": "Inserisci la tua email",
+    "emailSpanError": "Formato email non valido",
+    "button": "Invia",
+    "remember": "Ricordi la tua password?",
+    "signIn": "Accedi"
+  },
+  "resetPage": {
+    "title": "Reimposta la password",
+    "password": "Password",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "passwordSpanError": "La password deve contenere almeno 6 caratteri, includere una lettera maiuscola, un numero e un carattere speciale",
+    "repeatPassword": "Ripeti la password",
+    "repeatPasswordPlaceholder": "Ripeti la password",
+    "repeatPasswordError": "Obbligatorio",
+    "repeatPasswordErrorTwo": "Le password devono corrispondere",
+    "button": "Invia"
+  },
+  "waterMainInfo": {
+    "l": "L",
+    "norma": "La mia norma giornaliera",
+    "today": "Oggi",
+    "btn": "Aggiungi acqua"
+  },
+  "ChooseDate": {
+    "January": "Gennaio",
+    "February": "Febbraio",
+    "March": "Marzo",
+    "April": "Aprile",
+    "May": "Maggio",
+    "June": "Giugno",
+    "July": "Luglio",
+    "August": "Agosto",
+    "September": "Settembre",
+    "October": "Ottobre",
+    "November": "Novembre",
+    "December": "Dicembre",
+    "today": "Oggi",
+    "en": "it-IT"
+  },
+  "dailyInfo": {
+    "text": "Non hai ancora bevuto acqua oggi, è il momento perfetto per farlo!",
+    "ml": "ml"
+  },
+  "monthInfo": {
+    "mouth": "Mese",
+    "statistics": "Statistiche"
+  },
+  "Userbar": {
+    "user": "Utente",
+    "hello": "Ciao",
+    "settings": "Impostazioni",
+    "logOut": "Esci"
+  },
+  "modals": {
+    "delete": {
+      "title": "Elimina voce",
+      "text": "Sei sicuro di voler eliminare la voce?",
+      "delete": "Elimina",
+      "cancel": "Annulla",
+      "error": "Eliminazione della voce fallita",
+      "success": "Voce eliminata con successo"
+    },
+    "logOut": {
+      "title": "Esci",
+      "text": "Vuoi davvero uscire?",
+      "logOut": "Esci",
+      "cancel": "Annulla"
+    },
+    "addEdit": {
+      "add": "Aggiungi acqua",
+      "edit": "Modifica la quantità di acqua",
+      "choose": "Scegli un valore:",
+      "correct": "Correggi i dati inseriti:",
+      "ml": "ml",
+      "amount": "Quantità di acqua:",
+      "time": "Ora della registrazione:",
+      "value": "Inserisci la quantità d'acqua utilizzata:",
+      "save": "Salva",
+
+      "errors": {
+        "type": "Il volume deve essere un numero",
+        "volumeRequired": "Il volume è obbligatorio",
+        "volumeMin": "Il valore minimo è 50",
+        "volumeMax": "Il valore massimo è 9999",
+        "drinkRequired": "L'orario di registrazione è obbligatorio",
+        "drinkMatches": "Formato orario non valido (xx:xx)",
+        "attention": "Attenzione, stai aggiungendo acqua su "
+      }
+    },
+    "UserSettingsForm": {
+      "settings": "Impostazioni",
+      "uploadPhotoBtn": "Carica una foto",
+      "yourGenderLabel": "Identità di genere",
+      "femaleGenderLabel": "Femminile",
+      "maleGenderLabel": "Maschile",
+      "yourNameLabel": "Il tuo nome",
+      "placeYourName": "Nome",
+      "labelEmail": "Inserisci la tua email",
+      "placeEmail": "La tua email",
+      "dailyNorma": "La mia norma giornaliera",
+      "forWomanP": "Per le donne:",
+      "forManP": "Per gli uomini:",
+      "startText": "V è il volume dell'acqua da bere in litri al giorno, M è il tuo peso corporeo, T è il tempo di attività sportiva o un'altra attività equivalente (se assente, impostare 0)",
+      "activeText": "Tempo di attività in ore",
+      "infoUser": "Il tuo peso in chilogrammi:",
+      "TheTimeSportsLabel": "Tempo di attività sportiva:",
+      "requiredWater": "La quantità necessaria di acqua in litri al giorno:",
+      "writeDownLabel": "Annota quanta acqua bevi:",
+      "l": "L",
+      "saveBtn": "Salva",
+      "success": "I tuoi dati sono stati aggiornati con successo",
+      "errors": {
+        "nameRequired": "Il nome è obbligatorio",
+        "emailInvalid": "Inserisci un indirizzo email valido",
+        "emailRequired": "L'email è obbligatoria",
+        "emailMatch": "Formato email non valido"
+      }
+    }
+  },
+  
+  "onboarding": {
+    "1": "Questo è il tuo tracker dell'acqua personale.",
+    "2": "Qui puoi vedere la tua quantità giornaliera di acqua.",
+    "3": "Puoi vedere quanto sei vicino al tuo obiettivo di bere acqua per la giornata.",
+    "4": "Questo campo visualizzerà la quantità d'acqua e puoi aggiungere, modificare o eliminare una voce per il consumo di acqua.",
+    "5": "Questo è il pannello per le tue impostazioni personali, incluse le informazioni personali e le preferenze di tracciamento dell'acqua.",
+    "6": "Questo calendario mostrerà la percentuale di acqua bevuta ogni giorno.",
+    "7": "Usa questo pulsante per passare tra la visualizzazione del calendario e quella del programma."
+  }
+}

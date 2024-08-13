@@ -1,4 +1,5 @@
 import Customers from '../Customers/Customers';
+import { useTranslation } from 'react-i18next';
 import styles from './AdvantagesSection.module.css';
 import img1x from '../../assets/img/Advantages/mobile_home_img.jpg';
 import img2x from '../../assets/img/Advantages/mobile_home_img_2х.jpg';
@@ -8,6 +9,8 @@ import img1x_1440 from '../../assets/img/Advantages/dekstop_home_img.jpg';
 import img2x_1440 from '../../assets/img/Advantages/dekstop_home_img_2х.jpg';
 
 export default function AdvantagesSection() {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.advantagesSection}>
       <picture>
@@ -30,13 +33,13 @@ export default function AdvantagesSection() {
       <ul className={styles.advantagesList}>
         <li className={styles.advHabit}>
           <div className={styles.dot}></div>
-          <p>Habit drive</p>
+          <p>{t('advantagesSection.habit')}</p>
         </li>
         <li>
-          <p className={styles.advStatistic}>View statistics</p>
+          <p className={styles.advStatistic}>{t('advantagesSection.statistics')}</p>
         </li>
         <li>
-          <p className={styles.advRate}>Personal rate setting</p>
+          <p className={styles.advRate}>{t('advantagesSection.setting')}</p>
         </li>
       </ul>
     </section>

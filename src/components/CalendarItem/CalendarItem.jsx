@@ -19,6 +19,10 @@ const CalendarItem = ({ elem }) => {
     dispatch(addDay(value.times));
   };
 
+  if (isToday(elem.times)) {
+    dispatch(addDay(elem.times));
+  }
+
   const getParcentForDate = date => {
     const yearCalendar = date.getFullYear();
     const monthCalendar = date.getMonth() + 1;

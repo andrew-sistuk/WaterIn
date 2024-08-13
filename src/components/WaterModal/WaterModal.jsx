@@ -121,7 +121,7 @@ const WaterModal = () => {
     <div className={styles.waterModalContainer}>
       <div className={styles.waterModalHeader}>
         <h2 className={styles.waterModalTitle}>{title}</h2>
-        {!isToday(lastDay) && <span className={styles.notToday}>Warning! {fullDay}</span>}
+        {!isToday(lastDay) && <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>}
         <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>

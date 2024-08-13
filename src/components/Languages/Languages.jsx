@@ -26,8 +26,6 @@ const Languages = ({ type }) => {
     const settingsClassName = style.settings;
     const settingsEl = document.querySelector(`.${settingsClassName}`);
 
-    console.log('Settings el', settingsEl);
-
     if (h1) {
       if (viewportWidth < 768) {
         if (lang === 'de' || lang === 'fr') {

@@ -19,7 +19,20 @@ const WaterProgressBar = () => {
   useEffect(() => {
     dispatch(addDay(new Date().getTime()));
   }, [dispatch]);
-  const percentValuedrink = Math.round((totalDrink / dailyNorma) * 100);
+
+  const percentValueDrink = Math.round((totalDrink / dailyNorma) * 100);
+
+  function getPercentValueDrink(value) {
+    let percentValue = value;
+
+    if (percentValue > 100) {
+      percentValue = 100;
+
+      return percentValue;
+    }
+
+    return percentValue;
+  }
 
   function fixWidthProgressBar(value) {
     if (value > 100) {
@@ -33,16 +46,37 @@ const WaterProgressBar = () => {
     return value;
   }
 
-  function removeHiddenSignatureEmptyValue(value) {
-    return value < 15 ? 'transparent' : 'inherit';
+  function removeDisplaySignatureEmptyValue(value) {
+    let display = 'block';
+    if (value < 15) {
+      display = 'none';
+
+      return display;
+    }
+
+    return display;
   }
 
-  function removeHiddenSignatureMiddleValue(value) {
-    return value >= 36 && value < 60 ? 'transparent' : 'inherit';
+  function removeDisplaySignatureMiddleValue(value) {
+    let display = 'block';
+    if (value >= 36 && value < 64) {
+      display = 'none';
+
+      return display;
+    }
+
+    return display;
   }
 
-  function removeHiddenSignatureFullValue(value) {
-    return value > 80 ? 'transparent' : 'inherit';
+  function removeDisplaySignatureFullValue(value) {
+    let display = 'block';
+    if (value > 80) {
+      display = 'none';
+
+      return display;
+    }
+
+    return display;
   }
 
   const toDayMilisekond = new Date().getTime();
@@ -59,45 +93,58 @@ const WaterProgressBar = () => {
         <div
           className={css.progressBar}
           style={{
-            width: `${fixWidthProgressBar(percentValuedrink)}%`,
+            width: `${fixWidthProgressBar(getPercentValueDrink(percentValueDrink))}%`,
           }}
         ></div>
         <div
           className={css.currentPoint}
           style={{
-            left: `${fixWidthProgressBar(percentValuedrink)}%`,
+            left: `${fixWidthProgressBar(getPercentValueDrink(percentValueDrink))}%`,
           }}
         ></div>
 
         <div className={css.signature}>
           <p
+            className={css.emptyValue}
             style={{
-              color: `${removeHiddenSignatureEmptyValue(percentValuedrink)}`,
+              display: `${removeDisplaySignatureEmptyValue(
+                getPercentValueDrink(percentValueDrink)
+              )}`,
             }}
           >
             0%
           </p>
           <p
+            className={css.middleValue}
             style={{
-              color: `${removeHiddenSignatureMiddleValue(percentValuedrink)}`,
+              display: `${removeDisplaySignatureMiddleValue(
+                getPercentValueDrink(percentValueDrink)
+              )}`,
             }}
           >
             50%
           </p>
           <p
+            className={css.fullValue}
             style={{
-              color: `${removeHiddenSignatureFullValue(percentValuedrink)}`,
+              display: `${removeDisplaySignatureFullValue(
+                getPercentValueDrink(percentValueDrink)
+              )}`,
             }}
           >
             100%
           </p>
           <p
-            className={css.current}
+            className={css.currentValue}
             style={{
-              left: `${fixWidthProgressBar(percentValuedrink)}%`,
+              left: `${
+                getPercentValueDrink(percentValueDrink) < 96
+                  ? getPercentValueDrink(percentValueDrink)
+                  : 96
+              }%`,
             }}
           >
-            {fixWidthProgressBar(percentValuedrink)}%
+            {getPercentValueDrink(percentValueDrink)}%
           </p>
         </div>
       </div>

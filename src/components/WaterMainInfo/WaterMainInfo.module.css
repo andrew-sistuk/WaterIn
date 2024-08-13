@@ -70,5 +70,10 @@
 }
 
 .btn {
-  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addWater {
+  padding: 14px 20px;
 }

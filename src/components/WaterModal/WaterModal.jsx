@@ -78,12 +78,12 @@ const WaterModal = () => {
       dispatch(editWaterNote({ ...transformedData, _id: dataInfo._id }));
 
       setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime()));
+        dispatch(fetchDates(new Date(lastDay).getTime() + 43200000));
       }, 1000);
     } else if (type === 'addWater') {
       dispatch(addWaterNote(transformedData));
       setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime()));
+        dispatch(fetchDates(new Date(lastDay).getTime() + 43200000));
       }, 1000);
     }
     dispatch(closeModal());

@@ -7,6 +7,7 @@ axios.defaults.baseURL = 'https://waterin-server.onrender.com';
 export const fetchDates = createAsyncThunk('dates/fetchDates/', async (dateMonth, thunkAPI) => {
   try {
     const response = await api.get(`/water/month/${dateMonth}`);
+
     return response.data.data.waterNotes;
   } catch (error) {
     console.log('catch (error)', dateMonth);

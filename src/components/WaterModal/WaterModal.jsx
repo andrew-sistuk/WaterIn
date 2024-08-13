@@ -29,7 +29,6 @@ const WaterModal = () => {
   const [drinkTime, setDrinkTime] = useState(timeNow);
   const lastDay = useSelector(selectItemsDay);
 
-
   const { t } = useTranslation();
 
   const WaterSchema = Yup.object().shape({
@@ -125,11 +124,13 @@ const WaterModal = () => {
   console.log('====================================');
   return (
     <div className={styles.waterModalContainer}>
-      <div className={styles.waterModalHeader}>
+      {/* <div className={styles.waterModalHeader}> */}
         <h2 className={styles.waterModalTitle}>{title}</h2>
-        {!isToday(lastDay) && <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>}
+        {!isToday(lastDay) && (
+          <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>
+        )}
         <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
-      </div>
+      {/* </div> */}
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
         <div className={styles.formGroup}>
           <label htmlFor="volume" className={styles.formLabel}>
@@ -153,7 +154,7 @@ const WaterModal = () => {
           />
           {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
         </div>
-        <div className={styles.formGroup}>
+        <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
           <label htmlFor="drinkTime" className={styles.formLabel}>
             {t('modals.addEdit.time')}
           </label>
@@ -177,7 +178,7 @@ const WaterModal = () => {
           />
           {errors.drinkTime && <p className={styles.errorMessage}>{errors.drinkTime.message}</p>}
         </div>
-        <div className={styles.formGroup}>
+        <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
           <label htmlFor="volume">{t('modals.addEdit.value')}</label>
           <Controller
             name="volume"

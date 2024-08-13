@@ -11,6 +11,7 @@ import Recharts from '../Recharts/Recharts';
 import { fetchDates } from '../../redux/dates/operations';
 import { toast } from 'react-toastify';
 import { fetchDatesId } from '../../redux/day/operations';
+import { addDay } from '../../redux/changeDay/changeDay';
 
 const MonthInfo = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -31,12 +32,20 @@ const MonthInfo = () => {
     const prevMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
     setCurrentDate(prevMonthDate);
 
+    prevMonthDate.getMonth() === new Date().getMonth()
+      ? dispatch(addDay(new Date().getTime()))
+      : dispatch(addDay(prevMonthDate.getTime()));
+
     dispatch(fetchDates(prevMonthDate.getTime() + 43200000));
   };
 
   const handleClickForward = () => {
     const nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
     setCurrentDate(nextMonthDate);
+
+    nextMonthDate.getMonth() === new Date().getMonth()
+      ? dispatch(addDay(new Date().getTime()))
+      : dispatch(addDay(nextMonthDate.getTime()));
 
     dispatch(fetchDates(nextMonthDate.getTime() + 43200000));
   };

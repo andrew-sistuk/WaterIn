@@ -13,6 +13,8 @@ import { editWaterNote, addWaterNote } from '../../redux/day/operations.js';
 import { selectIsToken } from '../../redux/auth/selectors.js';
 import { fetchDates } from '../../redux/dates/operations.js';
 import { selectItemsDay } from '../../redux/changeDay/changeDay.js';
+import isToday from '../../utils/isToday.js';
+import createMonth from '../../utils/createMonth';
 
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
 const WaterSchema = Yup.object().shape({
@@ -34,6 +36,7 @@ const WaterModal = () => {
   const [volume, setVolume] = useState(50);
   const [drinkTime, setDrinkTime] = useState(timeNow);
   const lastDay = useSelector(selectItemsDay);
+
   let title;
   let subtitle;
 
@@ -107,10 +110,18 @@ const WaterModal = () => {
     }
   };
 
+  const day1 = useSelector(selectItemsDay);
+  const month = createMonth({ date: new Date(day1) });
+
+  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
+  console.log('====================================');
+  console.log(!isToday(lastDay));
+  console.log('====================================');
   return (
     <div className={styles.waterModalContainer}>
       <div className={styles.waterModalHeader}>
         <h2 className={styles.waterModalTitle}>{title}</h2>
+        {!isToday(lastDay) && <span className={styles.notToday}>Warning! {fullDay}</span>}
         <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>

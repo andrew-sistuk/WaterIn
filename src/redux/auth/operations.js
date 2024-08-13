@@ -31,10 +31,8 @@ export const register = createAsyncThunk('users/register', async (newUser, thunk
 
 export const login = createAsyncThunk('users/login', async (userInfo, thunkAPI) => {
   try {
-    // const hash = CryptoJS.SHA256(userInfo.password).toString(CryptoJS.enc.Hex);
-    // const response = await api.post('/users/login', {...userInfo, password: hash});
-
-    const response = await api.post('/users/login', userInfo);
+    const hash = CryptoJS.SHA256(userInfo.password).toString(CryptoJS.enc.Hex);
+    const response = await api.post('/users/login', { ...userInfo, password: hash });
     setAuthHeader(response.data.data.accessToken);
 
     return response.data.data;

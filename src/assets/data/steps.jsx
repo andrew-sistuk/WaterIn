@@ -1,3 +1,5 @@
+import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
+
 export const steps = [
   {
     selector: "[data-tour='intro-text']",
@@ -38,3 +40,36 @@ export const steps = [
     content: <p>Use this button to switch between the calendar and schedule views.</p>,
   },
 ];
+
+export const tourStyles = {
+  // Стилі для головного контейнера туру
+  badge: base => ({
+    ...base,
+    backgroundColor: '#9be1a0', // Колір значка
+    color: '#FFFFFF', // Колір тексту в значку
+  }),
+  controls: base => ({
+    ...base,
+    color: '#9be1a0', // Колір тексту кнопок "Next" і "Back"
+  }),
+  close: base => ({
+    ...base,
+    color: '#9be1a0', // Колір кнопки закриття
+  }),
+  arrow: base => ({
+    ...base,
+    color: '#9be1a0', // Колір стрілки
+  }),
+  dot: (base, state) => ({
+    ...base,
+    backgroundColor: state.current ? '#9be1a0' : '#CCCCCC', // Колір активної точки та інших точок навігації
+  }),
+};
+
+export const customComponents = {
+  // Задаємо іконку для кнопки закриття
+  Close: ({ onClick }) => <FaTimes onClick={onClick} />,
+  // Задаємо іконку для кнопки "Next"
+  Arrow: ({ onClick, inverted }) =>
+    inverted ? <FaArrowLeft onClick={onClick} /> : <FaArrowRight onClick={onClick} />,
+};

@@ -16,17 +16,9 @@ import { selectItemsDay } from '../../redux/changeDay/changeDay.js';
 import isToday from '../../utils/isToday.js';
 import createMonth from '../../utils/createMonth';
 
+import { useTranslation } from 'react-i18next';
+
 export const TIME_PATTERN = '^(?:0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$';
-const WaterSchema = Yup.object().shape({
-  volume: Yup.number()
-    .typeError('Volume must be a number')
-    .required('Volume is required')
-    .min(50, 'Minimum value is 50')
-    .max(9999, 'Maximum value is 9999'),
-  drinkTime: Yup.string()
-    .required('Recording time is required')
-    .matches(TIME_PATTERN, 'Invalid time format (xx:xx)'),
-});
 
 const WaterModal = () => {
   const token = useSelector(selectIsToken);
@@ -37,15 +29,29 @@ const WaterModal = () => {
   const [drinkTime, setDrinkTime] = useState(timeNow);
   const lastDay = useSelector(selectItemsDay);
 
+
+  const { t } = useTranslation();
+
+  const WaterSchema = Yup.object().shape({
+    volume: Yup.number()
+      .typeError(`${t('modals.addEdit.errors.type')}`)
+      .required(`${t('modals.addEdit.errors.volumeRequired')}`)
+      .min(50, `${t('modals.addEdit.errors.volumeMin')}`)
+      .max(9999, `${t('modals.addEdit.errors.volumeMax')}`),
+    drinkTime: Yup.string()
+      .required(`${t('modals.addEdit.errors.drinkRequired')}`)
+      .matches(TIME_PATTERN, `${t('modals.addEdit.errors.drinkMatches')}`),
+  });
+
   let title;
   let subtitle;
 
   if (type === 'editWater') {
-    title = 'Edit the entered amount of water';
-    subtitle = 'Correct entered data:';
+    title = t('modals.addEdit.edit');
+    subtitle = t('modals.addEdit.correct');
   } else if (type === 'addWater') {
-    title = 'Add Water';
-    subtitle = 'Choose a value:';
+    title = t('modals.addEdit.add');
+    subtitle = t('modals.addEdit.choose');
   }
 
   const dispatch = useDispatch();
@@ -127,13 +133,15 @@ const WaterModal = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
         <div className={styles.formGroup}>
           <label htmlFor="volume" className={styles.formLabel}>
-            Amount of water:
+            {t('modals.addEdit.amount')}
           </label>
           <div className={styles.amountControl}>
             <button type="button" onClick={handleDecrease}>
               <FiMinus />
             </button>
-            <div>{volume} ml</div>
+            <div>
+              {volume} {t('dailyInfo.ml')}
+            </div>
             <button type="button" onClick={handleIncrease}>
               <FiPlus />
             </button>
@@ -147,7 +155,7 @@ const WaterModal = () => {
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="drinkTime" className={styles.formLabel}>
-            Recording time:
+            {t('modals.addEdit.time')}
           </label>
           <Controller
             name="drinkTime"
@@ -170,7 +178,7 @@ const WaterModal = () => {
           {errors.drinkTime && <p className={styles.errorMessage}>{errors.drinkTime.message}</p>}
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="volume">Enter the value of the water used:</label>
+          <label htmlFor="volume">{t('modals.addEdit.value')}</label>
           <Controller
             name="volume"
             control={control}
@@ -191,7 +199,7 @@ const WaterModal = () => {
           />
           {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
         </div>
-        <MainButton text="Save" />
+        <MainButton text={t('modals.addEdit.save')} />
       </form>
     </div>
   );

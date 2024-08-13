@@ -1,0 +1,195 @@
+{
+  "language": "Changer la langue",
+  "page": {
+    "reset": "Réinitialiser votre mot de passe",
+    "forgot": "Page d'oubli",
+    "notFound": "Page non trouvée",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "tracker": "Page du tracker"
+  },
+  "welcomeSection": {
+    "mainText": "Enregistrez votre consommation d'eau quotidienne et suivez vos progrès",
+    "title": "Suivi de la consommation d'eau",
+    "tryTracker": "Essayer le tracker",
+    "signIn": "Se connecter"
+  },
+  "advantagesSection": {
+    "our": "Nos",
+    "happy": "clients satisfaits",
+    "customers": "clients",
+    "habit": "Créez des habitudes",
+    "statistics": "Voir les statistiques",
+    "setting": "Définir votre norme personnelle"
+  },
+  "signInPage": {
+    "signIn": "Se connecter",
+    "email": "Entrez",
+    "password": "Mot de passe",
+    "emailPlaceholder": "Entrez votre email",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "dontAccount": "Vous n'avez pas de compte ?",
+    "forgotPassword": "Mot de passe oublié ?",
+    "signUp": "S'inscrire",
+    "renew": "Renouveler",
+    "emailErrorInvalid": "Format d'email invalide",
+    "emailErrorRequired": "L'email est requis",
+    "passwordErrorLong": "Le mot de passe doit contenir au moins 6 caractères",
+    "passwordErrorRequired": "Le mot de passe est requis"
+  },
+
+  "googleButton": "Se connecter avec Google",
+
+  "signUpPage": {
+    "signUp": "S'inscrire",
+    "name": "Nom",
+    "namePlaceholder": "Entrez votre nom",
+    "nameSpanError": "Le nom ne peut contenir que des caractères latins",
+    "email": "Email",
+    "emailPlaceholder": "Entrez votre email",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "repeatPassword": "Répéter le mot de passe",
+    "repeatPasswordPlaceholder": "Répétez le mot de passe",
+    "textAlready": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter",
+    "emailErrorInvalid": "Format d'email invalide",
+    "emailErrorRequired": "L'email est requis",
+    "passwordErrorLong": "Le mot de passe doit contenir au moins 6 caractères",
+    "passwordErrorRequired": "Le mot de passe est requis",
+    "repeatPasswordErrorTwo": "Les mots de passe doivent correspondre",
+    "repeatPasswordRequired": "La répétition du mot de passe est requise"
+  },
+  "forgotPage": {
+    "title": "Réinitialiser votre mot de passe",
+    "email": "Entrez votre email",
+    "emailPlaceholder": "Entrez votre email",
+    "emailSpanError": "Format d'email invalide",
+    "button": "Envoyer",
+    "remember": "Vous vous souvenez de votre mot de passe ?",
+    "signIn": "Se connecter"
+  },
+  "resetPage": {
+    "title": "Réinitialiser votre mot de passe",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "passwordSpanError": "Le mot de passe doit contenir au moins 6 caractères, inclure une majuscule, un chiffre et un caractère spécial",
+    "repeatPassword": "Répéter le mot de passe",
+    "repeatPasswordPlaceholder": "Répétez le mot de passe",
+    "repeatPasswordError": "Obligatoire",
+    "repeatPasswordErrorTwo": "Les mots de passe doivent correspondre",
+    "button": "Envoyer"
+  },
+  "waterMainInfo": {
+    "l": "L",
+    "norma": "Mon objectif quotidien",
+    "today": "Aujourd'hui",
+    "btn": "Ajouter de l'eau"
+  },
+  "ChooseDate": {
+    "January": "Janvier",
+    "February": "Février",
+    "March": "Mars",
+    "April": "Avril",
+    "May": "Mai",
+    "June": "Juin",
+    "July": "Juillet",
+    "August": "Août",
+    "September": "Septembre",
+    "October": "Octobre",
+    "November": "Novembre",
+    "December": "Décembre",
+    "today": "Aujourd'hui",
+    "en": "fr-FR"
+  },
+  "dailyInfo": {
+    "text": "Vous n'avez pas encore bu d'eau aujourd'hui, c'est le moment idéal pour en boire !",
+    "ml": "ml"
+  },
+  "monthInfo": {
+    "mouth": "Mois",
+    "statistics": "Statistiques"
+  },
+  "Userbar": {
+    "user": "Utilisateur",
+    "hello": "Bonjour",
+    "settings": "Paramètres",
+    "logOut": "Déconnexion"
+  },
+  "modals": {
+    "delete": {
+      "title": "Supprimer l'entrée",
+      "text": "Êtes-vous sûr de vouloir supprimer cette entrée ?",
+      "delete": "Supprimer",
+      "cancel": "Annuler",
+      "error": "Échec de la suppression de l'entrée",
+      "success": "Entrée supprimée avec succès"
+    },
+    "logOut": {
+      "title": "Déconnexion",
+      "text": "Voulez-vous vraiment vous déconnecter ?",
+      "logOut": "Déconnexion",
+      "cancel": "Annuler"
+    },
+    "addEdit": {
+      "add": "Ajouter de l'eau",
+      "edit": "Modifier la quantité d'eau saisie",
+      "choose": "Choisissez une valeur :",
+      "correct": "Corrigez les données saisies :",
+      "ml": "ml",
+      "amount": "Quantité d'eau :",
+      "time": "Heure d'enregistrement :",
+      "value": "Entrez la quantité d'eau consommée :",
+      "save": "Enregistrer",
+
+      "errors": {
+        "type": "Le volume doit être un nombre",
+        "volumeRequired": "Le volume est requis",
+        "volumeMin": "La valeur minimale est de 50",
+        "volumeMax": "La valeur maximale est de 9999",
+        "drinkRequired": "L'heure d'enregistrement est requise",
+        "drinkMatches": "Format de l'heure invalide (xx:xx)",
+        "attention": "Attention, vous ajoutez de l'eau sur le "
+      }
+    },
+    "UserSettingsForm": {
+      "settings": "Paramètres",
+      "uploadPhotoBtn": "Télécharger une photo",
+      "yourGenderLabel": "Votre identité de genre",
+      "femaleGenderLabel": "Femme",
+      "maleGenderLabel": "Homme",
+      "yourNameLabel": "Votre nom",
+      "placeYourName": "Nom",
+      "labelEmail": "Entrez votre email",
+      "placeEmail": "Votre email",
+      "dailyNorma": "Mon objectif quotidien",
+      "forWomanP": "Pour les femmes :",
+      "forManP": "Pour les hommes :",
+      "startText": "V est le volume de l'objectif d'eau en litres par jour, M est votre poids corporel, T est le temps d'activité sportive ou autre type d'activité équivalente (en l'absence de ces activités, indiquez 0)",
+      "activeText": "Temps d'activité en heures",
+      "infoUser": "Votre poids en kilogrammes :",
+      "TheTimeSportsLabel": "Temps consacré au sport :",
+      "requiredWater": "Quantité d'eau nécessaire en litres par jour :",
+      "writeDownLabel": "Indiquez combien d'eau vous allez boire :",
+      "l": "L",
+      "saveBtn": "Enregistrer",
+      "success": "Vos données ont été mises à jour avec succès",
+      "errors": {
+        "nameRequired": "Le nom est requis",
+        "emailInvalid": "Veuillez entrer une adresse email valide",
+        "emailRequired": "L'email est requis",
+        "emailMatch": "Format d'email invalide"
+      }
+    }
+  },
+
+  "onboarding": {
+    "1": "Ceci est votre suivi d'eau personnel.",
+    "2": "Ici, vous pouvez voir votre apport quotidien en eau.",
+    "3": "Vous pouvez voir à quel point vous êtes proche de votre objectif quotidien de consommation d'eau.",
+    "4": "Ce champ affichera la quantité d'eau, et vous pouvez ajouter, modifier ou supprimer une entrée pour la consommation d'eau.",
+    "5": "Ceci est le panneau pour vos paramètres personnels, y compris les informations personnelles et les préférences de suivi de l'eau.",
+    "6": "Ce calendrier affichera le pourcentage d'eau bu chaque jour.",
+    "7": "Utilisez ce bouton pour passer entre les vues du calendrier et du programme."
+  }
+}

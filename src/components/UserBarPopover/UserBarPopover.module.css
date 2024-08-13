@@ -1,7 +1,7 @@
 .container {
   border-radius: 15px;
   padding: 14px 20px;
-  width: 137px;
+  width: fit-content;
   height: 72px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   background: var(--main-white-color);
@@ -41,7 +41,6 @@
 }
 
 .textBtn {
-  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28571;
@@ -49,7 +48,6 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 157px;
     height: 82px;
     right: 0;
     top: 64px;

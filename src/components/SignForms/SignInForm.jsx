@@ -15,6 +15,7 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
 
@@ -23,12 +24,16 @@ export default function SignInForm({ isMobile }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
+  const passwordErrorLong = t('signInPage.passwordErrorLong');
+  const passwordErrorRequired = t('signInPage.passwordErrorRequired');
+  const emailErrorInvalid = t('signInPage.emailErrorInvalid');
+  const emailErrorRequired = t('signInPage.emailErrorRequired');
+
   const schema = yup.object().shape({
-    email: yup.string().email('Invalid email format').required('Email is required'),
-    password: yup
-      .string()
-      .min(8, 'Password must be at least 8 characters')
-      .required('Password is required'),
+    email: yup.string().email(emailErrorInvalid).required(emailErrorRequired),
+    password: yup.string().min(6, passwordErrorLong).required(passwordErrorRequired),
   });
 
   const {
@@ -58,30 +63,30 @@ export default function SignInForm({ isMobile }) {
   return (
     <WelcomeSectionContainer isMobile={isMobile}>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div className={css['sign-form']}>
-          <h2 className={css.header}>Sign In</h2>
+        <div className={clsx(css['sign-form'], css['signIn-form'])}>
+          <h2 className={css.header}>{t('signInPage.signIn')}</h2>
           <label className={css.label} htmlFor="email">
-            Email:
+            {t('signInPage.email')}
           </label>
           <div className={css['box-pass']}>
             <input
               {...register('email')}
               className={clsx(css.input, errors.email && css['error-input'])}
               type="email"
-              placeholder="Enter your email"
+              placeholder={t('signInPage.emailPlaceholder')}
               id="email"
             />
             {errors.email && <p className={css.error}>{errors.email.message}</p>}
           </div>
           <label className={css.label} htmlFor="password">
-            Password:
+            {t('signInPage.password')}
           </label>
           <div className={css['box-pass']}>
             <input
               {...register('password')}
               className={clsx(css.input, errors.password && css['error-input'])}
               type={isPassOpen ? 'text' : 'password'}
-              placeholder="Enter your password"
+              placeholder={t('signInPage.passwordPlaceholder')}
               id="password"
             />
             <button
@@ -95,22 +100,22 @@ export default function SignInForm({ isMobile }) {
           </div>
         </div>
         <button className={css.submit} type="submit">
-          Sign In
+          {t('signInPage.signIn')}
         </button>
 
         <AuthorizationGoogleBtn />
 
         <div className={css['sing-forgot-wrapper']}>
           <p className={css['paragraph-sign']}>
-            Don’t have an account?{' '}
+            {t('signInPage.dontAccount')}{' '}
             <Link className={css.sign} to="/signup">
-              Sign Up
+              {t('signInPage.signUp')}
             </Link>
           </p>
           <p className={css['paragraph-forgot']}>
-            Forgot your password?{' '}
+            {t('signInPage.forgotPassword')}{' '}
             <Link className={css.sign} to="/forgot">
-              Renew
+              {t('signInPage.renew')}
             </Link>
           </p>
         </div>

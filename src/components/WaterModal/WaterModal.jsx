@@ -67,12 +67,14 @@ const WaterModal = () => {
     control,
     formState: { errors },
     setValue,
+    trigger, // Добавляем trigger для валидации в реальном времени
   } = useForm({
     defaultValues: {
       volume,
       drinkTime,
     },
     resolver: yupResolver(WaterSchema),
+    mode: 'onChange', // Включаем валидацию при каждом изменении
   });
 
   const onSubmit = () => {
@@ -102,15 +104,17 @@ const WaterModal = () => {
     if (newVolume <= 9999) {
       setVolume(newVolume.toString());
       setValue('volume', newVolume);
+      trigger('volume'); // Триггерим валидацию после изменения
     }
   };
 
   const handleDecrease = () => {
     if (volume > 0) {
-      const newVolume = parseInt(volume, 10) - 50 || 0;
+      const newVolume = parseInt(volume, 10) - 50 || 50;
       if (newVolume >= 0) {
         setVolume(newVolume.toString());
         setValue('volume', newVolume);
+        trigger('volume'); // Триггерим валидацию после изменения
       }
     }
   };
@@ -119,18 +123,13 @@ const WaterModal = () => {
   const month = createMonth({ date: new Date(day1) });
 
   const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
-  console.log('====================================');
-  console.log(!isToday(lastDay));
-  console.log('====================================');
   return (
     <div className={styles.waterModalContainer}>
-      {/* <div className={styles.waterModalHeader}> */}
-        <h2 className={styles.waterModalTitle}>{title}</h2>
-        {!isToday(lastDay) && (
-          <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>
-        )}
-        <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
-      {/* </div> */}
+      <h2 className={styles.waterModalTitle}>{title}</h2>
+      {!isToday(lastDay) && (
+        <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>
+      )}
+      <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
         <div className={styles.formGroup}>
           <label htmlFor="volume" className={styles.formLabel}>
@@ -152,7 +151,6 @@ const WaterModal = () => {
             control={control}
             render={({ field }) => <input type="hidden" {...field} value={volume} />}
           />
-          {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
         </div>
         <div className={`${styles.formGroup} ${styles.formGroupSmallGap}`}>
           <label htmlFor="drinkTime" className={styles.formLabel}>
@@ -165,11 +163,13 @@ const WaterModal = () => {
               <input
                 type="time"
                 {...field}
+                onBlur={() => trigger('drinkTime')}
                 onChange={e => {
                   const value = e.target.value;
                   if (/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
                     setDrinkTime(value);
                     field.onChange(e);
+                    trigger('drinkTime');
                   }
                 }}
                 value={drinkTime}
@@ -187,12 +187,14 @@ const WaterModal = () => {
               <input
                 type="text"
                 {...field}
+                onBlur={() => trigger('volume')}
                 value={volume}
                 onChange={e => {
                   const value = e.target.value;
                   if (value === '' || (Number(value) <= 9999 && Number(value) >= 1)) {
                     setVolume(value);
                     field.onChange(e);
+                    trigger('volume');
                   }
                 }}
               />

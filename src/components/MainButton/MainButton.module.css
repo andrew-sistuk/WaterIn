@@ -118,7 +118,7 @@
   color: #323f47;
 }
 
-@media (min-width: 320px) and (max-width: 375px) {
+@media (min-width: 320px) {
   .button.addwater {
     width: 140px;
     height: 46px;

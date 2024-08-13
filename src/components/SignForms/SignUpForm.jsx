@@ -13,6 +13,7 @@ import { register as registerFunc } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
+import { useTranslation } from 'react-i18next';
 
 export default function SignUpForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
@@ -20,16 +21,22 @@ export default function SignUpForm({ isMobile }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
+  const emailErrorInvalid = t('signUpPage.emailErrorInvalid');
+  const emailErrorRequired = t('signUpPage.emailErrorRequired');
+  const passwordErrorLong = t('signUpPage.passwordErrorLong');
+  const passwordErrorRequired = t('signUpPage.passwordErrorRequired');
+  const repeatPasswordErrorTwo = t('signUpPage.repeatPasswordErrorTwo');
+  const repeatPasswordRequired = t('signUpPage.repeatPasswordRequired');
+
   const schema = yup.object().shape({
-    email: yup.string().email('Invalid email format').required('Email is required'),
-    password: yup
-      .string()
-      .min(8, 'Password must be at least 8 characters')
-      .required('Password is required'),
+    email: yup.string().email(emailErrorInvalid).required(emailErrorRequired),
+    password: yup.string().min(6, passwordErrorLong).required(passwordErrorRequired),
     reqPassword: yup
       .string()
-      .oneOf([yup.ref('password'), null], 'Passwords must match')
-      .required('Repeat password is required'),
+      .oneOf([yup.ref('password'), null], repeatPasswordErrorTwo)
+      .required(repeatPasswordRequired),
   });
 
   const {
@@ -70,29 +77,29 @@ export default function SignUpForm({ isMobile }) {
     <WelcomeSectionContainer isMobile={isMobile}>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className={css['sign-form']}>
-          <h2 className={css.header}>Sign Up</h2>
+          <h2 className={css.header}>{t('signUpPage.signUp')}</h2>
           <label className={css.label} htmlFor="email">
-            Email:
+            {t('signUpPage.email')}
           </label>
           <div className={css['box-pass']}>
             <input
               {...register('email')}
               className={clsx(css.input, errors.email && css['error-input'])}
               type="email"
-              placeholder="Enter your email"
+              placeholder={t('signUpPage.emailPlaceholder')}
               id="email"
             />
             {errors.email && <p className={css.error}>{errors.email.message}</p>}
           </div>
           <label className={css.label} htmlFor="password">
-            Password:
+            {t('signUpPage.password')}
           </label>
           <div className={css['box-pass']}>
             <input
               {...register('password')}
               className={clsx(css.input, errors.password && css['error-input'])}
               type={isPassOpen ? 'text' : 'password'}
-              placeholder="Enter your password"
+              placeholder={t('signUpPage.passwordPlaceholder')}
               id="password"
             />
             <button
@@ -105,14 +112,14 @@ export default function SignUpForm({ isMobile }) {
             {errors.password && <p className={css.error}>{errors.password.message}</p>}
           </div>
           <label className={css.label} htmlFor="reqPassword">
-            Repeat password:
+            {t('signUpPage.repeatPassword')}
           </label>
           <div className={css['box-pass']}>
             <input
               {...register('reqPassword')}
               className={clsx(css.input, errors.reqPassword && css['error-input'])}
               type={isPassRepOpen ? 'text' : 'password'}
-              placeholder="Enter your password"
+              placeholder={t('signUpPage.repeatPasswordPlaceholder')}
               id="reqPassword"
             />
             <button
@@ -126,7 +133,7 @@ export default function SignUpForm({ isMobile }) {
           </div>
         </div>
         <button className={css.submit} type="submit">
-          Sign Up
+          {t('signUpPage.signUp')}
         </button>
 
         <AuthorizationGoogleBtn />

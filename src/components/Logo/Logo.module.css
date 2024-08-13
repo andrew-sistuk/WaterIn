@@ -1,11 +1,7 @@
 .logo {
-  position: absolute;
-  font-family: Poppins;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.11;
-  top: 24px;
-  left: 18px;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--main-black-gray-color);
@@ -13,8 +9,6 @@
 
 @media only screen and (min-width: 768px) {
   .logo {
-    top: 32px;
-    left: 32px;
     font-size: 24px;
     line-height: 1;
   }

@@ -1,7 +1,6 @@
 .button {
   border-radius: 40px;
   padding: 18px 40px;
-  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
@@ -14,7 +13,7 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  width: 140px;
+  width: fit-content;
   height: 60px;
 }
 
@@ -35,6 +34,25 @@
 .button.addwater {
   color: #ffffff;
   background-color: #323f47;
+}
+
+.button.addwaterblack {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #323f47;
+  margin-left: auto;
+  min-width: 140px;
+  width: fit-content;
+  height: 46px;
+}
+
+.button.addwaterblack .icon {
+  color: #ffffff;
+  background-color: #323f47;
+  padding: 0;
+  width: 18px;
+  height: 16px;
 }
 
 .button.cancel {
@@ -62,6 +80,7 @@
 .button .icon svg {
   width: 24px;
   height: 24px;
+
   fill: #323f47;
   transition: fill 0.3s;
 }
@@ -128,14 +147,23 @@
 }
 
 @media (min-width: 768px) {
-  .button {
+  .button.addwater {
     width: 141px;
     height: 60px;
     font-size: 16px;
     padding: 18px 50px;
   }
 
-  .button.save {
+  .button.addwater .icon {
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .button .icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #323f47;
+    transition: fill 0.3s;
   }
 
   .button.addwater {
@@ -151,11 +179,24 @@
     width: 170px;
     height: 60px;
   }
+
+  .button.addwaterblack {
+    padding: 18px 30px;
+    font-size: 16px;
+    min-width: 140px;
+    height: 60px;
+    line-height: 1.5;
+    min-width: 178px;
+  }
+
+  .button.addwaterblack .icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media (min-width: 1440px) {
   .button {
-    width: 200px;
     height: 70px;
     font-size: 18px;
     padding: 20px 60px;

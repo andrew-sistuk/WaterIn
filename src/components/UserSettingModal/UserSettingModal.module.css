@@ -1,4 +1,5 @@
 .wraper {
+  position: relative;
   max-width: 343px;
   padding: 40px 20px;
   margin-left: auto;

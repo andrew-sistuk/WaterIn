@@ -26,7 +26,7 @@ const WaterMainInfo = () => {
         <MainButton
           className={css.addWater}
           // style={{ marginLeft: 'auto' }}
-          text="Add water"
+          text="Addwaterblack"
           onClick={() => handleAddWaterClick('addWater')}
           icon={<FiPlus />}
         />

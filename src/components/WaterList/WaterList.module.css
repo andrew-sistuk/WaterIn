@@ -1,5 +1,6 @@
 .wrapper {
   height: 114px;
+  align-content: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -8,7 +9,6 @@
 .list {
   display: flex;
   gap: 8px;
-  padding-bottom: 32px;
   width: 100%;
   list-style: none;
 
@@ -35,7 +35,13 @@
 }
 
 .text {
-  font-size: 20px;
+  align-content: center;
+  text-align: center;
+  text-wrap: balance;
+  background-color: var(--main-white-color);
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 16px;
   line-height: 1.2;
   color: var(--main-black-gray-color);
 }
@@ -52,6 +58,7 @@
   .text {
     font-size: 28px;
     line-height: 1.14286;
+    padding: 24px 16px;
   }
 }
 

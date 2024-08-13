@@ -1,15 +1,20 @@
 import { selectItemsDay } from '../../redux/changeDay/changeDay';
 import createMonth from '../../utils/createMonth';
 import css from './WaterProgressBar.module.css';
+
 import { useSelector, useDispatch } from 'react-redux';
 import isToday from '../../utils/isToday';
 import { selectUser } from '../../redux/auth/selectors';
 import { selectItemsDay as itemDay } from '../../redux/day/selectors';
 import { useEffect } from 'react';
 import { addDay } from '../../redux/changeDay/changeDay';
+import { useTranslation } from 'react-i18next';
 
 const WaterProgressBar = () => {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
+
   const dailyNorma = useSelector(selectUser).waterRate;
   const totalDrink = useSelector(itemDay).reduce(
     (accumulator, item) => accumulator + item.volume,
@@ -88,6 +93,9 @@ const WaterProgressBar = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.title}>{isToday(toDayMilisekond) === isToday(day1) ? 'Today' : fullDay}</p>
+
+      <p className={css.title}>{t('waterMainInfo.today')}</p>
+
       <div className={css.barWrapper}>
         <div className={css.mainBar}></div>
         <div

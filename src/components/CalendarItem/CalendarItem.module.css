@@ -12,7 +12,6 @@
 }
 
 .day {
-  font-family: 'Poppins', sans-serif;
   width: 28px;
   height: 28px;
   background: rgba(50, 63, 71, 0.2);
@@ -48,7 +47,6 @@
 .span {
   width: 24px;
   height: 10px;
-  font-family: Poppins;
   font-size: 10px;
   font-weight: 400;
   line-height: 10px;

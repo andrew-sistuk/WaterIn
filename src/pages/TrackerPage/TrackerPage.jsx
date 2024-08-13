@@ -5,11 +5,11 @@ import Message from '../../components/Message/Message';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTour } from '@reactour/tour';
 
 import { getUser } from '../../redux/auth/operations.js';
 import { selectLoading, selectUser } from '../../redux/auth/selectors.js';
 import { selectLoading as selectLoadingDay } from '../../redux/day/selectors.js';
-import { useTour } from '@reactour/tour';
 
 // import css from './TrackerPage.module.css';
 import Loader from '../../components/Loader/Loader.jsx';
@@ -20,12 +20,17 @@ const TrackerPage = () => {
 
   const loading = useSelector(selectLoading);
   const loadingDay = useSelector(selectLoadingDay);
-  const { setIsOpen } = useTour();
-  setIsOpen(true);
 
   useEffect(() => {
     dispatch(getUser(user.id));
   }, [dispatch, user.id]);
+
+  const { setIsOpen } = useTour();
+  useEffect(() => {
+    setTimeout(function () {
+      setIsOpen(true);
+    }, 3000);
+  }, [setIsOpen]);
 
   return (
     <>

@@ -72,16 +72,27 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const getUser = createAsyncThunk('users/', async (userId, thunkAPI) => {
-  try {
-    const response = await api.get(`/users/${userId}`);
-    setAuthHeader(response.data.data.accessToken);
+export const getUser = createAsyncThunk(
+  'users/',
+  async (userId, thunkAPI) => {
+    try {
+      const response = await api.get(`/users/${userId}`);
+      setAuthHeader(response.data.data.accessToken);
 
-    return response.data.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      return response.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition(_, thunkAPI) {
+      const reduxState = thunkAPI.getState();
+      const savedUserEmail = reduxState.auth.user.email;
+
+      return savedUserEmail == null;
+    },
   }
-});
+);
 
 export const patchUser = createAsyncThunk('users/patch', async ({ Id, userPatch }, thunkAPI) => {
   try {

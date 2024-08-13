@@ -18,7 +18,6 @@ import { patchUser } from '../../redux/auth/operations.js';
 import Languages from '../Languages/Languages.jsx';
 
 const regex = {
-  // eslint-disable-next-line no-useless-escape
   emailRegexp: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
 };
 
@@ -48,14 +47,14 @@ export default function UserSettingModal() {
       .transform((value, originalValue) => (originalValue === '' ? undefined : value))
       .required(`${t('modals.UserSettingsForm.errors.weightRequired')}`)
       .positive(`${t('modals.UserSettingsForm.errors.weightPositive')}`)
-      .min(20, `${t('modals.UserSettingsForm.errors.weightMin')}`)
-      .max(180, `${t('modals.UserSettingsForm.errors.weightMax')}`),
+      .min(35, `${t('modals.UserSettingsForm.errors.weightMin')}`)
+      .max(150, `${t('modals.UserSettingsForm.errors.weightMax')}`),
     sportHours: Yup.number()
       .transform((value, originalValue) => (originalValue === '' ? undefined : value))
       .required(`${t('modals.UserSettingsForm.errors.sportHoursRequired')}`)
       .positive(`${t('modals.UserSettingsForm.errors.sportHoursPositive')}`)
       .min(1, `${t('modals.UserSettingsForm.errors.sportHoursMin')}`)
-      .max(8, `${t('modals.UserSettingsForm.errors.sportHoursMax')}`),
+      .max(10, `${t('modals.UserSettingsForm.errors.sportHoursMax')}`),
     waterRate: Yup.number()
       .transform((value, originalValue) => (originalValue === '' ? undefined : value))
       .required(`${t('modals.UserSettingsForm.errors.waterRateRequired')}`)

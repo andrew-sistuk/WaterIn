@@ -1,8 +1,7 @@
 .container {
   border-radius: 15px;
-  padding: 14px 20px;
-  width: fit-content;
-  height: 72px;
+  padding: 14px 20px 14px 20px;
+  min-width: 137px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   background: var(--main-white-color);
   position: absolute;
@@ -11,7 +10,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 14px, 20px;
   justify-content: center;
 }
 
@@ -43,18 +41,18 @@
 .textBtn {
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.28571;
+  line-height: 1.29;
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    height: 82px;
     right: 0;
     top: 64px;
+    min-width: 157px;
   }
 
   .textBtn {
     font-size: 15px;
-    line-height: 1.49333;
+    line-height: 1.49;
   }
 }

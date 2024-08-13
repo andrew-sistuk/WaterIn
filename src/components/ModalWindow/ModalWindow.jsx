@@ -50,23 +50,16 @@ function addContentModal(modalType) {
       return <UserSettingModal />;
     case 'delete':
       return <DeleteEntryModal />;
-      case 'addWater':
-        return <WaterModal />;
-      case 'editWater':
-        return <WaterModal />;
-      default:
-        return null;
+    case 'addWater':
+      return <WaterModal />;
+    case 'editWater':
+      return <WaterModal />;
+    default:
+      return null;
   }
 }
 
 export default function ModalWindow({ onClose }) {
-  ///////////////////////////////
-  // const testUser = useSelector(selectUser);
-
-  // console.log('testUser', testUser.id);
-
-  ////////////////////////////    
-
   const dispatch = useDispatch();
   const isOpen = useSelector(selectStateModal);
   const modalType = useSelector(selectTypeModal);
@@ -103,10 +96,7 @@ export default function ModalWindow({ onClose }) {
       >
         <IoIosClose className={css.closeIcon} size={32} />
       </button>
-      {
-        addContentModal(modalType)
-        // modalType === 'logout' ? <LogOutModal /> : <UserSettingsModal />
-      }
+      {addContentModal(modalType)}
     </Modal>
   );
 }

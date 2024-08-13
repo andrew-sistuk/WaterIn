@@ -1,21 +1,12 @@
 import WaterItem from '../WaterItem/WaterItem';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectItemsDay } from '../../redux/day/selectors';
 
-import { fetchDatesId } from '../../redux/day/operations';
+import { useSelector } from 'react-redux';
+import { selectItemsDay } from '../../redux/day/selectors';
 
 import css from './WaterList.module.css';
 
 const WaterList = () => {
-  const dispatch = useDispatch();
   const items = useSelector(selectItemsDay);
-
-  const carentDay = new Date().getTime() + 43200000;
-
-  useEffect(() => {
-    dispatch(fetchDatesId(carentDay));
-  }, [dispatch]);
 
   return (
     <div className={css.wrapper}>

@@ -1,7 +1,6 @@
 .waterModalContainer {
   padding: 40px;
   width: 518px;
-  position: relative;
 }
 
 .waterModalHeader {
@@ -9,6 +8,7 @@
 }
 
 .waterModalTitle {
+  /* position: relative; */
   font-weight: 700;
   font-size: 28px;
   margin-bottom: 24px;
@@ -99,14 +99,10 @@ button:disabled {
 }
 
 .notToday {
-  position: absolute;
+  display: inline-block;
   color: #ef5050;
   font-weight: 700;
   font-size: 16px;
-  margin-bottom: 24px;
-  line-height: 114%;
-  width: 347px;
-  height: 64px;
-  top: 75px;
-  left: 40px;
+  margin-bottom: 5px;
+  line-height: 110%;
 }

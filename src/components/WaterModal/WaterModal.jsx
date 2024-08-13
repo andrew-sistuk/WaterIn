@@ -81,12 +81,12 @@ const WaterModal = () => {
       dispatch(editWaterNote({ ...transformedData, _id: dataInfo._id }));
 
       setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime() + 43200000));
+        dispatch(fetchDates(new Date(lastDay).getTime()));
       }, 1000);
     } else if (type === 'addWater') {
       dispatch(addWaterNote(transformedData));
       setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime() + 43200000));
+        dispatch(fetchDates(new Date(lastDay).getTime()));
       }, 1000);
     }
     dispatch(closeModal());
@@ -114,14 +114,14 @@ const WaterModal = () => {
   const month = createMonth({ date: new Date(day1) });
 
   const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
-  console.log('====================================');
-  console.log(!isToday(lastDay));
-  console.log('====================================');
   return (
     <div className={styles.waterModalContainer}>
       <div className={styles.waterModalHeader}>
         <h2 className={styles.waterModalTitle}>{title}</h2>
-        {!isToday(lastDay) && <span className={styles.notToday}>Warning! {fullDay}</span>}
+        {!isToday(lastDay) && (
+          <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>
+        )}
+
         <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>

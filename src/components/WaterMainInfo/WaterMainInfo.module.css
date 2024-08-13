@@ -9,9 +9,26 @@
   background-size: 262px 335px;
 }
 
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 32px 32px 64px 32px;
+
+    background-image: url('/src/img/tracker-tablet.png');
+    background-size: 374px 477px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    width: 672px;
+
+    background-image: url('/src/img/tracker-desktop.png');
+    background-size: 472px 604px;
+  }
+}
+
 .logo {
   margin-bottom: 78px;
-  /* font-family: var(--font-family); */
   font-weight: 700;
   font-size: 18px;
   line-height: 111%;
@@ -22,31 +39,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .wrapper {
-    padding: 32px 32px 64px 32px;
-
-    background-image: url('/src/img/tracker-tablet.png');
-    background-size: 477px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  .logo {
-    margin-bottom: 78px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .wrapper {
-    /* width: calc((100% - 32px) / 2); */
-    width: 672px;
-
-    background-image: url('/src/img/tracker-desktop.png');
-    background-size: 580px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
   .logo {
     margin-bottom: 100px;
+
+    font-size: 24px;
+    line-height: 1;
   }
 }
 
@@ -67,19 +64,10 @@
   }
 }
 
-@media screen and (min-resolution: 192pdi) and (min-width: 768px),
-  screen and (min-resolution: 2dppx) and (min-width: 768px),
-  screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+@media screen and (min-resolution: 192pdi) and (min-width: 1440px),
+  screen and (min-resolution: 2dppx) and (min-width: 1440px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 1440px) {
   .wrapper {
     background-image: url('/src/img/tracker-desktop2x.png');
   }
-}
-
-.btn {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.addWater {
-  padding: 14px 20px;
 }

@@ -11,7 +11,6 @@
 .title {
   margin-bottom: 8px;
 
-  /* font-family: var(--font-family); */
   font-weight: 700;
   font-size: 14px;
   text-align: left;
@@ -23,7 +22,7 @@
   position: relative;
 }
 .mainBar {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   width: 100%;
   height: 6px;
   border-radius: 9px;
@@ -53,23 +52,44 @@
 }
 .signature {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-
-  /* font-family: var(--font-family); */
   font-weight: 400;
   font-size: 10px;
 
   line-height: 1;
   color: rgba(47, 47, 47, 0.6);
 }
-.current {
+
+.emptyValue,
+.middleValue,
+.fullValue,
+.currentValue {
   position: absolute;
   top: 50%;
+}
+
+.middleValue,
+.currentValue {
   transform: translate(-50%, -50%);
+}
 
-  font-size: 10px;
+.emptyValue,
+.fullValue {
+  transform: translateY(-50%);
+}
 
+.emptyValue {
+  left: 0;
+}
+
+.middleValue {
+  left: 50%;
+}
+
+.fullValue {
+  right: 0;
+}
+
+.currentValue {
   color: var(--main-green-color);
 }
 
@@ -98,11 +118,6 @@
   .signature {
     font-size: 12px;
     line-height: 1.86667;
-  }
-
-  .current {
-    font-size: 10px;
-    line-height: 1.8;
   }
 }
 

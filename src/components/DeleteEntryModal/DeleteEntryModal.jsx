@@ -50,7 +50,7 @@ const DeleteEntryModal = () => {
         <button className={css.deleteButton} onClick={handleDeleteClick} disabled={loading}>
           Delete
         </button>
-        <button className={css.cancelButton} onClick={closeModal}>
+        <button className={css.cancelButton} onClick={() => dispatch(closeModal())}>
           Cancel
         </button>
       </div>

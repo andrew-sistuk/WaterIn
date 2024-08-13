@@ -6,8 +6,8 @@ import { initReactI18next } from 'react-i18next';
 import enTranslation from './locales/en/translation.json';
 import uaTranslation from './locales/ua/translation.json';
 import frTranslation from './locales/fr/translation.json';
-import deTranslation from './locales/de/translation.json';
-import itTranslation from './locales/it/translation.json';
+import geTranslation from './locales/ge/translation.json';
+import itaTranslation from './locales/ita/translation.json';
 import noTranslation from './locales/no/translation.json';
 import plTranslation from './locales/pl/translation.json';
 
@@ -28,10 +28,10 @@ const i18n = use(Backend)
         translation: frTranslation,
       },
       de: {
-        translation: deTranslation,
+        translation: geTranslation,
       },
       it: {
-        translation: itTranslation,
+        translation: itaTranslation,
       },
       no: {
         translation: noTranslation,

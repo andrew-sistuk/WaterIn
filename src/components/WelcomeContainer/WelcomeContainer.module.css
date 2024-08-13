@@ -8,9 +8,5 @@
   .container {
     flex-direction: row;
     gap: 32px;
-
-    /* max-height: 800px; */
-
-    /* max-width: 1376px; */
   }
 }

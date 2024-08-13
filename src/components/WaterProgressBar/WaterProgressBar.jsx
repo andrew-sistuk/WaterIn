@@ -1,17 +1,24 @@
 import { selectItemsDay } from '../../redux/changeDay/changeDay';
 import createMonth from '../../utils/createMonth';
 import css from './WaterProgressBar.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import isToday from '../../utils/isToday';
 import { selectUser } from '../../redux/auth/selectors';
 import { selectItemsDay as itemDay } from '../../redux/day/selectors';
+import { useEffect } from 'react';
+import { addDay } from '../../redux/changeDay/changeDay';
 
 const WaterProgressBar = () => {
+  const dispatch = useDispatch();
   const dailyNorma = useSelector(selectUser).waterRate;
   const totalDrink = useSelector(itemDay).reduce(
     (accumulator, item) => accumulator + item.volume,
     0
   );
+
+  useEffect(() => {
+    dispatch(addDay(new Date().getTime()));
+  }, [dispatch]);
 
   const percentValueDrink = Math.round((totalDrink / dailyNorma) * 100);
 

@@ -10,6 +10,7 @@ import Recharts from '../Recharts/Recharts';
 
 import { fetchDates } from '../../redux/dates/operations';
 import { toast } from 'react-toastify';
+import { fetchDatesId } from '../../redux/day/operations';
 
 const MonthInfo = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -43,6 +44,7 @@ const MonthInfo = () => {
   useEffect(() => {
     try {
       dispatch(fetchDates(currentDate.getTime() + 43200000));
+      dispatch(fetchDatesId(currentDate.getTime() + 43200000));
     } catch (error) {
       toast(error);
       console.log(error);

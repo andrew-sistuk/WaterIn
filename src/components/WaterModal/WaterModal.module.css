@@ -1,6 +1,7 @@
 .waterModalContainer {
   padding: 40px;
   width: 518px;
+  position: relative;
 }
 
 .waterModalHeader {
@@ -27,7 +28,6 @@
   gap: 24px;
 }
 
-
 .formGroup {
   font-size: 0.8em;
 }
@@ -38,7 +38,6 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 133%;
-
 }
 
 .formGroup input {
@@ -57,7 +56,7 @@
 
 .amountControl button {
   background-color: transparent;
-  border: 2px solid #323F47;
+  border: 2px solid #323f47;
   border-radius: 50%;
   width: 43px;
   height: 43px;
@@ -73,7 +72,7 @@
   padding: 11px 20px 9px 20px;
   font-size: 15px;
   font-weight: 700;
-  background: #323F47;
+  background: #323f47;
   color: white;
   border-radius: 30px;
   display: flex;
@@ -81,7 +80,6 @@
   line-height: 149%;
   width: 100px;
 }
-
 
 button:disabled {
   background-color: #9e9e9e;
@@ -98,5 +96,17 @@ button:disabled {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.01em;
- 
+}
+
+.notToday {
+  position: absolute;
+  color: #ef5050;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 24px;
+  line-height: 114%;
+  width: 347px;
+  height: 64px;
+  top: 75px;
+  left: 40px;
 }

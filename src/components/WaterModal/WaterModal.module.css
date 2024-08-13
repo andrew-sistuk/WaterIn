@@ -1,6 +1,8 @@
 .waterModalContainer {
   padding: 40px;
-  width: 518px;
+  max-width: 518px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .waterModalHeader {
@@ -103,20 +105,18 @@ button:disabled {
   letter-spacing: -0.01em;
 }
 
-/* Для планшетов (до 768px) */
-@media (max-width: 768px) {
+/* tablet */
+@media screen and (min-width: 768px) {
   .waterModalTitle {
-   width: 100%;
+  /* width: 518px; */
   }
-  
 }
 
-/* Для мобильных устройств (до 480px) */
-@media (max-width: 520px) {
+/* mobile */
+@media (min-width: 320px) and (max-width: 480px) {
   .waterModalContainer {
     padding: 40px 20px;
-    width: 343px;
-  
+    max-width: 343px;
     margin: 0 auto;
   }
 
@@ -162,4 +162,7 @@ button:disabled {
     width: 35px;
     height: 35px;
   }
+}
+@media screen and (min-width: 1440px) {
+
 }

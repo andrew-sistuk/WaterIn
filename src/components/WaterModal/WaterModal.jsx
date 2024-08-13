@@ -30,7 +30,6 @@ const WaterModal = () => {
   const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const [volume, setVolume] = useState(50);
   const [drinkTime, setDrinkTime] = useState(timeNow);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -86,15 +86,15 @@ const WaterProgressBar = () => {
 
   const toDayMilisekond = new Date().getTime();
   const day1 = useSelector(selectItemsDay);
-  const month = createMonth({ date: new Date(day1) });
+  const { monthName } = createMonth({ date: new Date(day1) });
 
-  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
+  const fullDay = `${new Date(day1).getDate()}, ${t(`ChooseDate.${monthName}`)}`;
 
   return (
     <div className={css.wrapper}>
-      <p className={css.title}>{isToday(toDayMilisekond) === isToday(day1) ? 'Today' : fullDay}</p>
-
-      <p className={css.title}>{t('waterMainInfo.today')}</p>
+      <p className={css.title}>
+        {isToday(toDayMilisekond) === isToday(day1) ? t('waterMainInfo.today') : fullDay}
+      </p>
 
       <div className={css.barWrapper}>
         <div className={css.mainBar}></div>

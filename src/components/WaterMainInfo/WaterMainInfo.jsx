@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/slice.js';
 
 import css from './WaterMainInfo.module.css';
+import { ButtonTour } from '../ButtonTour/ButtonTour.jsx';
 
 const WaterMainInfo = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,9 @@ const WaterMainInfo = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.logo}>AquaTrack</p>
+
+      <ButtonTour />
+
       <WaterDailyNorma />
       <WaterProgressBar />
       <MainButton

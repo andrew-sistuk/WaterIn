@@ -5,13 +5,11 @@ import Message from '../../components/Message/Message';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../redux/auth/operations.js';
-import { selectLoading, selectUser } from '../../redux/auth/selectors.js';
-import Loader from '../../components/Loader/Loader.jsx';
+import { selectUser } from '../../redux/auth/selectors.js';
 
 const TrackerPage = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
 
   useEffect(() => {
     dispatch(getUser(user.id));
@@ -19,19 +17,15 @@ const TrackerPage = () => {
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <section className="container">
-          <>
-            <WelcomeContainer>
-              <WaterMainInfo />
-              <WaterDetailedInfo />
-            </WelcomeContainer>
-            <Message />
-          </>
-        </section>
-      )}
+      <section className="container">
+        <>
+          <WelcomeContainer>
+            <WaterMainInfo />
+            <WaterDetailedInfo />
+          </WelcomeContainer>
+          <Message />
+        </>
+      </section>
     </>
   );
 };

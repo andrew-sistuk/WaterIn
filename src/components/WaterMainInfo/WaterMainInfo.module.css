@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   padding: 24px 16px 32px 16px;
   width: 100%;
   border-radius: 30px;
@@ -52,7 +53,7 @@
     width: 672px;
 
     background-image: url('/src/img/tracker-desktop.png');
-    background-size: 580px;
+    background-size: 520px;
   }
   /* .logo {
     margin-bottom: 100px;

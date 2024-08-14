@@ -1,12 +1,32 @@
 .buttonTour {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
+  top: 12px;
+  right: 5px;
   z-index: 999;
-  border: none;
   padding: 10px 10px;
-  border-radius: 10px;
+  border: transparent;
   cursor: pointer;
-  background-color: #6ab37f6b;
+  background-color: transparent;
+}
+
+.icon {
   color: var(--main-black-gray-color);
+  width: 20px;
+  height: 20px;
+}
+
+.iconColor {
+  fill: #ceff09b1;
+}
+
+@media screen and (min-width: 768px) {
+  .buttonTour {
+    top: 20px;
+    right: 20px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
 }

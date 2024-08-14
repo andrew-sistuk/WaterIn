@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../redux/auth/operations.js';
 import { selectUser } from '../../redux/auth/selectors.js';
 
-import { ButtonTour } from '../../components/ButtonTour/ButtonTour.jsx';
-
 const TrackerPage = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -21,7 +19,6 @@ const TrackerPage = () => {
     <>
       <section className="container">
         <>
-          <ButtonTour />
           <WelcomeContainer>
             <WaterMainInfo />
             <WaterDetailedInfo />

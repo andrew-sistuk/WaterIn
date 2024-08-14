@@ -5,26 +5,8 @@
   background-color: var(--main-green-color);
   background-image: url('/src/img/tracker-mobile.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top 50px left 50%;
   background-size: 262px 335px;
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    padding: 32px 32px 64px 32px;
-
-    background-image: url('/src/img/tracker-tablet.png');
-    background-size: 374px 477px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .wrapper {
-    width: 672px;
-
-    background-image: url('/src/img/tracker-desktop.png');
-    background-size: 472px 604px;
-  }
 }
 
 .logo {
@@ -43,25 +25,24 @@
 @media screen and (min-width: 768px) {
   .wrapper {
     padding: 32px 32px 64px 32px;
-
     background-image: url('/src/img/tracker-tablet.png');
-    background-size: 477px;
+    background-size: 374px 477px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top 69px left 50%;
   }
   .logo {
     font-size: 24px;
+    margin-bottom: 101px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .wrapper {
-    width: 672px;
-
-    background-image: url('/src/img/tracker-desktop.png');
-    background-size: 580px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top 92px left 50%;
+    width: 672px;
+    background-image: url('/src/img/tracker-desktop.png');
+    background-size: 472px 604px;
   }
   .logo {
     margin-bottom: 100px;

@@ -14,7 +14,6 @@
   justify-content: center;
   white-space: nowrap;
   width: fit-content;
-  height: 60px;
 }
 
 .button.save {
@@ -151,11 +150,6 @@
 /* ! New styles !!! */
 
 @media (min-width: 320px) and (max-width: 375px) {
-  .button.addwater {
-    width: 140px;
-    height: 46px;
-  }
-
   .button.save,
   .button.trytracker {
     width: 116px;
@@ -173,15 +167,15 @@
   }
 
   .button.addwater.iconOnly .icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 }
 
 @media (min-width: 768px) {
   .button.addwater {
     width: 141px;
-    height: 60px;
+    /* height: 60px; */
     font-size: 16px;
     padding: 18px 50px;
   }
@@ -200,7 +194,7 @@
 
   .button.addwater {
     width: 178px;
-    height: 60px;
+    /* height: 60px; */
   }
   .button.trytracker {
     width: 169px;
@@ -231,7 +225,6 @@
 
 @media (min-width: 1440px) {
   .button {
-    height: 70px;
     font-size: 18px;
     padding: 20px 60px;
   }

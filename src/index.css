@@ -9,7 +9,6 @@
   --animation: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-color: var(--main-white-color);
-  color: var(--main-black-gray-color);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -27,6 +26,11 @@ h5,
 h6,
 p {
   margin: 0;
+  cursor: default;
+}
+
+button {
+  cursor: pointer;
 }
 
 ul,
@@ -73,4 +77,8 @@ body {
     align-items: center;
     width: 1440px;
   }
+}
+
+.overflowHidden {
+  overflow: hidden;
 }

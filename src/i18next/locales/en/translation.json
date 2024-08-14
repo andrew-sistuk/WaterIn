@@ -152,7 +152,7 @@
         "drinkRequired": "Recording time is required",
         "drinkMatches": "Invalid time format (xx:xx)",
 
-        "attention":"Attention, you add water on the "
+        "attention": "Attention, you add water on the "
       }
     },
     "UserSettingsForm": {

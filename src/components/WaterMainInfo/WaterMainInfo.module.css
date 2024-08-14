@@ -19,6 +19,8 @@
   text-transform: uppercase;
   text-align: left;
   color: var(--main-black-gray-color);
+
+  cursor: default;
 }
 
 @media screen and (min-width: 768px) {
@@ -31,7 +33,7 @@
     background-position: center;
   }
   .logo {
-    margin-bottom: 78px;
+    font-size: 24px;
   }
 }
 

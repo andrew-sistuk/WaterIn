@@ -209,6 +209,9 @@
   flex-direction: column;
   gap: 12px;
   color: var(--main-black-color);
+
+  cursor: default;
+
 }
 
 .formulaTitle {

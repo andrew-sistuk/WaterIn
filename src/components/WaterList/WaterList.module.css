@@ -1,6 +1,8 @@
 .wrapper {
   height: 114px;
   align-content: center;
+
+  cursor: default;
 }
 
 @media screen and (min-width: 768px) {

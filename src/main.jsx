@@ -9,18 +9,17 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from './redux/store';
-import { TourProvider } from '@reactour/tour';
-import { customComponents, steps, tourStyles } from './assets/data/steps.jsx';
+import { TourProviderWrapper } from './components/TourProviderWrapper/TourProviderWrapper.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <TourProvider steps={steps} styles={tourStyles} CustomComponents={customComponents}>
-          <BrowserRouter>
+        <BrowserRouter>
+          <TourProviderWrapper>
             <App />
-          </BrowserRouter>
-        </TourProvider>
+          </TourProviderWrapper>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>

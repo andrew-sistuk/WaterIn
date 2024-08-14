@@ -26,6 +26,7 @@
 
 .languageLabel {
   font-size: 24px;
+  cursor: default;
 }
 
 .languageSelect {
@@ -82,10 +83,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .languageSelector {
-    margin-right: -32px;
-  }
-
   .languageSelect {
     font-size: 16px;
   }

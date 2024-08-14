@@ -36,25 +36,6 @@
   background-color: #323f47;
 }
 
-.button.addwaterblack {
-  padding: 14px 20px;
-  font-size: 14px;
-  color: #ffffff;
-  background-color: #323f47;
-  margin-left: auto;
-  min-width: 140px;
-  width: fit-content;
-  height: 46px;
-}
-
-.button.addwaterblack .icon {
-  color: #ffffff;
-  background-color: #323f47;
-  padding: 0;
-  width: 18px;
-  height: 16px;
-}
-
 .button.cancel {
   color: #323f47;
   background-color: #f0eff4;
@@ -69,10 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #9be1a0;
   color: #323f47;
   border-radius: 50%;
-  padding: 5px;
   margin-right: 10px;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -101,22 +80,58 @@
   background-color: #323f47;
 }
 
+/* ! New styles */
+
 .button.addwater.iconOnly {
   color: #323f47;
-  padding: 18px;
+  padding: 0;
   width: auto;
   background-color: transparent;
 }
 
 .button.addwater.iconOnly .icon {
+  background-color: #9be1a0;
+  color: #323f47;
+}
+
+.button.addwater.iconOnly .icon svg {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+}
+
+.button.addwater.iconOnly:hover .icon {
   background-color: #323f47;
   color: #ffffff;
 }
 
-.button.addwater.iconOnly:hover .icon {
-  background-color: #9be1a0;
-  color: #323f47;
+.button.addwaterblack {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #323f47;
+  margin-left: auto;
+  min-width: 140px;
+  width: fit-content;
+  height: 46px;
 }
+
+.button.addwaterblack .icon svg {
+  color: #ffffff;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button.addwaterblack:hover,
+.button.addwaterblack:active,
+.button.addwaterblack:hover .icon svg,
+.button.addwaterblack:active .icon svg {
+  color: #9be1a0;
+}
+
+/* ! New styles !!! */
 
 @media (min-width: 320px) and (max-width: 375px) {
   .button.addwater {
@@ -182,16 +197,18 @@
 
   .button.addwaterblack {
     padding: 18px 30px;
-    font-size: 16px;
-    min-width: 140px;
     height: 60px;
     line-height: 1.5;
     min-width: 178px;
+    font-size: 16px;
   }
 
-  .button.addwaterblack .icon {
+  .button.addwaterblack .icon svg {
+    color: #ffffff;
+    background-color: transparent;
     width: 24px;
     height: 24px;
+    transition: background-color 0.3s, color 0.3s;
   }
 }
 
@@ -216,5 +233,10 @@
   .button.delete {
     width: 170px;
     height: 60px;
+  }
+
+  .button.addwaterblack .icon svg {
+    width: 24px;
+    height: 24px;
   }
 }

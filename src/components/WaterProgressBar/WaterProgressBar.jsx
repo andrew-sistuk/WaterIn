@@ -86,9 +86,9 @@ const WaterProgressBar = () => {
 
   const toDayMilisekond = new Date().getTime();
   const day1 = useSelector(selectItemsDay);
-  const month = createMonth({ date: new Date(day1) });
+  const { monthName } = createMonth({ date: new Date(day1) });
 
-  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
+  const fullDay = `${new Date(day1).getDate()}, ${t(`ChooseDate.${monthName}`)}`;
 
   return (
     <div className={css.wrapper} data-tour="progress-goal">

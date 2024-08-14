@@ -12,6 +12,7 @@ import { fetchDates } from '../../redux/dates/operations';
 import { toast } from 'react-toastify';
 import { fetchDatesId } from '../../redux/day/operations';
 import { addDay } from '../../redux/changeDay/changeDay';
+import isToday from '../../utils/isToday';
 
 const MonthInfo = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -32,28 +33,38 @@ const MonthInfo = () => {
     const prevMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
     setCurrentDate(prevMonthDate);
 
-    prevMonthDate.getMonth() === new Date().getMonth()
-      ? dispatch(addDay(new Date().getTime()))
-      : dispatch(addDay(prevMonthDate.getTime()));
+    if (prevMonthDate.getMonth() === new Date().getMonth()) {
+      dispatch(addDay(new Date().getTime()));
+      dispatch(fetchDatesId(new Date().getTime() + 10800000));
+    } else {
+      dispatch(addDay(prevMonthDate.getTime()));
+      dispatch(fetchDatesId(prevMonthDate.getTime() + 10800000));
+    }
 
-    dispatch(fetchDates(prevMonthDate.getTime() + 43200000));
+    dispatch(fetchDates(prevMonthDate.getTime() + 10800000));
   };
 
   const handleClickForward = () => {
     const nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
     setCurrentDate(nextMonthDate);
 
-    nextMonthDate.getMonth() === new Date().getMonth()
-      ? dispatch(addDay(new Date().getTime()))
-      : dispatch(addDay(nextMonthDate.getTime()));
+    if (nextMonthDate.getMonth() === new Date().getMonth()) {
+      dispatch(addDay(new Date().getTime()));
+      dispatch(fetchDatesId(new Date().getTime() + 10800000));
+    } else {
+      dispatch(addDay(nextMonthDate.getTime()));
+      dispatch(fetchDatesId(nextMonthDate.getTime() + 10800000));
+    }
 
-    dispatch(fetchDates(nextMonthDate.getTime() + 43200000));
+    dispatch(fetchDates(nextMonthDate.getTime() + 10800000));
   };
 
   useEffect(() => {
     try {
-      dispatch(fetchDates(currentDate.getTime() + 43200000));
-      dispatch(fetchDatesId(currentDate.getTime() + 43200000));
+      dispatch(fetchDates(currentDate.getTime() + 10800000));
+      if (isToday(currentDate)) {
+        dispatch(fetchDatesId(new Date().getTime() + 10800000));
+      }
     } catch (error) {
       toast(error);
       console.log(error);

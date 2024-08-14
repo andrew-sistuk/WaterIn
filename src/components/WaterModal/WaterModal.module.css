@@ -59,7 +59,6 @@
   line-height: 129%;
 }
 
-
 .amountControl button {
   background-color: transparent;
   border: 2px solid #323f47;
@@ -106,11 +105,19 @@ button:disabled {
   line-height: 129%;
   letter-spacing: -0.01em;
 }
+.notToday {
+  display: inline-block;
+  color: #ef5050;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+  line-height: 110%;
+}
 
 @media screen and (min-width: 375px) {
   .waterModalContainer {
     width: 343px;
-  }  
+  }
 }
 
 /* tablet */
@@ -177,16 +184,4 @@ button:disabled {
     font-size: 18px;
     line-height: 133%;
   }
-  /* .notToday {
-    position: absolute;
-    color: #ef5050;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 24px;
-    line-height: 114%;
-    width: 347px;
-    height: 64px;
-    top: 75px;
-    left: 40px;
-  } */
 }

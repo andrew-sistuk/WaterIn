@@ -11,7 +11,9 @@
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    padding: 32px 32px 35px 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 35px;
   }
 }
 

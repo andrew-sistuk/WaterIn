@@ -22,55 +22,46 @@
   cursor: default;
 }
 
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .wrapper {
+    background-image: url(/src/img/tracker-mobile2x.png);
+  }
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     padding: 32px 32px 64px 32px;
     background-image: url('/src/img/tracker-tablet.png');
-    background-size: 374px 477px;
-    background-repeat: no-repeat;
-    background-position: top 69px left 50%;
+    background-size: 393px;
   }
   .logo {
+    margin-bottom: 101px;
     font-size: 24px;
     margin-bottom: 101px;
+  }
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .wrapper {
+      background-image: url(/src/img/tracker-tablet2x.png);
+    }
   }
 }
 
 @media screen and (min-width: 1440px) {
   .wrapper {
-    background-repeat: no-repeat;
-    background-position: top 92px left 50%;
     width: 672px;
+
     background-image: url('/src/img/tracker-desktop.png');
-    background-size: 472px 604px;
+    background-size: 580px;
   }
-  .logo {
+  /* .logo {
     margin-bottom: 100px;
     line-height: 1;
-  }
-}
+  } */
 
-/* BCG IMAGE */
-@media screen and (min-resolution: 192pdi) and (max-width: 767px),
-  screen and (min-resolution: 2dppx) and (max-width: 767px),
-  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
-  .wrapper {
-    background-image: url('/src/img/tracker-mobile2x.png');
-  }
-}
-
-@media screen and (min-resolution: 192pdi) and (min-width: 768px),
-  screen and (min-resolution: 2dppx) and (min-width: 768px),
-  screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
-  .wrapper {
-    background-image: url('/src/img/tracker-tablet2x.png');
-  }
-}
-
-@media screen and (min-resolution: 192pdi) and (min-width: 1440px),
-  screen and (min-resolution: 2dppx) and (min-width: 1440px),
-  screen and (min-device-pixel-ratio: 2) and (min-width: 1440px) {
-  .wrapper {
-    background-image: url('/src/img/tracker-desktop2x.png');
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .wrapper {
+      background-image: url(/src/img/tracker-desktop2x.png);
+    }
   }
 }

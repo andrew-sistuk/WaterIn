@@ -13,8 +13,7 @@ const CalendarItem = ({ elem }) => {
   const parcentDate = useSelector(selectItems);
 
   const handleClickDay = value => {
-    const date = new Date(value.times).getTime() + 43200000;
-
+    const date = new Date(value.times).getTime() + 10800000;
     dispatch(fetchDatesId(date));
     dispatch(addDay(value.times));
   };

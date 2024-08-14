@@ -37,11 +37,27 @@ const Recharts = () => {
               <stop offset="90%" stopColor="#f0eff4" stopOpacity={0.5} />
             </linearGradient>
           </defs>
-          <YAxis />
+          <YAxis
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={value => `${(value / 1000).toFixed(1)} L`}
+            tick={{
+              fontSize: 14, // Розмір шрифту
+              fill: '#323F47', // Колір шрифту
+              fontFamily: 'Poppins', // Шрифт
+            }}
+          />
           <XAxis
+            axisLine={false}
+            tickLine={false}
             dataKey="date"
             interval={Math.floor(dates.length / 7)}
             tickFormatter={date => new Date(date).getDate()}
+            tick={{
+              fontSize: 14, // Розмір шрифту
+              fill: '#323F47', // Колір шрифту
+              fontFamily: 'Poppins', // Шрифт
+            }}
           />
           <Tooltip cursor={true} content={<CustomTooltip />} />
           <Area

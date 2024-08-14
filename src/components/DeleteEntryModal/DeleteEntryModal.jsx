@@ -25,7 +25,7 @@ const DeleteEntryModal = () => {
     try {
       await dispatch(deleteWaterNote({ _id, token }));
       setTimeout(() => {
-        dispatch(fetchDates(new Date(lastDay).getTime()));
+        dispatch(fetchDates(new Date(lastDay).getTime() + 10800000));
       }, 1000);
     } catch (error) {
       toast(t('modals.delete.error')`: ${error}`);

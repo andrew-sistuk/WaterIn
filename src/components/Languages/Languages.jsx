@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import style from './Languages.module.css';
-import { useEffect, useState, useId } from 'react';
+import { useEffect, useState } from 'react';
 
 const Languages = ({ type }) => {
   const { i18n, t } = useTranslation();
-  const selectId = useId();
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const lang = localStorage.getItem('i18nextLng');
   const [show, setShow] = useState(false);
@@ -71,15 +70,14 @@ const Languages = ({ type }) => {
 
   useEffect(() => {
     changeLanguageStyle(lang);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [viewportWidth]);
 
   return (
     <div className={type ? style.settings : style.languageSelector}>
-      <label htmlFor={selectId} className={style.languageLabel}>
-        {show === true && t('language')}
-      </label>
+      <span className={style.languageLabel}>{show === true && t('language')}</span>
+
       <select
-        id={selectId}
         value={i18n.language || 'en'}
         onChange={handleLanguageChange}
         className={style.languageSelect}

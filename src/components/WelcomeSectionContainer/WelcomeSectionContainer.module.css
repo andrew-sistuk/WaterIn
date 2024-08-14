@@ -4,32 +4,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
   flex-wrap: wrap;
-  padding: 24px 16px 67px;
-  gap: 74px;
+  padding: 24px 16px;
+  min-height: 412px;
+  height: 780px;
 }
 
 .isMobile {
   height: 100%;
-}
-/* tablet */
-@media only screen and (min-width: 768px) {
-  .welcomeSection {
-    padding: 32px 32px 50px;
-    gap: 50px;
-    min-height: 500px;
-  }
-}
-
-/* dekstop */
-@media only screen and (min-width: 1440px) {
-  .welcomeSection {
-    width: 672px;
-    padding: 32px 64px 188px 32px;
-    gap: 80px;
-
-    align-content: space-between;
-  }
 }
 
 .logoLangWrapper {
@@ -37,4 +21,26 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: fit-content;
+
+  flex: 0 0 auto;
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .welcomeSection {
+    padding: 32px;
+    gap: 50px;
+    min-height: 500px;
+    height: 960px;
+  }
+}
+
+/* dekstop */
+@media only screen and (min-width: 1440px) {
+  .welcomeSection {
+    width: 672px;
+    padding: 32px;
+    height: 736px;
+  }
 }

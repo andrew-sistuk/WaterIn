@@ -93,6 +93,7 @@
   line-height: 1.29;
   letter-spacing: -0.01em;
   color: var(--main-black-color);
+  cursor: pointer;
 }
 
 .params {
@@ -129,6 +130,7 @@
   left: 0;
   width: 20px;
   height: 20px;
+  cursor: pointer;
   -webkit-transition: opacity var(--animation);
   transition: opacity var(--animation);
 }
@@ -461,10 +463,14 @@
   }
 
   .userInfoSection {
-    max-width: calc((100% - 40px) / 2);
+    width: calc((100% - 40px) / 2);
   }
 
   .weight {
     margin-top: 86px;
+  }
+
+  .reqWaterDescription {
+    max-width: 361px;
   }
 }

@@ -22,15 +22,11 @@ const WaterMainInfo = () => {
       <p className={css.logo}>AquaTrack</p>
       <WaterDailyNorma />
       <WaterProgressBar />
-      <div className={css.btn}>
-        <MainButton
-          className={css.addWater}
-          // style={{ marginLeft: 'auto' }}
-          text="Addwaterblack"
-          onClick={() => handleAddWaterClick('addWater')}
-          icon={<FiPlus />}
-        />
-      </div>
+      <MainButton
+        text="Addwaterblack"
+        onClick={() => handleAddWaterClick('addWater')}
+        icon={<FiPlus />}
+      />
     </div>
   );
 };

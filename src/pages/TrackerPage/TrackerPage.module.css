@@ -2,9 +2,6 @@
   margin: 0 auto;
   margin-bottom: auto;
   padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 374px) {
@@ -29,7 +26,5 @@
 @media screen and (min-width: 1440px) {
   .wrapper {
     width: 1440px;
-    flex-direction: row;
-    gap: 32px;
   }
 }

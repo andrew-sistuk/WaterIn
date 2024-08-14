@@ -13,25 +13,12 @@
   .wrapper {
     padding-left: 32px;
     padding-right: 32px;
+    padding-bottom: 36px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .wrapper {
-    /* width: calc((100% - 32px) / 2); */
     width: 672px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .container {
-    min-width: 704px;
-    padding: 32px 32px 35px 32px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .container {
-    min-width: 672px;
-    padding: 32px 32px 33px 32px;
   }
 }

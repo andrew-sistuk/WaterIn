@@ -113,7 +113,7 @@
   "Userbar": {
     "user": "User",
     "hello": "Hello",
-    "settings": "Settings",
+    "settings": "Setting",
     "logOut": "Log out"
   },
   "modals": {
@@ -152,11 +152,11 @@
         "drinkRequired": "Recording time is required",
         "drinkMatches": "Invalid time format (xx:xx)",
 
-        "attention":"Attention, you add water on the "
+        "attention": "Attention, you add water on the "
       }
     },
     "UserSettingsForm": {
-      "settings": "Settings",
+      "settings": "Setting",
       "uploadPhotoBtn": "Upload a photo",
       "yourGenderLabel": "Your gender identity",
       "femaleGenderLabel": "Female",
@@ -179,20 +179,19 @@
       "success": "Your data has been updated successfully",
       "errors": {
         "nameRequired": "Name is required",
-
         "emailInvalid": "Please enter a valid email address",
         "emailRequired": "Email is required",
         "emailMatch": "Invalid e-mail format: example@mail.com",
 
         "weightRequired": "Weight is required",
         "weightPositive": "Weight must be positive",
-        "weightMin": "Weight must be at least 20 kg",
-        "weightMax": "Weight must be at most 180 kg",
+        "weightMin": "Weight must be at least 35 kg",
+        "weightMax": "Weight must be at most 150 kg",
 
         "sportHoursRequired": "Activity time is required",
         "sportHoursPositive": "Activity time must be positive",
         "sportHoursMin": "Activity time will be more 1 hour",
-        "sportHoursMax": "Activity time will not be more 8 hour",
+        "sportHoursMax": "Activity time will not be more 10 hour",
 
         "waterRateRequired": "Water intake is required",
         "waterRatePositive": "Water intake must be positive",

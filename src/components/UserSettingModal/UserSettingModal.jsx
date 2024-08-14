@@ -135,7 +135,6 @@ export default function UserSettingModal() {
     }
 
     const userPatch = Object.fromEntries(formData);
-    console.log(userPatch);
 
     dispatch(patchUser({ Id: user.id, userPatch }));
     dispatch(closeModal());

@@ -10,7 +10,6 @@ import { dataModalId, openModal, dataInfo } from '../../redux/modal/slice';
 
 import { useTranslation } from 'react-i18next';
 
-
 const WaterItem = ({ data }) => {
   const { volume, drinkTime, _id } = data;
   const dispatch = useDispatch();
@@ -26,11 +25,14 @@ const WaterItem = ({ data }) => {
     dispatch(openModal(modalType));
     dispatch(dataInfo(info));
   };
+
   return (
     <div className={css.wrapper}>
       <Cap className={css.iconMain} />
       <div className={css.wrapperData}>
-        <p className={css.value}>{volume} {t('dailyInfo.ml')}</p>
+        <p className={css.value}>
+          {volume} {t('dailyInfo.ml')}
+        </p>
         <p className={css.time}>{drinkTime}</p>
       </div>
       <div className={css.wrapperBtn}>

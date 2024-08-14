@@ -13,7 +13,6 @@
 /* tablet */
 @media only screen and (min-width: 768px) {
   .customersBox {
-    /* width: 237px; */
     height: 67px;
   }
 }
@@ -139,7 +138,7 @@
 @media only screen and (min-width: 768px) {
   .customersAmount {
     left: 0;
-    top: -5%;
+    top: -15%;
     font-size: 10px;
   }
 }

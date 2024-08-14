@@ -1,7 +1,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 436px;
+  justify-content: center;
+  flex: 1 0 auto;
+
+
+
+
+
+  width: 100%;
+
 }
 
 .sign-form {
@@ -112,6 +120,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .form {
+    width: 436px;
+  }
   .sign-form {
     margin-bottom: 12px;
   }
@@ -161,11 +172,5 @@
   .submit {
     padding: 18px;
     line-height: 1.5;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .signIn-form {
-    margin-top: 40px;
   }
 }

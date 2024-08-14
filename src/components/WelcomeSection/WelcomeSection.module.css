@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  flex: 1 0 auto;
 }
 
 .subtitle {

@@ -15,7 +15,7 @@ const DailyInfo = () => {
   };
 
   return (
-    <div>
+    <div data-tour="daily-intake">
       <div className={css.wrapper}>
         <ChooseDate />
         <MainButton

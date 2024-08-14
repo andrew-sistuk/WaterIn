@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register as registerFunc } from '../../redux/auth/operations';
 import { toast } from 'react-toastify';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
+// import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
 import { useTranslation } from 'react-i18next';
 
 export default function SignUpForm({ isMobile }) {
@@ -136,12 +136,12 @@ export default function SignUpForm({ isMobile }) {
           {t('signUpPage.signUp')}
         </button>
 
-        <AuthorizationGoogleBtn />
+        {/* <AuthorizationGoogleBtn /> */}
 
         <p className={css['paragraph-sign']}>
-          Already have account?{' '}
+          {t('signUpPage.textAlready')}{' '}
           <Link className={css.sign} to="/signIn">
-            Sign In
+            {t('signUpPage.signIn')}
           </Link>
         </p>
       </form>

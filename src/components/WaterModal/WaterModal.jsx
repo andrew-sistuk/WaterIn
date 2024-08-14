@@ -202,7 +202,7 @@ const WaterModal = () => {
           />
           {errors.volume && <p className={styles.errorMessage}>{errors.volume.message}</p>}
         </div>
-        <MainButton text={t('modals.addEdit.save')} />
+        <MainButton text={"Save"} />
       </form>
     </div>
   );

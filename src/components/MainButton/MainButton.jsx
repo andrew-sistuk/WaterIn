@@ -11,16 +11,18 @@ export default function MainButton({
 }) {
   const { t } = useTranslation();
 
+  const textFormat = text.replace(' ', '').toLowerCase();
+
   return (
     <button
-      className={`${styles.button} ${styles[text.replace(' ', '').toLowerCase()]} ${
-        iconOnly ? styles.iconOnly : ''
-      }`}
+      className={`${styles.button} ${styles[textFormat]} ${iconOnly ? styles.iconOnly : ''}`}
       onClick={onClick}
       disabled={disabled}
     >
       {icon && <span className={styles.icon}>{icon}</span>}
-      <span className={styles.text}>{t('waterMainInfo.btn')}</span>
+      <span className={styles.text}>
+        {t('modals.addEdit.' + (textFormat === 'save' ? textFormat : 'add'))}
+      </span>
     </button>
   );
 }

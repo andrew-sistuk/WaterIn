@@ -34,8 +34,8 @@ const TrackerPage = () => {
             <WelcomeContainer>
               <WaterMainInfo />
               <WaterDetailedInfo />
-              <Message />
             </WelcomeContainer>
+            <Message />
             {loadingDay && <Loader />}
           </>
         </section>

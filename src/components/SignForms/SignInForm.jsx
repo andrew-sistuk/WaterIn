@@ -50,6 +50,9 @@ export default function SignInForm({ isMobile }) {
       .catch(error => {
         if (error.request.status == 401) {
           toast('The email or password that you entered is incorrect!');
+        }
+        if (error.request.status == 404) {
+          toast('No user found!');
         } else {
           toast(error.message);
         }

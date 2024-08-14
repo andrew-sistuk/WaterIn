@@ -9,6 +9,7 @@
   background: var(--main-white-color);
 
   cursor: default;
+
 }
 
 @media screen and (min-width: 768px) {
@@ -23,6 +24,7 @@
   .wrapper {
     margin-bottom: 284px;
   }
+
 }
 
 .value {

@@ -131,6 +131,21 @@
   .button.addwaterblack:active .icon svg {
     color: #9be1a0;
   }
+
+  .button.addwaterblack .icon svg {
+    color: #ffffff;
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .button.addwaterblack:hover,
+  .button.addwaterblack:active,
+  .button.addwaterblack:hover .icon svg,
+  .button.addwaterblack:active .icon svg {
+    color: #9be1a0;
+  }
 }
 
 /* ! New styles !!! */

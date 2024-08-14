@@ -45,13 +45,13 @@ export default function UserSettingModal() {
       .matches(regex.emailRegexp, `${t('modals.UserSettingsForm.errors.emailMatch')}`),
     weight: Yup.number()
       .transform((value, originalValue) => (originalValue === '' ? undefined : value))
-      .required(`${t('modals.UserSettingsForm.errors.weightRequired')}`)
+      // .required(`${t('modals.UserSettingsForm.errors.weightRequired')}`)
       .positive(`${t('modals.UserSettingsForm.errors.weightPositive')}`)
       .min(35, `${t('modals.UserSettingsForm.errors.weightMin')}`)
       .max(150, `${t('modals.UserSettingsForm.errors.weightMax')}`),
     sportHours: Yup.number()
       .transform((value, originalValue) => (originalValue === '' ? undefined : value))
-      .required(`${t('modals.UserSettingsForm.errors.sportHoursRequired')}`)
+      // .required(`${t('modals.UserSettingsForm.errors.sportHoursRequired')}`)
       .positive(`${t('modals.UserSettingsForm.errors.sportHoursPositive')}`)
       .min(1, `${t('modals.UserSettingsForm.errors.sportHoursMin')}`)
       .max(10, `${t('modals.UserSettingsForm.errors.sportHoursMax')}`),
@@ -119,16 +119,23 @@ export default function UserSettingModal() {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', user.email);
-    formData.append('sportHours', sportHours);
     formData.append('gender', gender);
-    formData.append('weight', weight);
     formData.append('waterRate', data.waterRate * 1000);
+
+    if (weight !== '') {
+      formData.append('weight', weight);
+    }
+
+    if (sportHours !== '') {
+      formData.append('sportHours', sportHours);
+    }
 
     if (photo) {
       formData.append('photo', photo);
     }
 
     const userPatch = Object.fromEntries(formData);
+    console.log(userPatch);
 
     dispatch(patchUser({ Id: user.id, userPatch }));
     dispatch(closeModal());
@@ -303,7 +310,6 @@ export default function UserSettingModal() {
                         )}
                         id="weight"
                         type="text"
-                        placeholder="0"
                         autoComplete="off"
                         {...field}
                         onChange={e => {
@@ -334,7 +340,6 @@ export default function UserSettingModal() {
                         )}
                         id="sportHours"
                         type="text"
-                        placeholder="0"
                         autoComplete="off"
                         {...field}
                         onChange={e => {

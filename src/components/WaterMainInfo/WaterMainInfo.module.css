@@ -5,7 +5,7 @@
   background-color: var(--main-green-color);
   background-image: url('/src/img/tracker-mobile.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top 50px left 50%;
   background-size: 262px 335px;
 }
 
@@ -37,6 +37,7 @@
   .logo {
     margin-bottom: 101px;
     font-size: 24px;
+    margin-bottom: 101px;
   }
 
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {

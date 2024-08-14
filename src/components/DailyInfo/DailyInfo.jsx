@@ -19,7 +19,7 @@ const DailyInfo = () => {
       <div className={css.wrapper}>
         <ChooseDate />
         <MainButton
-          className="button"
+          className={css.button}
           text="Add water"
           onClick={() => handleAddWaterClick('addWater')}
           icon={<FiPlus />}

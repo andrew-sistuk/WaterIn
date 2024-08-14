@@ -48,7 +48,11 @@ export default function SignInForm({ isMobile }) {
     dispatch(login(data))
       .unwrap()
       .catch(error => {
-        toast(error);
+        if (error.request.status == 401) {
+          toast('The email or password that you entered is incorrect!');
+        } else {
+          toast(error.message);
+        }
         console.log(error);
       });
   };

@@ -70,6 +70,7 @@
   letter-spacing: -0.01em;
 
   text-align: center;
+  transition: border-color var(--animation), color var(--animation);
 }
 /* tablet */
 @media only screen and (min-width: 768px) {
@@ -80,8 +81,8 @@
 }
 .btnSignInItem:hover,
 .btnSignInItem:focus {
-  border: 1px solid #87d28d;
-  color: #87d28d;
+  color: var(--main-green-color-active);
+  border-color: var(--main-green-color-active);
 }
 .btnSignInItem:disabled {
   border: 1px solid var(--main-black-gray-color);

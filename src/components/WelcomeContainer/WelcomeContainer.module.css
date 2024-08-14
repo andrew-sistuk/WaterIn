@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  /* position: relative; */
 }
 
 .isMobile {
@@ -15,10 +14,12 @@
     height: calc(100vh - 32px * 2);
   }
 }
+/* dekstop */
 @media only screen and (min-width: 1440px) {
   .container {
     flex-direction: row;
     gap: 32px;
-    max-height: 800px;
+
+    /* max-width: 1376px; */
   }
 }

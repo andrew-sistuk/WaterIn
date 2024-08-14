@@ -45,7 +45,14 @@
   border: 0;
   padding: 0;
   line-height: 0;
-  /* background-color: transparent; */
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
 }
 
 .btnIcon {

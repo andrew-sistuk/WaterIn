@@ -1,30 +1,26 @@
 import css from './ChooseDate.module.css';
+import createMonth from '../../utils/createMonth';
+import isToday from '../../utils/isToday';
 
 import { useSelector } from 'react-redux';
 
 import { selectItemsDay } from '../../redux/changeDay/changeDay';
+import { useTranslation } from 'react-i18next';
 
 const ChooseDate = () => {
-  const toDay = new Date();
-  const toDayMilisekond = toDay.getTime();
+  const toDayMilisekond = new Date().getTime();
+
+  const { t } = useTranslation();
 
   const day1 = useSelector(selectItemsDay);
-
-  const isToday = day => {
-    return (
-      new Date(day).getFullYear() === toDay.getFullYear() &&
-      new Date(day).getMonth() === toDay.getMonth() &&
-      new Date(day).getDate() === toDay.getDate()
-    );
-  };
-
-  const fullDay = `${new Date(day1).getDate()}.${new Date(day1).getMonth() + 1}.${new Date(
-    day1
-  ).getFullYear()}`;
+  const month = createMonth({ date: new Date(day1) });
+  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
 
   return (
     <>
-      <p className={css.day}>{isToday(toDayMilisekond) === isToday(day1) ? 'Today' : fullDay}</p>
+      <p className={css.day}>
+        {isToday(toDayMilisekond) === isToday(day1) ? t('waterMainInfo.today') : fullDay}
+      </p>
     </>
   );
 };

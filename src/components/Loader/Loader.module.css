@@ -1,31 +1,52 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999999;
+  background-color: rgba(46, 47, 66, 0.5);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .box {
   margin: auto;
-  width: 100px;
-  opacity: 0.95;
+  width: 200px;
 }
 
 .mask {
   position: relative;
   margin: auto;
-  width: 100px;
+  width: 200px;
 
   text-align: center;
   letter-spacing: 0px;
 
   background-image: -webkit-radial-gradient(
-    center 5px,
-    100px 100px,
+    center 10px,
+    300px 300px,
     var(--main-black-color) 50%,
-    var(--main-green-color) 51%
+    var(--main-green-color) 50%
   );
 
-  background-size: 40px 110px;
+  background-size: 100px 300px;
 
   background-clip: text;
   animation-name: wave-animation;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-direction: alternate;
+
   -webkit-text-fill-color: transparent;
 
   background-clip: text;
@@ -33,17 +54,45 @@
 }
 
 .mask span {
-  font-size: 54px;
+  font-size: 100px;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .mask {
+    background-size: 100px 335px;
+    animation-duration: 3s;
+  }
+
+  .mask span {
+    font-size: 200px;
+  }
 }
 
 @keyframes wave-animation {
   0% {
-    background-position: 200px 5px;
+    background-position: 500px 10px;
   }
   50% {
-    background-position: 100px -50px;
+    background-position: 250px -150px;
   }
+
   100% {
-    background-position: 0px -40px;
+    background-position: 0px -130px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  @keyframes wave-animation {
+    0% {
+      background-position: 500px 10px;
+    }
+    50% {
+      background-position: 250px -150px;
+    }
+
+    100% {
+      background-position: 0px -100px;
+    }
   }
 }

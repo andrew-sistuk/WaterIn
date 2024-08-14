@@ -26,9 +26,10 @@
 .advantagesList {
   list-style: none;
   display: flex;
+  justify-content: end;
   flex-wrap: wrap;
   gap: 4px;
-  width: 168px;
+  width: 195px;
 
   position: absolute;
   bottom: 32px;
@@ -37,7 +38,7 @@
 /* tablet */
 @media only screen and (min-width: 768px) {
   .advantagesList {
-    width: 242px;
+    width: 290px;
     gap: 10px;
     right: 32px;
   }
@@ -69,12 +70,11 @@
   background-color: var(--main-black-gray-color);
   color: #fff;
 
-  width: 81px;
+  width: fit-content;
   height: 26px;
   border-radius: 30px;
   padding: 9px 12px;
 
-  font-family: Poppins;
   font-size: 8px;
   font-weight: 700;
   line-height: 1;
@@ -88,7 +88,7 @@
 /* tablet */
 @media only screen and (min-width: 768px) {
   .advHabit {
-    width: 111px;
+    width: fit-content;
     height: 34px;
     padding: 11px 16px;
     font-size: 12px;
@@ -103,7 +103,6 @@
   border-radius: 30px;
   padding: 9px 12px;
 
-  font-family: Poppins;
   font-size: 8px;
   font-weight: 700;
   line-height: 1;
@@ -132,7 +131,6 @@
   border-radius: 30px;
   padding: 9px 12px;
 
-  font-family: Poppins;
   font-size: 8px;
   font-weight: 700;
   line-height: 1;

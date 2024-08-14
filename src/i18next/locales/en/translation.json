@@ -1,0 +1,217 @@
+{
+  "language": "Change language",
+  "page": {
+    "reset": "Reset your password",
+    "forgot": "Forgot page",
+    "notFound": "Wrong place",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "tracker": "Tracker Page"
+  },
+  "welcomeSection": {
+    "mainText": "Record daily water intake and track",
+    "title": "Water consumption tracker",
+    "tryTracker": "Try tracker",
+    "signIn": "Sign In"
+  },
+  "advantagesSection": {
+    "our": "Our",
+    "happy": "happy",
+    "customers": "customers",
+    "habit": "Habit drive",
+    "statistics": "View statistics",
+    "setting": "Personal rate setting"
+  },
+  "signInPage": {
+    "signIn": "Sign In",
+    "email": "Enter",
+    "password": "Password",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "dontAccount": "Don’t have an account?",
+    "forgotPassword": "Forgot your password?",
+    "signUp": "Sign Up",
+    "renew": "Renew",
+    "emailErrorInvalid": "Invalid email format",
+    "emailErrorRequired": "Email is required",
+    "passwordErrorLong": "Password must be at least 6 characters long",
+    "passwordErrorRequired": "Password is required"
+  },
+
+  "googleButton": "Sign in with Google",
+
+  "signUpPage": {
+    "signUp": "Sign Up",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "nameSpanError": "A comment can only contain Latin characters",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "repeatPassword": "Password",
+    "repeatPasswordPlaceholder": "Repeat password",
+    "textAlready": "Already have account?",
+    "signIn": "Sign In",
+    "emailErrorInvalid": "Invalid email format",
+    "emailErrorRequired": "Email is required",
+    "passwordErrorLong": "Password must be at least 6 characters long",
+    "passwordErrorRequired": "Password is required",
+    "repeatPasswordErrorTwo": "Passwords must match",
+    "repeatPasswordRequired": "Repeat password is required"
+  },
+  "forgotPage": {
+    "title": "Reset your password",
+    "email": "Enter your email",
+    "emailPlaceholder": "Enter your email",
+    "emailSpanError": "Invalid email format",
+    "button": "Send",
+    "remember": "Remember your password?",
+    "signIn": "Sign In"
+  },
+  "resetPage": {
+    "title": "Reset your password",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordSpanError": "Password must be at least 6 characters long, include one uppercase letter, one number, and one special character",
+    "repeatPassword": "Repeat Password",
+    "repeatPasswordPlaceholder": "Repeat password",
+    "repeatPasswordError": "Required",
+    "repeatPasswordErrorTwo": "Passwords must match",
+    "button": "Send"
+  },
+  "waterMainInfo": {
+    "l": "L",
+    "norma": "My daily norma",
+    "today": "Today",
+    "btn": "Add water"
+  },
+  "ChooseDate": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December",
+    "today": "Today",
+    "en": "uk-UA"
+  },
+  "dailyInfo": {
+    "text": "You havent drunk water yet, it’s the perfect time to drink some!",
+    "ml": "ml"
+  },
+  "monthInfo": {
+    "mouth": "Month",
+    "statistics": "Statistics"
+  },
+  "Userbar": {
+    "user": "User",
+    "hello": "Hello",
+    "settings": "Settings",
+    "logOut": "Log out"
+  },
+  "modals": {
+    "delete": {
+      "title": "Delete entry",
+      "text": "Are you sure you want to delete the entry?",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "error": "Failed to delete the entry",
+      "success": "Entry deleted successfully"
+    },
+    "logOut": {
+      "title": "Log Out",
+      "text": "Do you really want to leave?",
+      "logOut": "Log Out",
+      "cancel": "Cancel"
+    },
+    "addEdit": {
+      "add": "Add water",
+      "edit": "Edit the entered amount of water",
+      "choose": "Choose a value:",
+      "correct": "Correct entered data:",
+      "ml": "ml",
+      "amount": "Amount of water:",
+      "time": "Recording time:",
+      "value": "Enter the value of the water used:",
+      "save": "Save",
+
+      "errors": {
+        "type": "Volume must be a number",
+
+        "volumeRequired": "Volume is required",
+        "volumeMin": "Minimum value is 50",
+        "volumeMax": "Maximum value is 9999",
+
+        "drinkRequired": "Recording time is required",
+        "drinkMatches": "Invalid time format (xx:xx)",
+
+        "attention":"Attention, you add water on the "
+      }
+    },
+    "UserSettingsForm": {
+      "settings": "Settings",
+      "uploadPhotoBtn": "Upload a photo",
+      "yourGenderLabel": "Your gender identity",
+      "femaleGenderLabel": "Female",
+      "maleGenderLabel": "Male",
+      "yourNameLabel": "Your name",
+      "placeYourName": "Name",
+      "labelEmail": "Enter your email",
+      "placeEmail": "Your email",
+      "dailyNorma": "My daily norma",
+      "forWomanP": "For woman:",
+      "forManP": "For man:",
+      "startText": "V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)",
+      "activeText": "Active time in hours",
+      "infoUser": "Your weight in kilograms:",
+      "TheTimeSportsLabel": "The time of active participation in sports:",
+      "requiredWater": "The required amount of water in liters per day:",
+      "writeDownLabel": "Write down how much water you will drink:",
+      "l": "L",
+      "saveBtn": "Save",
+      "success": "Your data has been updated successfully",
+      "errors": {
+        "nameRequired": "Name is required",
+
+        "emailInvalid": "Please enter a valid email address",
+        "emailRequired": "Email is required",
+        "emailMatch": "Invalid e-mail format: example@mail.com",
+
+        "weightRequired": "Weight is required",
+        "weightPositive": "Weight must be positive",
+        "weightMin": "Weight must be at least 20 kg",
+        "weightMax": "Weight must be at most 180 kg",
+
+        "sportHoursRequired": "Activity time is required",
+        "sportHoursPositive": "Activity time must be positive",
+        "sportHoursMin": "Activity time will be more 1 hour",
+        "sportHoursMax": "Activity time will not be more 8 hour",
+
+        "waterRateRequired": "Water intake is required",
+        "waterRatePositive": "Water intake must be positive",
+        "waterRateMin": "Water intake will be more 1 L !"
+      }
+    }
+  },
+  "toast": {
+    "forgot": "Password recovery email has been sent",
+    "reset": "Password has been reset successfully! You can sign in with a new password",
+    "logOut": "See you soon ❤️"
+  },
+  "onboarding": {
+    "1": "This is your personal water tracker.",
+    "2": "Here you can see your daily water allowance.",
+    "3": "You can see how close you are to your goal of drinking water for the day.",
+    "4": "This field will display the amount of water and you can add, edit or delete an entry for water consumption.",
+    "5": "This is the panel for your personal settings, including personal information and water tracking preferences.",
+    "6": "This calendar will display how many percent of water was drunk each day.",
+    "7": "Use this button to switch between the calendar and schedule views."
+  }
+}

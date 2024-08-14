@@ -1,6 +1,4 @@
 .logo {
-  position: absolute;
-  font-family: Poppins;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.11;
@@ -13,8 +11,6 @@
 
 @media only screen and (min-width: 768px) {
   .logo {
-    top: 32px;
-    left: 32px;
     font-size: 24px;
     line-height: 1;
   }

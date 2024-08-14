@@ -8,48 +8,60 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors.js';
 import { closeModal } from '../../redux/modal/slice.js';
+import NoCheck from '../../assets/icons/noCheck.svg?react';
+import Check from '../../assets/icons/check.svg?react';
+
+import { useTranslation } from 'react-i18next';
 
 import css from './UserSettingModal.module.css';
+import { patchUser } from '../../redux/auth/operations.js';
+import Languages from '../Languages/Languages.jsx';
 
 const regex = {
+  // eslint-disable-next-line no-useless-escape
   emailRegexp: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
 };
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required').min(3).max(40),
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Email is required')
-    .matches(regex.emailRegexp, 'Invalid e-mail format: example@mail.com'),
-  weight: Yup.number()
-    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
-    .required('Weight is required')
-    .positive('Weight must be positive')
-    .min(20, 'Weight must be at least 20 kg')
-    .max(180, 'Weight must be at most 180 kg'),
-  sportHours: Yup.number()
-    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
-    .required('Activity time is required')
-    .positive('Activity time must be positive')
-    .min(1, 'Activity time will be more 1 hour')
-    .max(8, 'Activity time will not be more 8 hour'),
-  waterRate: Yup.number()
-    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
-    .required('Water intake is required')
-    .positive('Water intake must be positive')
-    .min(1, 'Water intake will be more 1 L !'),
-});
 
 export default function UserSettingModal() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const [photo, setPhoto] = useState(user.photo);
+  const [photo, setPhoto] = useState(null);
   const [name, setName] = useState(user.name);
   const [gender, setGender] = useState(user.gender);
   const [weight, setWeight] = useState(user.weight);
   const [sportHours, setSportHours] = useState(user.sportHours);
-  const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1));
+  const [waterRate, setWaterRate] = useState(user.waterRate.toFixed(1) / 1000);
+
+  const { t } = useTranslation();
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .required(`${t('modals.UserSettingsForm.errors.nameRequired')}`)
+      .min(3)
+      .max(40),
+    email: Yup.string()
+      .email(`${t('modals.UserSettingsForm.errors.emailInvalid')}`)
+      .required(`${t('modals.UserSettingsForm.errors.emailRequired')}`)
+      .matches(regex.emailRegexp, `${t('modals.UserSettingsForm.errors.emailMatch')}`),
+    weight: Yup.number()
+      .transform((value, originalValue) => (originalValue === '' ? undefined : value))
+      .required(`${t('modals.UserSettingsForm.errors.weightRequired')}`)
+      .positive(`${t('modals.UserSettingsForm.errors.weightPositive')}`)
+      .min(20, `${t('modals.UserSettingsForm.errors.weightMin')}`)
+      .max(180, `${t('modals.UserSettingsForm.errors.weightMax')}`),
+    sportHours: Yup.number()
+      .transform((value, originalValue) => (originalValue === '' ? undefined : value))
+      .required(`${t('modals.UserSettingsForm.errors.sportHoursRequired')}`)
+      .positive(`${t('modals.UserSettingsForm.errors.sportHoursPositive')}`)
+      .min(1, `${t('modals.UserSettingsForm.errors.sportHoursMin')}`)
+      .max(8, `${t('modals.UserSettingsForm.errors.sportHoursMax')}`),
+    waterRate: Yup.number()
+      .transform((value, originalValue) => (originalValue === '' ? undefined : value))
+      .required(`${t('modals.UserSettingsForm.errors.waterRateRequired')}`)
+      .positive(`${t('modals.UserSettingsForm.errors.waterRatePositive')}`)
+      .min(1, `${t('modals.UserSettingsForm.errors.waterRateMin')}`),
+  });
 
   const inputFileRef = useRef(null);
 
@@ -73,15 +85,14 @@ export default function UserSettingModal() {
       email: user.email,
       weight: user.weight,
       sportHours: user.sportHours,
-      waterRate: 1.8,
+      waterRate: waterRate,
     },
   });
 
   const onChangeAvatar = event => {
     const avatarImg = event.target.files[0];
     if (avatarImg) {
-      setPhoto(URL.createObjectURL(avatarImg));
-      // setPhoto(avatarImg);
+      setPhoto(avatarImg);
     }
   };
 
@@ -107,34 +118,38 @@ export default function UserSettingModal() {
 
   const onSubmit = data => {
     const formData = new FormData();
-    formData.append('id', user.id);
-    formData.append('email', user.email);
     formData.append('name', name);
+    formData.append('email', user.email);
+    formData.append('sportHours', sportHours);
     formData.append('gender', gender);
     formData.append('weight', weight);
-    formData.append('sportHours', sportHours);
-    formData.append('waterRate', data.waterRate);
+    formData.append('waterRate', data.waterRate * 1000);
 
     if (photo) {
       formData.append('photo', photo);
     }
 
-    dispatch(closeModal());
+    const userPatch = Object.fromEntries(formData);
 
-    // Для перегляду об`экту що створюється при сабміті форми
-    // У продакшені ВИДАЛИТИ !!!
-    console.log('Form Data:', Object.fromEntries(formData));
+    dispatch(patchUser({ Id: user.id, userPatch }));
+    dispatch(closeModal());
   };
 
   return (
     <div className={css.wraper}>
+      <Languages type={true} />
+
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={css.title}>Setting</h2>
+        <h2 className={css.title}>{t('modals.UserSettingsForm.settings')}</h2>
         <div className={css.avatar}>
-          <img className={css.avatarImg} src={photo} alt="photo" />
+          <img
+            className={css.avatarImg}
+            src={photo ? URL.createObjectURL(photo) : user.photo}
+            alt="photo"
+          />
           <button className={css.avatarBtn} type="button" onClick={handleClick}>
             <FiUpload size={18} className={css.avatarSvg} />
-            Upload a photo
+            {t('modals.UserSettingsForm.uploadPhotoBtn')}
           </button>
           <input
             className={css.avatarInput}
@@ -148,7 +163,7 @@ export default function UserSettingModal() {
           <div className={css.userInfoSection}>
             <div className={css.gender}>
               <p htmlFor="gender" className={css.params}>
-                Your gender identity
+                {t('modals.UserSettingsForm.yourGenderLabel')}
               </p>
               <div className={css.genderWrapper}>
                 <div className={css.genderRadio}>
@@ -162,9 +177,12 @@ export default function UserSettingModal() {
                       checked={gender === 'woman'}
                       onChange={handleSetGender}
                     />
-                    <span className={css.labelText}>Woman</span>
-                    <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
-                    <img className={css.check} src="/src/img/icons/check.svg" alt="check" />
+
+                    <span className={css.labelText}>
+                      {t('modals.UserSettingsForm.femaleGenderLabel')}
+                    </span>
+                    <NoCheck className={css.noCheck} />
+                    <Check className={css.check} />
                   </label>
                 </div>
                 <div className={css.genderRadio}>
@@ -178,9 +196,12 @@ export default function UserSettingModal() {
                       checked={gender === 'man'}
                       onChange={handleSetGender}
                     />
-                    <span className={css.labelText}>Man</span>
-                    <img className={css.noCheck} src="/src/img/icons/noCheck.svg" alt="noCheck" />
-                    <img className={css.check} src="/src/img/icons/check.svg" alt="check" />
+
+                    <span className={css.labelText}>
+                      {t('modals.UserSettingsForm.maleGenderLabel')}
+                    </span>
+                    <NoCheck className={css.noCheck} />
+                    <Check className={css.check} />
                   </label>
                 </div>
               </div>
@@ -189,7 +210,7 @@ export default function UserSettingModal() {
               <div>
                 <div className={css.name}>
                   <label htmlFor="name" className={css.params}>
-                    Your name
+                    {t('modals.UserSettingsForm.yourNameLabel')}
                   </label>
                   <div>
                     <Controller
@@ -205,7 +226,7 @@ export default function UserSettingModal() {
                           id="name"
                           type="text"
                           autoComplete="off"
-                          placeholder="Enter your name"
+                          placeholder={t('modals.UserSettingsForm.labelEmail')}
                           {...field}
                           onChange={e => {
                             field.onChange(e);
@@ -219,7 +240,7 @@ export default function UserSettingModal() {
                 </div>
                 <div className={css.email}>
                   <label htmlFor="email" className={css.params}>
-                    Email
+                    {t('modals.UserSettingsForm.placeEmail')}
                   </label>
                   <Controller
                     name="email"
@@ -242,28 +263,25 @@ export default function UserSettingModal() {
                   {errors.email && <p className={css.errorMes}>{errors.email.message}</p>}
                 </div>
                 <div className={css.dailyNorma}>
-                  <p className={css.params}>My daily norma</p>
+                  <p className={css.params}>{t('modals.UserSettingsForm.dailyNorma')}</p>
                   <ul className={css.dailyNormaList}>
                     <li className={css.formulaTitle}>
-                      For woman:
+                      {t('modals.UserSettingsForm.forWomanP')}
                       <p className={css.dailyNormaFormula}>V=(M*0,03) + (T*0,4)</p>
                     </li>
                     <li className={css.formulaTitle}>
-                      For man:
+                      {t('modals.UserSettingsForm.forManP')}
                       <p className={css.dailyNormaFormula}>V=(M*0,04) + (T*0,6)</p>
                     </li>
                   </ul>
                   <div className={css.dailyNormaTextContainer}>
                     <p className={css.dailyNormaText}>
-                      <span className={css.span}>*</span> V is the volume of the water norm in
-                      liters per day, M is your body weight, T is the time of active sports, or
-                      another type of activity commensurate in terms of loads (in the absence of
-                      these, you must set 0)
+                      <span className={css.span}>*</span> {t('modals.UserSettingsForm.startText')}
                     </p>
                   </div>
                   <p className={css.activeText}>
                     <BsExclamationLg className={css.activeIcon} size={18} />
-                    Active time in hours
+                    {t('modals.UserSettingsForm.activeText')}
                   </p>
                 </div>
               </div>
@@ -272,7 +290,7 @@ export default function UserSettingModal() {
           <div className={css.userInfoSection}>
             <div>
               <div className={css.weight}>
-                <label htmlFor="weight">Your weight in kilograms:</label>
+                <label htmlFor="weight">{t('modals.UserSettingsForm.infoUser')}</label>
                 <div className={css['box-pass']}>
                   <Controller
                     name="weight"
@@ -301,7 +319,9 @@ export default function UserSettingModal() {
               </div>
 
               <div className={css.activityTime}>
-                <label htmlFor="sportHours">The time of active participation in sports:</label>
+                <label htmlFor="sportHours">
+                  {t('modals.UserSettingsForm.TheTimeSportsLabel')}
+                </label>
                 <div className={css['box-pass']}>
                   <Controller
                     name="sportHours"
@@ -331,14 +351,16 @@ export default function UserSettingModal() {
 
               <div className={css.requiredWater}>
                 <p className={css.reqWaterDescription}>
-                  The required amount of water in liters per day:
+                  {t('modals.UserSettingsForm.requiredWater')}
                 </p>
-                <p className={css.water}>{waterRate} L</p>
+                <p className={css.water}>
+                  {waterRate} {t('modals.UserSettingsForm.l')}
+                </p>
               </div>
 
               <div className={css.waterIntake}>
                 <label htmlFor="waterRate" className={css.params}>
-                  Write down how much water you will drink:
+                  {t('modals.UserSettingsForm.writeDownLabel')}
                 </label>
                 <div className={css['box-pass']}>
                   <Controller
@@ -367,7 +389,7 @@ export default function UserSettingModal() {
           </div>
         </div>
         <button className={css.saveBtn} type="submit">
-          Save
+          {t('modals.UserSettingsForm.saveBtn')}
         </button>
       </form>
     </div>

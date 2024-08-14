@@ -2,7 +2,7 @@ import WaterDailyNorma from '../WaterDailyNorma/WaterDailyNorma';
 import WaterProgressBar from '../WaterProgressBar/WaterProgressBar';
 import MainButton from '../MainButton/MainButton';
 // import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
-import { FiPlus } from "react-icons/fi";
+import { FiPlus } from 'react-icons/fi';
 
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/slice.js';
@@ -13,7 +13,7 @@ const WaterMainInfo = () => {
   // console.log('Замінити компонент AddWaterBtn у файлі WaterMainInfo.jsx');
   const dispatch = useDispatch();
 
-  const handleAddWaterClick = (typeModal) => {
+  const handleAddWaterClick = typeModal => {
     dispatch(openModal(typeModal));
   };
 
@@ -24,7 +24,9 @@ const WaterMainInfo = () => {
       <WaterProgressBar />
       <div className={css.btn}>
         <MainButton
-          text="Add water"
+          className={css.addWater}
+          // style={{ marginLeft: 'auto' }}
+          text="Addwaterblack"
           onClick={() => handleAddWaterClick('addWater')}
           icon={<FiPlus />}
         />
@@ -32,6 +34,5 @@ const WaterMainInfo = () => {
     </div>
   );
 };
-
 
 export default WaterMainInfo;

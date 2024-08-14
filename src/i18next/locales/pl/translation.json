@@ -1,0 +1,195 @@
+{
+  "language": "Zmień jezyk",
+  "page": {
+    "reset": "Zresetuj hasło",
+    "forgot": "Strona odzyskiwania",
+    "notFound": "Strona nie znaleziona",
+    "signIn": "Zaloguj się",
+    "signUp": "Zarejestruj się",
+    "tracker": "Tracker"
+  },
+  "welcomeSection": {
+    "mainText": "Zapisuj dzienne spożycie wody i śledź postępy",
+    "title": "Tracker spożycia wody",
+    "tryTracker": "Wypróbuj tracker",
+    "signIn": "Zaloguj się"
+  },
+  "advantagesSection": {
+    "our": "Nasi",
+    "happy": "zadowoleni",
+    "customers": "użytkownicy",
+    "habit": "Twórz nawyki",
+    "statistics": "Przeglądaj statystyki",
+    "setting": "Ustaw swoją normę"
+  },
+  "signInPage": {
+    "signIn": "Zaloguj się",
+    "email": "Adres e-mail",
+    "password": "Hasło",
+    "emailPlaceholder": "Wprowadź swój adres e-mail",
+    "passwordPlaceholder": "Wprowadź swoje hasło",
+    "dontAccount": "Nie masz konta?",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "signUp": "Zarejestruj się",
+    "renew": "Odśwież",
+    "emailErrorInvalid": "Nieprawidłowy format adresu e-mail",
+    "emailErrorRequired": "Adres e-mail jest wymagany",
+    "passwordErrorLong": "Hasło musi mieć co najmniej 6 znaków",
+    "passwordErrorRequired": "Hasło jest wymagane"
+  },
+
+  "googleButton": "Zaloguj się przez Google",
+
+  "signUpPage": {
+    "signUp": "Zarejestruj się",
+    "name": "Imię",
+    "namePlaceholder": "Wprowadź swoje imię",
+    "nameSpanError": "Imię może zawierać tylko litery łacińskie",
+    "email": "Adres e-mail",
+    "emailPlaceholder": "Wprowadź swój adres e-mail",
+    "password": "Hasło",
+    "passwordPlaceholder": "Wprowadź swoje hasło",
+    "repeatPassword": "Powtórz hasło",
+    "repeatPasswordPlaceholder": "Powtórz hasło",
+    "textAlready": "Masz już konto?",
+    "signIn": "Zaloguj się",
+    "emailErrorInvalid": "Nieprawidłowy format adresu e-mail",
+    "emailErrorRequired": "Adres e-mail jest wymagany",
+    "passwordErrorLong": "Hasło musi mieć co najmniej 6 znaków",
+    "passwordErrorRequired": "Hasło jest wymagane",
+    "repeatPasswordErrorTwo": "Hasła muszą się zgadzać",
+    "repeatPasswordRequired": "Powtórzenie hasła jest wymagane"
+  },
+  "forgotPage": {
+    "title": "Odzyskiwanie hasła",
+    "email": "Wprowadź swój adres e-mail",
+    "emailPlaceholder": "Wprowadź swój adres e-mail",
+    "emailSpanError": "Nieprawidłowy format adresu e-mail",
+    "button": "Wyślij",
+    "remember": "Pamiętasz swoje hasło?",
+    "signIn": "Zaloguj się"
+  },
+  "resetPage": {
+    "title": "Zresetuj hasło",
+    "password": "Nowe hasło",
+    "passwordPlaceholder": "Wprowadź nowe hasło",
+    "passwordSpanError": "Hasło musi mieć co najmniej 6 znaków, jedną wielką literę, jedną cyfrę i jeden znak specjalny",
+    "repeatPassword": "Powtórz hasło",
+    "repeatPasswordPlaceholder": "Powtórz nowe hasło",
+    "repeatPasswordError": "Wymagane",
+    "repeatPasswordErrorTwo": "Hasła muszą się zgadzać",
+    "button": "Wyślij"
+  },
+  "waterMainInfo": {
+    "l": "l",
+    "norma": "Moja dzienna norma",
+    "today": "Dziś",
+    "btn": "Dodaj wodę"
+  },
+  "ChooseDate": {
+    "January": "Styczeń",
+    "February": "Luty",
+    "March": "Marzec",
+    "April": "Kwiecień",
+    "May": "Maj",
+    "June": "Czerwiec",
+    "July": "Lipiec",
+    "August": "Sierpień",
+    "September": "Wrzesień",
+    "October": "Październik",
+    "November": "Listopad",
+    "December": "Grudzień",
+    "today": "Dziś",
+    "en": "pl-PL"
+  },
+  "dailyInfo": {
+    "text": "Jeszcze nie piłeś dziś wody, czas to zrobić!",
+    "ml": "ml"
+  },
+  "monthInfo": {
+    "mouth": "Miesiąc",
+    "statistics": "Statystyki"
+  },
+  "Userbar": {
+    "user": "Użytkownik",
+    "hello": "Cześć",
+    "settings": "Ustawienia",
+    "logOut": "Wyloguj się"
+  },
+  "modals": {
+    "delete": {
+      "title": "Usuń wpis",
+      "text": "Czy na pewno chcesz usunąć ten wpis?",
+      "delete": "Usuń",
+      "cancel": "Anuluj",
+      "error": "Nie udało się usunąć wpisu",
+      "success": "Wpis został pomyślnie usunięty"
+    },
+    "logOut": {
+      "title": "Wylogowanie",
+      "text": "Czy na pewno chcesz się wylogować?",
+      "logOut": "Wyloguj się",
+      "cancel": "Anuluj"
+    },
+    "addEdit": {
+      "add": "Dodaj wodę",
+      "edit": "Edytuj ilość wody",
+      "choose": "Wybierz wartość:",
+      "correct": "Popraw wprowadzone dane:",
+      "ml": "ml",
+      "amount": "Ilość wody:",
+      "time": "Czas zapisu:",
+      "value": "Wprowadź ilość wody:",
+      "save": "Zapisz",
+
+      "errors": {
+        "type": "Objętość musi być liczbą",
+        "volumeRequired": "Objętość jest wymagana",
+        "volumeMin": "Minimalna wartość to 50",
+        "volumeMax": "Maksymalna wartość to 9999",
+        "drinkRequired": "Czas zapisu jest wymagany",
+        "drinkMatches": "Nieprawidłowy format czasu (xx:xx)",
+        "attention": "Uwaga, dodajesz wodę na "
+      }
+    },
+    "UserSettingsForm": {
+      "settings": "Ustawienia",
+      "uploadPhotoBtn": "Prześlij zdjęcie",
+      "yourGenderLabel": "Twoja tożsamość płciowa",
+      "femaleGenderLabel": "Kobieta",
+      "maleGenderLabel": "Mężczyzna",
+      "yourNameLabel": "Twoje imię",
+      "placeYourName": "Imię",
+      "labelEmail": "Wprowadź swój adres e-mail",
+      "placeEmail": "Twój adres e-mail",
+      "dailyNorma": "Moja dzienna norma",
+      "forWomanP": "Dla kobiet:",
+      "forManP": "Dla mężczyzn:",
+      "startText": "V - to ilość wody, którą należy wypić w ciągu dnia, M - to twoja waga, T - to czas aktywności fizycznej (jeśli go brak, wpisz 0)",
+      "activeText": "Czas aktywności (godziny)",
+      "infoUser": "Twoja waga (kg):",
+      "TheTimeSportsLabel": "Czas aktywności sportowej:",
+      "requiredWater": "Wymagana ilość wody (l/dzień):",
+      "writeDownLabel": "Zaplanuj ilość wody, którą będziesz pić:",
+      "l": "l",
+      "saveBtn": "Zapisz",
+      "success": "Twoje dane zostały pomyślnie zaktualizowane",
+      "errors": {
+        "nameRequired": "Imię jest wymagane",
+        "emailInvalid": "Wprowadź prawidłowy adres e-mail",
+        "emailRequired": "Adres e-mail jest wymagany",
+        "emailMatch": "Nieprawidłowy format adresu e-mail"
+      }
+    }
+  },
+
+  "onboarding": {
+    "1": "To jest Twój osobisty tracker wody.",
+    "2": "Tutaj możesz zobaczyć swoje dzienne spożycie wody.",
+    "3": "Możesz zobaczyć, jak blisko jesteś swojego dziennego celu picia wody.",
+    "4": "To pole wyświetli ilość wody, a Ty możesz dodać, edytować lub usunąć wpis dotyczący spożycia wody.",
+    "5": "To jest panel do Twoich ustawień osobistych, w tym informacji osobistych i preferencji dotyczących śledzenia wody.",
+    "6": "Ten kalendarz pokaże, jaki procent wody był wypity każdego dnia.",
+    "7": "Użyj tego przycisku, aby przełączać się między widokiem kalendarza a harmonogramu."
+  }
+}

@@ -1,7 +1,7 @@
 .wrapper {
   margin-bottom: 49px;
   padding: 12px;
-  width: 102px;
+  width: fit-content;
   height: 54px;
   border-radius: 15px;
 
@@ -31,10 +31,9 @@
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    margin-bottom: 88px;
     padding: 14px 18px;
-    width: 129px;
     height: 78px;
+    margin-bottom: 216px;
   }
 
   .value {
@@ -50,8 +49,8 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .wrapper {
-    margin-bottom: 216px;
+    margin-bottom: 284px;
   }
 }

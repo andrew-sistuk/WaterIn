@@ -5,7 +5,7 @@ import Message from '../../components/Message/Message';
 
 export default function HomePage() {
   return (
-    <section className="container">
+    <section className="cozntainer">
       <WelcomeContainer>
         <WelcomeSection />
         <AdvantagesSection />
@@ -13,4 +13,5 @@ export default function HomePage() {
       <Message />
     </section>
   );
+  z;
 }

@@ -26,6 +26,9 @@
     padding: 32px 32px 64px 32px;
 
     background-image: url('/src/img/tracker-tablet.png');
+    background-size: 477px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .logo {
     margin-bottom: 78px;
@@ -38,6 +41,9 @@
     width: 672px;
 
     background-image: url('/src/img/tracker-desktop.png');
+    background-size: 580px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .logo {
     margin-bottom: 100px;
@@ -70,5 +76,10 @@
 }
 
 .btn {
-  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addWater {
+  padding: 14px 20px;
 }

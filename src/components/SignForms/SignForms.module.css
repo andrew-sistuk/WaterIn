@@ -60,7 +60,6 @@
 }
 
 .submit {
-  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
@@ -162,14 +161,13 @@
   }
 
   .submit {
-    padding: 18px 190px;
+    padding: 18px;
     line-height: 1.5;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .form {
-    padding-top: 15%;
-    padding-bottom: 10%;
+  .signIn-form {
+    margin-top: 40px;
   }
 }

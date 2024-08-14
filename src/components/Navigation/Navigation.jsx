@@ -1,14 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Navigation() {
+  const { t } = useTranslation();
   return (
     <nav className={styles.btnList}>
       <NavLink to="/signup" className={styles.btnTryItem}>
-        Try tracker
+        {t('welcomeSection.tryTracker')}
       </NavLink>
       <NavLink to="/signin" className={styles.btnSignInItem}>
-        Sign In
+        {t('welcomeSection.signIn')}
       </NavLink>
     </nav>
   );

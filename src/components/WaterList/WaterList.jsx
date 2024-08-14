@@ -6,8 +6,11 @@ import { selectItemsDay } from '../../redux/day/selectors';
 import { fetchDatesId } from '../../redux/day/operations';
 
 import css from './WaterList.module.css';
+import { useTranslation } from 'react-i18next';
 
 const WaterList = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const items = useSelector(selectItemsDay);
 
@@ -28,7 +31,7 @@ const WaterList = () => {
           ))}
         </ul>
       ) : (
-        <p className={css.text}>Please, drink some water</p>
+        <p className={css.text}>{t('dailyInfo.text')}</p>
       )}
     </div>
   );

@@ -1,13 +1,12 @@
 .welcomeSection {
-  position: relative;
-  background-color: var(--main-gray-color);
-  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 16px;
-  min-height: 411px;
+  padding: 24px 16px;
+  border-radius: 30px;
+  gap: 74px;
+  background-color: var(--main-gray-color);
 }
 
 .isMobile {
@@ -16,8 +15,9 @@
 /* tablet */
 @media only screen and (min-width: 768px) {
   .welcomeSection {
-    max-width: 704px;
-    min-height: 498px;
+    padding: 32px 32px 50px;
+    gap: 50px;
+    min-height: 500px;
   }
 }
 
@@ -25,6 +25,16 @@
 @media only screen and (min-width: 1440px) {
   .welcomeSection {
     width: 672px;
-    min-height: 736px;
+    padding: 32px 64px;
+    gap: 80px;
+
+    align-content: space-between;
   }
+}
+
+.logoLangWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

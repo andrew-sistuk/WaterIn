@@ -44,6 +44,7 @@
   color: var(--main-black-color);
   background-color: var(--main-green-color);
   transition: background-color var(--animation);
+  cursor: pointer;
 }
 
 .logoutButton:hover,
@@ -63,6 +64,7 @@
   color: rgba(50, 63, 71, 0.3);
   background-color: var(--main-gray-color);
   transition: color var(--animation);
+  cursor: pointer;
 }
 
 .cancelButton:hover {

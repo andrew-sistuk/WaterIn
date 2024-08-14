@@ -1,0 +1,92 @@
+.languageSelector {
+  position: relative;
+
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.settings {
+  background-color: transparent;
+  outline: transparent;
+  position: absolute;
+  z-index: 10;
+  bottom: 40px;
+  right: 20px;
+  height: 46px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.languageLabel {
+  font-size: 24px;
+}
+
+.languageSelect {
+  background-color: transparent;
+  outline: transparent;
+
+  border-radius: 30px;
+  border: 1px solid var(--main-black-gray-color);
+  padding: 8px 14px 8px 12px;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--main-black-gray-color);
+  font-size: 12px;
+  min-width: 60px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+
+  text-align: center;
+
+  transition: border-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    color 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  /* ? Delete icon */
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:hover,
+  &:active {
+    color: var(--main-green-color-active);
+    border-color: var(--main-green-color-active);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .settings {
+    height: 56px;
+    right: 40px;
+  }
+
+  .languageSelect {
+    font-size: 14px;
+    min-width: 80px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .languageSelector {
+    margin-right: -32px;
+  }
+
+  .languageSelect {
+    font-size: 16px;
+  }
+}

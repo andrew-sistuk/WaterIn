@@ -17,7 +17,7 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 
-import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
+// import AuthorizationGoogleBtn from '../AuthorizationGoogleBtn/AuthorizationGoogleBtn';
 
 export default function SignInForm({ isMobile }) {
   const [isPassOpen, setIsPassOpen] = useState(false);
@@ -103,7 +103,7 @@ export default function SignInForm({ isMobile }) {
           {t('signInPage.signIn')}
         </button>
 
-        <AuthorizationGoogleBtn />
+        {/* <AuthorizationGoogleBtn /> */}
 
         <div className={css['sing-forgot-wrapper']}>
           <p className={css['paragraph-sign']}>
@@ -112,12 +112,13 @@ export default function SignInForm({ isMobile }) {
               {t('signInPage.signUp')}
             </Link>
           </p>
-          <p className={css['paragraph-forgot']}>
+
+          {/* <p className={css['paragraph-forgot']}>
             {t('signInPage.forgotPassword')}{' '}
             <Link className={css.sign} to="/forgot">
               {t('signInPage.renew')}
             </Link>
-          </p>
+          </p> */}
         </div>
       </form>
     </WelcomeSectionContainer>

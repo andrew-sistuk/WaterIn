@@ -46,6 +46,8 @@
   line-height: 1.28571;
   letter-spacing: -0.01em;
   color: var(--main-white-color);
+
+  cursor: pointer;
 }
 
 .userAvatarContainer {

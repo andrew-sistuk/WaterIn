@@ -42,6 +42,8 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
+
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

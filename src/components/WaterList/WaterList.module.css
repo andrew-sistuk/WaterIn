@@ -1,5 +1,8 @@
 .wrapper {
-  height: 106px;
+  height: 114px;
+  align-content: center;
+
+  cursor: default;
 }
 
 @media screen and (min-width: 768px) {
@@ -11,7 +14,7 @@
 .list {
   display: flex;
   column-gap: 8px;
-  padding-bottom: 32px;
+  padding-bottom: 26px;
   list-style: none;
 
   overflow-x: auto;

@@ -92,9 +92,9 @@ const WaterProgressBar = () => {
 
   return (
     <div className={css.wrapper} data-tour="progress-goal">
-      <p className={css.title}>{isToday(toDayMilisekond) === isToday(day1) ? 'Today' : fullDay}</p>
-
-      <p className={css.title}>{t('waterMainInfo.today')}</p>
+      <p className={css.title}>
+        {isToday(toDayMilisekond) === isToday(day1) ? t('waterMainInfo.today') : fullDay}
+      </p>
 
       <div className={css.barWrapper}>
         <div className={css.mainBar}></div>

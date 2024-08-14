@@ -6,7 +6,7 @@ import Message from '../../components/Message/Message';
 
 export default function SignUpPage() {
   const windowWidth = useWindowWidth();
-  const isMobile = windowWidth > 1440;
+  const isMobile = windowWidth >= 1440;
 
   return (
     <section className="container">

@@ -91,7 +91,7 @@ const WaterProgressBar = () => {
   const fullDay = `${new Date(day1).getDate()}, ${t(`ChooseDate.${monthName}`)}`;
 
   return (
-    <div className={css.wrapper}>
+    <div className={css.wrapper} data-tour="progress-goal">
       <p className={css.title}>
         {isToday(toDayMilisekond) === isToday(day1) ? t('waterMainInfo.today') : fullDay}
       </p>

@@ -9,6 +9,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  cursor: default;
 }
 
 .paginationText {
@@ -18,6 +19,8 @@
   letter-spacing: -0.01em;
   text-align: center;
   min-width: 120px;
+
+  cursor: default;
 }
 
 @media screen and (max-width: 360px) {

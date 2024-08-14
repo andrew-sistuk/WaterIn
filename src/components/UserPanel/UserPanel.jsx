@@ -50,7 +50,7 @@ const UserPanel = () => {
   };
 
   return (
-    <div className={css.userPanelContainer}>
+    <div className={css.userPanelContainer} data-tour="settings-panel">
       <h2 className={css.title}>
         {t('Userbar.hello')},{' '}
         <span className={css.firstUserName}>{user.name ? getFirstName(user.name) : 'User'}!</span>

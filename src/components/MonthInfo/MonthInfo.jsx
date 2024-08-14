@@ -72,7 +72,7 @@ const MonthInfo = () => {
   }, [dispatch, currentDate]);
 
   return (
-    <div>
+    <div data-tour="calendar">
       <h2 className={css.visuallyHidden}>Month info</h2>
       <CalendarPagination
         toggleComponents={toggleComponents}

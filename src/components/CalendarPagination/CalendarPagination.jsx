@@ -25,21 +25,20 @@ const CalendarPagination = ({
   return (
     <div className={css.monthContainer}>
       <h2 className={css.title}>{iconHidden ? t('monthInfo.statistics') : t('monthInfo.mouth')}</h2>
-      <div className={css.monthBox}>
-        <div className={css.switchMonth}>
-          <button onClick={handleClickBack} className={css.arrowButton}>
-            <IoIosArrowBack className={css.reactIcon} />
-          </button>
-          <p className={css.paginationText}>
-            {t(`ChooseDate.${monthName}`)}, {year}
-          </p>
-          <button onClick={handleClickForward} className={css.arrowButton}>
-            <IoIosArrowForward className={css.reactIcon} />
-          </button>
-        </div>
+
+      <div className={css.switchMonth}>
+        <button onClick={handleClickBack} className={css.arrowButton}>
+          <IoIosArrowBack className={css.reactIcon} />
+        </button>
+        <p className={css.paginationText}>
+          {t(`ChooseDate.${monthName}`)}, {year}
+        </p>
+        <button onClick={handleClickForward} className={css.arrowButton}>
+          <IoIosArrowForward className={css.reactIcon} />
+        </button>
       </div>
       <button onClick={handleToggle} className={css.scheduleButton} data-tour="toggle-view-button">
-        {iconHidden ? <CalendarHidden /> : <Calendar />}
+        {iconHidden ? <Calendar /> : <CalendarHidden />}
       </button>
     </div>
   );

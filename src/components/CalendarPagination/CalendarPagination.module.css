@@ -1,6 +1,6 @@
 .monthContainer {
   display: flex;
-  margin-bottom: 24px;
+  align-items: center;
 }
 
 .title {
@@ -10,6 +10,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   cursor: default;
+  color: #323f47;
 }
 
 .paginationText {
@@ -19,8 +20,20 @@
   letter-spacing: -0.01em;
   text-align: center;
   min-width: 120px;
+  color: #323f47;
 
   cursor: default;
+}
+
+.scheduleButton {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 16px;
 }
 
 @media screen and (max-width: 360px) {
@@ -32,13 +45,6 @@
     font-size: 12px;
     min-width: 100px;
   }
-}
-
-.monthBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
 }
 
 .switchMonth {
@@ -63,18 +69,10 @@
   color: var(--main-black-gray-color);
 }
 
-.scheduleButton {
-  display: flex;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-left: 16px;
-}
-
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 360px) {
+  .switchMonth {
+    gap: 6px;
+  }
   .scheduleButton {
     margin-left: auto;
   }
@@ -101,14 +99,12 @@
     height: 24px;
   }
 
-  .monthBox {
-    gap: 20px;
-  }
-
   .switchMonth {
     gap: 20px;
   }
   .scheduleButton {
     margin-left: 20px;
+    width: 24px;
+    height: 24px;
   }
 }

@@ -9,22 +9,6 @@
   background: var(--main-white-color);
 
   cursor: default;
-
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    padding: 14px 18px;
-    height: 78px;
-    margin-bottom: 87px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .wrapper {
-    margin-bottom: 284px;
-  }
-
 }
 
 .value {
@@ -33,15 +17,6 @@
   line-height: 1;
   text-align: left;
   color: var(--main-black-gray-color);
-}
-
-@media screen and (min-width: 768px) {
-  .value {
-    margin-bottom: 4px;
-
-    font-size: 15px;
-    line-height: 1.49333;
-  }
 }
 
 .text {
@@ -55,8 +30,27 @@
 }
 
 @media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 14px 18px;
+    height: 78px;
+    margin-bottom: 87px;
+  }
+
+  .value {
+    margin-bottom: 4px;
+
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+
   .text {
     font-size: 12px;
     line-height: 1.86667;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    margin-bottom: 215px;
   }
 }

@@ -3,7 +3,7 @@ import css from './ButtonTour.module.css';
 import { useEffect } from 'react';
 import { AiTwotoneBulb } from 'react-icons/ai';
 
-const TourButton = () => {
+export const ButtonTour = () => {
   const { setIsOpen, isOpen } = useTour();
   const tourAlreadyStarted = localStorage.getItem('tourStarted');
   const body = document.getElementsByTagName('body')[0];
@@ -36,5 +36,3 @@ const TourButton = () => {
     </button>
   );
 };
-
-export default TourButton;

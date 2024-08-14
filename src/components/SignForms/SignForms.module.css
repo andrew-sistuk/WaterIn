@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   flex: 1 0 auto;
+  width: 100%;
 }
 
 .sign-form {

@@ -13,8 +13,8 @@ const ChooseDate = () => {
   const { t } = useTranslation();
 
   const day1 = useSelector(selectItemsDay);
-  const month = createMonth({ date: new Date(day1) });
-  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
+  const { monthName } = createMonth({ date: new Date(day1) });
+  const fullDay = `${new Date(day1).getDate()}, ${t(`ChooseDate.${monthName}`)}`;
 
   return (
     <>

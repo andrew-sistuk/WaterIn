@@ -120,15 +120,15 @@ const WaterModal = () => {
   };
 
   const day1 = useSelector(selectItemsDay);
-  const month = createMonth({ date: new Date(day1) });
+  const { monthName } = createMonth({ date: new Date(day1) });
 
-  const fullDay = `${new Date(day1).getDate()}, ${month.monthName}`;
+  const fullDay = `${t('modals.addEdit.errors.attention')} ${new Date(day1).getDate()}, ${t(
+    `ChooseDate.${monthName}`
+  )}`;
   return (
     <div className={styles.waterModalContainer}>
       <h2 className={styles.waterModalTitle}>{title}</h2>
-      {!isToday(lastDay) && (
-        <span className={styles.notToday}>Attention, you add water on the {fullDay}</span>
-      )}
+      {!isToday(lastDay) && <span className={styles.notToday}>{fullDay}</span>}
       <h3 className={styles.waterModalSubtitle}>{subtitle}</h3>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.waterForm}>
         <div className={styles.formGroup}>

@@ -1,12 +1,12 @@
 import Customers from '../Customers/Customers';
 import { useTranslation } from 'react-i18next';
 import styles from './AdvantagesSection.module.css';
-import img1x from '../../assets/img/Advantages/mobile_home_img.jpg';
-import img2x from '../../assets/img/Advantages/mobile_home_img_2х.jpg';
-import img1x_768 from '../../assets/img/Advantages/tablet_home_img.jpg';
-import img2x_768 from '../../assets/img/Advantages/tablet_home_img_2х.jpg';
-import img1x_1440 from '../../assets/img/Advantages/dekstop_home_img.jpg';
-import img2x_1440 from '../../assets/img/Advantages/dekstop_home_img_2х.jpg';
+import img1x from '../../assets/img/Advantages/mobile_home_img.webp';
+import img2x from '../../assets/img/Advantages/mobile_home_img_2х.webp';
+import img1x_768 from '../../assets/img/Advantages/tablet_home_img.webp';
+import img2x_768 from '../../assets/img/Advantages/tablet_home_img_2х.webp';
+import img1x_1440 from '../../assets/img/Advantages/dekstop_home_img.webp';
+import img2x_1440 from '../../assets/img/Advantages/dekstop_home_img_2х.webp';
 
 export default function AdvantagesSection() {
   const { t } = useTranslation();

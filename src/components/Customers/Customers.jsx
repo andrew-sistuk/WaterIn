@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
-import photo1 from '../../assets/img/Advantages/image1.jpg';
-import photo2 from '../../assets/img/Advantages/image2.jpg';
-import photo3 from '../../assets/img/Advantages/image3.jpg';
+import photo1 from '../../assets/img/Advantages/image1.webp';
+import photo2 from '../../assets/img/Advantages/image2.webp';
+import photo3 from '../../assets/img/Advantages/image3.webp';
 
 import styles from './Customers.module.css';
 

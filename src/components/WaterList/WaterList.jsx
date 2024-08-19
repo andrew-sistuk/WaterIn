@@ -5,9 +5,10 @@ import { selectItemsDay } from '../../redux/day/selectors';
 
 import css from './WaterList.module.css';
 import { useTranslation } from 'react-i18next';
+import FutureNote from '../FutureNote/FutureNote';
 
 const WaterList = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const items = useSelector(selectItemsDay);
 
@@ -22,7 +23,8 @@ const WaterList = () => {
           ))}
         </ul>
       ) : (
-        <p className={css.text}>{t('dailyInfo.text')}</p>
+        // <p className={css.text}>{t('dailyInfo.text')}</p>
+        <FutureNote/>
       )}
     </div>
   );

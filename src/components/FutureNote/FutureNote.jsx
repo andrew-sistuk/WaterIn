@@ -8,10 +8,10 @@ const FutureNote = () => {
         <>
         <div className={css.wrapper}>
             <Cap className={css.iconMain}/>
-            <button>
+            <button className={css.addButton}>
                 <CgAdd className={css.addIcon}/>
             </button>
-            <p>Add note remind</p>
+            <p className={css.p}>Add remind</p>
         </div>
         </>
     )
